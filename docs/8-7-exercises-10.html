@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="R fundamentals" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Locke Data" />
+
+
+
+<meta name="description" content="R fundamentals">
+
+<title>R fundamentals</title>
+
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li class="has-sub"><a href="index.html#about-r"><span class="toc-section-number">1</span> About R</a><ul>
+<li><a href="1-1-r.html#r"><span class="toc-section-number">1.1</span> R</a></li>
+<li><a href="1-2-things-to-keep-in-mind.html#things-to-keep-in-mind"><span class="toc-section-number">1.2</span> Things to keep in mind</a></li>
+<li><a href="1-3-alt-r.html#alt-r"><span class="toc-section-number">1.3</span> Alt-R</a></li>
+<li><a href="1-4-why-use-r.html#why-use-r"><span class="toc-section-number">1.4</span> Why use R</a></li>
+<li><a href="1-5-why-use-r-1.html#why-use-r-1"><span class="toc-section-number">1.5</span> Why use R</a></li>
+<li><a href="1-6-why-use-r-2.html#why-use-r-2"><span class="toc-section-number">1.6</span> Why use R</a></li>
+</ul></li>
+<li class="has-sub"><a href="2-using-rstudio.html#using-rstudio"><span class="toc-section-number">2</span> Using RStudio</a><ul>
+<li><a href="2-1-ide.html#ide"><span class="toc-section-number">2.1</span> IDE</a></li>
+<li><a href="2-2-where-everything-is.html#where-everything-is"><span class="toc-section-number">2.2</span> Where everything is</a></li>
+<li><a href="2-3-code-completion.html#code-completion"><span class="toc-section-number">2.3</span> Code-completion</a></li>
+<li><a href="2-4-projects.html#projects"><span class="toc-section-number">2.4</span> Projects</a></li>
+<li><a href="2-5-exercises.html#exercises"><span class="toc-section-number">2.5</span> Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-useful-resources.html#useful-resources"><span class="toc-section-number">3</span> Useful resources</a><ul>
+<li><a href="3-1-local-help.html#local-help"><span class="toc-section-number">3.1</span> Local help</a></li>
+<li><a href="3-2-cheatsheets.html#cheatsheets"><span class="toc-section-number">3.2</span> Cheatsheets</a></li>
+<li><a href="3-3-online-resources.html#online-resources"><span class="toc-section-number">3.3</span> Online resources</a></li>
+<li><a href="3-4-offline-in-person.html#offline-in-person"><span class="toc-section-number">3.4</span> Offline / in-person</a></li>
+</ul></li>
+<li class="has-sub"><a href="4-r-super-basics.html#r-super-basics"><span class="toc-section-number">4</span> R super-basics</a><ul>
+<li><a href="4-1-r-data-types.html#r-data-types"><span class="toc-section-number">4.1</span> R data types</a></li>
+<li><a href="4-2-maths.html#maths"><span class="toc-section-number">4.2</span> Maths</a></li>
+<li><a href="4-3-exercises-1.html#exercises-1"><span class="toc-section-number">4.3</span> Exercises</a></li>
+<li><a href="4-4-comparison.html#comparison"><span class="toc-section-number">4.4</span> Comparison</a></li>
+<li><a href="4-5-exercises-2.html#exercises-2"><span class="toc-section-number">4.5</span> Exercises</a></li>
+<li><a href="4-6-logic.html#logic"><span class="toc-section-number">4.6</span> Logic</a></li>
+<li><a href="4-7-exercises-3.html#exercises-3"><span class="toc-section-number">4.7</span> Exercises</a></li>
+<li><a href="4-8-states.html#states"><span class="toc-section-number">4.8</span> States</a></li>
+<li><a href="4-9-other-key-syntax.html#other-key-syntax"><span class="toc-section-number">4.9</span> Other key syntax</a></li>
+<li><a href="4-10-exercises-4.html#exercises-4"><span class="toc-section-number">4.10</span> Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="5-r-objects.html#r-objects"><span class="toc-section-number">5</span> R objects</a><ul>
+<li><a href="5-1-in-memory.html#in-memory"><span class="toc-section-number">5.1</span> In-memory</a></li>
+<li><a href="5-2-vectors.html#vectors"><span class="toc-section-number">5.2</span> Vectors</a></li>
+<li><a href="5-3-exercises-5.html#exercises-5"><span class="toc-section-number">5.3</span> Exercises</a></li>
+<li><a href="5-4-data-frames.html#data.frames"><span class="toc-section-number">5.4</span> Data.frames</a></li>
+<li><a href="5-5-exercises-6.html#exercises-6"><span class="toc-section-number">5.5</span> Exercises</a></li>
+<li><a href="5-6-lists.html#lists"><span class="toc-section-number">5.6</span> Lists</a></li>
+<li><a href="5-7-exercises-7.html#exercises-7"><span class="toc-section-number">5.7</span> Exercises</a></li>
+<li><a href="5-8-others.html#others"><span class="toc-section-number">5.8</span> Others</a></li>
+</ul></li>
+<li class="has-sub"><a href="6-r-functions.html#r-functions"><span class="toc-section-number">6</span> R functions</a><ul>
+<li><a href="6-1-using-a-function.html#using-a-function"><span class="toc-section-number">6.1</span> Using a function</a></li>
+<li><a href="6-2-function-arguments.html#function-arguments"><span class="toc-section-number">6.2</span> Function arguments</a></li>
+<li><a href="6-3-common-functions.html#common-functions"><span class="toc-section-number">6.3</span> Common functions</a></li>
+<li><a href="6-4-finding-functions.html#finding-functions"><span class="toc-section-number">6.4</span> Finding functions</a></li>
+<li><a href="6-5-seeing-how-functions-work.html#seeing-how-functions-work"><span class="toc-section-number">6.5</span> Seeing how functions work</a></li>
+<li><a href="6-6-exercises-8.html#exercises-8"><span class="toc-section-number">6.6</span> Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="7-r-packages.html#r-packages"><span class="toc-section-number">7</span> R packages</a><ul>
+<li><a href="7-1-what-is-a-package.html#what-is-a-package"><span class="toc-section-number">7.1</span> What is a package?</a></li>
+<li><a href="7-2-using-packages.html#using-packages"><span class="toc-section-number">7.2</span> Using packages</a></li>
+<li><a href="7-3-useful-packages.html#useful-packages"><span class="toc-section-number">7.3</span> Useful packages</a></li>
+<li><a href="7-4-finding-packages.html#finding-packages"><span class="toc-section-number">7.4</span> Finding packages</a></li>
+<li><a href="7-5-package-documentation.html#package-documentation"><span class="toc-section-number">7.5</span> Package documentation</a></li>
+<li><a href="7-6-exercises-9.html#exercises-9"><span class="toc-section-number">7.6</span> Exercises</a></li>
+</ul></li>
+<li class="has-sub"><a href="8-r-data-manipulation-basics.html#r-data-manipulation-basics"><span class="toc-section-number">8</span> R data manipulation basics</a><ul>
+<li><a href="8-1-grid-references.html#grid-references"><span class="toc-section-number">8.1</span> Grid references</a></li>
+<li><a href="8-2-grid-referencing-vectors.html#grid-referencing-vectors"><span class="toc-section-number">8.2</span> Grid referencing vectors</a></li>
+<li><a href="8-3-grid-referencing-data-frames.html#grid-referencing-data.frames"><span class="toc-section-number">8.3</span> Grid referencing data.frames</a></li>
+<li><a href="8-4-self-referencing.html#self-referencing"><span class="toc-section-number">8.4</span> Self-referencing</a></li>
+<li><a href="8-5-updating.html#updating"><span class="toc-section-number">8.5</span> Updating</a></li>
+<li><a href="8-6-deleting.html#deleting"><span class="toc-section-number">8.6</span> Deleting</a></li>
+<li><a href="8-7-exercises-10.html#exercises-10"><span class="toc-section-number">8.7</span> Exercises</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercises-10" class="section level2">
+<h2><span class="header-section-number">8.7</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Get all <code>letters</code> that occur after “g”</li>
+<li>Select the first 5 rows from the built-in data.frame <code>iris</code></li>
+<li>Select rows from the <code>iris</code> data.frame where the <code>Sepal.Length</code> is greater than 5.8cm</li>
+<li>Select rows from the <code>iris</code> data.frame where the Sepal.Width is below the average for that column</li>
+<li>Select everything from <code>iris</code> except the Species column</li>
+</ol>
+
+</div>
+<!-- </div> -->
+<p style="text-align: center;">
+<a href="8-6-deleting.html"><button class="btn btn-default">Previous</button></a>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>
