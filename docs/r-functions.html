@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="using-rstudio.html">
+<link rel="prev" href="r-objects.html">
+<link rel="next" href="r-packages.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -183,56 +183,81 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R fundamentals</h1>
-<h4 class="author"><em>Locke Data</em></h4>
+<div id="r-functions" class="section level1">
+<h1><span class="header-section-number">6</span> R functions</h1>
+<div id="using-a-function" class="section level2">
+<h2><span class="header-section-number">6.1</span> Using a function</h2>
+<p>A function does some computation on an object. The use of a function consists of: 1. A function’s name 2. Parentheses 3. 0 or more inputs</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Sys.Date</span>()</code></pre></div>
+<pre><code>## [1] &quot;2017-06-15&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="dv">1</span>:<span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] 6</code></pre>
 </div>
-<div id="about-r" class="section level1">
-<h1><span class="header-section-number">1</span> About R</h1>
-<div id="r" class="section level2">
-<h2><span class="header-section-number">1.1</span> R</h2>
+<div id="function-arguments" class="section level2">
+<h2><span class="header-section-number">6.2</span> Function arguments</h2>
+<p>Functions can have:</p>
 <ul>
-<li>Open source language written in 2001</li>
-<li>Backwards compatible with commercial but out of support language S(plus)</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVar &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>)
-<span class="kw">plot</span>(myVar)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-</div>
-<div id="things-to-keep-in-mind" class="section level2">
-<h2><span class="header-section-number">1.2</span> Things to keep in mind</h2>
-<ul>
-<li>R works in-memory</li>
-<li>R works on a single processor</li>
-<li>R is basically very old and so <em>quirky</em></li>
-<li>R is case-sensitive</li>
-<li>For later “There’s a package for that”</li>
+<li>0 arguments e.g. <code>Sys.Date()</code></li>
+<li>all mandatory arguments e.g. <code>length()</code></li>
+<li>optional arguments e.g. <code>sum()</code></li>
+<li>arguments used out of position by using their names e.g. `rnorm(mean=1, n=10)</li>
 </ul>
 </div>
-<div id="alt-r" class="section level2">
-<h2><span class="header-section-number">1.3</span> Alt-R</h2>
-<p>As R is open source, there are some commercial implementations of R:</p>
+<div id="common-functions" class="section level2">
+<h2><span class="header-section-number">6.3</span> Common functions</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Area</th>
+<th>Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Metadata</td>
+<td><code>class</code>, <code>mode</code>,<code>length</code>, <code>names</code>, <code>nrow</code>, <code>ncol</code></td>
+</tr>
+<tr class="even">
+<td>Measures</td>
+<td><code>mean</code>, <code>median</code>, <code>mode</code>, <code>range</code>, <code>sum</code>, <code>cumsum</code></td>
+</tr>
+<tr class="odd">
+<td>Strings</td>
+<td><code>grep</code>, <code>gsub</code>, <code>substr</code>, <code>trim</code>, <code>toupper</code>, <code>paste</code></td>
+</tr>
+<tr class="even">
+<td>Files</td>
+<td><code>list.dirs</code>, <code>list.files</code>, <code>file.exists</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="finding-functions" class="section level2">
+<h2><span class="header-section-number">6.4</span> Finding functions</h2>
+<p>Find functions by:</p>
 <ul>
-<li>Microsoft R Server</li>
-<li>TIBCO TERRE</li>
-<li>Oracle</li>
+<li>Using code-completion</li>
+<li>Using help-pages</li>
+<li>Using <code>?mean</code></li>
+<li>Using <code>??mean</code></li>
+<li>Using <code>apropos(&quot;mean&quot;)</code></li>
 </ul>
 </div>
-<div id="why-use-r" class="section level2">
-<h2><span class="header-section-number">1.4</span> Why use R</h2>
-<ul>
-<li>Great for stats and data viz</li>
-<li>Super extendable</li>
-<li>Use lots of other languages through it</li>
-</ul>
+<div id="seeing-how-functions-work" class="section level2">
+<h2><span class="header-section-number">6.5</span> Seeing how functions work</h2>
+<p>You can examine how many functions work by just typing their name without any parentheses.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Sys.Date</code></pre></div>
+<pre><code>## function () 
+## as.Date(as.POSIXlt(Sys.time()))
+## &lt;bytecode: 0x0000000017d15118&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
 </div>
-<div id="why-use-r-1" class="section level2">
-<h2><span class="header-section-number">1.5</span> Why use R</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A demo of dynamic CSV processing</span></code></pre></div>
-</div>
-<div id="why-use-r-2" class="section level2">
-<h2><span class="header-section-number">1.6</span> Why use R</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Same chart different data</span></code></pre></div>
+<div id="exercises-8" class="section level2">
+<h2><span class="header-section-number">6.6</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Find a function that involves Normal distributions</li>
+<li>Find some functions operate on files</li>
+</ol>
 </div>
 </div>
             </section>
@@ -240,8 +265,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-
-<a href="using-rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-objects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

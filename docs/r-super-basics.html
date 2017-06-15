@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="using-rstudio.html">
+<link rel="prev" href="useful-resources.html">
+<link rel="next" href="r-objects.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -183,56 +183,315 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R fundamentals</h1>
-<h4 class="author"><em>Locke Data</em></h4>
+<div id="r-super-basics" class="section level1">
+<h1><span class="header-section-number">4</span> R super-basics</h1>
+<div id="r-data-types" class="section level2">
+<h2><span class="header-section-number">4.1</span> R data types</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Data type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Integer</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Logical</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td>Numeric</td>
+<td>1.1</td>
+</tr>
+<tr class="even">
+<td>String / character</td>
+<td>“Red”</td>
+</tr>
+<tr class="odd">
+<td>Factor (enumerated string)</td>
+<td>“Amber” or 2 in c(“Red”,“Amber”,“Green”)</td>
+</tr>
+<tr class="even">
+<td>Complex</td>
+<td>i</td>
+</tr>
+<tr class="odd">
+<td>Date</td>
+<td>“2017-06-15”</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="about-r" class="section level1">
-<h1><span class="header-section-number">1</span> About R</h1>
-<div id="r" class="section level2">
-<h2><span class="header-section-number">1.1</span> R</h2>
-<ul>
-<li>Open source language written in 2001</li>
-<li>Backwards compatible with commercial but out of support language S(plus)</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVar &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>)
-<span class="kw">plot</span>(myVar)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<div id="maths" class="section level2">
+<h2><span class="header-section-number">4.2</span> Maths</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Operator</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Subtract</td>
+<td>-</td>
+<td><code>5 - 4</code> = 1</td>
+</tr>
+<tr class="even">
+<td>Add</td>
+<td>+</td>
+<td><code>5 + 4</code> = 9</td>
+</tr>
+<tr class="odd">
+<td>Multiply</td>
+<td>*</td>
+<td><code>5 * 4</code> = 20</td>
+</tr>
+<tr class="even">
+<td>Divide</td>
+<td>/</td>
+<td><code>5 / 4</code> = 1.25</td>
+</tr>
+<tr class="odd">
+<td>Raise to the power</td>
+<td>^</td>
+<td><code>5 ^ 4</code> = 625</td>
+</tr>
+<tr class="even">
+<td>Modulus</td>
+<td>%%</td>
+<td><code>9 %% 4</code> = 1</td>
+</tr>
+<tr class="odd">
+<td>Integer division</td>
+<td>%/%</td>
+<td><code>9 %/% 4</code> = 2</td>
+</tr>
+<tr class="even">
+<td>Basic sequence</td>
+<td>:</td>
+<td><code>1:3</code> = 1, 2, 3</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="things-to-keep-in-mind" class="section level2">
-<h2><span class="header-section-number">1.2</span> Things to keep in mind</h2>
-<ul>
-<li>R works in-memory</li>
-<li>R works on a single processor</li>
-<li>R is basically very old and so <em>quirky</em></li>
-<li>R is case-sensitive</li>
-<li>For later “There’s a package for that”</li>
-</ul>
+<div id="exercises-1" class="section level2">
+<h2><span class="header-section-number">4.3</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>See if <code>pi</code> exists</li>
+<li>What is the result of <code>pi^2</code>?</li>
+</ol>
 </div>
-<div id="alt-r" class="section level2">
-<h2><span class="header-section-number">1.3</span> Alt-R</h2>
-<p>As R is open source, there are some commercial implementations of R:</p>
-<ul>
-<li>Microsoft R Server</li>
-<li>TIBCO TERRE</li>
-<li>Oracle</li>
-</ul>
+<div id="comparison" class="section level2">
+<h2><span class="header-section-number">4.4</span> Comparison</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Operator</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Less than</td>
+<td>&lt;</td>
+<td><code>5 &lt; 5</code> = FALSE</td>
+</tr>
+<tr class="even">
+<td>Less than or equal to</td>
+<td>&lt;=</td>
+<td><code>5 &lt;= 5</code> = TRUE</td>
+</tr>
+<tr class="odd">
+<td>Greater than</td>
+<td>&gt;</td>
+<td><code>5 &gt; 5</code> = FALSE</td>
+</tr>
+<tr class="even">
+<td>Greater than or equal to</td>
+<td>&gt;=</td>
+<td><code>5 &gt;= 5</code> = TRUE</td>
+</tr>
+<tr class="odd">
+<td>Equal</td>
+<td>all.equal()</td>
+<td><code>all.equal(0.5 - 0.3,0.3 - 0.1)</code> is TRUE</td>
+</tr>
+<tr class="even">
+<td>Exactly equal</td>
+<td>==</td>
+<td><code>(0.5 - 0.3) == (0.3 - 0.1)</code> is FALSE, 2 == 2 is TRUE</td>
+</tr>
+<tr class="odd">
+<td>Not equal</td>
+<td>!=</td>
+<td><code>(0.5 - 0.3) != (0.3 - 0.1)</code> is TRUE, 2 != 2 is FALSE</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="why-use-r" class="section level2">
-<h2><span class="header-section-number">1.4</span> Why use R</h2>
-<ul>
-<li>Great for stats and data viz</li>
-<li>Super extendable</li>
-<li>Use lots of other languages through it</li>
-</ul>
+<div id="exercises-2" class="section level2">
+<h2><span class="header-section-number">4.5</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Is pi greater than 3?</li>
+<li>What are the results if you check to see if a sequence of 1 to 5 is less than or equal to 3?</li>
+</ol>
 </div>
-<div id="why-use-r-1" class="section level2">
-<h2><span class="header-section-number">1.5</span> Why use R</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A demo of dynamic CSV processing</span></code></pre></div>
+<div id="logic" class="section level2">
+<h2><span class="header-section-number">4.6</span> Logic</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Operator</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Not</td>
+<td>!</td>
+<td><code>!TRUE</code> is FALSE</td>
+</tr>
+<tr class="even">
+<td>And</td>
+<td>&amp;</td>
+<td><code>TRUE &amp; FALSE</code> is FALSE, <code>c(TRUE,TRUE) &amp; c(FALSE,TRUE)</code> is FALSE, TRUE</td>
+</tr>
+<tr class="odd">
+<td>Or</td>
+<td><code>|</code></td>
+<td><code>TRUE | FALSE</code> is TRUE, <code>c(TRUE,FALSE) | c(FALSE,FALSE)</code> is TRUE, FALSE</td>
+</tr>
+<tr class="even">
+<td>Xor</td>
+<td>xor()</td>
+<td><code>xor(TRUE,FALSE)</code> is TRUE</td>
+</tr>
+<tr class="odd">
+<td>Bitwise And</td>
+<td>&amp;&amp;</td>
+<td><code>c(TRUE,TRUE) &amp;&amp; c(FALSE,TRUE)</code> is FALSE</td>
+</tr>
+<tr class="even">
+<td>Bitwise Or</td>
+<td><code>||</code></td>
+<td><code>c(TRUE,FALSE) || c(FALSE,FALSE)</code> is TRUE</td>
+</tr>
+<tr class="odd">
+<td>In</td>
+<td>%in%</td>
+<td><code>&quot;Red&quot; %in% c(&quot;Blue&quot;,&quot;Red&quot;)</code> is TRUE</td>
+</tr>
+<tr class="even">
+<td>Not in</td>
+<td>!( x %in% y)</td>
+<td><code>!(&quot;Red&quot; %in% c(&quot;Blue&quot;,&quot;Red&quot;))</code> = FALSE</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="why-use-r-2" class="section level2">
-<h2><span class="header-section-number">1.6</span> Why use R</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Same chart different data</span></code></pre></div>
+<div id="exercises-3" class="section level2">
+<h2><span class="header-section-number">4.7</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>See what’s in the variable <code>LETTERS</code></li>
+<li>Write a check to see if “a” is present in <code>LETTERS</code></li>
+<li>Find out which values in the sequence 1 to 10 are greater than or equal to 3 and less than 7</li>
+</ol>
+</div>
+<div id="states" class="section level2">
+<h2><span class="header-section-number">4.8</span> States</h2>
+<table>
+<thead>
+<tr class="header">
+<th>States</th>
+<th>Representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>True</td>
+<td><code>TRUE</code> <code>1</code></td>
+</tr>
+<tr class="even">
+<td>False</td>
+<td><code>FALSE</code> <code>0</code></td>
+</tr>
+<tr class="odd">
+<td>Empty</td>
+<td><code>NULL</code></td>
+</tr>
+<tr class="even">
+<td>Unknown</td>
+<td><code>NA</code></td>
+</tr>
+<tr class="odd">
+<td>Not a number e.g. <code>0/0</code></td>
+<td><code>NaN</code></td>
+</tr>
+<tr class="even">
+<td>Infinite e.g. <code>1/0</code></td>
+<td><code>Inf</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="other-key-syntax" class="section level2">
+<h2><span class="header-section-number">4.9</span> Other key syntax</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Operator</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Create / update a variable</td>
+<td>&lt;-</td>
+<td><code>a &lt;- 10</code></td>
+</tr>
+<tr class="even">
+<td>Create / update a variable</td>
+<td>=</td>
+<td><code>a = 10</code></td>
+</tr>
+<tr class="odd">
+<td>Create / update a variable</td>
+<td>-&gt;</td>
+<td><code>10 -&gt; a</code></td>
+</tr>
+<tr class="even">
+<td>Comment</td>
+<td>#</td>
+<td><code># This is my comment</code></td>
+</tr>
+<tr class="odd">
+<td>Help</td>
+<td>?</td>
+<td><code>?data.table</code></td>
+</tr>
+<tr class="even">
+<td>Identifier</td>
+<td>`</td>
+<td><code>`1`&lt;-2</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="exercises-4" class="section level2">
+<h2><span class="header-section-number">4.10</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Amend the lines of code you’ve written so far to store the calculations in variables</li>
+<li>Add some comments that help you remember what each line taught you</li>
+</ol>
 </div>
 </div>
             </section>
@@ -240,8 +499,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-
-<a href="using-rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="useful-resources.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-objects.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

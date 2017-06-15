@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
+<link rel="prev" href="r-packages.html">
 
-<link rel="next" href="using-rstudio.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -183,56 +183,108 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R fundamentals</h1>
-<h4 class="author"><em>Locke Data</em></h4>
-</div>
-<div id="about-r" class="section level1">
-<h1><span class="header-section-number">1</span> About R</h1>
-<div id="r" class="section level2">
-<h2><span class="header-section-number">1.1</span> R</h2>
+<div id="r-data-manipulation-basics" class="section level1">
+<h1><span class="header-section-number">8</span> R data manipulation basics</h1>
+<div id="grid-references" class="section level2">
+<h2><span class="header-section-number">8.1</span> Grid references</h2>
+<p>R works in a grid reference system like [x , y, z, …]. So…</p>
 <ul>
-<li>Open source language written in 2001</li>
-<li>Backwards compatible with commercial but out of support language S(plus)</li>
+<li>For a 1D vector, there’s just one position i.e. <code>vector[ row ]</code></li>
+<li>For a data.frame, there’s two positions i.e. <code>data.frame[ row , column ]</code></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVar &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>)
-<span class="kw">plot</span>(myVar)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-</div>
-<div id="things-to-keep-in-mind" class="section level2">
-<h2><span class="header-section-number">1.2</span> Things to keep in mind</h2>
+<p>Valid values include:</p>
 <ul>
-<li>R works in-memory</li>
-<li>R works on a single processor</li>
-<li>R is basically very old and so <em>quirky</em></li>
-<li>R is case-sensitive</li>
-<li>For later “There’s a package for that”</li>
+<li>positive values or ranges</li>
+<li>negative values or ranges</li>
+<li>boolean ranges</li>
+<li>names or vectors of names</li>
 </ul>
 </div>
-<div id="alt-r" class="section level2">
-<h2><span class="header-section-number">1.3</span> Alt-R</h2>
-<p>As R is open source, there are some commercial implementations of R:</p>
-<ul>
-<li>Microsoft R Server</li>
-<li>TIBCO TERRE</li>
-<li>Oracle</li>
-</ul>
+<div id="grid-referencing-vectors" class="section level2">
+<h2><span class="header-section-number">8.2</span> Grid referencing vectors</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] &quot;A&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[-<span class="dv">1</span>]</code></pre></div>
+<pre><code>##  [1] &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot;
+## [18] &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[-<span class="dv">13</span>:-<span class="dv">1</span>]</code></pre></div>
+<pre><code>##  [1] &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>)]</code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;C&quot; &quot;E&quot; &quot;G&quot; &quot;I&quot; &quot;K&quot; &quot;M&quot; &quot;O&quot; &quot;Q&quot; &quot;S&quot; &quot;U&quot; &quot;W&quot; &quot;Y&quot;</code></pre>
 </div>
-<div id="why-use-r" class="section level2">
-<h2><span class="header-section-number">1.4</span> Why use R</h2>
-<ul>
-<li>Great for stats and data viz</li>
-<li>Super extendable</li>
-<li>Use lots of other languages through it</li>
-</ul>
+<div id="grid-referencing-data.frames" class="section level2">
+<h2><span class="header-section-number">8.3</span> Grid referencing data.frames</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF&lt;-<span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">b=</span><span class="dv">2</span>:<span class="dv">4</span>, <span class="dt">c=</span><span class="dv">3</span>:<span class="dv">5</span>)
+myDF[<span class="dv">1</span>,]</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[,-<span class="dv">1</span>]</code></pre></div>
+<pre><code>##   b c
+## 1 2 3
+## 2 3 4
+## 3 4 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>,<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>:<span class="dv">2</span>,]</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3
+## 2 2 3 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>,<span class="ot">TRUE</span>),]</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3
+## 3 3 4 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[,<span class="st">&quot;a&quot;</span>]</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
 </div>
-<div id="why-use-r-1" class="section level2">
-<h2><span class="header-section-number">1.5</span> Why use R</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A demo of dynamic CSV processing</span></code></pre></div>
+<div id="self-referencing" class="section level2">
+<h2><span class="header-section-number">8.4</span> Self-referencing</h2>
+<p>Useful for creating booleans, you can create a vector and use this inside your grid reference system.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[LETTERS&lt;<span class="st">&quot;T&quot;</span>]</code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot;
+## [18] &quot;R&quot; &quot;S&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[myDF$a&lt;=<span class="dv">2</span>,]</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3
+## 2 2 3 4</code></pre>
 </div>
-<div id="why-use-r-2" class="section level2">
-<h2><span class="header-section-number">1.6</span> Why use R</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Same chart different data</span></code></pre></div>
+<div id="updating" class="section level2">
+<h2><span class="header-section-number">8.5</span> Updating</h2>
+<p>You can update part or all of simple objects by assigning new values against a grid-reference.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec&lt;-LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]
+myVec[<span class="dv">1</span>]&lt;-<span class="st">&quot;Z&quot;</span>
+myVec</code></pre></div>
+<pre><code>## [1] &quot;Z&quot; &quot;B&quot; &quot;C&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>, ]&lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span>
+myDF</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3
+## 2 2 3 4
+## 3 3 4 5</code></pre>
+</div>
+<div id="deleting" class="section level2">
+<h2><span class="header-section-number">8.6</span> Deleting</h2>
+<p>You can use the selections to remove values</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec&lt;-myVec[-<span class="dv">2</span>]
+myVec</code></pre></div>
+<pre><code>## [1] &quot;Z&quot; &quot;C&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF&lt;-myDF[-<span class="dv">3</span>,-<span class="dv">1</span>]
+myDF</code></pre></div>
+<pre><code>##   b c
+## 1 2 3
+## 2 3 4</code></pre>
+</div>
+<div id="exercises-10" class="section level2">
+<h2><span class="header-section-number">8.7</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Get all <code>letters</code> that occur after “g”</li>
+<li>Select the first 5 rows from the built-in data.frame <code>iris</code></li>
+<li>Select rows from the <code>iris</code> data.frame where the <code>Sepal.Length</code> is greater than 5.8cm</li>
+<li>Select rows from the <code>iris</code> data.frame where the Sepal.Width is below the average for that column</li>
+<li>Select everything from <code>iris</code> except the Species column</li>
+</ol>
+
 </div>
 </div>
             </section>
@@ -240,8 +292,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
+<a href="r-packages.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="using-rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

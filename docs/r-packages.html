@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="using-rstudio.html">
+<link rel="prev" href="r-functions.html">
+<link rel="next" href="r-data-manipulation-basics.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -183,56 +183,84 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R fundamentals</h1>
-<h4 class="author"><em>Locke Data</em></h4>
+<div id="r-packages" class="section level1">
+<h1><span class="header-section-number">7</span> R packages</h1>
+<div id="what-is-a-package" class="section level2">
+<h2><span class="header-section-number">7.1</span> What is a package?</h2>
+<p>An R package is a bundle of functions and/or datasets. It extends the capabilities that the “base” and “recommended” R packages have. This gives us the ability to do a lot more.</p>
 </div>
-<div id="about-r" class="section level1">
-<h1><span class="header-section-number">1</span> About R</h1>
-<div id="r" class="section level2">
-<h2><span class="header-section-number">1.1</span> R</h2>
+<div id="using-packages" class="section level2">
+<h2><span class="header-section-number">7.2</span> Using packages</h2>
 <ul>
-<li>Open source language written in 2001</li>
-<li>Backwards compatible with commercial but out of support language S(plus)</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVar &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>)
-<span class="kw">plot</span>(myVar)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-</div>
-<div id="things-to-keep-in-mind" class="section level2">
-<h2><span class="header-section-number">1.2</span> Things to keep in mind</h2>
-<ul>
-<li>R works in-memory</li>
-<li>R works on a single processor</li>
-<li>R is basically very old and so <em>quirky</em></li>
-<li>R is case-sensitive</li>
-<li>For later “There’s a package for that”</li>
+<li>Install a package with <code>install.packages()</code></li>
+<li>Load a package with <code>library()</code></li>
+<li>See what’s in a package / reference it without loading <code>packagename::function()</code></li>
+<li>See what’s ina package but not exposed to the public <code>packagename:::function()</code></li>
 </ul>
 </div>
-<div id="alt-r" class="section level2">
-<h2><span class="header-section-number">1.3</span> Alt-R</h2>
-<p>As R is open source, there are some commercial implementations of R:</p>
+<div id="useful-packages" class="section level2">
+<h2><span class="header-section-number">7.3</span> Useful packages</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Area</th>
+<th>Packages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data manipulation</td>
+<td><code>dplyr</code>, <code>data.table</code>,<code>tidyr</code>, <code>stringr</code>, <code>forcats</code></td>
+</tr>
+<tr class="even">
+<td>Data visualisation</td>
+<td><code>ggplot2</code>,<code>leaflet</code>,<code>ggraph</code></td>
+</tr>
+<tr class="odd">
+<td>Statistics</td>
+<td><code>tidytext</code>, <code>caret</code>, <code>broom</code></td>
+</tr>
+<tr class="even">
+<td>I/O</td>
+<td><code>RODBC</code>, <code>DBI</code>, <code>data.table</code>, <code>readxl</code></td>
+</tr>
+<tr class="odd">
+<td>Web</td>
+<td><code>rvest</code>, <code>httr</code>, <code>urltools</code></td>
+</tr>
+<tr class="even">
+<td>Outputs</td>
+<td><code>rmarkdown</code>, <code>revealjs</code>, <code>shiny</code>, <code>flexdashboards</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="finding-packages" class="section level2">
+<h2><span class="header-section-number">7.4</span> Finding packages</h2>
+<div class="figure">
+<img src="rpackagediscovery.png" />
+
+</div>
+</div>
+<div id="package-documentation" class="section level2">
+<h2><span class="header-section-number">7.5</span> Package documentation</h2>
+<p>Packages should have documentation at the following levels:</p>
 <ul>
-<li>Microsoft R Server</li>
-<li>TIBCO TERRE</li>
-<li>Oracle</li>
+<li>Function</li>
+<li>Workflow via vignettes</li>
+<li>NEWS</li>
+<li>DESCRIPTION</li>
+<li>READMEs on github</li>
 </ul>
 </div>
-<div id="why-use-r" class="section level2">
-<h2><span class="header-section-number">1.4</span> Why use R</h2>
-<ul>
-<li>Great for stats and data viz</li>
-<li>Super extendable</li>
-<li>Use lots of other languages through it</li>
-</ul>
-</div>
-<div id="why-use-r-1" class="section level2">
-<h2><span class="header-section-number">1.5</span> Why use R</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A demo of dynamic CSV processing</span></code></pre></div>
-</div>
-<div id="why-use-r-2" class="section level2">
-<h2><span class="header-section-number">1.6</span> Why use R</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Same chart different data</span></code></pre></div>
+<div id="exercises-9" class="section level2">
+<h2><span class="header-section-number">7.6</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Load the library dplyr</li>
+<li>Browse dplyr’s help pages</li>
+<li>Read a dplyr introductory vignette</li>
+<li>Read dplyr’s README</li>
+</ol>
 </div>
 </div>
             </section>
@@ -240,8 +268,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-
-<a href="using-rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-data-manipulation-basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
