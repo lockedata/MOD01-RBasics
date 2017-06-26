@@ -1,8 +1,9 @@
 library(rmarkdown)
-slides=list.files("slides","*.Rmd",full.names=TRUE)
 
+slides=list.files("slides","*.Rmd",full.names=TRUE)
 for (f in slides) render(f,output_dir = "docs")
 
+file.create("docs/.nojekyll")
 
 library(bookdown)
 setwd("handouts")

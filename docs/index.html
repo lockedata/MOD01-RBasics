@@ -228,11 +228,70 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="why-use-r-1" class="section level2">
 <h2><span class="header-section-number">1.5</span> Why use R</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A demo of dynamic CSV processing</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A demo of dynamic CSV processing</span>
+<span class="kw">list.files</span>(<span class="st">&quot;../data&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">map_df</span>(read_csv, <span class="dt">col_types=</span><span class="kw">cols</span>(<span class="st">&quot;c&quot;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">bind_rows</span>() -&gt;
+<span class="st">  </span>allmydata</code></pre></div>
+<pre><code>## Warning: Unnamed `col_types` should have the same length as `col_names`.
+## Using smaller of the two.</code></pre>
+<pre><code>## Warning in rbind(names(probs), probs_f): number of columns of result is not
+## a multiple of vector length (arg 1)</code></pre>
+<pre><code>## Warning: 30 parsing failures.
+## row # A tibble: 5 x 5 col     row   col  expected    actual               file expected   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;              &lt;chr&gt; actual 1     1  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39; file 2     2  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39; row 3     3  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39; col 4     4  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39; expected 5     5  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39;
+## ... ................. ... .................................................... ........ .................................................... ...... .................................................... .... .................................................... ... .................................................... ... .................................................... ........ ....................................................
+## See problems(...) for more details.</code></pre>
+<pre><code>## Warning: Unnamed `col_types` should have the same length as `col_names`.
+## Using smaller of the two.</code></pre>
+<pre><code>## Warning in rbind(names(probs), probs_f): number of columns of result is not
+## a multiple of vector length (arg 1)</code></pre>
+<pre><code>## Warning: 40 parsing failures.
+## row # A tibble: 5 x 5 col     row   col  expected    actual               file expected   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;              &lt;chr&gt; actual 1     1  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39; file 2     2  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39; row 3     3  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39; col 4     4  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39; expected 5     5  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39;
+## ... ................. ... .................................................... ........ .................................................... ...... .................................................... .... .................................................... ... .................................................... ... .................................................... ........ ....................................................
+## See problems(...) for more details.</code></pre>
+<pre><code>## Warning: Unnamed `col_types` should have the same length as `col_names`.
+## Using smaller of the two.</code></pre>
+<pre><code>## Warning in rbind(names(probs), probs_f): number of columns of result is not
+## a multiple of vector length (arg 1)</code></pre>
+<pre><code>## Warning: 35 parsing failures.
+## row # A tibble: 5 x 5 col     row   col  expected    actual               file expected   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;              &lt;chr&gt; actual 1     1  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39; file 2     2  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39; row 3     3  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39; col 4     4  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39; expected 5     5  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39;
+## ... ................. ... .................................................... ........ .................................................... ...... .................................................... .... .................................................... ... .................................................... ... .................................................... ........ ....................................................
+## See problems(...) for more details.</code></pre>
 </div>
 <div id="why-use-r-2" class="section level2">
 <h2><span class="header-section-number">1.6</span> Why use R</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Same chart different data</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Same chart different data</span>
+readFun&lt;-function(x){
+  x %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">read_csv</span>() %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">floors=</span><span class="kw">as.numeric</span>(<span class="st">`</span><span class="dt">The number of floor/stories your residence has</span><span class="st">`</span>)) 
+}
+
+p&lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">readFun</span>(<span class="st">&quot;../data/csv1.csv&quot;</span>), <span class="kw">aes</span>(<span class="dt">x=</span>floors)) +
+<span class="st">    </span><span class="kw">geom_histogram</span>() </code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Timestamp = col_character(),
+##   `Your first name` = col_character(),
+##   `Your favourite ice cream flavour` = col_character(),
+##   `Your pet&#39;s name (with multiple pets, pick the oldest or your favourite)` = col_character(),
+##   `The number of floor/stories your residence has` = col_character(),
+##   `The year you were born in (YYYY)` = col_character()
+## )</code></pre>
+<pre><code>## Warning in evalq(as.numeric(`The number of floor/stories your residence
+## has`), : NAs introduced by coercion</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p %+%<span class="st"> </span><span class="kw">readFun</span>(<span class="st">&quot;../data/csv3.csv&quot;</span>)</code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Timestamp = col_character(),
+##   `Your first name` = col_character(),
+##   `Your favourite ice cream flavour` = col_character(),
+##   `Your pet&#39;s name (with multiple pets, pick the oldest or your favourite)` = col_character(),
+##   `The number of floor/stories your residence has` = col_double(),
+##   `The year you were born in (YYYY)` = col_character()
+## )</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 </div>
             </section>

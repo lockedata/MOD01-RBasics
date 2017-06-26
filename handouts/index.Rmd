@@ -38,13 +38,31 @@ As R is open source, there are some commercial implementations of R:
 - Use lots of other languages through it
 
 ## Why use R
+```{r include=FALSE}
+library(tidyverse)
+library(ggplot2)
+```
+
 ```{r}
 # A demo of dynamic CSV processing
+list.files("../data", full.names = TRUE) %>% 
+  map_df(read_csv, col_types=cols("c")) %>% 
+  bind_rows() ->
+  allmydata
 ```
 
 ## Why use R
 ```{r}
 # Same chart different data
+readFun<-function(x){
+  x %>% 
+  read_csv() %>%
+  mutate(floors=as.numeric(`The number of floor/stories your residence has`)) 
+}
+
+p<- ggplot(readFun("../data/csv1.csv"), aes(x=floors)) +
+    geom_histogram() 
+p %+% readFun("../data/csv3.csv")
 ```
 
 # Using RStudio
