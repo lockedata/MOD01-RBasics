@@ -8,62 +8,139 @@ output:
   bookdown::pdf_book: default
 ---
 
-# About R
-## R
-- Open source language written in 2001
-- Backwards compatible with commercial but out of support language S(plus)
+# Locke Data {-}
+Locke Data is a consultancy that helps people and organisations get started with data science. We offer training, advice, and technical leadership to make sure things go more smoothly.
 
-```{r}
-myVar <- rnorm(10)
-plot(myVar)
-```
+Find out more about us at [itsalocke.com](https://itsalocke.com). 
 
-## Things to keep in mind
-- R works in-memory
-- R works on a single processor
-- R is basically very old and so *quirky*
-- R is case-sensitive
-- For later "There's a package for that"
 
-## Alt-R
-As R is open source, there are some commercial implementations of R:
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
-- Microsoft R Server
-- TIBCO TERRE
-- Oracle
+# Why use R?
+R as a programming language is brilliant at it's core competencies -- statistics and data visualisation. It's also a great "glue" language, by which I mean that you can use it perform computations in many different languages and combine the results smoothly. As a result, R enables you to be an effective data wrangler, data scientist, and/or data visualisation practitioner. 
 
-## Why use R
-- Great for stats and data viz
-- Super extendable
-- Use lots of other languages through it
+I wanted to include some code snippets here that exemplify how little is required to do things in R that in other languages or tools used to take me a substantial amount of time.
 
-## Why use R
 ```{r include=FALSE}
 library(tidyverse)
 library(ggplot2)
 ```
 
+## Data wrangling
+A common issue I've had in the past is data from multiple sources that should usually conform to a template but don't. You end up with a whole stack of files that don't *quite* match the template and as a result getting all this data read, combined, and then output somewhere else is often an incredibly difficult task. 
+
+This snippet of R code performs the following steps:
+
+1. Make functionality from the tidyverse available
+1. Identify files needing to be read and combined
+2. Read each file individually, whilst applying a column type enforcement
+3. Combine the results
+
+Combining the results involves matching the columns by name. It will create new columns when it finds additional columns in some of the data and fill in the data. When columns are missing from a dataset it will put NAs in the column. 
+
 ```{r}
-# A demo of dynamic CSV processing
-list.files("../data", full.names = TRUE) %>% 
+library(tidyverse)
+list.files("../data", full.names = TRUE) %>% # Change "../data" to where your files are
   map_df(read_csv, col_types=cols("c")) %>% 
   bind_rows() ->
   allmydata
 ```
 
-## Why use R
-```{r}
-# Same chart different data
-readFun<-function(x){
-  x %>% 
-  read_csv() %>%
-  mutate(floors=as.numeric(`The number of floor/stories your residence has`)) 
-}
+## Data science
+An aspect of building models and operationalising them that I've always found a bit painful is mapping the pre-processing stages to an operational scenario i.e. how do I apply my pre-processing steps to new data in order to be able to make a prediction? 
 
-p<- ggplot(readFun("../data/csv1.csv"), aes(x=floors)) +
-    geom_histogram() 
-p %+% readFun("../data/csv3.csv")
+If I want to scale numeric variables, I need to keep some sort of record of the mean and standard deviation in the case of a [z-score](http://stattrek.com/statistics/dictionary.aspx?definition=z%20score) or the minimum and maximum values if I wanted to do a [minmax score](https://en.wikipedia.org/wiki/Feature_scaling#Rescaling). Then I'd have to write something to apply these values to new data in an operational setting, or I'd have to transform my model's formula to apply the scales on the fly. 
+
+If I wanted to take it a step further and perform a [Principal Component Analysis (PCA)](http://setosa.io/ev/principal-component-analysis/) to reduce the amount of features I was working with, I'd have no easy way to do that with the outputs of the R PCA function (`princomp()`). If I use these principal components in my model, how then to get these for my test data or in production?
+
+
+This snippet of R code performs the following steps:
+
+1. Make functionality from caret available
+1. Split my data into training and test samples with the outcome column seperate
+2. Build a linear regression model on data scaled using z-scores and turned into principal components 
+3. Apply the transformations and linear model to get predictions for my test data
+
+
+Instead of using some of the out of the box methods and writing a really long-winded set of code, I can use functionality from the package [caret](https://topepo.github.io/caret/) to add a pre-process step to my model develoment. It will then keep these pre-process steps as part of the model and whenever I use the model to make predictions it will first process the data based on the parameters and transformations used on the training data.
+
+```{r}
+library(caret)
+
+training_data<-mtcars[1:20,-2]
+training_outcome<-mtcars[1:20,2]
+test_data<-mtcars[21:32,-2]
+test_outcome<-mtcars[21:32,2]
+
+model<-train(training_data, training_outcome,
+             method="lm",
+             preProcess = c("scale","center","pca"))
+predictions<-predict(model, test_data)
 ```
+
+## Data visualisation
+Data visualisation is an area where R makes it especially difficult to choose just a single example. Instead of showing the many fancy or interactive visualisations you can do in R, I'm instead going to show a part of the workflow.
+
+Often times, I need to make a chart and then make that chart for a lot of different datasets. These could be datasets for different customers, samples, or time slices.
+
+I can make a chart in R using the package [ggplot2]() to build a chart of all data.
+```{r}
+library(ggplot2)
+library(datasauRus)
+
+myPlot<- ggplot(datasaurus_dozen, aes(x,y)) +
+           geom_point()
+```
+
+If you want to make a [small multiples](https://en.wikipedia.org/wiki/Small_multiple) chart, where the charts are produced in a group, you can use the notion of facetting to make many small charts together.
+
+```{r}
+myPlot +
+   facet_wrap(~dataset)
+```
+
+If you wanted to say produce and save a chart per dataset you can provide updated data to a chart.
+
+```{r}
+myPlot %+% simpsons_paradox
+```
+
+# About R
+
+R is an open source language released in 2001 that's ideal for data wrangling and data science.
+
+
+R has a long lineage - it was written to re-implement the language [S](https://en.wikipedia.org/wiki/S_(programming_language)). S was a commerical language written in the mid-1970s to enable statistical and graphical processing.  Indeed much code written in S can still run today, a phenomenal feat! If you ever look at how R and wonder "Why on Earth does it work like that?", the usual answer is "Because S".^[If you'd like to find out about the assignment operators' history (`<-` and `->`) and many of the other quirks of R, the article [Rbitrary](https://ironholds.org/projects/rbitrary/) is fantastic and highly irreverent reading.] 
+
+```{r}
+plot(rnorm(10))
+```
+
+The last paragraph might lead you to ponder why R is in use today and why the popularity is growing?
+
+R is a vibrant ecosystem that enables people to extend, enhance, and replace itself. There are many paradigms in R to facilitate object-oriented programming, functional programming, and more. If you can write something in R, C++, FORTRAN^[Yes, it still exists and yes, R still relies on it for some key algorithms], Python, or JavaScript you can extend R. 
+
+There are currently more than eleven thousand extensions to R a.k.a. packages in the core ecosystem ([CRAN](https://www.r-project.org/)) and two and a half thousand packages in the genomics ecosystem ([BioConductor](https://www.bioconductor.org/)). We're also seeing emerging ecosystems and paradigms within CRAN. The [tidyverse](http://tidyverse.org/) is one such ecosystem and it will be used in future works extensively.
+
+## Key points to know about R
+
+- R works in-memory which means that the processing is fast but the amount of data you can process is limited to how much you can store and how much your computations will require. 
+- R is not multi-threaded by default. R works on a single CPU core and parallelisation requires additional packages and often additional coding.
+- R is quirky! R works a bit like lots of languages which makes it easy to pick up in some respects, but it's also older than most "modern" programming languages so doesn't have the benefit of learnings from passt languages.
+- Coding R will give you the typical gotcha's and add another, case sensitivity. R is (un)fortunately a language where "Red" and "red" are different and this also extends to variable and function names. As a consequence, the most common errors you'll find when writing code in R are:
+    + Mis-placed or missing commas
+	+ Mis-placed or missing brackets
+	+ Incorrect case used when typing
+- With so many packages available to extend R with, the answer to "how do I write this?" is usually "there's a package for that".
+
+## Alt-R
+As R is open source, there are some commercial implementations of R:
+
+- Microsoft R Server;
+- TIBCO TERRE;
+- Oracle.
+
+
 
 # Using RStudio
 ## IDE
@@ -77,14 +154,14 @@ As we're typing Rstudio can help us out.
 
 
 ## Projects
--Projects are folder structures with an extra file. 
--This extra file is used by RStudio to open the directory. 
+-Projects are folder structures with an extra file;
+-This extra file is used by RStudio to open the directory;
 -Projects can have some options associated with them.
 
 ## Exercises
-1. Create a new project called Rtraining
-2. Create a new file called MyFirstScript.R
-3. Use code completion to see what functions are available to you that begin with `a`
+1. Create a new project called Rtraining;
+2. Create a new file called MyFirstScript.R;
+3. Use code completion to see what functions are available to you that begin with `a`;
 4. Q: Will you get a different list if you typed `A`?
 
 # Useful resources
@@ -96,17 +173,17 @@ As we're typing Rstudio can help us out.
 
 
 ## Cheatsheets
-- [RStudio](https://www.rstudio.com/resources/cheatsheets/)
+- [RStudio](https://www.rstudio.com/resources/cheatsheets/).
 
 ## Online resources
-- [Stack Overflow](https://stackoverflow.com)
-- [Twitter #rstats](https://twitter.com/search?q=%23rstats)
-- [Metacran](https://www.r-pkg.org/)
-- [RDocumentation](rdocumentation.org)
+- [Stack Overflow](https://stackoverflow.com);
+- [Twitter #rstats](https://twitter.com/search?q=%23rstats);
+- [Metacran](https://www.r-pkg.org/);
+- [RDocumentation](rdocumentation.org).
 
 ## Offline / in-person
-- [Meetups](http://jumpingrivers.github.io/meetingsR)
-- [Conferences](https://jumpingrivers.github.io/meetingsR/events.html)
+- [Meetups](http://jumpingrivers.github.io/meetingsR);
+- [Conferences](https://jumpingrivers.github.io/meetingsR/events.html).
 
 
 # R super-basics
@@ -135,8 +212,8 @@ Integer division | %/% | `9 %/% 4` = `r 9 %/% 4`
 Basic sequence | : | `1:3` = `r 1:3`
 
 
-## Exercises
-1. See if `pi` exists
+### Exercises
+1. See if `pi` exists;
 1. What is the result of `pi^2`?
 
 ## Comparison
@@ -151,7 +228,7 @@ Equal | all.equal() | `all.equal(0.5 - 0.3,0.3 - 0.1)` is `r all.equal(0.5 - 0.3
 Exactly equal | == | `(0.5 - 0.3) == (0.3 - 0.1)` is `r (0.5 - 0.3) == (0.3 - 0.1)`, 2 == 2 is `r 2==2`
 Not equal | != | `(0.5 - 0.3) != (0.3 - 0.1)` is `r (0.5 - 0.3) != (0.3 - 0.1)`, 2 != 2 is `r 2!=2`
 
-## Exercises
+### Exercises
 1. Is pi greater than 3?
 2. What are the results if you check to see if a sequence of 1 to 5 is less than or equal to 3?
 
@@ -167,10 +244,10 @@ Bitwise Or | `||` | `c(TRUE,FALSE) || c(FALSE,FALSE)` is `r c(TRUE,FALSE) || c(F
 In | %in% | `"Red" %in% c("Blue","Red")` is `r  "Red" %in% c("Blue","Red")`
 Not in | !( x %in% y)  | `!("Red" %in% c("Blue","Red"))` = `r !("Red" %in% c("Blue","Red"))`
 
-## Exercises
-1. See what's in the variable `LETTERS`
-1. Write a check to see if "a" is present in `LETTERS`
-1. Find out which values in the sequence 1 to 10 are greater than or equal to 3 and less than 7
+### Exercises
+1. See what's in the variable `LETTERS`;
+2. Write a check to see if "a" is present in `LETTERS`;
+3. Find out which values in the sequence 1 to 10 are greater than or equal to 3 and less than 7.
 
 ## States
 
@@ -195,14 +272,14 @@ Help | ? | `?data.table`
 Identifier | \` |  `` `1`<-2``
 
 
-## Exercises
-1. Amend the lines of code you've written so far to store the calculations in variables
-2. Add some comments that help you remember what each line taught you
+## #Exercises
+1. Amend the lines of code you've written so far to store the calculations in variables;
+2. Add some comments that help you remember what each line taught you.
 
 # R objects
 ## In-memory
-- All variables / objects will get stored in-memory
-- You need memory for operations too
+- All variables / objects will get stored in-memory;
+- You need memory for operations too.
 
 Function | Purpose  
 ------------- | -------------
@@ -222,9 +299,9 @@ Function | Purpose
 c("red","blue","orange")
 ```
 
-## Exercises
-1. Make a vector containing the numbers 1 to 50
-2. Make a vector containing two words
+### Exercises
+1. Make a vector containing the numbers 1 to 50;
+2. Make a vector containing two words;
 3. What happens when you combine these two vectors?
 
 ## Data.frames
@@ -238,8 +315,8 @@ Function | Purpose
 data.frame(a=1:2,b=c("blue","red"))
 ```
 
-## Exercises
-1. Make a data.frame the two vectors you created in the vectors section
+### Exercises
+1. Make a data.frame the two vectors you created in the vectors section;
 2. What happened to your text vector?
 
 ## Lists
@@ -255,7 +332,7 @@ list(a=1:2,
      df=data.frame(a=1:2,b=c("blue","red")))
 ```
 
-## Exercises
+### Exercises
 1. Make a list containing some of the variables you've created so far.
 
 ## Others
@@ -266,9 +343,10 @@ list(a=1:2,
 # R functions
 ## Using a function
 A function does some computation on an object. The use of a function consists of:
-1. A function's name
-2. Parentheses
-3. 0 or more inputs
+
+1. A function's name;
+2. Parentheses;
+3. 0 or more inputs.
 
 ```{r}
 Sys.Date()
@@ -278,10 +356,10 @@ sum(1:3)
 ## Function arguments
 Functions can have:
 
-- 0 arguments e.g. `Sys.Date()`
-- all mandatory arguments e.g. `length()`
-- optional arguments e.g. `sum()`
-- arguments used out of position by using their names e.g. `rnorm(mean=1, n=10)
+- 0 arguments e.g. `Sys.Date()`;
+- all mandatory arguments e.g. `length()`;
+- optional arguments e.g. `sum()`;
+- arguments used out of position by using their names e.g. `rnorm(mean=1, n=10).
 
 ## Common functions
 Area | Functions  
@@ -309,8 +387,8 @@ Sys.Date
 ```
 
 ## Exercises
-1. Find a function that involves Normal distributions
-2. Find some functions operate on files
+1. Find a function that involves Normal distributions;
+2. Find some functions operate on files.
 
 
 # R packages
@@ -318,10 +396,10 @@ Sys.Date
 An R package is a bundle of functions and/or datasets. It extends the capabilities that the "base" and "recommended" R packages have. This gives us the ability to do a lot more.
 
 ## Using packages
-- Install a package with `install.packages()`
-- Load a package with `library()`
-- See what's in a package / reference it without loading `packagename::function()`
-- See what's ina  package but not exposed to the public `packagename:::function()`
+- Install a package with `install.packages()`;
+- Load a package with `library()`;
+- See what's in a package / reference it without loading `packagename::function()`;
+- See what's ina  package but not exposed to the public `packagename:::function()`.
 
 ## Useful packages
 Area | Packages  
@@ -339,32 +417,41 @@ Outputs | `rmarkdown`, `revealjs`, `shiny`, `flexdashboards`
 ## Package documentation
 Packages should have documentation at the following levels:
 
-- Function
-- Workflow via vignettes
-- NEWS
-- DESCRIPTION
-- READMEs on github
+- Function;
+- Workflow via vignettes;
+- NEWS;
+- DESCRIPTION;
+- READMEs on github.
 
 ## Exercises
-1. Load the library dplyr
-2. Browse dplyr's help pages
-3. Read a dplyr introductory vignette
-4. Read dplyr's README
+1. Load the library dplyr;
+2. Browse dplyr's help pages;
+3. Read a dplyr introductory vignette;
+4. Read dplyr's README.
 
 # R data manipulation basics
 
 ## Grid references
-R works in a grid reference system like [x , y, z, ...]. So...
+R works in a grid reference system like [row , column]. So...
 
 - For a 1D vector, there's just one position i.e. `vector[ row ]`
 - For a data.frame, there's two positions i.e. `data.frame[ row , column ]`
 
+## Grid references
+![](vectors.png)
+
+![](dataframes.png)
+
+
 Valid values include:
 
-- positive values or ranges
-- negative values or ranges
-- boolean ranges
-- names or vectors of names
+- Positive values or ranges;
+- Negative values or ranges;
+- Boolean ranges;
+- Names or vectors of names.
+
+## Grid referencing
+![](subscripts.png)
 
 ## Grid referencing vectors
 ```{r}
@@ -386,12 +473,41 @@ myDF[c(TRUE,FALSE,TRUE),]
 myDF[,"a"]
 ```
 
+### Exercises
+1. Select all `letters` before "x";
+2. Select the first 5 rows from the built-in data.frame `iris`;
+3. Select the first 2 columns from `iris`;
+4. Select the column Sepal.Length from `iris` by name.
+
+## Name-checking
+Row names can be used to extract values.
+
+```{r}
+myNamedVec<-c("red"="RED","blue"="BLUE")
+myNamedVec["red"]
+```
+
+Column names can also be referenced.
+
+```{r}
+colnames(  iris[,"Species"]    )
+colnames(  iris$Species        )
+
+colnames(  iris[,c("Sepal.Width","Species")]    )
+```
+
 ## Self-referencing
 Useful for creating booleans, you can create a vector and use this inside your grid reference system.
 ```{r}
 LETTERS[LETTERS<"T"]
 myDF[myDF$a<=2,]
 ```
+
+
+### Exercises
+1. Get all `letters` that occur after "g";
+2. Select rows from the `iris` data.frame where the `Sepal.Length` is greater than 5.8cm;
+3. Select rows from the `iris` data.frame where the Sepal.Width is below the average for that column.
 
 ## Updating
 You can update part or all of simple objects by assigning new values against a grid-reference.
@@ -416,9 +532,23 @@ myDF<-myDF[-3,-1]
 myDF
 ```
 
-## Exercises
-1. Get all `letters` that occur after "g"
-1. Select the first 5 rows from the built-in data.frame `iris`
-1. Select rows from the `iris` data.frame where the `Sepal.Length` is greater than 5.8cm
-1. Select rows from the `iris` data.frame where the Sepal.Width is below the average for that column
-1. Select everything from `iris` except the Species column
+### Exercises
+1. Select everything from `iris` except the Species column;
+2. Create a copy of the `iris` data that just contains the first 100 rows and call it `myIris`;
+3. Update the species column to the value "Unknown" in `myIris`;
+4. Delete rows from `myIris` where the sepal length is greater than 5.5.
+
+
+# Answers
+# Packages used
+
+## Suggested
+The following are used in example content. You do not need these to work through the exercises.
+
+- tidyverse
+- caret
+- datasauRus
+
+```{r eval=FALSE}
+install.packages(c("tidyverse","caret","datasauRus"))
+```

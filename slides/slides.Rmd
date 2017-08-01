@@ -1,19 +1,12 @@
 ---
 title: "R fundamentals"
 author: "Locke Data"
-date: "`r Sys.Date()`"
-output: html_document
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+  bookdown::pdf_book: default
 ---
-
-## Agenda
-- About R
-- Using RStudio
-- Useful resources
-- R super-basics
-- R objects
-- R functions
-- R packages
-- R data manipulation basics
 
 # About R
 ## R
@@ -47,9 +40,10 @@ As R is open source, there are some commercial implementations of R:
 ## Why use R
 ```{r include=FALSE}
 library(tidyverse)
+library(ggplot2)
 ```
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 # A demo of dynamic CSV processing
 list.files("../data", full.names = TRUE) %>% 
   map_df(read_csv, col_types=cols("c")) %>% 
@@ -58,18 +52,29 @@ list.files("../data", full.names = TRUE) %>%
 ```
 
 ## Why use R
-```{r}
+```{r echo=FALSE}
 # Same chart different data
 readFun<-function(x){
   x %>% 
   read_csv() %>%
   mutate(floors=as.numeric(`The number of floor/stories your residence has`)) 
 }
+```
 
+```{r warning=FALSE, message=FALSE}
 p<- ggplot(readFun("../data/csv1.csv"), aes(x=floors)) +
     geom_histogram() 
+p
+```
+
+## Why use R
+```{r  warning=FALSE, message=FALSE}
 p %+% readFun("../data/csv3.csv")
 ```
+
+## Why use R
+
+[Coffee demo](https://stef.shinyapps.io/cost_of_coffee/)
 
 # Using RStudio
 ## IDE
@@ -83,9 +88,9 @@ As we're typing Rstudio can help us out.
 
 
 ## Projects
--Projects are folder structures with an extra file. 
--This extra file is used by RStudio to open the directory. 
--Projects can have some options associated with them.
+- Projects are folder structures with an extra file. 
+- This extra file is used by RStudio to open the directory. 
+- Projects can have some options associated with them.
 
 ## Exercises
 1. Create a new project called Rtraining
@@ -327,7 +332,7 @@ An R package is a bundle of functions and/or datasets. It extends the capabiliti
 - Install a package with `install.packages()`
 - Load a package with `library()`
 - See what's in a package / reference it without loading `packagename::function()`
-- See what's ina  package but not exposed to the public `packagename:::function()`
+- See what's in a package but not exposed to the public `packagename:::function()`
 
 ## Useful packages
 Area | Packages  
@@ -360,17 +365,26 @@ Packages should have documentation at the following levels:
 # R data manipulation basics
 
 ## Grid references
-R works in a grid reference system like [x , y, z, ...]. So...
+R works in a grid reference system like [row , column]. So...
 
 - For a 1D vector, there's just one position i.e. `vector[ row ]`
 - For a data.frame, there's two positions i.e. `data.frame[ row , column ]`
 
+## Grid references
+![](vectors.png)
+## Grid references
+![](dataframes.png)
+
+## Grid references
 Valid values include:
 
 - positive values or ranges
 - negative values or ranges
 - boolean ranges
 - names or vectors of names
+
+## Grid referencing
+![](subscripts.png)
 
 ## Grid referencing vectors
 ```{r}
@@ -392,12 +406,42 @@ myDF[c(TRUE,FALSE,TRUE),]
 myDF[,"a"]
 ```
 
+## Exercises
+1. Select all `letters` before "x"
+1. Select the first 5 rows from the built-in data.frame `iris`
+1. Select the first 2 columns from `iris`
+1. Select the column Sepal.Length from `iris` by name
+
+## Name-checking
+Row names can be used to extract values.
+
+```{r}
+myNamedVec<-c("red"="RED","blue"="BLUE")
+myNamedVec["red"]
+```
+
+## Name-checking
+Column names can also be referenced.
+
+```{r}
+colnames(  iris[,"Species"]    )
+colnames(  iris$Species        )
+
+colnames(  iris[,c("Sepal.Width","Species")]    )
+```
+
 ## Self-referencing
 Useful for creating booleans, you can create a vector and use this inside your grid reference system.
 ```{r}
 LETTERS[LETTERS<"T"]
 myDF[myDF$a<=2,]
 ```
+
+
+## Exercises
+1. Get all `letters` that occur after "g"
+1. Select rows from the `iris` data.frame where the `Sepal.Length` is greater than 5.8cm
+1. Select rows from the `iris` data.frame where the Sepal.Width is below the average for that column
 
 ## Updating
 You can update part or all of simple objects by assigning new values against a grid-reference.
@@ -423,8 +467,7 @@ myDF
 ```
 
 ## Exercises
-1. Get all `letters` that occur after "g"
-1. Select the first 5 rows from the built-in data.frame `iris`
-1. Select rows from the `iris` data.frame where the `Sepal.Length` is greater than 5.8cm
-1. Select rows from the `iris` data.frame where the Sepal.Width is below the average for that column
 1. Select everything from `iris` except the Species column
+2. Create a copy of the `iris` data that just contains the first 100 rows and call it `myIris`
+3. Update the species column to the value "Unknown" in `myIris`
+3. Delete rows from `myIris` where the sepal length is greater than 5.5
