@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="r-functions.html">
-<link rel="next" href="r-data-manipulation-basics.html">
+<link rel="prev" href="about-r.html">
+<link rel="next" href="using-rstudio.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -212,84 +212,103 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="r-packages" class="section level1">
-<h1><span class="header-section-number">8</span> R packages</h1>
-<div id="what-is-a-package" class="section level2">
-<h2><span class="header-section-number">8.1</span> What is a package?</h2>
-<p>An R package is a bundle of functions and/or datasets. It extends the capabilities that the “base” and “recommended” R packages have. This gives us the ability to do a lot more.</p>
+<div id="why-use-r" class="section level1">
+<h1><span class="header-section-number">2</span> Why use R?</h1>
+<p>R as a programming language is brilliant at it’s core competencies – statistics and data visualisation. It’s also a great “glue” language, by which I mean that you can use it perform computations in many different languages and combine the results smoothly. As a result, R enables you to be an effective data wrangler, data scientist, and/or data visualisation practitioner.</p>
+<p>I wanted to include some code snippets here that exemplify how little is required to do things in R that in other languages or tools used to take me a substantial amount of time.</p>
+<div class="future">
+<p>
+These are illustrative only. Don’t worry if they don’t make much sense. Writing code like these examples will be covered in later books.
+</p>
 </div>
-<div id="using-packages" class="section level2">
-<h2><span class="header-section-number">8.2</span> Using packages</h2>
-<ul>
-<li>Install a package with <code>install.packages()</code>;</li>
-<li>Load a package with <code>library()</code>;</li>
-<li>See what’s in a package / reference it without loading <code>packagename::function()</code>;</li>
-<li>See what’s ina package but not exposed to the public <code>packagename:::function()</code>.</li>
-</ul>
-</div>
-<div id="useful-packages" class="section level2">
-<h2><span class="header-section-number">8.3</span> Useful packages</h2>
-<table>
-<thead>
-<tr class="header">
-<th>Area</th>
-<th>Packages</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Data manipulation</td>
-<td><code>dplyr</code>, <code>data.table</code>,<code>tidyr</code>, <code>stringr</code>, <code>forcats</code></td>
-</tr>
-<tr class="even">
-<td>Data visualisation</td>
-<td><code>ggplot2</code>,<code>leaflet</code>,<code>ggraph</code></td>
-</tr>
-<tr class="odd">
-<td>Statistics</td>
-<td><code>tidytext</code>, <code>caret</code>, <code>broom</code></td>
-</tr>
-<tr class="even">
-<td>I/O</td>
-<td><code>RODBC</code>, <code>DBI</code>, <code>data.table</code>, <code>readxl</code></td>
-</tr>
-<tr class="odd">
-<td>Web</td>
-<td><code>rvest</code>, <code>httr</code>, <code>urltools</code></td>
-</tr>
-<tr class="even">
-<td>Outputs</td>
-<td><code>rmarkdown</code>, <code>revealjs</code>, <code>shiny</code>, <code>flexdashboards</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="finding-packages" class="section level2">
-<h2><span class="header-section-number">8.4</span> Finding packages</h2>
-<div class="figure">
-<img src="rpackagediscovery.png" />
-
-</div>
-</div>
-<div id="package-documentation" class="section level2">
-<h2><span class="header-section-number">8.5</span> Package documentation</h2>
-<p>Packages should have documentation at the following levels:</p>
-<ul>
-<li>Function;</li>
-<li>Workflow via vignettes;</li>
-<li>NEWS;</li>
-<li>DESCRIPTION;</li>
-<li>READMEs on github.</li>
-</ul>
-</div>
-<div id="exercises-8" class="section level2">
-<h2><span class="header-section-number">8.6</span> Exercises</h2>
+<div id="data-wrangling" class="section level2">
+<h2><span class="header-section-number">2.1</span> Data wrangling</h2>
+<p>A common issue I’ve had in the past is data from multiple sources that should usually conform to a template but don’t. You end up with a whole stack of files that don’t <em>quite</em> match the template and as a result getting all this data read, combined, and then output somewhere else is often an incredibly difficult task.</p>
+<p>This snippet of R code performs the following steps:</p>
 <ol style="list-style-type: decimal">
-<li>Load the library dplyr;</li>
-<li>Browse dplyr’s help pages;</li>
-<li>Read a dplyr introductory vignette;</li>
-<li>Read dplyr’s README.</li>
+<li>Make functionality from the tidyverse available</li>
+<li>Identify files needing to be read and combined</li>
+<li>Read each file individually, whilst applying a column type enforcement</li>
+<li>Combine the results</li>
 </ol>
+<p>Combining the results involves matching the columns by name. It will create new columns when it finds additional columns in some of the data and fill in the data. When columns are missing from a dataset it will put NAs in the column.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">list.files</span>(<span class="st">&quot;../data&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span><span class="co"># Change &quot;../data&quot; to where your files are</span>
+<span class="st">  </span><span class="kw">map_df</span>(read_csv, <span class="dt">col_types=</span><span class="kw">cols</span>(<span class="st">&quot;c&quot;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">bind_rows</span>() -&gt;
+<span class="st">  </span>allmydata</code></pre></div>
+<pre><code>## Warning: Unnamed `col_types` should have the same length as `col_names`.
+## Using smaller of the two.</code></pre>
+<pre><code>## Warning in rbind(names(probs), probs_f): number of columns of result is not
+## a multiple of vector length (arg 1)</code></pre>
+<pre><code>## Warning: 30 parsing failures.
+## row # A tibble: 5 x 5 col     row   col  expected    actual               file expected   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;              &lt;chr&gt; actual 1     1  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39; file 2     2  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39; row 3     3  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39; col 4     4  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39; expected 5     5  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39;
+## ... ................. ... .................................................... ........ .................................................... ...... .................................................... .... .................................................... ... .................................................... ... .................................................... ........ ....................................................
+## See problems(...) for more details.</code></pre>
+<pre><code>## Warning: Unnamed `col_types` should have the same length as `col_names`.
+## Using smaller of the two.</code></pre>
+<pre><code>## Warning in rbind(names(probs), probs_f): number of columns of result is not
+## a multiple of vector length (arg 1)</code></pre>
+<pre><code>## Warning: 40 parsing failures.
+## row # A tibble: 5 x 5 col     row   col  expected    actual               file expected   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;              &lt;chr&gt; actual 1     1  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39; file 2     2  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39; row 3     3  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39; col 4     4  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39; expected 5     5  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39;
+## ... ................. ... .................................................... ........ .................................................... ...... .................................................... .... .................................................... ... .................................................... ... .................................................... ........ ....................................................
+## See problems(...) for more details.</code></pre>
+<pre><code>## Warning: Unnamed `col_types` should have the same length as `col_names`.
+## Using smaller of the two.</code></pre>
+<pre><code>## Warning in rbind(names(probs), probs_f): number of columns of result is not
+## a multiple of vector length (arg 1)</code></pre>
+<pre><code>## Warning: 35 parsing failures.
+## row # A tibble: 5 x 5 col     row   col  expected    actual               file expected   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;              &lt;chr&gt; actual 1     1  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39; file 2     2  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39; row 3     3  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39; col 4     4  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39; expected 5     5  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39;
+## ... ................. ... .................................................... ........ .................................................... ...... .................................................... .... .................................................... ... .................................................... ... .................................................... ........ ....................................................
+## See problems(...) for more details.</code></pre>
+</div>
+<div id="data-science" class="section level2">
+<h2><span class="header-section-number">2.2</span> Data science</h2>
+<p>An aspect of building models and operationalising them that I’ve always found a bit painful is mapping the pre-processing stages to an operational scenario i.e. how do I apply my pre-processing steps to new data in order to be able to make a prediction?</p>
+<p>If I want to scale numeric variables, I need to keep some sort of record of the mean and standard deviation in the case of a <a href="http://stattrek.com/statistics/dictionary.aspx?definition=z%20score">z-score</a> or the minimum and maximum values if I wanted to do a <a href="https://en.wikipedia.org/wiki/Feature_scaling#Rescaling">minmax score</a>. Then I’d have to write something to apply these values to new data in an operational setting, or I’d have to transform my model’s formula to apply the scales on the fly.</p>
+<p>If I wanted to take it a step further and perform a <a href="http://setosa.io/ev/principal-component-analysis/">Principal Component Analysis (PCA)</a> to reduce the amount of features I was working with, I’d have no easy way to do that with the outputs of the R PCA function (<code>princomp()</code>). If I use these principal components in my model, how then to get these for my test data or in production?</p>
+<p>This snippet of R code performs the following steps:</p>
+<ol style="list-style-type: decimal">
+<li>Make functionality from caret available</li>
+<li>Split my data into training and test samples with the outcome column seperate</li>
+<li>Build a linear regression model on data scaled using z-scores and turned into principal components</li>
+<li>Apply the transformations and linear model to get predictions for my test data</li>
+</ol>
+<p>Instead of using some of the out of the box methods and writing a really long-winded set of code, I can use functionality from the package <a href="https://topepo.github.io/caret/">caret</a> to add a pre-process step to my model develoment. It will then keep these pre-process steps as part of the model and whenever I use the model to make predictions it will first process the data based on the parameters and transformations used on the training data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(caret)</code></pre></div>
+<pre><code>## Loading required package: lattice</code></pre>
+<pre><code>## 
+## Attaching package: &#39;caret&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     lift</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">training_data&lt;-mtcars[<span class="dv">1</span>:<span class="dv">20</span>,-<span class="dv">2</span>]
+training_outcome&lt;-mtcars[<span class="dv">1</span>:<span class="dv">20</span>,<span class="dv">2</span>]
+test_data&lt;-mtcars[<span class="dv">21</span>:<span class="dv">32</span>,-<span class="dv">2</span>]
+test_outcome&lt;-mtcars[<span class="dv">21</span>:<span class="dv">32</span>,<span class="dv">2</span>]
+
+model&lt;-<span class="kw">train</span>(training_data, training_outcome,
+             <span class="dt">method=</span><span class="st">&quot;lm&quot;</span>,
+             <span class="dt">preProcess =</span> <span class="kw">c</span>(<span class="st">&quot;scale&quot;</span>,<span class="st">&quot;center&quot;</span>,<span class="st">&quot;pca&quot;</span>))
+predictions&lt;-<span class="kw">predict</span>(model, test_data)</code></pre></div>
+</div>
+<div id="data-visualisation" class="section level2">
+<h2><span class="header-section-number">2.3</span> Data visualisation</h2>
+<p>Data visualisation is an area where R makes it especially difficult to choose just a single example. Instead of showing the many fancy or interactive visualisations you can do in R, I’m instead going to show a part of the workflow.</p>
+<p>Often times, I need to make a chart and then make that chart for a lot of different datasets. These could be datasets for different customers, samples, or time slices.</p>
+<p>I can make a chart in R using the package <a href="">ggplot2</a> to build a chart of all data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(datasauRus)
+
+myPlot&lt;-<span class="st"> </span><span class="kw">ggplot</span>(datasaurus_dozen, <span class="kw">aes</span>(x,y)) +
+<span class="st">           </span><span class="kw">geom_point</span>()</code></pre></div>
+<p>If you want to make a <a href="https://en.wikipedia.org/wiki/Small_multiple">small multiples</a> chart, where the charts are produced in a group, you can use the notion of facetting to make many small charts together.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myPlot +
+<span class="st">   </span><span class="kw">facet_wrap</span>(~dataset)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>If you wanted to produce and save a chart per dataset you can provide updated data to a chart.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myPlot %+%<span class="st"> </span>simpsons_paradox</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 </div>
 </div>
             </section>
@@ -297,8 +316,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="r-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-data-manipulation-basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="about-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="using-rstudio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
