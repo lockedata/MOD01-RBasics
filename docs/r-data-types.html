@@ -98,15 +98,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class="part"><span><b>I Preamble</b></span><ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="#copyright"><i class="fa fa-check"></i><b>0.1</b> Copyright</a></li>
-</ul></li>
+<li class="part"><span><b>I Preamble</b></span></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="chapter" data-level="" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i>Prerequisites</a></li>
 <li class="chapter" data-level="" data-path="steph-locke.html"><a href="steph-locke.html"><i class="fa fa-check"></i>Steph Locke</a></li>
 <li class="chapter" data-level="" data-path="locke-data.html"><a href="locke-data.html"><i class="fa fa-check"></i>Locke Data</a></li>
 <li class="chapter" data-level="" data-path="conventions.html"><a href="conventions.html"><i class="fa fa-check"></i>Conventions</a></li>
-<li class="part"><span><b>II Part II</b></span></li>
+<li class="part"><span><b>II R fundamentals</b></span></li>
 <li class="chapter" data-level="1" data-path="about-r.html"><a href="about-r.html"><i class="fa fa-check"></i><b>1</b> About R</a><ul>
 <li class="chapter" data-level="1.1" data-path="about-r.html"><a href="about-r.html#key-points-to-know-about-r"><i class="fa fa-check"></i><b>1.1</b> Key points to know about R</a></li>
 </ul></li>
@@ -126,7 +124,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.2" data-path="useful-resources.html"><a href="useful-resources.html#online"><i class="fa fa-check"></i><b>4.2</b> Online</a></li>
 <li class="chapter" data-level="4.3" data-path="useful-resources.html"><a href="useful-resources.html#in-person"><i class="fa fa-check"></i><b>4.3</b> In-person</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="r-data-types.html"><a href="r-data-types.html"><i class="fa fa-check"></i><b>5</b> R data types</a></li>
+<li class="chapter" data-level="5" data-path="r-data-types.html"><a href="r-data-types.html"><i class="fa fa-check"></i><b>5</b> R data types</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-data-types.html"><a href="r-data-types.html#numbers"><i class="fa fa-check"></i><b>5.1</b> Numbers</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="r-data-types.html"><a href="r-data-types.html#converting-to-numbers"><i class="fa fa-check"></i><b>5.1.1</b> Converting to numbers</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-data-types.html"><a href="r-data-types.html#checking-numbers"><i class="fa fa-check"></i><b>5.1.2</b> Checking numbers</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="r-data-types.html"><a href="r-data-types.html#text"><i class="fa fa-check"></i><b>5.2</b> Text</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="r-data-types.html"><a href="r-data-types.html#string-conversion"><i class="fa fa-check"></i><b>5.2.1</b> String conversion</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="r-data-types.html"><a href="r-data-types.html#dates"><i class="fa fa-check"></i><b>5.3</b> Dates</a></li>
+<li class="chapter" data-level="5.4" data-path="r-data-types.html"><a href="r-data-types.html#summary"><i class="fa fa-check"></i><b>5.4</b> Summary</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="basic-operations.html"><a href="basic-operations.html"><i class="fa fa-check"></i><b>6</b> Basic operations</a><ul>
 <li class="chapter" data-level="6.1" data-path="basic-operations.html"><a href="basic-operations.html#maths"><i class="fa fa-check"></i><b>6.1</b> Maths</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="basic-operations.html"><a href="basic-operations.html#exercises"><i class="fa fa-check"></i><b>6.1.1</b> Exercises</a></li>
@@ -219,6 +227,126 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="r-data-types" class="section level1">
 <h1><span class="header-section-number">5</span> R data types</h1>
 <p>When we think of different bits of data, some of it might be numbers, text, dates, and more. R has it’s own set of these <strong>data types</strong>.</p>
+<p>Before we get into the data types, let’s see how we can get R to tell us what something is.</p>
+<p>R uses <strong>functions</strong> to take some inputs and get an output. The function that we can pass a value and get what data type it is as the output if the <code>class()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="fl">1.1</span>)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="st">&quot;1&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="glass">
+<p>
+You can use this <code>class()</code> function if you’re ever unsure what data type something is. This is great for when you’re getting unexpected results!
+</p>
+</div>
+<div id="numbers" class="section level2">
+<h2><span class="header-section-number">5.1</span> Numbers</h2>
+<div class="protip">
+<p>
+I gloss over a lot of the nuance here as most people will not need it. If you want some of the nuance, read the footnotes.
+</p>
+</div>
+<p>Numbers are split into a few different of types:</p>
+<ul>
+<li><strong>integer</strong>s are whole numbers like 1 or 42<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a></li>
+<li><strong>numeric</strong>s are numbers that have a decimal portion associated with them like 1.0 or 3.133<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a></li>
+<li><strong>complex number</strong>s are numbers that make use of the imaginary number <em>i</em> like 4i.<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a></li>
+</ul>
+<div id="converting-to-numbers" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Converting to numbers</h3>
+<p>The functions <code>as.numeric()</code> and <code>as.integer()</code> allow you to convert something stored as text into a number.</p>
+<p>These functions will give you some red text as a warning if you attempt to convert something to a number that can’t be safely converted. It will still have performed the conversion though.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(<span class="fl">1.1</span>)</code></pre></div>
+<pre><code>## [1] 1.1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(<span class="st">&quot;1&quot;</span>)</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(<span class="st">&quot;r&quot;</span>)</code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.integer</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.integer</span>(<span class="fl">1.1</span>)</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.integer</span>(<span class="st">&quot;1&quot;</span>)</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.integer</span>(<span class="st">&quot;r&quot;</span>)</code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA</code></pre>
+</div>
+<div id="checking-numbers" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Checking numbers</h3>
+<p>You can write checks to see if something is numeric, or an integer, with <code>is.numeric()</code> or <code>is.integer()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.numeric</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.numeric</span>(<span class="st">&quot;1&quot;</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(1L) <span class="co"># Read the footnote on integers for info on this notation</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(<span class="st">&quot;1&quot;</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>We could also use <code>class()</code> here and inspect the result.<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a> I’m going to use it here to test the results of a conversion to show you how you can <strong>nest</strong> functions, which means that the inner-most function gets evaluated and the results are used by the next outer-most function, and so on.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>( <span class="kw">numeric</span>( <span class="st">&quot;1&quot;</span> ) )</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>( <span class="kw">integer</span>( <span class="st">&quot;1&quot;</span> ) )</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+</div>
+</div>
+<div id="text" class="section level2">
+<h2><span class="header-section-number">5.2</span> Text</h2>
+<p>Text, also known as strings, is split up into two core types:</p>
+<ul>
+<li><strong>character</strong>s are text as we typically think of it like “red”</li>
+<li><strong>factor</strong>s (and the subtype <strong>ordered factor</strong>s) are a text type where the number of unique values is constrained e.g. the values are selected from a dropdown. It’s not very space-efficient to store everything as text. Factors basically assign each unique value an ID and store the ID. Then when we return the data, it replaces the ID with the text.<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a></li>
+</ul>
+<div class="future">
+<p>
+Factors will be covered at length in a later book. The rest of this book will work with characters.
+</p>
+</div>
+<p>In R, you can’t just type some text as it will be construed as an object or function name. To <strong>delimit</strong> a string you can use speech marks (<code>&quot;</code>) or apostrophes (<code>'</code>) at the beginning and end of it to show where it starts and ends.</p>
+<p>Note you can’t use the two delimiters interchangably e.g. “red’ but you can use them together to enable you have speech marks or apostrophes inside a string e.g. ‘They said “Read this”’ or”It’s mine now“.</p>
+<p>If you need to have both inside a string you can <strong>escape</strong> the ones on the iside of a string to say they don’t count as text <strong>delimiters</strong>. To escape a delimiter you can use a backslash(<code>\</code>) e.g. “They said &quot;Read this&quot;”.</p>
+<div class="glass">
+<p>
+Beware the copy &amp; pasting (C&amp;Ping) of code that isn’t in “pre-formatted” mode. The aesthetically pleasing changing of speechmarks at the beginning and end of some text will screw up your code. If you’re getting weird errors around unexpected symbols or your console queuing up after C&amp;Ping, replace all the speechmarks and see if that fixes things. This can also happen with some types of space characters too.
+</p>
+</div>
+<div id="string-conversion" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> String conversion</h3>
+<p>Converting to characters and factors is the same as working with numbers. You swap “numeric” for “character” or “factor” and you’re done!</p>
+<p>You’ll see a difference in how these values get displayed. Basic characters are boring - they just print out. Factors look very different. There’s no speech marks and there’s this Levels bit. The Levels tells you what the unique values in the lookup for this datatype are.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] &quot;1&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="st">&quot;1 a&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;1 a&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.factor</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 1
+## Levels: 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.factor</span>(<span class="st">&quot;1 a&quot;</span>)</code></pre></div>
+<pre><code>## [1] 1 a
+## Levels: 1 a</code></pre>
+</div>
+</div>
+<div id="dates" class="section level2">
+<h2><span class="header-section-number">5.3</span> Dates</h2>
+<div class="future">
+<p>
+Dates are one of the hardest parts of programming! This is a very brief introduction and will not be covered further in this book. Expect a book entirely dedicated to date handling later.
+</p>
+</div>
+<p>Dates in R split into:</p>
+<ul>
+<li><strong>date</strong>s do not have any time component</li>
+<li><strong>POSIX</strong></li>
+</ul>
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">5.4</span> Summary</h2>
 <table>
 <thead>
 <tr class="header">
@@ -257,6 +385,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="7">
+<li id="fn7"><p>If you want to guarantee a number is an integer, you can suffix the value with a L e.g. <code>42L</code>. If you want to read more about this, check out the <a href="//cran.r-project.org/doc/manuals/R-lang.html#Constants">R manual</a><a href="r-data-types.html#fnref7">↩</a></p></li>
+<li id="fn8"><p>Numerics in R are floating point numbers - this mean every decimal gets stored usually with a large amount of extra decimal places. This can lead to some unusual results when comparing two decimal values and we’ll see an example later.<a href="r-data-types.html#fnref8">↩</a></p></li>
+<li id="fn9"><p><em>i</em> is the square root of -1, which is an impossible number since any negative multiplied by itself would result in a positive. Descartes coined the term “imaginary” in reference to this number as it’s a consistent value in formulae but doesn’t exist in the real world.<a href="r-data-types.html#fnref9">↩</a></p></li>
+<li id="fn10"><p>You might recall that <code>class(1)</code> had the result of “numeric” - R was not by default considering 1 as an integer for the purpose of the <code>class()</code> function. This is a property of R’s evaluation of values and you can force it consider a value to be an integer by suffixing it with an L so <code>class(1L)</code> evaluates to “integer”.<a href="r-data-types.html#fnref10">↩</a></p></li>
+<li id="fn11"><p>In other programming languages this is often called an <strong>enumerated string</strong><a href="r-data-types.html#fnref11">↩</a></p></li>
+</ol>
 </div>
             </section>
 

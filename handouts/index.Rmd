@@ -42,6 +42,12 @@ In terms of basic formatting:
 - `This is code or a symbol`
 - <kbd>Keyboard Key</kbd>
 
+This is a book about coding, so expect code blocks. Code blocks will typically look like. Note the result underneath - this is the result of executing the code block.
+
+```{r}
+"this is a code block"
+```
+
 There will also be callouts throughout the book. Some are for information, some expect you to do things.
 
 ```{block, type="protip"}
@@ -64,7 +70,7 @@ This let's you know that something I mention briefly will be followed up later, 
 If this is still here, someone at Locke Data needs to do something!
 ```
 
-# (PART) Part II {-} 
+# (PART) R fundamentals {-} 
 # About R
 
 R is an open source language released in 2001 that's ideal for data wrangling and data science.
@@ -361,6 +367,117 @@ We have a growing number of conferences and you can find ones to attend via the 
 # R data types
 When we think of different bits of data, some of it might be numbers, text, dates, and more. R has it's own set of these **data types**. 
 
+Before we get into the data types, let's see how we can get R to tell us what something is. 
+
+R uses **functions** to take some inputs and get an output. The function that we can pass a value and get what data type it is as the output if the `class()` function.
+
+```{r}
+class(1)
+class(1.1)
+class("1")
+```
+
+```{block, type='glass'}
+You can use this `class()` function if you're ever unsure what data type something is. This is great for when you're getting unexpected results!
+```
+
+## Numbers
+```{block, type="protip"}
+I gloss over a lot of the nuance here as most people will not need it. If you want some of the nuance, read the footnotes.
+```
+
+Numbers are split into a few different of types:
+
+- **integer**s are whole numbers like 1 or 42^[If you want to guarantee a number is an integer, you can suffix the value with a L e.g. `42L`. If you want to read more about this, check out the [R manual](//cran.r-project.org/doc/manuals/R-lang.html#Constants)]
+- **numeric**s are numbers that have a decimal portion associated with them like 1.0 or 3.133^[Numerics in R are floating point numbers - this mean every decimal gets stored usually with a large amount of extra decimal places. This can lead to some unusual results when comparing two decimal values and we'll see an example later.]
+- **complex number**s are numbers that make use of the imaginary number *i* like 4i.^[*i* is the square root of -1, which is an impossible number since any negative multiplied by itself would result in a positive. Descartes coined the term "imaginary" in reference to this number as it's a consistent value in formulae but doesn't exist in the real world.]
+
+### Converting to numbers
+The functions `as.numeric()` and `as.integer()` allow you to convert something stored as text into a number.
+
+These functions will give you some red text as a warning if you attempt to convert something to a number that can't be safely converted. It will still have performed the conversion though.
+
+```{r}
+as.numeric(1)
+as.numeric(1.1)
+as.numeric("1")
+as.numeric("r")
+
+as.integer(1)
+as.integer(1.1)
+as.integer("1")
+as.integer("r")
+```
+
+### Checking numbers
+You can write checks to see if something is numeric, or an integer, with `is.numeric()` or `is.integer()`.
+
+```{r}
+is.numeric(1)
+is.numeric("1")
+
+is.integer(1)
+is.integer(1L) # Read the footnote on integers for info on this notation
+is.integer("1")
+```
+
+
+We could also use `class()` here and inspect the result.^[You might recall that `class(1)` had the result of "`r class(1)`" - R was not by default considering 1 as an integer for the purpose of the `class()` function. This is a property of R's evaluation of values and you can force it consider a value to be an integer by suffixing it with an L so `class(1L)` evaluates to "`r class(1L)`".] I'm going to use it here to test the results of a conversion to show you how you can **nest** functions, which means that the inner-most function gets evaluated and the results are used by the next outer-most function, and so on.
+
+```{r}
+class( numeric( "1" ) )
+class( integer( "1" ) )
+```
+
+
+
+## Text
+Text, also known as strings, is split up into two core types:
+
+- **character**s are text as we typically think of it like "red"
+- **factor**s (and the subtype **ordered factor**s) are a text type where the number of unique values is constrained e.g. the values are selected from a dropdown. It's not very space-efficient to store everything as text. Factors basically assign each unique value an ID and store the ID. Then when we return the data, it replaces the ID with the text.^[In other programming languages this is often called an **enumerated string**]
+
+```{block, type='future'}
+Factors will be covered at length in a later book. The rest of this book will work with characters.
+```
+
+In R, you can't just type some text as it will be construed as an object or function name. To **delimit** a string you can use speech marks (`"`) or apostrophes (`'`) at the beginning and end of it to show where it starts and ends. 
+
+Note you can't use the two delimiters interchangably e.g. "red' but you can use them together to enable you have speech marks or apostrophes inside a string e.g. 'They said "Read this"' or "It's mine now". 
+
+If you need to have both inside a string you can **escape** the ones on the iside of a string to say they don't count as text **delimiters**. To escape a delimiter you can use a backslash(`\`) e.g. "They said \"Read this\"".
+
+
+```{block, type="glass"}
+Beware the copy & pasting (C&Ping) of code that isn't in "pre-formatted" mode. The aesthetically pleasing changing of speechmarks at the beginning and end of some text will screw up your code. If you're getting weird errors around unexpected symbols or your console queuing up after C&Ping, replace all the speechmarks and see if that fixes things. This can also happen with some types of space characters too.
+```
+
+### String conversion
+Converting to characters and factors is the same as working with numbers. You swap "numeric" for "character" or "factor" and you're done!
+
+You'll see a difference in how these values get displayed. Basic characters are boring - they just print out. Factors look very different. There's no speech marks and there's this Levels bit. The Levels tells you what the unique values in the lookup for this datatype are.
+
+```{r}
+as.character(1)
+as.character("1 a")
+
+as.factor(1)
+as.factor("1 a")
+```
+
+
+## Dates
+```{block, type="future"}
+Dates are one of the hardest parts of programming! This is a very brief introduction and will not be covered further in this book. Expect a book entirely dedicated to date handling later.
+```
+
+
+Dates in R split into:
+
+- **date**s do not have any time component
+- **POSIX** 
+
+## Summary
 Data type | Example
 ------------- | -------------
 Integer | 1
