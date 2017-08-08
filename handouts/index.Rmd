@@ -8,22 +8,30 @@ output:
   bookdown::pdf_book: default
 ---
 
-# Preamble {-}
+# (PART) Part I {-} 
+
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
-## Introduction
+# Introduction {-}
 Welcome to the first book in Locke Data's series of books on R and data science! 
 
 This first book introduces R, helps you get the most out of the RStudio programming environment, and teaches basic data manipulation using R functions that you get out of the box.
 
-## Steph Locke
-## Locke Data
+# Prerequisites {-}
+This book assumes no prior knowledge of programming.
+
+Basic use of calculators and Excel is assumed. This is so that if we say things like `(5*5)-2` you know that I mean something like "subtract two from the result of five multiplied by five". If you're not sure about this type of thing you might struggle.
+
+You should be able to install (or get installed) R, RStudio, and, if on Windows, RTools. You can code online at [r-fiddle.org](//www.r-fiddle.org/) but this might be unreliable. The instructions for installation in 
+
+# Steph Locke {-}
+# Locke Data {-}
 Locke Data is a consultancy that helps people and organisations get started with data science. We offer training, advice, and technical leadership to make sure things go more smoothly.
 
 Find out more about us at [itsalocke.com](https://itsalocke.com). 
 
-## Conventions
+# Conventions {-}
 
 Throughout this book various conventions will be used.
 
@@ -55,6 +63,7 @@ This let's you know that something I mention briefly will be followed up later, 
 If this is still here, someone at Locke Data needs to do something!
 ```
 
+# (PART) Part II {-} 
 # About R
 
 R is an open source language released in 2001 that's ideal for data wrangling and data science.
@@ -348,8 +357,8 @@ If you'd like to go a meetup, then you should check out this [meetup directory](
 
 We have a growing number of conferences and you can find ones to attend via the [conferences directory](https://jumpingrivers.github.io/meetingsR/events.html).
 
-# R super-basics
-## R data types
+# R data types
+When we think of different bits of data, some of it might be numbers, text, dates, and more. R has it's own set of these **data types**. 
 
 Data type | Example
 ------------- | -------------
@@ -361,6 +370,7 @@ Factor (enumerated string) | "Amber" or 2 in c("Red","Amber","Green")
 Complex | i
 Date | "`r Sys.Date()`"
 
+# Basic operations
 ## Maths
 Action | Operator | Example
 ------------- | ------------- | -------------
@@ -434,7 +444,7 @@ Help | ? | `?data.table`
 Identifier | \` |  `` `1`<-2``
 
 
-## #Exercises
+##Exercises
 1. Amend the lines of code you've written so far to store the calculations in variables;
 2. Add some comments that help you remember what each line taught you.
 
@@ -500,96 +510,6 @@ list(a=1:2,
 ## Others
 - **Matrix** A 2D object of one data type
 - **Array** A nD object of one data type
-
-
-# R functions
-## Using a function
-A function does some computation on an object. The use of a function consists of:
-
-1. A function's name;
-2. Parentheses;
-3. 0 or more inputs.
-
-```{r}
-Sys.Date()
-sum(1:3)
-```
-
-## Function arguments
-Functions can have:
-
-- 0 arguments e.g. `Sys.Date()`;
-- all mandatory arguments e.g. `length()`;
-- optional arguments e.g. `sum()`;
-- arguments used out of position by using their names e.g. `rnorm(mean=1, n=10).
-
-## Common functions
-Area | Functions  
-------------- | -------------
-Metadata | `class`, `mode`,`length`, `names`, `nrow`, `ncol` 
-Measures | `mean`, `median`, `mode`, `range`, `sum`, `cumsum`
-Strings | `grep`, `gsub`, `substr`, `trim`, `toupper`, `paste`
-Files | `list.dirs`, `list.files`, `file.exists`
-
-
-## Finding functions
-Find functions by:
-
-- Using code-completion
-- Using help-pages
-- Using `?mean`
-- Using `??mean`
-- Using `apropos("mean")`
-
-## Seeing how functions work
-You can examine how many functions work by just typing their name without any parentheses.
-
-```{r}
-Sys.Date
-```
-
-## Exercises
-1. Find a function that involves Normal distributions;
-2. Find some functions operate on files.
-
-
-# R packages
-## What is a package?
-An R package is a bundle of functions and/or datasets. It extends the capabilities that the "base" and "recommended" R packages have. This gives us the ability to do a lot more.
-
-## Using packages
-- Install a package with `install.packages()`;
-- Load a package with `library()`;
-- See what's in a package / reference it without loading `packagename::function()`;
-- See what's ina  package but not exposed to the public `packagename:::function()`.
-
-## Useful packages
-Area | Packages  
-------------- | -------------
-Data manipulation | `dplyr`, `data.table`,`tidyr`, `stringr`, `forcats`
-Data visualisation | `ggplot2`,`leaflet`,`ggraph`
-Statistics | `tidytext`, `caret`, `broom`
-I/O | `RODBC`, `DBI`, `data.table`, `readxl`
-Web | `rvest`, `httr`, `urltools`
-Outputs | `rmarkdown`, `revealjs`, `shiny`, `flexdashboards`
-
-## Finding packages
-![](rpackagediscovery.png)
-
-## Package documentation
-Packages should have documentation at the following levels:
-
-- Function;
-- Workflow via vignettes;
-- NEWS;
-- DESCRIPTION;
-- READMEs on github.
-
-## Exercises
-1. Load the library dplyr;
-2. Browse dplyr's help pages;
-3. Read a dplyr introductory vignette;
-4. Read dplyr's README.
 
 # R data manipulation basics
 
@@ -700,6 +620,97 @@ myDF
 3. Update the species column to the value "Unknown" in `myIris`;
 4. Delete rows from `myIris` where the sepal length is greater than 5.5.
 
+# R functions
+## Using a function
+A function does some computation on an object. The use of a function consists of:
+
+1. A function's name;
+2. Parentheses;
+3. 0 or more inputs.
+
+```{r}
+Sys.Date()
+sum(1:3)
+```
+
+## Function arguments
+Functions can have:
+
+- 0 arguments e.g. `Sys.Date()`;
+- all mandatory arguments e.g. `length()`;
+- optional arguments e.g. `sum()`;
+- arguments used out of position by using their names e.g. `rnorm(mean=1, n=10).
+
+## Common functions
+Area | Functions  
+------------- | -------------
+Metadata | `class`, `mode`,`length`, `names`, `nrow`, `ncol` 
+Measures | `mean`, `median`, `mode`, `range`, `sum`, `cumsum`
+Strings | `grep`, `gsub`, `substr`, `trim`, `toupper`, `paste`
+Files | `list.dirs`, `list.files`, `file.exists`
+
+
+## Finding functions
+Find functions by:
+
+- Using code-completion
+- Using help-pages
+- Using `?mean`
+- Using `??mean`
+- Using `apropos("mean")`
+
+## Seeing how functions work
+You can examine how many functions work by just typing their name without any parentheses.
+
+```{r}
+Sys.Date
+```
+
+## Exercises
+1. Find a function that involves Normal distributions;
+2. Find some functions operate on files.
+
+
+# R packages
+## What is a package?
+An R package is a bundle of functions and/or datasets. It extends the capabilities that the "base" and "recommended" R packages have. This gives us the ability to do a lot more.
+
+## Using packages
+- Install a package with `install.packages()`;
+- Load a package with `library()`;
+- See what's in a package / reference it without loading `packagename::function()`;
+- See what's ina  package but not exposed to the public `packagename:::function()`.
+
+## Useful packages
+Area | Packages  
+------------- | -------------
+Data manipulation | `dplyr`, `data.table`,`tidyr`, `stringr`, `forcats`
+Data visualisation | `ggplot2`,`leaflet`,`ggraph`
+Statistics | `tidytext`, `caret`, `broom`
+I/O | `RODBC`, `DBI`, `data.table`, `readxl`
+Web | `rvest`, `httr`, `urltools`
+Outputs | `rmarkdown`, `revealjs`, `shiny`, `flexdashboards`
+
+## Finding packages
+![](rpackagediscovery.png)
+
+## Package documentation
+Packages should have documentation at the following levels:
+
+- Function;
+- Workflow via vignettes;
+- NEWS;
+- DESCRIPTION;
+- READMEs on github.
+
+## Exercises
+1. Load the library dplyr;
+2. Browse dplyr's help pages;
+3. Read a dplyr introductory vignette;
+4. Read dplyr's README.
+
+
+# (APPENDIX) Appendix {-}
 # Commercial R variants
 
 ```{block, type="TODO"}
@@ -726,9 +737,9 @@ A closed-source implementation of R, [Microsoft R Client](https://docs.microsoft
 ### Microsoft R Server
 
 # Answers
-# Packages used
+# Software
 
-## Suggested
+## Suggested packages
 The following are used in example content. You do not need these to work through the exercises.
 
 - tidyverse

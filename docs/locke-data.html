@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="why-use-r.html">
-<link rel="next" href="useful-resources.html">
+<link rel="prev" href="steph-locke.html">
+<link rel="next" href="conventions.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -214,156 +214,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="using-rstudio" class="section level1">
-<h1><span class="header-section-number">3</span> Using RStudio</h1>
-<p><a href="//rstudio.com">RStudio</a> is a coding interface to R that makes it easier for you to be productive.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> I’m devoting substantial amounts of this book to your working environment as you can use it to make learning and coding R much easier by taking the time to understand it.</p>
-<p>The interface will be split up into a top menu and then four panes, although only three may be visible when you first start RStudio.</p>
-<div class="TODO">
-<p>
-Clean RStudio image, no arrows
-</p>
-</div>
-<div class="figure">
-<img src="rstudiolayout.png" />
-
-</div>
-<div class="readerTODO">
-<p>
-If you don’t already have it, you should <a href="//www.rstudio.com/products/rstudio/download/#download">install R and RStudio</a>.
-</p>
-<p>
-If you’re on Windows, it’s also great if you can install <a href="//cran.r-project.org/bin/windows/Rtools/">Rtools</a>. This gives you the tools to install packages from GitHub later on down the line.
-</p>
-</div>
-<div id="the-console" class="section level2">
-<h2><span class="header-section-number">3.1</span> The console</h2>
-<div class="TODO">
-<p>
-Make a small gif of using the console
-</p>
-</div>
-<p>The (bottom) left hand section is the console. This is where you can execute R code directly.</p>
-<p>To use the console you type some code alongside the <code>&gt;</code> and hit <kbd>Enter</kbd> for the code to be executed. The result will then appear underneath your line of code.</p>
-<div class="future">
-<p>
-Errors, warnings, and messages will also appear in the console. We’ll discuss what these are later in the book
-</p>
-</div>
-<div class="readerTODO">
-<p>
-Use the console to add two numbers together.
-</p>
-</div>
-<p>If the code you entered wasn’t a complete statement e.g. <code>1 + 2 +</code>, when you hit <kbd>Enter</kbd>, the <code>&gt;</code> will change to a <code>+</code> indicating the code you’re writing will be appended to the line before it.</p>
-<p>If you want to clean your console and start afresh, hit <kbd>Ctrl</kbd> + <kbd>L</kbd> to remove whatever has been executed in the console this session.</p>
-<p>You can use your up and down arrow keys to navigate through previous code you’ve written and executed.</p>
-<div class="glass">
-<p>
-If you commit one of the most common coding errors (incorrect amounts or places of brackets and commas) you might end up with an incomplete line and basically lock your console into having thte <code>+</code> symbol at the beginning of each line. If you find yourself stuck with commands just writing and writing and never executing, hit the <kdb>Esc</kdb> key to cancel the code and get back to the standard cursor.
-</p>
-</div>
-</div>
-<div id="scripts" class="section level2">
-<h2><span class="header-section-number">3.2</span> Scripts</h2>
-<div class="TODO">
-<p>
-Create gif of adding a file
-</p>
-</div>
-<p>RStudio allows you to create and work with files containing code. These files give you a way to store and manage your code.</p>
-<p>The most common file types you might use are R files (<code>.R</code>) and rmarkdown files (<code>.Rmd</code>).</p>
-<div class="future">
-<p>
-rmarkdown files are for generating documents with text and R code interleaved (like this book!) will be covered in a book in future. If you want to get going, checkout the <a href="//rmarkdown.rstudio.com">rmarkdown</a> site.
-</p>
-</div>
-<p>You can create one of these files by going to <em>File &gt; New &gt; R Script</em>, the New File button, or with the hotkey combo<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd>.</p>
-<p>In an R script you can type code and execute it by hitting <kbd>Ctrl</kbd> + <kbd>Enter</kbd><a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>, or selecting the code to run and hitting the Run button.</p>
-<p>You can execute all the code in a script by hitting <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd> or hitting the Source button.</p>
-<div class="readerTODO">
-<ul>
-<li>
-Open a new R script.
-</li>
-<li>
-Write <code>10*5</code> in it and execute the code.
-</li>
-</ul>
-</div>
-</div>
-<div id="code-completion" class="section level2">
-<h2><span class="header-section-number">3.3</span> Code completion</h2>
-<div class="TODO">
-<p>
-Create a gif with code completion
-</p>
-</div>
-<p>Whilst writing scripts or typing in our console, we can get help and be more productive by using <strong>code completion</strong>. Code completion will pick up from what we’ve typed so far and provide a navigable list of suggestions.</p>
-<p>As we navigate through the list, it’ll provide help text where possible and then it will complete the code we were typing.</p>
-<ul>
-<li>You access the code completion by hitting <kbd>Tab</kbd> whilst typing.</li>
-<li>Once it’s up you can keep typing to refine the list.</li>
-<li>Your arrow keys allow you to navigate the list.</li>
-<li>Hit <kbd>Esc</kbd> to back out of the completion capability.</li>
-<li>Hit <kbd>Tab</kbd> to accept whatever value in the list is currently highlighted.</li>
-</ul>
-<div class="readerTODO">
-<ul>
-<li>
-On a new line of your script, type <code>a</code> and activate your code completion. Browse the list then cancel out of the list.
-</li>
-<li>
-Overwrite the <code>a</code> with an <code>A</code> and go back into the code completion. Do youu get the same list? What’s different and why?
-</li>
-</ul>
-</div>
-</div>
-<div id="projects" class="section level2">
-<h2><span class="header-section-number">3.4</span> Projects</h2>
-<p>So far you’ve seen R as a scratchpad (via the console) and for making an isolated script, but a lot of the time we have to be put data, multiple scripts, documentation and more into a <strong>project</strong>.</p>
-<p>An RStudio project is a folder with an extra file. This file can be used to open RStudio, with everything laid out like it was before you closed the project. It can store preferences to allow projects to vary from the way you normally do things.<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a></p>
-<div class="protip">
-<p>
-At this point in your R coding career, keeping everything where you left off is great. Later on, and especially if you work in anything where reproducibility is valued, you can go to <em>Tools &gt; Project Options …</em> and set the .Rdata fields to “no” so that nothing loads up into memory when you load the project.
-</p>
-</div>
-<p>You can, and should, create a new R project when embarking on a new area of work. To create a project go to <em>File &gt; New Project</em>.</p>
-<div class="TODO">
-<p>
-Create a gif of making a project
-</p>
-</div>
-<p>This will popup a dialogue that gives you the option to create a brand new project directory, create one from some existing directory you might already have, and creating one with the content of a project in your source control system.</p>
-<p>Most commonly, you’ll want to create a new directory project. Once selected it’ll then give you the option to create an empty project, a shiny project, or an R package. You’ll normally select the empty projects. Once an option is selected, provide a name and where the project should go.</p>
-<div class="future">
-<p>
-Working with source control, shiny, and creating R packages are all in later books.
-</p>
-</div>
-<p>You can navigate to projects using the project option in the top right corner or in the <em>File</em> section.</p>
-<div class="readerTODO">
-<p>
-Create a new project to store the answers to exercises and any code you try out during this book. You don’t have to save the script you were working on before this (unless you want to!)
-</p>
-</div>
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="3">
-<li id="fn3"><p>If coding interfaces were game modes, RStudio is Easy mode, Visual Studio is Normal, R-GUI is Hard, vim is Insane, and Emacs is Legacy.<a href="using-rstudio.html#fnref3">↩</a></p></li>
-<li id="fn4"><p>I’m a big fan of hotkeys!<a href="using-rstudio.html#fnref4">↩</a></p></li>
-<li id="fn5"><p>This hotkey is really nifty as it’ll find the start and end of a block of code and send it all to the console to be executed.<a href="using-rstudio.html#fnref5">↩</a></p></li>
-<li id="fn6"><p>Like converting tabs to spaces and the number of spaces characters it should replace with.<a href="using-rstudio.html#fnref6">↩</a></p></li>
-</ol>
+<div id="locke-data" class="section level1 unnumbered">
+<h1>Locke Data</h1>
+<p>Locke Data is a consultancy that helps people and organisations get started with data science. We offer training, advice, and technical leadership to make sure things go more smoothly.</p>
+<p>Find out more about us at <a href="https://itsalocke.com">itsalocke.com</a>.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="why-use-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="useful-resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="steph-locke.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conventions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
