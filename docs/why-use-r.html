@@ -248,31 +248,10 @@ These are illustrative only. Don’t worry if they don’t make much sense. Writ
 <span class="kw">list.files</span>(<span class="st">&quot;../data&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span><span class="co"># Change &quot;../data&quot; to where your files are</span>
 <span class="st">  </span><span class="kw">map_df</span>(read_csv, <span class="dt">col_types=</span><span class="kw">cols</span>(<span class="st">&quot;c&quot;</span>)) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">bind_rows</span>() -&gt;
-<span class="st">  </span>allmydata</code></pre></div>
-<pre><code>## Warning: Unnamed `col_types` should have the same length as `col_names`.
-## Using smaller of the two.</code></pre>
-<pre><code>## Warning in rbind(names(probs), probs_f): number of columns of result is not
-## a multiple of vector length (arg 1)</code></pre>
-<pre><code>## Warning: 30 parsing failures.
-## row # A tibble: 5 x 5 col     row   col  expected    actual               file expected   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;              &lt;chr&gt; actual 1     1  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39; file 2     2  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39; row 3     3  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39; col 4     4  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39; expected 5     5  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv1.csv&#39;
-## ... ................. ... .................................................... ........ .................................................... ...... .................................................... .... .................................................... ... .................................................... ... .................................................... ........ ....................................................
-## See problems(...) for more details.</code></pre>
-<pre><code>## Warning: Unnamed `col_types` should have the same length as `col_names`.
-## Using smaller of the two.</code></pre>
-<pre><code>## Warning in rbind(names(probs), probs_f): number of columns of result is not
-## a multiple of vector length (arg 1)</code></pre>
-<pre><code>## Warning: 40 parsing failures.
-## row # A tibble: 5 x 5 col     row   col  expected    actual               file expected   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;              &lt;chr&gt; actual 1     1  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39; file 2     2  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39; row 3     3  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39; col 4     4  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39; expected 5     5  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv2.csv&#39;
-## ... ................. ... .................................................... ........ .................................................... ...... .................................................... .... .................................................... ... .................................................... ... .................................................... ........ ....................................................
-## See problems(...) for more details.</code></pre>
-<pre><code>## Warning: Unnamed `col_types` should have the same length as `col_names`.
-## Using smaller of the two.</code></pre>
-<pre><code>## Warning in rbind(names(probs), probs_f): number of columns of result is not
-## a multiple of vector length (arg 1)</code></pre>
-<pre><code>## Warning: 35 parsing failures.
-## row # A tibble: 5 x 5 col     row   col  expected    actual               file expected   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;              &lt;chr&gt; actual 1     1  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39; file 2     2  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39; row 3     3  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39; col 4     4  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39; expected 5     5  &lt;NA&gt; 1 columns 6 columns &#39;../data/csv3.csv&#39;
-## ... ................. ... .................................................... ........ .................................................... ...... .................................................... .... .................................................... ... .................................................... ... .................................................... ........ ....................................................
-## See problems(...) for more details.</code></pre>
+<span class="st">  </span>allmydata
+
+<span class="kw">nrow</span>(allmydata)</code></pre></div>
+<pre><code>## [1] 105</code></pre>
 </div>
 <div id="data-science" class="section level2">
 <h2><span class="header-section-number">2.2</span> Data science</h2>
@@ -312,10 +291,10 @@ myPlot&lt;-<span class="st"> </span><span class="kw">ggplot</span>(datasaurus_do
 <p>If you want to make a <a href="https://en.wikipedia.org/wiki/Small_multiple">small multiples</a> chart, where the charts are produced in a group, you can use the notion of facetting to make many small charts together.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myPlot +
 <span class="st">   </span><span class="kw">facet_wrap</span>(~dataset)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p>If you wanted to produce and save a chart per dataset you can provide updated data to a chart.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myPlot %+%<span class="st"> </span>simpsons_paradox</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 </div>
 </div>
             </section>

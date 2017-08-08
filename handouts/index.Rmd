@@ -133,12 +133,14 @@ This snippet of R code performs the following steps:
 
 Combining the results involves matching the columns by name. It will create new columns when it finds additional columns in some of the data and fill in the data. When columns are missing from a dataset it will put NAs in the column. 
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 library(tidyverse)
 list.files("../data", full.names = TRUE) %>% # Change "../data" to where your files are
   map_df(read_csv, col_types=cols("c")) %>% 
   bind_rows() ->
   allmydata
+
+nrow(allmydata)
 ```
 
 ## Data science
