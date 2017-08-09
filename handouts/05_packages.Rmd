@@ -1,0 +1,39 @@
+# R packages
+## What is a package?
+An R package is a bundle of functions and/or datasets. It extends the capabilities that the "base" and "recommended" R packages have. This gives us the ability to do a lot more.
+
+## Using packages
+- Install a package with `install.packages()`;
+- Load a package with `library()`;
+- See what's in a package / reference it without loading `packagename::function()`;
+- See what's ina  package but not exposed to the public `packagename:::function()`.
+
+## Useful packages
+Area | Packages  
+------------- | -------------
+Data manipulation | `dplyr`, `data.table`,`tidyr`, `stringr`, `forcats`
+Data visualisation | `ggplot2`,`leaflet`,`ggraph`
+Statistics | `tidytext`, `caret`, `broom`
+I/O | `RODBC`, `DBI`, `data.table`, `readxl`
+Web | `rvest`, `httr`, `urltools`
+Outputs | `rmarkdown`, `revealjs`, `shiny`, `flexdashboards`
+
+## Finding packages
+![](rpackagediscovery.png)
+
+## Package documentation
+Packages should have documentation at the following levels:
+
+- Function;
+- Workflow via vignettes;
+- NEWS;
+- DESCRIPTION;
+- READMEs on github.
+
+## Exercises
+1. Load the library dplyr;
+2. Browse dplyr's help pages;
+3. Read a dplyr introductory vignette;
+4. Read dplyr's README.
+
+

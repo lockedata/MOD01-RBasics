@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="steph-locke.html">
+<link rel="prev" href="r-data-manipulation-basics.html">
+<link rel="next" href="r-functions.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -252,19 +252,166 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="prerequisites" class="section level1 unnumbered">
-<h1>Prerequisites</h1>
-<p>This book assumes no prior knowledge of programming.</p>
-<p>Basic use of calculators and Excel is assumed. This is so that if we say things like <code>(5*5)-2</code> you know that I mean something like “subtract two from the result of five multiplied by five”. If you’re not sure about this type of thing you might struggle.</p>
-<p>You should be able to install (or get installed) R, RStudio, and, if on Windows, RTools. You can code online at <a href="//www.r-fiddle.org/">r-fiddle.org</a> but this might be unreliable. The instructions for installation in</p>
+<div id="r-data-manipulation-basics-1" class="section level1">
+<h1><span class="header-section-number">9</span> R data manipulation basics</h1>
+<div id="grid-references-2" class="section level2">
+<h2><span class="header-section-number">9.1</span> Grid references</h2>
+<p>R works in a grid reference system like [row , column]. So…</p>
+<ul>
+<li>For a 1D vector, there’s just one position i.e. <code>vector[ row ]</code></li>
+<li>For a data.frame, there’s two positions i.e. <code>data.frame[ row , column ]</code></li>
+</ul>
+</div>
+<div id="grid-references-3" class="section level2">
+<h2><span class="header-section-number">9.2</span> Grid references</h2>
+<div class="figure">
+<img src="vectors.png" />
+
+</div>
+<div class="figure">
+<img src="dataframes.png" />
+
+</div>
+<p>Valid values include:</p>
+<ul>
+<li>Positive values or ranges;</li>
+<li>Negative values or ranges;</li>
+<li>Boolean ranges;</li>
+<li>Names or vectors of names.</li>
+</ul>
+</div>
+<div id="grid-referencing-1" class="section level2">
+<h2><span class="header-section-number">9.3</span> Grid referencing</h2>
+<div class="figure">
+<img src="subscripts.png" />
+
+</div>
+</div>
+<div id="grid-referencing-vectors-1" class="section level2">
+<h2><span class="header-section-number">9.4</span> Grid referencing vectors</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] &quot;A&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[-<span class="dv">1</span>]</code></pre></div>
+<pre><code>##  [1] &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot;
+## [18] &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[-<span class="dv">13</span>:-<span class="dv">1</span>]</code></pre></div>
+<pre><code>##  [1] &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>)]</code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;C&quot; &quot;E&quot; &quot;G&quot; &quot;I&quot; &quot;K&quot; &quot;M&quot; &quot;O&quot; &quot;Q&quot; &quot;S&quot; &quot;U&quot; &quot;W&quot; &quot;Y&quot;</code></pre>
+</div>
+<div id="grid-referencing-data.frames-1" class="section level2">
+<h2><span class="header-section-number">9.5</span> Grid referencing data.frames</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF&lt;-<span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">b=</span><span class="dv">2</span>:<span class="dv">4</span>, <span class="dt">c=</span><span class="dv">3</span>:<span class="dv">5</span>)
+myDF[<span class="dv">1</span>,]</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[,-<span class="dv">1</span>]</code></pre></div>
+<pre><code>##   b c
+## 1 2 3
+## 2 3 4
+## 3 4 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>,<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>:<span class="dv">2</span>,]</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3
+## 2 2 3 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>,<span class="ot">TRUE</span>),]</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3
+## 3 3 4 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[,<span class="st">&quot;a&quot;</span>]</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div id="exercises-6" class="section level3">
+<h3><span class="header-section-number">9.5.1</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Select all <code>letters</code> before “x”;</li>
+<li>Select the first 5 rows from the built-in data.frame <code>iris</code>;</li>
+<li>Select the first 2 columns from <code>iris</code>;</li>
+<li>Select the column Sepal.Length from <code>iris</code> by name.</li>
+</ol>
+</div>
+</div>
+<div id="name-checking-1" class="section level2">
+<h2><span class="header-section-number">9.6</span> Name-checking</h2>
+<p>Row names can be used to extract values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myNamedVec&lt;-<span class="kw">c</span>(<span class="st">&quot;red&quot;</span>=<span class="st">&quot;RED&quot;</span>,<span class="st">&quot;blue&quot;</span>=<span class="st">&quot;BLUE&quot;</span>)
+myNamedVec[<span class="st">&quot;red&quot;</span>]</code></pre></div>
+<pre><code>##   red 
+## &quot;RED&quot;</code></pre>
+<p>Column names can also be referenced.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(  iris[,<span class="st">&quot;Species&quot;</span>]    )</code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(  iris$Species        )</code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(  iris[,<span class="kw">c</span>(<span class="st">&quot;Sepal.Width&quot;</span>,<span class="st">&quot;Species&quot;</span>)]    )</code></pre></div>
+<pre><code>## [1] &quot;Sepal.Width&quot; &quot;Species&quot;</code></pre>
+</div>
+<div id="self-referencing-1" class="section level2">
+<h2><span class="header-section-number">9.7</span> Self-referencing</h2>
+<p>Useful for creating booleans, you can create a vector and use this inside your grid reference system.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[LETTERS&lt;<span class="st">&quot;T&quot;</span>]</code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot;
+## [18] &quot;R&quot; &quot;S&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[myDF$a&lt;=<span class="dv">2</span>,]</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3
+## 2 2 3 4</code></pre>
+<div id="exercises-7" class="section level3">
+<h3><span class="header-section-number">9.7.1</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Get all <code>letters</code> that occur after “g”;</li>
+<li>Select rows from the <code>iris</code> data.frame where the <code>Sepal.Length</code> is greater than 5.8cm;</li>
+<li>Select rows from the <code>iris</code> data.frame where the Sepal.Width is below the average for that column.</li>
+</ol>
+</div>
+</div>
+<div id="updating-1" class="section level2">
+<h2><span class="header-section-number">9.8</span> Updating</h2>
+<p>You can update part or all of simple objects by assigning new values against a grid-reference.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec&lt;-LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]
+myVec[<span class="dv">1</span>]&lt;-<span class="st">&quot;Z&quot;</span>
+myVec</code></pre></div>
+<pre><code>## [1] &quot;Z&quot; &quot;B&quot; &quot;C&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>, ]&lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span>
+myDF</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3
+## 2 2 3 4
+## 3 3 4 5</code></pre>
+</div>
+<div id="deleting-1" class="section level2">
+<h2><span class="header-section-number">9.9</span> Deleting</h2>
+<p>You can use the selections to remove values</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec&lt;-myVec[-<span class="dv">2</span>]
+myVec</code></pre></div>
+<pre><code>## [1] &quot;Z&quot; &quot;C&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF&lt;-myDF[-<span class="dv">3</span>,-<span class="dv">1</span>]
+myDF</code></pre></div>
+<pre><code>##   b c
+## 1 2 3
+## 2 3 4</code></pre>
+<div id="exercises-8" class="section level3">
+<h3><span class="header-section-number">9.9.1</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Select everything from <code>iris</code> except the Species column;</li>
+<li>Create a copy of the <code>iris</code> data that just contains the first 100 rows and call it <code>myIris</code>;</li>
+<li>Update the species column to the value “Unknown” in <code>myIris</code>;</li>
+<li>Delete rows from <code>myIris</code> where the sepal length is greater than 5.5.</li>
+</ol>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="steph-locke.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-data-manipulation-basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

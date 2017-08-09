@@ -1,0 +1,62 @@
+# (APPENDIX) Appendix {-}
+
+# Answers
+
+## R Data Types Exercises
+- Convert TRUE to an integer
+```{r}
+as.integer(TRUE)
+```
+
+- What is the datatype of the value returned by `Sys.time()`?
+```{r}
+class(Sys.time())
+```
+
+- What is the datatype of the value returned by `Sys.timezone()`?
+```{r}
+class(Sys.timezone())
+```
+
+- Make this quote into an R string
+> "Do you think this is a game?", he said. "No I think Jenga's a game", Archer responded.
+
+```{r}
+'"Do you think this is a game?", he said. "No I think Jenga\'s a game", Archer responded.'
+```
+
+## Basic Operations Exercises
+- What is the result of `pi^2`?
+```{r}
+pi^2
+```
+
+- Is pi greater than 3?
+```{r}
+pi>3
+```
+
+- Construct a statement to check if 5 is both greater than 3 and less than or equal to 6
+```{r}
+(5 > 3) & (5 <= 6)
+```
+
+- What are the results if you check to see if a sequence of 1 to 5 is less than or equal to 3?
+```{r}
+1:5 <=3
+```
+
+
+# Software
+## R
+## RStudio
+## Suggested packages
+The following are used in example content. You do not need these to work through the exercises.
+
+- tidyverse
+- caret
+- datasauRus
+
+```{r eval=FALSE}
+install.packages(c("tidyverse","caret","datasauRus"))
+```

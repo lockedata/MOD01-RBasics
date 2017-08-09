@@ -1,0 +1,51 @@
+# R functions
+## Using a function
+A function does some computation on an object. The use of a function consists of:
+
+1. A function's name;
+2. Parentheses;
+3. 0 or more inputs.
+
+```{r}
+Sys.Date()
+sum(1:3)
+```
+
+## Function arguments
+Functions can have:
+
+- 0 arguments e.g. `Sys.Date()`;
+- all mandatory arguments e.g. `length()`;
+- optional arguments e.g. `sum()`;
+- arguments used out of position by using their names e.g. `rnorm(mean=1, n=10).
+
+## Common functions
+Area | Functions  
+------------- | -------------
+Metadata | `class`, `mode`,`length`, `names`, `nrow`, `ncol` 
+Measures | `mean`, `median`, `mode`, `range`, `sum`, `cumsum`
+Strings | `grep`, `gsub`, `substr`, `trim`, `toupper`, `paste`
+Files | `list.dirs`, `list.files`, `file.exists`
+
+
+## Finding functions
+Find functions by:
+
+- Using code-completion
+- Using help-pages
+- Using `?mean`
+- Using `??mean`
+- Using `apropos("mean")`
+
+## Seeing how functions work
+You can examine how many functions work by just typing their name without any parentheses.
+
+```{r}
+Sys.Date
+```
+
+## Exercises
+1. Find a function that involves Normal distributions;
+2. Find some functions operate on files.
+
+

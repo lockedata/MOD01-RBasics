@@ -1,0 +1,233 @@
+# Basic operations
+Now that we have some datatypes, we can start learning what we can do with them.
+
+## Maths ^[I'm British, deal with it.]
+In R, we have our common **operators** that you're probably used to if you've performed calculations on computers before.
+
+Action | Operator | Example
+------------- | ------------- | -------------
+Subtract | - | `5 - 4` = `r 5 - 4`
+Add | + | `5 + 4` = `r 5 + 4`
+Multiply | \* | `5 * 4` = `r 5 * 4`
+Divide | / | `5 / 4` = `r 5 / 4`
+Raise to the power | ^ | `5 ^ 4` = `r 5 ^ 4`
+
+R adheres to **BODMAS**^[Brackets, Other, Division, Multiplication, Addition, Subtraction] so you can construct safe calculations that combine operators in reliable ways.
+
+```{r}
+(1 + 2^3) - 5 * (4/2)
+```
+Additionally, there are some other operators worth knowing about.
+
+Action | Operator | Example
+------------- | ------------- | -------------
+Integer division | %/% | `9 %/% 4` = `r 9 %/% 4`
+Modulus | %% | `9 %% 4` = `r 9 %% 4`
+Basic sequence | : | `1:3` = `r 1:3`
+
+The colon (`:`) is a really snazzy way of generating a sequence of numbers that step by 1.
+
+```{r}
+1:5
+5:1
+-1:5
+5:-1
+```
+
+**Integer division** (`%/%`) tells you how many times the first number can be divided by the second without returning a fractional value. 
+
+```{r}
+1:8
+1:8 %/% 3
+1:8 %/% 4
+```
+
+The **modulus** (`%%`) tells you how much is left over after performing an integer division. 
+
+```{r}
+1:8
+1:8 %% 3
+1:8 %% 4
+```
+
+
+
+You'll see percentage symbols (`%`) come up alot in future books For reasons^[Read [Rbitrary](//ironholds.org/projects/rbitrary/) for more info] not worth worrying about, R uses the `%` sign as the start of special operators -- usually these are custom built, contain text, or reserved symbols.
+
+
+## Comparison
+The next important thing to know about is how to write comparisons.
+
+### Common operators
+The less thans and greater thans are symbols that are in pretty much every language for comparisons, but the test to see if two values are the same or not can often vary across languages.
+
+```{r}
+2 < 3
+3 > 2
+2 >= 2
+2 <= 2
+```
+
+In R, you test if two values are exactly the same with `==` and you test if they're different with `!=`.
+
+```{r}
+2 == 2
+2 != 2
+```
+
+You can test if a value is present in a list of acceptable values using the `%in%` operator. This may seem a little trivial right now, but once we start covering more than one value at a time, it'll start showing it's uses for strings.
+
+```{r}
+2 %in% 1:3
+```
+
+### A gotcha
+Testing for equality can get a little weird with R because it uses a different way of storing numbers than we would expect. It doesn't store numbers quite as precisely as we expect - somewhere at the very end of a large number of decimal places, the value can be rounded incorrectly. It doesn't make a difference to most of our calculations but it will often hit when you're comparing two decimal values.
+
+Let's see an example. 
+
+Both these calculation return what we think of as `0.2`
+
+```{r}
+0.5 - 0.3
+0.6 - 0.4
+```
+
+Indeed, if we test `0.2` is the same as `0.2` we get a `TRUE` which matches our expectations.
+```{r}
+0.2 == 0.2
+```
+
+But, when we perform two calculations, even though they come out to the same value to us, there's a little bit of imprecision in how they're stored that stops from being *exactly the same* number.
+
+```{r}
+(0.6 - 0.4) == (0.5 - 0.3)
+```
+
+To avoid this issue, if you're comparing decimal values that result from calculations it is better to use the `all.equal()` function. `all.equal()` adds a tolerance to the comparison which means the very subtle imprecision is ignored. The default tolerance is `r 1.5e-8`, in other words the imprecision is *very, very small*.
+
+```{r}
+all.equal(0.6 - 0.4 , 0.5 - 0.3)
+```
+
+
+### Summary
+Action | Operator | Example
+------------- | ------------- | -------------
+Less than | < | `5 < 5` = `r 5 < 5`
+Less than or equal to | <= | `5 <= 5` = `r 5 <= 5`
+Greater than | > | `5 > 5` = `r 5 > 5`
+Greater than or equal to | >= | `5 >= 5` = `r 5 >= 5`
+Exactly equal | == | `(0.5 - 0.3) == (0.3 - 0.1)` is `r (0.5 - 0.3) == (0.3 - 0.1)`, 2 == 2 is `r 2==2`
+Not equal | != | `(0.5 - 0.3) != (0.3 - 0.1)` is `r (0.5 - 0.3) != (0.3 - 0.1)`, 2 != 2 is `r 2!=2`
+Equal | all.equal() | `all.equal(0.5 - 0.3,0.3 - 0.1)` is `r all.equal(0.5 - 0.3,0.3 - 0.1)`
+In | %in% | `"Red" %in% c("Blue","Red")` is `r  "Red" %in% c("Blue","Red")`
+
+
+## Logic
+Once we can do a single check, we inevitably want to do multiple checks at the same time.
+
+To combine multiple checks, we can use *logical operators*.
+
+### Common operators
+The ampersand (`&`) allows us to combine two checks to do an AND check which is "are both things true".
+
+```{r}
+TRUE & TRUE
+TRUE & FALSE
+FALSE & FALSE
+(2 < 3) & (4 == 4)
+(2 < 3) & (4 != 4)
+```
+
+The pipe / bar (`|`)^[Getting this symbol can be painful as it varies substantially by keyboard, so apologies if it takes you a while to hunt this symbol down.] allows us to do an OR check which is "are either of these things true".
+
+```{r}
+TRUE | TRUE
+TRUE | FALSE
+FALSE | FALSE
+(2 < 3) | (4 == 4)
+(2 < 3) | (4 != 4)
+```
+
+The exclamation point (`!`) allows us to a perform a NOT by negating or swapping a check's result. This allows you say things like "is this check true and that check not true".
+
+```{r}
+TRUE & TRUE
+TRUE & !FALSE
+!FALSE & !FALSE
+(2 < 3) & (4 == 4)
+(2 < 3) & !(4 != 4)
+```
+
+### Other operators
+Less commonly, there other logical checks you might to perform.
+
+We can do an XOR, where one and only one of two values being checked is true.
+
+```{r}
+xor(TRUE, FALSE)
+xor(TRUE, TRUE)
+xor(FALSE, FALSE)
+```
+
+We'll see how this works in the next section, but when we use our logical operators it will do the comparison for every row. Sometimes we might be performing comparisons for many values but we need to to guarantee we get just one value back. We can use variants or AND and ORs called **bitwise** comparisons to achieve this. Use these with care as the results can be a little bit weird!
+
+```{r}
+TRUE && TRUE
+TRUE && FALSE
+TRUE || TRUE
+TRUE || FALSE
+
+1:2>1
+2:3>1
+1:2>1 && 2:3>1
+```
+
+### Summary
+We can produce sophisticated checks from a few simple building blocks. This will come in very handy down the line when doing things like filtering datasets or creating new fields in your data.
+
+Action | Operator | Example
+------------- | ------------- | -------------
+Not | ! | `!TRUE` is `r !TRUE`
+And | & | `TRUE & FALSE` is `r TRUE & FALSE`, `c(TRUE,TRUE) & c(FALSE,TRUE)` is `r c(TRUE,TRUE) & c(FALSE,TRUE)`
+Or | `|` | `TRUE | FALSE` is `r TRUE | FALSE`, `c(TRUE,FALSE) | c(FALSE,FALSE)` is `r c(TRUE,FALSE) | c(FALSE,FALSE)`
+Xor | xor() | `xor(TRUE,FALSE)` is `r xor(TRUE,FALSE)`
+Bitwise And | && | `c(TRUE,TRUE) && c(FALSE,TRUE)` is `r c(TRUE,TRUE) && c(FALSE,TRUE)`
+Bitwise Or | `||` | `c(TRUE,FALSE) || c(FALSE,FALSE)` is `r c(TRUE,FALSE) || c(FALSE,FALSE)`
+
+
+
+
+
+## Summary
+This basic operations section has taught how to manipulate values and consstruct comparisons. These are important building blocks in ddata analysis, and whilst we've been working with only a single value at a time, in the next section we'll see how it works with more data.
+
+Action | Operator | Example
+------------- | ------------- | -------------
+Subtract | - | `5 - 4` = `r 5 - 4`
+Add | + | `5 + 4` = `r 5 + 4`
+Multiply | \* | `5 * 4` = `r 5 * 4`
+Divide | / | `5 / 4` = `r 5 / 4`
+Raise to the power | ^ | `5 ^ 4` = `r 5 ^ 4`
+Less than | < | `5 < 5` = `r 5 < 5`
+Less than or equal to | <= | `5 <= 5` = `r 5 <= 5`
+Greater than | > | `5 > 5` = `r 5 > 5`
+Greater than or equal to | >= | `5 >= 5` = `r 5 >= 5`
+Exactly equal | == | `(0.5 - 0.3) == (0.3 - 0.1)` is `r (0.5 - 0.3) == (0.3 - 0.1)`, 2 == 2 is `r 2==2`
+Not equal | != | `(0.5 - 0.3) != (0.3 - 0.1)` is `r (0.5 - 0.3) != (0.3 - 0.1)`, 2 != 2 is `r 2!=2`
+Equal | all.equal() | `all.equal(0.5 - 0.3,0.3 - 0.1)` is `r all.equal(0.5 - 0.3,0.3 - 0.1)`
+In | %in% | `"Red" %in% c("Blue","Red")` is `r  "Red" %in% c("Blue","Red")`
+Not | ! | `!TRUE` is `r !TRUE`
+And | & | `TRUE & FALSE` is `r TRUE & FALSE`, `c(TRUE,TRUE) & c(FALSE,TRUE)` is `r c(TRUE,TRUE) & c(FALSE,TRUE)`
+Or | `|` | `TRUE | FALSE` is `r TRUE | FALSE`, `c(TRUE,FALSE) | c(FALSE,FALSE)` is `r c(TRUE,FALSE) | c(FALSE,FALSE)`
+Xor | xor() | `xor(TRUE,FALSE)` is `r xor(TRUE,FALSE)`
+Bitwise And | && | `c(TRUE,TRUE) && c(FALSE,TRUE)` is `r c(TRUE,TRUE) && c(FALSE,TRUE)`
+Bitwise Or | `||` | `c(TRUE,FALSE) || c(FALSE,FALSE)` is `r c(TRUE,FALSE) || c(FALSE,FALSE)`
+
+## Basic Operations Exercises
+1. What is the result of `pi^2`?
+1. Is pi greater than 3?
+1. Construct a statement to check if 5 is both greater than 3 and less than or equal to 6
+2. What are the results if you check to see if a sequence of 1 to 5 is less than or equal to 3?
+
