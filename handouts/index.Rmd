@@ -454,7 +454,7 @@ If you need to have both inside a string you can **escape** the ones on the isid
 Beware the copy & pasting (C&Ping) of code that isn't in "pre-formatted" mode. The aesthetically pleasing changing of speechmarks at the beginning and end of some text will screw up your code. If you're getting weird errors around unexpected symbols or your console queuing up after C&Ping, replace all the speechmarks and see if that fixes things. This can also happen with some types of space characters too.
 ```
 
-### String conversion
+### Converting to strings
 Converting to characters and factors is the same as working with numbers. You swap "numeric" for "character" or "factor" and you're done!
 
 You'll see a difference in how these values get displayed. Basic characters are boring - they just print out. Factors look very different. There's no speech marks and there's this Levels bit. The Levels tells you what the unique values in the lookup for this datatype are.
@@ -467,19 +467,114 @@ as.factor(1)
 as.factor("1 a")
 ```
 
+### Checking strings
+We can check text in a similar way to checking numbers.
+```{r}
+is.character(1)
+is.character("1")
+
+is.factor(1)
+is.factor("1")
+is.factor(as.factor("1"))
+```
+
+Additionally, the `class()` function returns the datatype.
+```{r}
+class("1")
+class(as.factor("1"))
+```
+
+## Logical values
+Whilst we've been testing our datatypes, we've created a lot of **logical** or **boolean** values. Booleans values are `TRUE` and `FALSE`. R is case-sensitive so these have to be typed uppercase, otherwise it means something different. 
+
+```{block, type="glass"}
+You can think of the boolean values as 1 and 0, but using these in your code can result in changing your datatype to a number. If things aren't working as expected make sure to check types as you go along.
+```
+
+### Converting to logicals
+```{r}
+TRUE #cases
+as.logical(1)
+as.logical("TRUE")
+as.logical("true")
+
+FALSE #cases
+as.logical(0)
+as.logical("FALSE")
+as.logical("false")
+```
+
+### Checking logicals
+There is support for checking if something is of datatype logical.
+
+```{r}
+is.logical(1)
+is.logical(TRUE)
+is.logical("TRUE")
+class(TRUE)
+```
 
 ## Dates
 ```{block, type="future"}
-Dates are one of the hardest parts of programming! This is a very brief introduction and will not be covered further in this book. Expect a book entirely dedicated to date handling later.
+Dates are one of the hardest parts of programming! This is a very brief introduction to dates and they will not be covered further in this book. Expect a later book to dedicate a lot of page space to date handling.
 ```
 
 
 Dates in R split into:
 
 - **date**s do not have any time component
-- **POSIX** 
+- **POSIX** datetimes
+   + **POSIXct** is an integer based storage method
+   + **POSIXlt** is a component based storage method
+   
+You might be looking at the two POSIX times and thinking to yourself "ZOMG how am I meant to choose?". Most people use the POSIXct format^[According to my unscientific [twitter poll](//twitter.com/SteffLocke/status/895198115594153988)], which is the default for many of R's functions.
+
+### Converting to dates
+You can convert to datetime's with `as.Date()`,`as.POSIXct()`, and `as.POSIXlt()`. Ideally, you'll provide a string with the date(time) in ISO8601 formats e.g. "YYYY-MM-DD hh:ss". If not, you'll want to read up on the datetime format [specifications](//stat.ethz.ch/R-manual/R-devel/library/base/html/strptime.html) for R.
+
+```{r}
+as.Date("2017-12-31")
+as.POSIXct("2017-12-31")
+as.POSIXlt("2017-12-31")
+
+as.Date("2017-12-31 23:59")
+as.POSIXct("2017-12-31 23:59")
+as.POSIXlt("2017-12-31 23:59")
+```
+
+Note that it's assuming a timezone based on my device as I've not provided a default. It's prudent to set the timezone in order to avoid the results of your code changing based on where the code is run or when^[Daylight savings time can catch you out].
+
+```{r}
+as.POSIXct("2017-12-31 23:59", tz="UTC")
+```
+
+### Checking dates
+Unfortunately, R does not provide functions for checking whether the class of something is a datetime type wihtout extending it's functionality. We have to use `class()` as a consequence.
+
+```{r}
+class(as.Date("2017-12-31"))
+class(as.POSIXct("2017-12-31"))
+class(as.POSIXlt("2017-12-31"))
+```
+
+You'll see that the POSIX values not only returns the class we expected but "POSIXt" as well. POSIXt is an interchange format behind the scenes of dates in R. You don't directly use it and you can ignore it from here on in.
+
+### Getting dates and times
+R has some functions for getting current datetime values^[This is an area showing those wonderful R quirks - the `Sys.*` functions are inconsistently cased].
+
+```{r}
+Sys.Date()
+Sys.time()
+Sys.timezone()
+```
+
+
 
 ## Summary
+There a few more datatypes out in the wild but numbers, strings, booleans, and dates are the core types you'll encounter. 
+
+There are normally `as.*` and `is.*` functions for converting to a datatype or checking if omething is a given datatype. You can use `class()` to uncover the datatype too.
+
 Data type | Example
 ------------- | -------------
 Integer | 1
@@ -489,6 +584,15 @@ String / character  | "Red"
 Factor (enumerated string) | "Amber" or 2 in c("Red","Amber","Green")
 Complex | i
 Date | "`r Sys.Date()`"
+
+## R Data Types Exercises
+1. Convert TRUE to an integer
+1. What is the datatype of the value returned by `Sys.time()`?
+1. What is the datatype of the value returned by `Sys.timezone()`?
+1. Make this quote into an R string
+> "Do you think this is a game?", he said. "No I think Jenga's a game", Archer responded.
+
+
 
 # Basic operations
 ## Maths
@@ -857,8 +961,33 @@ A closed-source implementation of R, [Microsoft R Client](https://docs.microsoft
 ### Microsoft R Server
 
 # Answers
-# Software
 
+## R Data Types Exercises
+- Convert TRUE to an integer
+```{r}
+as.integer(TRUE)
+```
+
+- What is the datatype of the value returned by `Sys.time()`?
+```{r}
+class(Sys.time())
+```
+
+- What is the datatype of the value returned by `Sys.timezone()`?
+```{r}
+class(Sys.timezone())
+```
+
+- Make this quote into an R string
+> "Do you think this is a game?", he said. "No I think Jenga's a game", Archer responded.
+
+```{r}
+'"Do you think this is a game?", he said. "No I think Jenga\'s a game", Archer responded.'
+```
+
+# Software
+## R
+## RStudio
 ## Suggested packages
 The following are used in example content. You do not need these to work through the exercises.
 

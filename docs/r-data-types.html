@@ -130,10 +130,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1.2" data-path="r-data-types.html"><a href="r-data-types.html#checking-numbers"><i class="fa fa-check"></i><b>5.1.2</b> Checking numbers</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="r-data-types.html"><a href="r-data-types.html#text"><i class="fa fa-check"></i><b>5.2</b> Text</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="r-data-types.html"><a href="r-data-types.html#string-conversion"><i class="fa fa-check"></i><b>5.2.1</b> String conversion</a></li>
+<li class="chapter" data-level="5.2.1" data-path="r-data-types.html"><a href="r-data-types.html#converting-to-strings"><i class="fa fa-check"></i><b>5.2.1</b> Converting to strings</a></li>
+<li class="chapter" data-level="5.2.2" data-path="r-data-types.html"><a href="r-data-types.html#checking-strings"><i class="fa fa-check"></i><b>5.2.2</b> Checking strings</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="r-data-types.html"><a href="r-data-types.html#dates"><i class="fa fa-check"></i><b>5.3</b> Dates</a></li>
-<li class="chapter" data-level="5.4" data-path="r-data-types.html"><a href="r-data-types.html#summary"><i class="fa fa-check"></i><b>5.4</b> Summary</a></li>
+<li class="chapter" data-level="5.3" data-path="r-data-types.html"><a href="r-data-types.html#logical-values"><i class="fa fa-check"></i><b>5.3</b> Logical values</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="r-data-types.html"><a href="r-data-types.html#converting-to-logicals"><i class="fa fa-check"></i><b>5.3.1</b> Converting to logicals</a></li>
+<li class="chapter" data-level="5.3.2" data-path="r-data-types.html"><a href="r-data-types.html#checking-logicals"><i class="fa fa-check"></i><b>5.3.2</b> Checking logicals</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="r-data-types.html"><a href="r-data-types.html#dates"><i class="fa fa-check"></i><b>5.4</b> Dates</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="r-data-types.html"><a href="r-data-types.html#converting-to-dates"><i class="fa fa-check"></i><b>5.4.1</b> Converting to dates</a></li>
+<li class="chapter" data-level="5.4.2" data-path="r-data-types.html"><a href="r-data-types.html#checking-dates"><i class="fa fa-check"></i><b>5.4.2</b> Checking dates</a></li>
+<li class="chapter" data-level="5.4.3" data-path="r-data-types.html"><a href="r-data-types.html#getting-dates-and-times"><i class="fa fa-check"></i><b>5.4.3</b> Getting dates and times</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="r-data-types.html"><a href="r-data-types.html#summary"><i class="fa fa-check"></i><b>5.5</b> Summary</a></li>
+<li class="chapter" data-level="5.6" data-path="r-data-types.html"><a href="r-data-types.html#r-data-types-exercises"><i class="fa fa-check"></i><b>5.6</b> R Data Types Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="basic-operations.html"><a href="basic-operations.html"><i class="fa fa-check"></i><b>6</b> Basic operations</a><ul>
 <li class="chapter" data-level="6.1" data-path="basic-operations.html"><a href="basic-operations.html#maths"><i class="fa fa-check"></i><b>6.1</b> Maths</a><ul>
@@ -203,9 +213,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="A.1.3" data-path="commercial-r-variants.html"><a href="commercial-r-variants.html#microsoft-r-server"><i class="fa fa-check"></i><b>A.1.3</b> Microsoft R Server</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>B</b> Answers</a></li>
+<li class="chapter" data-level="B" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>B</b> Answers</a><ul>
+<li class="chapter" data-level="B.1" data-path="answers.html"><a href="answers.html#r-data-types-exercises-1"><i class="fa fa-check"></i><b>B.1</b> R Data Types Exercises</a></li>
+</ul></li>
 <li class="chapter" data-level="C" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>C</b> Software</a><ul>
-<li class="chapter" data-level="C.1" data-path="software.html"><a href="software.html#suggested-packages"><i class="fa fa-check"></i><b>C.1</b> Suggested packages</a></li>
+<li class="chapter" data-level="C.1" data-path="software.html"><a href="software.html#r"><i class="fa fa-check"></i><b>C.1</b> R</a></li>
+<li class="chapter" data-level="C.2" data-path="software.html"><a href="software.html#rstudio"><i class="fa fa-check"></i><b>C.2</b> RStudio</a></li>
+<li class="chapter" data-level="C.3" data-path="software.html"><a href="software.html#suggested-packages"><i class="fa fa-check"></i><b>C.3</b> Suggested packages</a></li>
 </ul></li>
 </ul>
 
@@ -316,8 +330,8 @@ Factors will be covered at length in a later book. The rest of this book will wo
 Beware the copy &amp; pasting (C&amp;Ping) of code that isn’t in “pre-formatted” mode. The aesthetically pleasing changing of speechmarks at the beginning and end of some text will screw up your code. If you’re getting weird errors around unexpected symbols or your console queuing up after C&amp;Ping, replace all the speechmarks and see if that fixes things. This can also happen with some types of space characters too.
 </p>
 </div>
-<div id="string-conversion" class="section level3">
-<h3><span class="header-section-number">5.2.1</span> String conversion</h3>
+<div id="converting-to-strings" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Converting to strings</h3>
 <p>Converting to characters and factors is the same as working with numbers. You swap “numeric” for “character” or “factor” and you’re done!</p>
 <p>You’ll see a difference in how these values get displayed. Basic characters are boring - they just print out. Factors look very different. There’s no speech marks and there’s this Levels bit. The Levels tells you what the unique values in the lookup for this datatype are.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="dv">1</span>)</code></pre></div>
@@ -331,22 +345,126 @@ Beware the copy &amp; pasting (C&amp;Ping) of code that isn’t in “pre-format
 <pre><code>## [1] 1 a
 ## Levels: 1 a</code></pre>
 </div>
+<div id="checking-strings" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Checking strings</h3>
+<p>We can check text in a similar way to checking numbers.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.character</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.character</span>(<span class="st">&quot;1&quot;</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.factor</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.factor</span>(<span class="st">&quot;1&quot;</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.factor</span>(<span class="kw">as.factor</span>(<span class="st">&quot;1&quot;</span>))</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Additionally, the <code>class()</code> function returns the datatype.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="st">&quot;1&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">as.factor</span>(<span class="st">&quot;1&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+</div>
+</div>
+<div id="logical-values" class="section level2">
+<h2><span class="header-section-number">5.3</span> Logical values</h2>
+<p>Whilst we’ve been testing our datatypes, we’ve created a lot of <strong>logical</strong> or <strong>boolean</strong> values. Booleans values are <code>TRUE</code> and <code>FALSE</code>. R is case-sensitive so these have to be typed uppercase, otherwise it means something different.</p>
+<div class="glass">
+<p>
+You can think of the boolean values as 1 and 0, but using these in your code can result in changing your datatype to a number. If things aren’t working as expected make sure to check types as you go along.
+</p>
+</div>
+<div id="converting-to-logicals" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Converting to logicals</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> <span class="co">#cases</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="st">&quot;TRUE&quot;</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="st">&quot;true&quot;</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">FALSE</span> <span class="co">#cases</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="dv">0</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="st">&quot;FALSE&quot;</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="st">&quot;false&quot;</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="checking-logicals" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Checking logicals</h3>
+<p>There is support for checking if something is of datatype logical.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.logical</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.logical</span>(<span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.logical</span>(<span class="st">&quot;TRUE&quot;</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+</div>
 </div>
 <div id="dates" class="section level2">
-<h2><span class="header-section-number">5.3</span> Dates</h2>
+<h2><span class="header-section-number">5.4</span> Dates</h2>
 <div class="future">
 <p>
-Dates are one of the hardest parts of programming! This is a very brief introduction and will not be covered further in this book. Expect a book entirely dedicated to date handling later.
+Dates are one of the hardest parts of programming! This is a very brief introduction to dates and they will not be covered further in this book. Expect a later book to dedicate a lot of page space to date handling.
 </p>
 </div>
 <p>Dates in R split into:</p>
 <ul>
 <li><strong>date</strong>s do not have any time component</li>
-<li><strong>POSIX</strong></li>
+<li><strong>POSIX</strong> datetimes</li>
+<li><strong>POSIXct</strong> is an integer based storage method</li>
+<li><strong>POSIXlt</strong> is a component based storage method</li>
 </ul>
+<p>You might be looking at the two POSIX times and thinking to yourself “ZOMG how am I meant to choose?”. Most people use the POSIXct format<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>, which is the default for many of R’s functions.</p>
+<div id="converting-to-dates" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> Converting to dates</h3>
+<p>You can convert to datetime’s with <code>as.Date()</code>,<code>as.POSIXct()</code>, and <code>as.POSIXlt()</code>. Ideally, you’ll provide a string with the date(time) in ISO8601 formats e.g. “YYYY-MM-DD hh:ss”. If not, you’ll want to read up on the datetime format <a href="//stat.ethz.ch/R-manual/R-devel/library/base/html/strptime.html">specifications</a> for R.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="st">&quot;2017-12-31&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2017-12-31&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="st">&quot;2017-12-31&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2017-12-31 GMT&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXlt</span>(<span class="st">&quot;2017-12-31&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2017-12-31 GMT&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="st">&quot;2017-12-31 23:59&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2017-12-31&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="st">&quot;2017-12-31 23:59&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2017-12-31 23:59:00 GMT&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXlt</span>(<span class="st">&quot;2017-12-31 23:59&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2017-12-31 23:59:00 GMT&quot;</code></pre>
+<p>Note that it’s assuming a timezone based on my device as I’ve not provided a default. It’s prudent to set the timezone in order to avoid the results of your code changing based on where the code is run or when<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="st">&quot;2017-12-31 23:59&quot;</span>, <span class="dt">tz=</span><span class="st">&quot;UTC&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2017-12-31 23:59:00 UTC&quot;</code></pre>
+</div>
+<div id="checking-dates" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Checking dates</h3>
+<p>Unfortunately, R does not provide functions for checking whether the class of something is a datetime type wihtout extending it’s functionality. We have to use <code>class()</code> as a consequence.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2017-12-31&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2017-12-31&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">as.POSIXlt</span>(<span class="st">&quot;2017-12-31&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;POSIXlt&quot; &quot;POSIXt&quot;</code></pre>
+<p>You’ll see that the POSIX values not only returns the class we expected but “POSIXt” as well. POSIXt is an interchange format behind the scenes of dates in R. You don’t directly use it and you can ignore it from here on in.</p>
+</div>
+<div id="getting-dates-and-times" class="section level3">
+<h3><span class="header-section-number">5.4.3</span> Getting dates and times</h3>
+<p>R has some functions for getting current datetime values<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Sys.Date</span>()</code></pre></div>
+<pre><code>## [1] &quot;2017-08-09&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Sys.time</span>()</code></pre></div>
+<pre><code>## [1] &quot;2017-08-09 12:15:24 BST&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Sys.timezone</span>()</code></pre></div>
+<pre><code>## [1] &quot;Europe/London&quot;</code></pre>
+</div>
 </div>
 <div id="summary" class="section level2">
-<h2><span class="header-section-number">5.4</span> Summary</h2>
+<h2><span class="header-section-number">5.5</span> Summary</h2>
+<p>There a few more datatypes out in the wild but numbers, strings, booleans, and dates are the core types you’ll encounter.</p>
+<p>There are normally <code>as.*</code> and <code>is.*</code> functions for converting to a datatype or checking if omething is a given datatype. You can use <code>class()</code> to uncover the datatype too.</p>
 <table>
 <thead>
 <tr class="header">
@@ -381,10 +499,19 @@ Dates are one of the hardest parts of programming! This is a very brief introduc
 </tr>
 <tr class="odd">
 <td>Date</td>
-<td>“2017-08-08”</td>
+<td>“2017-08-09”</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div id="r-data-types-exercises" class="section level2">
+<h2><span class="header-section-number">5.6</span> R Data Types Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Convert TRUE to an integer</li>
+<li>What is the datatype of the value returned by <code>Sys.time()</code>?</li>
+<li>What is the datatype of the value returned by <code>Sys.timezone()</code>?</li>
+<li>Make this quote into an R string &gt; “Do you think this is a game?”, he said. “No I think Jenga’s a game”, Archer responded.</li>
+</ol>
 </div>
 </div>
 <div class="footnotes">
@@ -395,6 +522,9 @@ Dates are one of the hardest parts of programming! This is a very brief introduc
 <li id="fn9"><p><em>i</em> is the square root of -1, which is an impossible number since any negative multiplied by itself would result in a positive. Descartes coined the term “imaginary” in reference to this number as it’s a consistent value in formulae but doesn’t exist in the real world.<a href="r-data-types.html#fnref9">↩</a></p></li>
 <li id="fn10"><p>You might recall that <code>class(1)</code> had the result of “numeric” - R was not by default considering 1 as an integer for the purpose of the <code>class()</code> function. This is a property of R’s evaluation of values and you can force it consider a value to be an integer by suffixing it with an L so <code>class(1L)</code> evaluates to “integer”.<a href="r-data-types.html#fnref10">↩</a></p></li>
 <li id="fn11"><p>In other programming languages this is often called an <strong>enumerated string</strong><a href="r-data-types.html#fnref11">↩</a></p></li>
+<li id="fn12"><p>According to my unscientific <a href="//twitter.com/SteffLocke/status/895198115594153988">twitter poll</a><a href="r-data-types.html#fnref12">↩</a></p></li>
+<li id="fn13"><p>Daylight savings time can catch you out<a href="r-data-types.html#fnref13">↩</a></p></li>
+<li id="fn14"><p>This is an area showing those wonderful R quirks - the <code>Sys.*</code> functions are inconsistently cased<a href="r-data-types.html#fnref14">↩</a></p></li>
 </ol>
 </div>
             </section>
