@@ -1,107 +1,199 @@
-# R data manipulation basics
-
+# Data manipulation
 ## Grid references
-R works in a grid reference system like [row , column]. So...
+With R objects, it's possible to use a grid reference system to select values out of an object. 
 
-- For a 1D vector, there's just one position i.e. `vector[ row ]`
-- For a data.frame, there's two positions i.e. `data.frame[ row , column ]`
+In vectors and lists, you can specify the element position as they're only have a single dimension. In data.frames, you can pinpoint both the element (row) and the column.
 
-## Grid references
-![](vectors.png)
+You can provide a grid reference by adding square brackets after a name e.g. `mylist[ ]`. Inside the square brackets, we can provide values in a few different ways to extract parts of the object.
 
-![](dataframes.png)
+If you want everything in an object, you can just use the object's name or put square brackets after it.
 
-
-Valid values include:
-
-- Positive values or ranges;
-- Negative values or ranges;
-- Boolean ranges;
-- Names or vectors of names.
-
-## Grid referencing
-![](subscripts.png)
-
-## Grid referencing vectors
 ```{r}
-LETTERS[1]
-LETTERS[1:3]
-LETTERS[-1]
-LETTERS[-13:-1]
-LETTERS[c(TRUE,FALSE)]
+letters
+letters[]
 ```
 
-## Grid referencing data.frames
-```{r eval=TRUE}
-myDF<-data.frame(a=1:3, b=2:4, c=3:5)
-myDF[1,]
-myDF[,-1]
-myDF[1,1]
-myDF[1:2,]
-myDF[c(TRUE,FALSE,TRUE),]
-myDF[,"a"]
+## Grid references with numbers
+To select a specific element, you provide the number indicating it's position in the object.^[The first element in an R object is at position 1. This is contrary to a number of programming languages where the first element is at position 0.]
+
+```{r}
+letters[2]
+mylist[1]
 ```
 
-### Exercises
-1. Select all `letters` before "x";
+In a data.frame, you can provide one or two values. These are comma seperated inside the square brackets and row numbers get specified first e.g. `iris[ row , column ]`. If you want to select all rows or all columns you leave that part of the reference blank e.g. `iris[1, ]` to return the first row and `iris[ ,2]` to return the second column. 
+
+```{r}
+mydf<-data.frame(a=1:5, b=6:10, c=11:15)
+mydf[1, ]
+mydf[ ,1]
+mydf[3,3]
+```
+
+Since even a single value is a vector in R, it means we can provide longer vectors in our grid specifications.
+
+```{r}
+letters[1:5]
+mydf[1:3,c(1,2)]
+```
+
+As well as positive specifications, we can also use negative values. These tell R which bits of the grid that you don't want.
+
+```{r}
+letters[-5:-1]
+mydf[-3,-2]
+```
+
+If you specify an position that doesn't exist, R will return an **NA** (a missing value) for that position.
+```{r}
+letters[23:29]
+```
+
+## Grid references with names
+Where names are used, we can provide these names in our grid references.
+
+```{r}
+mylist["a"]
+mydf[ , c("a","b")]
+```
+
+You cannot provide a mix of element positions and element names in a single vector because the numbers would get converted to strings and be checked as character-based names.
+
+```{r}
+mylist[c(1,"a")]
+```
+
+You are able to use element positions and element names in data.frame selections if you stick to one type of reference in each position.
+
+```{r}
+mydf[1:2, c("a","b")]
+```
+
+## Grid references with conditional values
+Whilst we often want to subset data.frames to some specific columns, a lot of the time with vectors and data.frames we want to be able to apply a condition that determines which values are returned.
+
+If you provide boolean values into our grid reference system it will return elements that have a TRUE associated with it, and ignore values with a FALSE associated with it.
+
+```{r}
+mydf[, c(TRUE,FALSE,TRUE)]
+```
+
+R will perform the recycling we saw in the section about working with vectors. So for instance, if we want to return every other letter in the alphabet we could provide a vector of length 2. It would then recycle this vector so TRUE and FALSE alternate for all 26 letters.
+
+```{r}
+letters[c(TRUE,FALSE)]
+```
+
+```{block, type="glass"}
+You might be used to using 0 and 1 as shorthands for boolean values. Unfortunately if you try to use this you find NAs returned for any values you intended to be excluded by using 0, and you'll get the first value repeated everywhere you used a 1 to indicate inclusion.
+```
+
+Hard-coding TRUE and FALSE values is probably not your idea of fun and certainly isn't mine. We can use our knowledge of building comparisons to generate our booleans for inclusion.
+
+```{r}
+earlyletters<- letters <= "e"
+letters[earlyletters]
+```
+
+This can be simplified by avoiding the step of creating a variable and using the comparison directly as the grid reference.
+
+```{r}
+letters[ letters <= "e" ]
+```
+
+We can produce compound comparisons and use those too.
+
+```{r}
+letters[ letters <= "e" & letters > "b"]
+```
+
+## Other reference methods
+If you need to select a given named value or column from an object, there are some alternative selection methods you do.
+
+There are double square brackets for when you expect only, and only one, named element.
+```{r}
+mylist[["a"]]
+```
+
+There is a much nicer option though for lists and data.frames. That option is using the dollar sign (`$`) to access named elements.
+
+```{r}
+mylist$a
+mydf$b
+```
+
+The `$` methodology has some benefits. It uses fewer characters and you can use code-completion with it.
+
+We can use both these notations inside our grid reference system. This becomes very handy for writing row conditions for data.frames.
+
+```{r}
+mydf[ mydf$a > 3, 1:2]
+```
+
+```{block, type="future"}
+This is the old-school way of working with data.frames. It's important to be able to write queries of your data this way, or at least read other people's code but as soon as you can you should move onto the `data.table` or `tidyverse` ways of working with data.frames. The next book in this series will focus on the tidyverse way of working with data.frames.
+```
+
+## Changing objects
+By utilising our reference systems, not only we can select daata of interest to us, but we can add new data, update existing values, and even delete values.
+
+You can update part or all of simple objects by assigning new values against a grid-reference.
+
+Adding additional values involves specifying new element positions and providing new data.
+```{r}
+letters[27]<-"|"
+tail(letters)
+
+mydf[6,] <- c(pi, Inf, -Inf)
+mydf
+```
+
+For data.frames, if you want to create a new column, it's usually much easier to use our `$` notation.
+
+```{r}
+mydf$d<-5
+mydf
+```
+
+Updating values involves providing a set of values of the same size as the destination. 
+
+```{r}
+letters[1:3]<-LETTERS[1:3]
+head(letters)
+
+mydf[1, ]<- 1:4
+mydf
+```
+
+If you provide something that is not the same size, R will apply the recycling rules. Again, this is nifty and terrible at the same time.
+
+```{r}
+mydf[2, ]<-1:2
+```
+
+If you want to delete values, you can overwrite an object after doing a negative selection.
+
+```{r}
+mydf<-mydf[-1,]
+mydf
+```
+
+An alternative method is to make a selection and assign them the value NULL. NULL can removes contents in lists and data.frames.
+
+```{r}
+mydf$c<-NULL
+mydf
+mylist[2]<-NULL
+mylist
+```
+
+## Data manipulation exercises
+1. Select all `LETTERS` before "X";
 2. Select the first 5 rows from the built-in data.frame `iris`;
 3. Select the first 2 columns from `iris`;
 4. Select the column Sepal.Length from `iris` by name.
-
-## Name-checking
-Row names can be used to extract values.
-
-```{r}
-myNamedVec<-c("red"="RED","blue"="BLUE")
-myNamedVec["red"]
-```
-
-Column names can also be referenced.
-
-```{r}
-colnames(  iris[,"Species"]    )
-colnames(  iris$Species        )
-
-colnames(  iris[,c("Sepal.Width","Species")]    )
-```
-
-## Self-referencing
-Useful for creating booleans, you can create a vector and use this inside your grid reference system.
-```{r}
-LETTERS[LETTERS<"T"]
-myDF[myDF$a<=2,]
-```
-
-
-### Exercises
-1. Get all `letters` that occur after "g";
 2. Select rows from the `iris` data.frame where the `Sepal.Length` is greater than 5.8cm;
 3. Select rows from the `iris` data.frame where the Sepal.Width is below the average for that column.
-
-## Updating
-You can update part or all of simple objects by assigning new values against a grid-reference.
-
-```{r}
-myVec<-LETTERS[1:3]
-myVec[1]<-"Z"
-myVec
-
-myDF[1, ]<- 1:3
-myDF
-```
-
-## Deleting
-You can use the selections to remove values
-
-```{r}
-myVec<-myVec[-2]
-myVec
-
-myDF<-myDF[-3,-1]
-myDF
-```
-
-### Exercises
 1. Select everything from `iris` except the Species column;
 2. Create a copy of the `iris` data that just contains the first 100 rows and call it `myIris`;
 3. Update the species column to the value "Unknown" in `myIris`;

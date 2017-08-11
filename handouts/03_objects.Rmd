@@ -47,8 +47,7 @@ It's also a pretty major curse because you'll inevitably create something at som
 I recommend you get in the habit early of not working with your session being saved. Turn it off in *Tools > Global Options*, untick "Restore .RData into workspace at startup" 
 ```
 
-If you need to manage what's been stored you can list objects with `ls()` and remove them with `rm()`. If you want to remove everything you can use`ls()` inside `rm()`. Alternatively, you can use the broom symbol in the Environment tab in RStudio.
-
+If you need to manage what's been stored you can list objects with `ls()` and remove them with `rm()`. If you want to remove everything you can use`ls()` inside `rm()`. 
 
 ```{r}
 today<-Sys.Date()
@@ -56,6 +55,14 @@ rm("today")
 ls()
 rm(list=ls())
 ```
+
+Another way you can remove a single object is to overwrite the object with value NULL. 
+```{r}
+today<-Sys.Date()
+today<-NULL
+```
+
+If you want to clear everything you can also use the broom symbol in the Environment tab in RStudio.
 
 ## Vectors
 A **vector** is a collection of values that hold the same datatype. It is **one-dimensional** in that none of the **elements** in the collection correspond to other values like they might in a table of values.

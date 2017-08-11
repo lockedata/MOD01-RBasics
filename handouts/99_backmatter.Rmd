@@ -99,6 +99,60 @@ list(fifty, words, fiftywords)
 head(iris)
 ```
 
+## Data manipulation exercises
+- Select all `LETTERS` before "X";
+```{r}
+LETTERS[LETTERS<"X"]
+```
+
+- Select the first 5 rows from the built-in data.frame `iris`;
+```{r}
+iris[1:5, ]
+```
+
+- Select the first 2 columns from `iris`;
+```{r}
+head(iris[,1:2])
+```
+
+- Select the column Sepal.Length from `iris` by name.
+```{r}
+head(iris[,"Sepal.Length"])
+```
+
+- Select rows from the `iris` data.frame where the `Sepal.Length` is greater than 5.8cm;
+```{r}
+head(iris[iris$Sepal.Length>5.8,])
+```
+
+- Select rows from the `iris` data.frame where the Sepal.Width is below the average for that column.
+```{r}
+head(iris[iris$Sepal.Width<mean(iris$Sepal.Width),])
+```
+
+- Select everything from `iris` except the Species column;
+```{r}
+head(iris[,-5])
+```
+
+- Create a copy of the `iris` data that just contains the first 100 rows and call it `myIris`;
+```{r}
+myIris<-iris[1:100,]
+```
+
+- Update the species column to the value "Unknown" in `myIris`;
+```{r}
+myIris$Species<-"Unknown"
+```
+
+- Delete rows from `myIris` where the sepal length is greater than 5.5.
+```{r}
+myIris<-myIris[myIris$Sepal.Length<=5.5,]
+```
+
+
+
+
 # Software
 ## R
 ## RStudio

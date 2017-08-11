@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="why-use-r.html">
-<link rel="next" href="useful-resources.html">
+<link rel="prev" href="r-objects.html">
+<link rel="next" href="r-functions.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -231,147 +231,228 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="using-rstudio" class="section level1">
-<h1><span class="header-section-number">3</span> Using RStudio</h1>
-<p><a href="//rstudio.com">RStudio</a> is a coding interface to R that makes it easier for you to be productive.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> I’m devoting substantial amounts of this book to your working environment as you can use it to make learning and coding R much easier by taking the time to understand it.</p>
-<p>The interface will be split up into a top menu and then four panes, although only three may be visible when you first start RStudio.</p>
-<div class="TODO">
-<p>
-Clean RStudio image, no arrows
-</p>
+<div id="data-manipulation" class="section level1">
+<h1><span class="header-section-number">8</span> Data manipulation</h1>
+<div id="grid-references" class="section level2">
+<h2><span class="header-section-number">8.1</span> Grid references</h2>
+<p>With R objects, it’s possible to use a grid reference system to select values out of an object.</p>
+<p>In vectors and lists, you can specify the element position as they’re only have a single dimension. In data.frames, you can pinpoint both the element (row) and the column.</p>
+<p>You can provide a grid reference by adding square brackets after a name e.g. <code>mylist[ ]</code>. Inside the square brackets, we can provide values in a few different ways to extract parts of the object.</p>
+<p>If you want everything in an object, you can just use the object’s name or put square brackets after it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters
+letters[]</code></pre></div>
+<pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot;
+## [18] &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;
+##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot;
+## [18] &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
 </div>
-<div class="figure">
-<img src="rstudiolayout.png" />
-
+<div id="grid-references-with-numbers" class="section level2">
+<h2><span class="header-section-number">8.2</span> Grid references with numbers</h2>
+<p>To select a specific element, you provide the number indicating it’s position in the object.<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">2</span>]
+mylist[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] &quot;b&quot;
+## $a
+## [1] 1 2 3</code></pre>
+<p>In a data.frame, you can provide one or two values. These are comma seperated inside the square brackets and row numbers get specified first e.g. <code>iris[ row , column ]</code>. If you want to select all rows or all columns you leave that part of the reference blank e.g. <code>iris[1, ]</code> to return the first row and <code>iris[ ,2]</code> to return the second column.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">b =</span> <span class="dv">6</span>:<span class="dv">10</span>, <span class="dt">c =</span> <span class="dv">11</span>:<span class="dv">15</span>)
+mydf[<span class="dv">1</span>, ]
+mydf[, <span class="dv">1</span>]
+mydf[<span class="dv">3</span>, <span class="dv">3</span>]</code></pre></div>
+<pre><code>##   a b  c
+## 1 1 6 11
+## [1] 1 2 3 4 5
+## [1] 13</code></pre>
+<p>Since even a single value is a vector in R, it means we can provide longer vectors in our grid specifications.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">1</span>:<span class="dv">5</span>]
+mydf[<span class="dv">1</span>:<span class="dv">3</span>, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;
+##   a b
+## 1 1 6
+## 2 2 7
+## 3 3 8</code></pre>
+<p>As well as positive specifications, we can also use negative values. These tell R which bits of the grid that you don’t want.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[-<span class="dv">5</span>:-<span class="dv">1</span>]
+mydf[-<span class="dv">3</span>, -<span class="dv">2</span>]</code></pre></div>
+<pre><code>##  [1] &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot;
+## [18] &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;
+##   a  c
+## 1 1 11
+## 2 2 12
+## 4 4 14
+## 5 5 15</code></pre>
+<p>If you specify an position that doesn’t exist, R will return an <strong>NA</strong> (a missing value) for that position.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">23</span>:<span class="dv">29</span>]</code></pre></div>
+<pre><code>## [1] &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot; NA  NA  NA</code></pre>
 </div>
-<div class="readerTODO">
-<p>
-If you don’t already have it, you should <a href="//www.rstudio.com/products/rstudio/download/#download">install R and RStudio</a>.
-</p>
-<p>
-If you’re on Windows, it’s also great if you can install <a href="//cran.r-project.org/bin/windows/Rtools/">Rtools</a>. This gives you the tools to install packages from GitHub later on down the line.
-</p>
+<div id="grid-references-with-names" class="section level2">
+<h2><span class="header-section-number">8.3</span> Grid references with names</h2>
+<p>Where names are used, we can provide these names in our grid references.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist[<span class="st">&quot;a&quot;</span>]
+mydf[, <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)]</code></pre></div>
+<pre><code>## $a
+## [1] 1 2 3
+## 
+##   a  b
+## 1 1  6
+## 2 2  7
+## 3 3  8
+## 4 4  9
+## 5 5 10</code></pre>
+<p>You cannot provide a mix of element positions and element names in a single vector because the numbers would get converted to strings and be checked as character-based names.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist[<span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>)]</code></pre></div>
+<pre><code>## $&lt;NA&gt;
+## NULL
+## 
+## $a
+## [1] 1 2 3</code></pre>
+<p>You are able to use element positions and element names in data.frame selections if you stick to one type of reference in each position.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[<span class="dv">1</span>:<span class="dv">2</span>, <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)]</code></pre></div>
+<pre><code>##   a b
+## 1 1 6
+## 2 2 7</code></pre>
 </div>
-<div id="the-console" class="section level2">
-<h2><span class="header-section-number">3.1</span> The console</h2>
-<div class="TODO">
-<p>
-Make a small gif of using the console
-</p>
-</div>
-<p>The (bottom) left hand section is the console. This is where you can execute R code directly.</p>
-<p>To use the console you type some code alongside the <code>&gt;</code> and hit <kbd>Enter</kbd> for the code to be executed. The result will then appear underneath your line of code.</p>
-<div class="future">
-<p>
-Errors, warnings, and messages will also appear in the console. We’ll discuss what these are later in the book
-</p>
-</div>
-<div class="readerTODO">
-<p>
-Use the console to add two numbers together.
-</p>
-</div>
-<p>If the code you entered wasn’t a complete statement e.g. <code>1 + 2 +</code>, when you hit <kbd>Enter</kbd>, the <code>&gt;</code> will change to a <code>+</code> indicating the code you’re writing will be appended to the line before it.</p>
-<p>If you want to clean your console and start afresh, hit <kbd>Ctrl</kbd> + <kbd>L</kbd> to remove whatever has been executed in the console this session.</p>
-<p>You can use your up and down arrow keys to navigate through previous code you’ve written and executed.</p>
+<div id="grid-references-with-conditional-values" class="section level2">
+<h2><span class="header-section-number">8.4</span> Grid references with conditional values</h2>
+<p>Whilst we often want to subset data.frames to some specific columns, a lot of the time with vectors and data.frames we want to be able to apply a condition that determines which values are returned.</p>
+<p>If you provide boolean values into our grid reference system it will return elements that have a TRUE associated with it, and ignore values with a FALSE associated with it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[, <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)]</code></pre></div>
+<pre><code>##   a  c
+## 1 1 11
+## 2 2 12
+## 3 3 13
+## 4 4 14
+## 5 5 15</code></pre>
+<p>R will perform the recycling we saw in the section about working with vectors. So for instance, if we want to return every other letter in the alphabet we could provide a vector of length 2. It would then recycle this vector so TRUE and FALSE alternate for all 26 letters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)]</code></pre></div>
+<pre><code>##  [1] &quot;a&quot; &quot;c&quot; &quot;e&quot; &quot;g&quot; &quot;i&quot; &quot;k&quot; &quot;m&quot; &quot;o&quot; &quot;q&quot; &quot;s&quot; &quot;u&quot; &quot;w&quot; &quot;y&quot;</code></pre>
 <div class="glass">
 <p>
-If you commit one of the most common coding errors (incorrect amounts or places of brackets and commas) you might end up with an incomplete line and basically lock your console into having thte <code>+</code> symbol at the beginning of each line. If you find yourself stuck with commands just writing and writing and never executing, hit the <kdb>Esc</kdb> key to cancel the code and get back to the standard cursor.
+You might be used to using 0 and 1 as shorthands for boolean values. Unfortunately if you try to use this you find NAs returned for any values you intended to be excluded by using 0, and you’ll get the first value repeated everywhere you used a 1 to indicate inclusion.
 </p>
 </div>
+<p>Hard-coding TRUE and FALSE values is probably not your idea of fun and certainly isn’t mine. We can use our knowledge of building comparisons to generate our booleans for inclusion.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">earlyletters &lt;-<span class="st"> </span>letters &lt;=<span class="st"> &quot;e&quot;</span>
+letters[earlyletters]</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;</code></pre>
+<p>This can be simplified by avoiding the step of creating a variable and using the comparison directly as the grid reference.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[letters &lt;=<span class="st"> &quot;e&quot;</span>]</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;</code></pre>
+<p>We can produce compound comparisons and use those too.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[letters &lt;=<span class="st"> &quot;e&quot;</span> &amp;<span class="st"> </span>letters &gt;<span class="st"> &quot;b&quot;</span>]</code></pre></div>
+<pre><code>## [1] &quot;c&quot; &quot;d&quot; &quot;e&quot;</code></pre>
 </div>
-<div id="scripts" class="section level2">
-<h2><span class="header-section-number">3.2</span> Scripts</h2>
-<div class="TODO">
-<p>
-Create gif of adding a file
-</p>
-</div>
-<p>RStudio allows you to create and work with files containing code. These files give you a way to store and manage your code.</p>
-<p>The most common file types you might use are R files (<code>.R</code>) and rmarkdown files (<code>.Rmd</code>).</p>
+<div id="other-reference-methods" class="section level2">
+<h2><span class="header-section-number">8.5</span> Other reference methods</h2>
+<p>If you need to select a given named value or column from an object, there are some alternative selection methods you do.</p>
+<p>There are double square brackets for when you expect only, and only one, named element.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist[[<span class="st">&quot;a&quot;</span>]]</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<p>There is a much nicer option though for lists and data.frames. That option is using the dollar sign (<code>$</code>) to access named elements.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist$a
+mydf$b</code></pre></div>
+<pre><code>## [1] 1 2 3
+## [1]  6  7  8  9 10</code></pre>
+<p>The <code>$</code> methodology has some benefits. It uses fewer characters and you can use code-completion with it.</p>
+<p>We can use both these notations inside our grid reference system. This becomes very handy for writing row conditions for data.frames.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[mydf$a &gt;<span class="st"> </span><span class="dv">3</span>, <span class="dv">1</span>:<span class="dv">2</span>]</code></pre></div>
+<pre><code>##   a  b
+## 4 4  9
+## 5 5 10</code></pre>
 <div class="future">
 <p>
-rmarkdown files are for generating documents with text and R code interleaved (like this book!) will be covered in a book in future. If you want to get going, checkout the <a href="//rmarkdown.rstudio.com">rmarkdown</a> site.
+This is the old-school way of working with data.frames. It’s important to be able to write queries of your data this way, or at least read other people’s code but as soon as you can you should move onto the <code>data.table</code> or <code>tidyverse</code> ways of working with data.frames. The next book in this series will focus on the tidyverse way of working with data.frames.
 </p>
 </div>
-<p>You can create one of these files by going to <em>File &gt; New &gt; R Script</em>, the New File button, or with the hotkey combo<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd>.</p>
-<p>In an R script you can type code and execute it by hitting <kbd>Ctrl</kbd> + <kbd>Enter</kbd><a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>, or selecting the code to run and hitting the Run button.</p>
-<p>You can execute all the code in a script by hitting <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd> or hitting the Source button.</p>
-<div class="readerTODO">
-<ul>
-<li>
-Open a new R script.
-</li>
-<li>
-Write <code>10*5</code> in it and execute the code.
-</li>
-</ul>
 </div>
+<div id="changing-objects" class="section level2">
+<h2><span class="header-section-number">8.6</span> Changing objects</h2>
+<p>By utilising our reference systems, not only we can select daata of interest to us, but we can add new data, update existing values, and even delete values.</p>
+<p>You can update part or all of simple objects by assigning new values against a grid-reference.</p>
+<p>Adding additional values involves specifying new element positions and providing new data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">27</span>] &lt;-<span class="st"> &quot;|&quot;</span>
+<span class="kw">tail</span>(letters)
+
+mydf[<span class="dv">6</span>, ] &lt;-<span class="st"> </span><span class="kw">c</span>(pi, <span class="ot">Inf</span>, -<span class="ot">Inf</span>)
+mydf</code></pre></div>
+<pre><code>## [1] &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot; &quot;|&quot;
+##          a   b    c
+## 1 1.000000   6   11
+## 2 2.000000   7   12
+## 3 3.000000   8   13
+## 4 4.000000   9   14
+## 5 5.000000  10   15
+## 6 3.141593 Inf -Inf</code></pre>
+<p>For data.frames, if you want to create a new column, it’s usually much easier to use our <code>$</code> notation.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf$d &lt;-<span class="st"> </span><span class="dv">5</span>
+mydf</code></pre></div>
+<pre><code>##          a   b    c d
+## 1 1.000000   6   11 5
+## 2 2.000000   7   12 5
+## 3 3.000000   8   13 5
+## 4 4.000000   9   14 5
+## 5 5.000000  10   15 5
+## 6 3.141593 Inf -Inf 5</code></pre>
+<p>Updating values involves providing a set of values of the same size as the destination.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">1</span>:<span class="dv">3</span>] &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]
+<span class="kw">head</span>(letters)
+
+mydf[<span class="dv">1</span>, ] &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">4</span>
+mydf</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot;
+##          a   b    c d
+## 1 1.000000   2    3 4
+## 2 2.000000   7   12 5
+## 3 3.000000   8   13 5
+## 4 4.000000   9   14 5
+## 5 5.000000  10   15 5
+## 6 3.141593 Inf -Inf 5</code></pre>
+<p>If you provide something that is not the same size, R will apply the recycling rules. Again, this is nifty and terrible at the same time.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[<span class="dv">2</span>, ] &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">2</span></code></pre></div>
+<p>If you want to delete values, you can overwrite an object after doing a negative selection.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf &lt;-<span class="st"> </span>mydf[-<span class="dv">1</span>, ]
+mydf</code></pre></div>
+<pre><code>##          a   b    c d
+## 2 1.000000   2    1 2
+## 3 3.000000   8   13 5
+## 4 4.000000   9   14 5
+## 5 5.000000  10   15 5
+## 6 3.141593 Inf -Inf 5</code></pre>
+<p>An alternative method is to make a selection and assign them the value NULL. NULL can removes contents in lists and data.frames.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf$c &lt;-<span class="st"> </span><span class="ot">NULL</span>
+mydf
+mylist[<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="ot">NULL</span>
+mylist</code></pre></div>
+<pre><code>##          a   b d
+## 2 1.000000   2 2
+## 3 3.000000   8 5
+## 4 4.000000   9 5
+## 5 5.000000  10 5
+## 6 3.141593 Inf 5
+## $a
+## [1] 1 2 3</code></pre>
 </div>
-<div id="code-completion" class="section level2">
-<h2><span class="header-section-number">3.3</span> Code completion</h2>
-<div class="TODO">
-<p>
-Create a gif with code completion
-</p>
-</div>
-<p>Whilst writing scripts or typing in our console, we can get help and be more productive by using <strong>code completion</strong>. Code completion will pick up from what we’ve typed so far and provide a navigable list of suggestions.</p>
-<p>As we navigate through the list, it’ll provide help text where possible and then it will complete the code we were typing.</p>
-<ul>
-<li>You access the code completion by hitting <kbd>Tab</kbd> whilst typing.</li>
-<li>Once it’s up you can keep typing to refine the list.</li>
-<li>Your arrow keys allow you to navigate the list.</li>
-<li>Hit <kbd>Esc</kbd> to back out of the completion capability.</li>
-<li>Hit <kbd>Tab</kbd> to accept whatever value in the list is currently highlighted.</li>
-</ul>
-<div class="readerTODO">
-<ul>
-<li>
-On a new line of your script, type <code>a</code> and activate your code completion. Browse the list then cancel out of the list.
-</li>
-<li>
-Overwrite the <code>a</code> with an <code>A</code> and go back into the code completion. Do youu get the same list? What’s different and why?
-</li>
-</ul>
-</div>
-</div>
-<div id="projects" class="section level2">
-<h2><span class="header-section-number">3.4</span> Projects</h2>
-<p>So far you’ve seen R as a scratchpad (via the console) and for making an isolated script, but a lot of the time we have to be put data, multiple scripts, documentation and more into a <strong>project</strong>.</p>
-<p>An RStudio project is a folder with an extra file. This file can be used to open RStudio, with everything laid out like it was before you closed the project. It can store preferences to allow projects to vary from the way you normally do things.<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a></p>
-<div class="protip">
-<p>
-At this point in your R coding career, keeping everything where you left off is great. Later on, and especially if you work in anything where reproducibility is valued, you can go to <em>Tools &gt; Project Options …</em> and set the .Rdata fields to “no” so that nothing loads up into memory when you load the project.
-</p>
-</div>
-<p>You can, and should, create a new R project when embarking on a new area of work. To create a project go to <em>File &gt; New Project</em>.</p>
-<div class="TODO">
-<p>
-Create a gif of making a project
-</p>
-</div>
-<p>This will popup a dialogue that gives you the option to create a brand new project directory, create one from some existing directory you might already have, and creating one with the content of a project in your source control system.</p>
-<p>Most commonly, you’ll want to create a new directory project. Once selected it’ll then give you the option to create an empty project, a shiny project, or an R package. You’ll normally select the empty projects. Once an option is selected, provide a name and where the project should go.</p>
-<div class="future">
-<p>
-Working with source control, shiny, and creating R packages are all in later books.
-</p>
-</div>
-<p>You can navigate to projects using the project option in the top right corner or in the <em>File</em> section.</p>
-<div class="readerTODO">
-<p>
-Create a new project to store the answers to exercises and any code you try out during this book. You don’t have to save the script you were working on before this (unless you want to!)
-</p>
-</div>
+<div id="data-manipulation-exercises" class="section level2">
+<h2><span class="header-section-number">8.7</span> Data manipulation exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Select all <code>LETTERS</code> before “X”;</li>
+<li>Select the first 5 rows from the built-in data.frame <code>iris</code>;</li>
+<li>Select the first 2 columns from <code>iris</code>;</li>
+<li>Select the column Sepal.Length from <code>iris</code> by name.</li>
+<li>Select rows from the <code>iris</code> data.frame where the <code>Sepal.Length</code> is greater than 5.8cm;</li>
+<li>Select rows from the <code>iris</code> data.frame where the Sepal.Width is below the average for that column.</li>
+<li>Select everything from <code>iris</code> except the Species column;</li>
+<li>Create a copy of the <code>iris</code> data that just contains the first 100 rows and call it <code>myIris</code>;</li>
+<li>Update the species column to the value “Unknown” in <code>myIris</code>;</li>
+<li>Delete rows from <code>myIris</code> where the sepal length is greater than 5.5.</li>
+</ol>
+
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="3">
-<li id="fn3"><p>If coding interfaces were game modes, RStudio is Easy mode, Visual Studio is Normal, R-GUI is Hard, vim is Insane, and Emacs is Legacy.<a href="using-rstudio.html#fnref3">↩</a></p></li>
-<li id="fn4"><p>I’m a big fan of hotkeys!<a href="using-rstudio.html#fnref4">↩</a></p></li>
-<li id="fn5"><p>This hotkey is really nifty as it’ll find the start and end of a block of code and send it all to the console to be executed.<a href="using-rstudio.html#fnref5">↩</a></p></li>
-<li id="fn6"><p>Like converting tabs to spaces and the number of spaces characters it should replace with.<a href="using-rstudio.html#fnref6">↩</a></p></li>
+<ol start="21">
+<li id="fn21"><p>The first element in an R object is at position 1. This is contrary to a number of programming languages where the first element is at position 0.<a href="data-manipulation.html#fnref21">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -379,8 +460,8 @@ Create a new project to store the answers to exercises and any code you try out 
           </div>
         </div>
       </div>
-<a href="why-use-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="useful-resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-objects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
