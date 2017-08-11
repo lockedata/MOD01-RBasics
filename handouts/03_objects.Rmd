@@ -26,10 +26,10 @@ my_first_variable <- 1
 my.first.variable <- 1
 ```
 
-You can create names breaking the rules governing valid names by placing the rule breaking name between two backticks (`\``). I don't recommend you do this with variables you'll create, but you'll often end up with names that break conventions when importing data, especially when you import from spreadsheets.
+You can create names breaking the rules governing valid names by placing the rule breaking name between two backticks (\`). I don't recommend you do this with variables you'll create, but you'll often end up with names that break conventions when importing data, especially when you import from spreadsheets.
 
 ```{r}
-`valid name`<- 1
+`name with spaces`<- 1
 `2017` <- 1
 ` ` <- 1
 `$$$` <- 1
@@ -184,13 +184,14 @@ data.frame(a=1:2,b=c("blue","red"),row.names = c("First","Second"))
 
 Throughout many of the examples, I'll use the example datasets that are available by default in R.
 
+```{r, eval=FALSE}
+View(iris)
+```
+
 ```{r echo=FALSE}
 knitr::kable(head(iris))
 ```
 
-```{r, eval=FALSE}
-View(iris)
-```
 
 ```{block, type="protip"}
 The `View()` function is specific to RStudio and provides a nice visual grid view of a data.framae and it allows you to search and sort the table for some initial exploration.
