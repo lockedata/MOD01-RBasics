@@ -162,18 +162,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.5" data-path="basic-operations.html"><a href="basic-operations.html#basic-operations-exercises"><i class="fa fa-check"></i><b>6.5</b> Basic Operations Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>7</b> R objects</a><ul>
-<li class="chapter" data-level="7.1" data-path="r-objects.html"><a href="r-objects.html#other-key-syntax"><i class="fa fa-check"></i><b>7.1</b> Other key syntax</a></li>
-<li class="chapter" data-level="7.2" data-path="r-objects.html"><a href="r-objects.html#in-memory"><i class="fa fa-check"></i><b>7.2</b> In-memory</a></li>
-<li class="chapter" data-level="7.3" data-path="r-objects.html"><a href="r-objects.html#vectors"><i class="fa fa-check"></i><b>7.3</b> Vectors</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="r-objects.html"><a href="r-objects.html#exercises"><i class="fa fa-check"></i><b>7.3.1</b> Exercises</a></li>
+<li class="chapter" data-level="7.1" data-path="r-objects.html"><a href="r-objects.html#storing-values"><i class="fa fa-check"></i><b>7.1</b> Storing values</a></li>
+<li class="chapter" data-level="7.2" data-path="r-objects.html"><a href="r-objects.html#vectors"><i class="fa fa-check"></i><b>7.2</b> Vectors</a></li>
+<li class="chapter" data-level="7.3" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-vectors"><i class="fa fa-check"></i><b>7.3</b> Getting information about vectors</a></li>
+<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#calculations-on-multiple-vectors"><i class="fa fa-check"></i><b>7.4</b> Calculations on multiple vectors</a></li>
+<li class="chapter" data-level="7.5" data-path="r-objects.html"><a href="r-objects.html#data.frames"><i class="fa fa-check"></i><b>7.5</b> data.frames</a></li>
+<li class="chapter" data-level="7.6" data-path="r-objects.html"><a href="r-objects.html#importing-data.frames"><i class="fa fa-check"></i><b>7.6</b> Importing data.frames</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="r-objects.html"><a href="r-objects.html#error"><i class="fa fa-check"></i><b>7.6.1</b> Error!!</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#data.frames"><i class="fa fa-check"></i><b>7.4</b> Data.frames</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="r-objects.html"><a href="r-objects.html#exercises-1"><i class="fa fa-check"></i><b>7.4.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.5</b> Lists</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="r-objects.html"><a href="r-objects.html#exercises-2"><i class="fa fa-check"></i><b>7.5.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="r-objects.html"><a href="r-objects.html#others"><i class="fa fa-check"></i><b>7.6</b> Others</a></li>
+<li class="chapter" data-level="7.7" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-data.frames"><i class="fa fa-check"></i><b>7.7</b> Getting information about data.frames</a></li>
+<li class="chapter" data-level="7.8" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.8</b> Lists</a></li>
+<li class="chapter" data-level="7.9" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-lists"><i class="fa fa-check"></i><b>7.9</b> Getting information about lists</a></li>
+<li class="chapter" data-level="7.10" data-path="r-objects.html"><a href="r-objects.html#other-object-types"><i class="fa fa-check"></i><b>7.10</b> Other object types</a></li>
+<li class="chapter" data-level="7.11" data-path="r-objects.html"><a href="r-objects.html#useful-functions"><i class="fa fa-check"></i><b>7.11</b> Useful functions</a></li>
+<li class="chapter" data-level="7.12" data-path="r-objects.html"><a href="r-objects.html#r-objects-exercises"><i class="fa fa-check"></i><b>7.12</b> R objects exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html"><i class="fa fa-check"></i><b>8</b> R data manipulation basics</a><ul>
 <li class="chapter" data-level="8.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#grid-references"><i class="fa fa-check"></i><b>8.1</b> Grid references</a></li>
@@ -181,54 +183,38 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.3" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#grid-referencing"><i class="fa fa-check"></i><b>8.3</b> Grid referencing</a></li>
 <li class="chapter" data-level="8.4" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#grid-referencing-vectors"><i class="fa fa-check"></i><b>8.4</b> Grid referencing vectors</a></li>
 <li class="chapter" data-level="8.5" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#grid-referencing-data.frames"><i class="fa fa-check"></i><b>8.5</b> Grid referencing data.frames</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-3"><i class="fa fa-check"></i><b>8.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="8.5.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises"><i class="fa fa-check"></i><b>8.5.1</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#name-checking"><i class="fa fa-check"></i><b>8.6</b> Name-checking</a></li>
 <li class="chapter" data-level="8.7" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#self-referencing"><i class="fa fa-check"></i><b>8.7</b> Self-referencing</a><ul>
-<li class="chapter" data-level="8.7.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-4"><i class="fa fa-check"></i><b>8.7.1</b> Exercises</a></li>
+<li class="chapter" data-level="8.7.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-1"><i class="fa fa-check"></i><b>8.7.1</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8.8" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#updating"><i class="fa fa-check"></i><b>8.8</b> Updating</a></li>
 <li class="chapter" data-level="8.9" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#deleting"><i class="fa fa-check"></i><b>8.9</b> Deleting</a><ul>
-<li class="chapter" data-level="8.9.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-5"><i class="fa fa-check"></i><b>8.9.1</b> Exercises</a></li>
+<li class="chapter" data-level="8.9.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-2"><i class="fa fa-check"></i><b>8.9.1</b> Exercises</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html"><i class="fa fa-check"></i><b>9</b> R data manipulation basics</a><ul>
-<li class="chapter" data-level="9.1" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-references-2"><i class="fa fa-check"></i><b>9.1</b> Grid references</a></li>
-<li class="chapter" data-level="9.2" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-references-3"><i class="fa fa-check"></i><b>9.2</b> Grid references</a></li>
-<li class="chapter" data-level="9.3" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-referencing-1"><i class="fa fa-check"></i><b>9.3</b> Grid referencing</a></li>
-<li class="chapter" data-level="9.4" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-referencing-vectors-1"><i class="fa fa-check"></i><b>9.4</b> Grid referencing vectors</a></li>
-<li class="chapter" data-level="9.5" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-referencing-data.frames-1"><i class="fa fa-check"></i><b>9.5</b> Grid referencing data.frames</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#exercises-6"><i class="fa fa-check"></i><b>9.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="9" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>9</b> R functions</a><ul>
+<li class="chapter" data-level="9.1" data-path="r-functions.html"><a href="r-functions.html#using-a-function"><i class="fa fa-check"></i><b>9.1</b> Using a function</a></li>
+<li class="chapter" data-level="9.2" data-path="r-functions.html"><a href="r-functions.html#function-arguments"><i class="fa fa-check"></i><b>9.2</b> Function arguments</a></li>
+<li class="chapter" data-level="9.3" data-path="r-functions.html"><a href="r-functions.html#common-functions"><i class="fa fa-check"></i><b>9.3</b> Common functions</a></li>
+<li class="chapter" data-level="9.4" data-path="r-functions.html"><a href="r-functions.html#finding-functions"><i class="fa fa-check"></i><b>9.4</b> Finding functions</a></li>
+<li class="chapter" data-level="9.5" data-path="r-functions.html"><a href="r-functions.html#seeing-how-functions-work"><i class="fa fa-check"></i><b>9.5</b> Seeing how functions work</a></li>
+<li class="chapter" data-level="9.6" data-path="r-functions.html"><a href="r-functions.html#exercises-3"><i class="fa fa-check"></i><b>9.6</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#name-checking-1"><i class="fa fa-check"></i><b>9.6</b> Name-checking</a></li>
-<li class="chapter" data-level="9.7" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#self-referencing-1"><i class="fa fa-check"></i><b>9.7</b> Self-referencing</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#exercises-7"><i class="fa fa-check"></i><b>9.7.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="9.8" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#updating-1"><i class="fa fa-check"></i><b>9.8</b> Updating</a></li>
-<li class="chapter" data-level="9.9" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#deleting-1"><i class="fa fa-check"></i><b>9.9</b> Deleting</a><ul>
-<li class="chapter" data-level="9.9.1" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#exercises-8"><i class="fa fa-check"></i><b>9.9.1</b> Exercises</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>10</b> R functions</a><ul>
-<li class="chapter" data-level="10.1" data-path="r-functions.html"><a href="r-functions.html#using-a-function"><i class="fa fa-check"></i><b>10.1</b> Using a function</a></li>
-<li class="chapter" data-level="10.2" data-path="r-functions.html"><a href="r-functions.html#function-arguments"><i class="fa fa-check"></i><b>10.2</b> Function arguments</a></li>
-<li class="chapter" data-level="10.3" data-path="r-functions.html"><a href="r-functions.html#common-functions"><i class="fa fa-check"></i><b>10.3</b> Common functions</a></li>
-<li class="chapter" data-level="10.4" data-path="r-functions.html"><a href="r-functions.html#finding-functions"><i class="fa fa-check"></i><b>10.4</b> Finding functions</a></li>
-<li class="chapter" data-level="10.5" data-path="r-functions.html"><a href="r-functions.html#seeing-how-functions-work"><i class="fa fa-check"></i><b>10.5</b> Seeing how functions work</a></li>
-<li class="chapter" data-level="10.6" data-path="r-functions.html"><a href="r-functions.html#exercises-9"><i class="fa fa-check"></i><b>10.6</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>11</b> R packages</a><ul>
-<li class="chapter" data-level="11.1" data-path="r-packages.html"><a href="r-packages.html#what-is-a-package"><i class="fa fa-check"></i><b>11.1</b> What is a package?</a></li>
-<li class="chapter" data-level="11.2" data-path="r-packages.html"><a href="r-packages.html#using-packages"><i class="fa fa-check"></i><b>11.2</b> Using packages</a></li>
-<li class="chapter" data-level="11.3" data-path="r-packages.html"><a href="r-packages.html#useful-packages"><i class="fa fa-check"></i><b>11.3</b> Useful packages</a></li>
-<li class="chapter" data-level="11.4" data-path="r-packages.html"><a href="r-packages.html#finding-packages"><i class="fa fa-check"></i><b>11.4</b> Finding packages</a></li>
-<li class="chapter" data-level="11.5" data-path="r-packages.html"><a href="r-packages.html#package-documentation"><i class="fa fa-check"></i><b>11.5</b> Package documentation</a></li>
-<li class="chapter" data-level="11.6" data-path="r-packages.html"><a href="r-packages.html#exercises-10"><i class="fa fa-check"></i><b>11.6</b> Exercises</a></li>
+<li class="chapter" data-level="10" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>10</b> R packages</a><ul>
+<li class="chapter" data-level="10.1" data-path="r-packages.html"><a href="r-packages.html#what-is-a-package"><i class="fa fa-check"></i><b>10.1</b> What is a package?</a></li>
+<li class="chapter" data-level="10.2" data-path="r-packages.html"><a href="r-packages.html#using-packages"><i class="fa fa-check"></i><b>10.2</b> Using packages</a></li>
+<li class="chapter" data-level="10.3" data-path="r-packages.html"><a href="r-packages.html#useful-packages"><i class="fa fa-check"></i><b>10.3</b> Useful packages</a></li>
+<li class="chapter" data-level="10.4" data-path="r-packages.html"><a href="r-packages.html#finding-packages"><i class="fa fa-check"></i><b>10.4</b> Finding packages</a></li>
+<li class="chapter" data-level="10.5" data-path="r-packages.html"><a href="r-packages.html#package-documentation"><i class="fa fa-check"></i><b>10.5</b> Package documentation</a></li>
+<li class="chapter" data-level="10.6" data-path="r-packages.html"><a href="r-packages.html#exercises-4"><i class="fa fa-check"></i><b>10.6</b> Exercises</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>A</b> Answers</a><ul>
 <li class="chapter" data-level="A.1" data-path="answers.html"><a href="answers.html#r-data-types-exercises-1"><i class="fa fa-check"></i><b>A.1</b> R Data Types Exercises</a></li>
 <li class="chapter" data-level="A.2" data-path="answers.html"><a href="answers.html#basic-operations-exercises-1"><i class="fa fa-check"></i><b>A.2</b> Basic Operations Exercises</a></li>
+<li class="chapter" data-level="A.3" data-path="answers.html"><a href="answers.html#r-objects-exercises-1"><i class="fa fa-check"></i><b>A.3</b> R Objects Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>B</b> Software</a><ul>
 <li class="chapter" data-level="B.1" data-path="software.html"><a href="software.html#r"><i class="fa fa-check"></i><b>B.1</b> R</a></li>
@@ -254,185 +240,348 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="r-objects" class="section level1">
 <h1><span class="header-section-number">7</span> R objects</h1>
-<div id="other-key-syntax" class="section level2">
-<h2><span class="header-section-number">7.1</span> Other key syntax</h2>
-<table>
-<thead>
-<tr class="header">
-<th>Action</th>
-<th>Operator</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Create / update a variable</td>
-<td>&lt;-</td>
-<td><code>a &lt;- 10</code></td>
-</tr>
-<tr class="even">
-<td>Create / update a variable</td>
-<td>=</td>
-<td><code>a = 10</code></td>
-</tr>
-<tr class="odd">
-<td>Create / update a variable</td>
-<td>-&gt;</td>
-<td><code>10 -&gt; a</code></td>
-</tr>
-<tr class="even">
-<td>Comment</td>
-<td>#</td>
-<td><code># This is my comment</code></td>
-</tr>
-<tr class="odd">
-<td>Help</td>
-<td>?</td>
-<td><code>?data.table</code></td>
-</tr>
-<tr class="even">
-<td>Identifier</td>
-<td>`</td>
-<td><code>`1`&lt;-2</code></td>
-</tr>
-</tbody>
-</table>
+<p>So far we’ve just worked with some single values to get to grips with how some of the various operations work. Of course, we rarely work with a single value! If we did, we could just use a calculator.</p>
+<p>This section helps you get to grips with some different ways of storing data and how to manipulate your datasets in the “traditional” way. This is useful because you can understand a lot of code written in the past and equips you to understand the material in the next book, which focusses on data manipulation of tabular data.</p>
+<div id="storing-values" class="section level2">
+<h2><span class="header-section-number">7.1</span> Storing values</h2>
+<p>When we were performing operations, we got some values output to the console. One of the key principles in writing code is Don’t Repeat Yourself (DRY) so we need to know how we can avoid repeating ourself in R. One of the ways you can do that is to store a value for use later.</p>
+<p>In R, we can store values by <strong>assigning</strong> them a name. This makes a <strong>variable</strong> or <strong>object</strong>. We can do this with a few different operators, but the traditional operator is a <code>&lt;-</code><a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a>. The format for assigning a value is <code>nameofthing &lt;- value</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_variable &lt;-<span class="st"> </span><span class="dv">5</span> +<span class="st"> </span><span class="dv">3</span>
+my_variable &gt;<span class="st"> </span><span class="dv">6</span> &amp;<span class="st"> </span>my_variable &lt;<span class="st"> </span><span class="dv">10</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Valid names for a variable include upper case letters, lower case letters, numbers anywhere but the beginning, periods (<code>.</code>), and hyphens (<code>_</code>).</p>
+<p>There are a number of different competing conventions for how you name variables. The most common conventions are shown below. I have no strong feelings for any system and only ask that at minimum you’re pick one and stick with it within a single script. Whatever you do, don’t forget names are case sensitive!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myfirstvariable &lt;-<span class="st"> </span><span class="dv">1</span>
+myFirstVariable &lt;-<span class="st"> </span><span class="dv">1</span>
+MyFirstVariable &lt;-<span class="st"> </span><span class="dv">1</span>
+my_first_variable &lt;-<span class="st"> </span><span class="dv">1</span>
+my.first.variable &lt;-<span class="st"> </span><span class="dv">1</span></code></pre></div>
+<p>You can create names breaking the rules governing valid names by placing the rule breaking name between two backticks (```). I don’t recommend you do this with variables you’ll create, but you’ll often end up with names that break conventions when importing data, especially when you import from spreadsheets.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">`</span><span class="dt">valid name</span><span class="st">`</span> &lt;-<span class="st"> </span><span class="dv">1</span>
+<span class="st">`</span><span class="dt">2017</span><span class="st">`</span> &lt;-<span class="st"> </span><span class="dv">1</span>
+<span class="st">`</span><span class="dt"> </span><span class="st">`</span> &lt;-<span class="st"> </span><span class="dv">1</span>
+<span class="st">`</span><span class="dt">$$$</span><span class="st">`</span> &lt;-<span class="st"> </span><span class="dv">1</span></code></pre></div>
+<p>Variables you store get stored in-memory. This means they’ll hang around whilst R is open and will be gone after that. You can see variables you’ve created</p>
+<p>RStudio will by default save your variables for you so that next time you open it up, your variables are stored.</p>
+<div class="protip">
+<p>
+RStudio saving your variables is a blessing because you don’t have to worry about keeping RStudio open the all time.
+</p>
+<p>
+It’s also a pretty major curse because you’ll inevitably create something at some point through the console or an Untitled R file and then lose that bit of code. Now when you’re script runs in a fresh session it’ll fail. You’ll risk tearing your hair out and worse as you go through the pain of debugging this.
+</p>
+<p>
+I recommend you get in the habit early of not working with your session being saved. Turn it off in <em>Tools &gt; Global Options</em>, untick “Restore .RData into workspace at startup”
+</p>
 </div>
-<div id="in-memory" class="section level2">
-<h2><span class="header-section-number">7.2</span> In-memory</h2>
-<ul>
-<li>All variables / objects will get stored in-memory;</li>
-<li>You need memory for operations too.</li>
-</ul>
-<table>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>ls()</code></td>
-<td>List what’s in-memory</td>
-</tr>
-<tr class="even">
-<td><code>rm()</code></td>
-<td>Remove things from memory</td>
-</tr>
-</tbody>
-</table>
+<p>If you need to manage what’s been stored you can list objects with <code>ls()</code> and remove them with <code>rm()</code>. If you want to remove everything you can use<code>ls()</code> inside <code>rm()</code>. Alternatively, you can use the broom symbol in the Environment tab in RStudio.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">today &lt;-<span class="st"> </span><span class="kw">Sys.Date</span>()
+<span class="kw">rm</span>(<span class="st">&quot;today&quot;</span>)
+<span class="kw">ls</span>()
+<span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</code></pre></div>
+<pre><code>##  [1] &quot; &quot;                 &quot;$$$&quot;               &quot;2017&quot;             
+##  [4] &quot;allmydata&quot;         &quot;df1&quot;               &quot;model&quot;            
+##  [7] &quot;my.first.variable&quot; &quot;my_first_variable&quot; &quot;my_variable&quot;      
+## [10] &quot;myfirstvariable&quot;   &quot;myFirstVariable&quot;   &quot;MyFirstVariable&quot;  
+## [13] &quot;myPlot&quot;            &quot;predictions&quot;       &quot;steph&quot;            
+## [16] &quot;test_data&quot;         &quot;test_outcome&quot;      &quot;training_data&quot;    
+## [19] &quot;training_outcome&quot;  &quot;valid name&quot;        &quot;vecA&quot;             
+## [22] &quot;vecB&quot;</code></pre>
 </div>
 <div id="vectors" class="section level2">
-<h2><span class="header-section-number">7.3</span> Vectors</h2>
-<p>A 1D object containing a single type of data</p>
+<h2><span class="header-section-number">7.2</span> Vectors</h2>
+<p>A <strong>vector</strong> is a collection of values that hold the same datatype. It is <strong>one-dimensional</strong> in that none of the <strong>elements</strong> in the collection correspond to other values like they might in a table of values.</p>
+<p>A single value is actually a vector of <strong>length</strong> 1.</p>
+<p>When I introduced the colon (<code>:</code>) as a means on generating a sequence, we were in fact generating a vector where each element was a number in the sequence. The vector has a length as long as the number of values generated by the sequence.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">-<span class="dv">1</span>:<span class="dv">1</span></code></pre></div>
+<pre><code>## [1] -1  0  1</code></pre>
+<p>Another way of producing a vector is to use the combine function (<code>c()</code>). This is great for combining a number of disparate character strings into a vector.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;blue&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;red&quot;    &quot;yellow&quot; &quot;blue&quot;</code></pre>
+<p>A single value is a still a vector. What we see when we use the <code>c()</code> function is that we’re combining vectors. As a result we can also use it on longer vectors too.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">3</span>, <span class="dv">2</span>:<span class="dv">1</span>, <span class="dv">5</span>:<span class="dv">8</span>)</code></pre></div>
+<pre><code>## [1] 1 2 3 2 1 5 6 7 8</code></pre>
+<p>When we combine values into a single vector, R will change everything to the same datatype using some conversions.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="ot">FALSE</span>)
+<span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&quot;FALSE&quot;</span>)</code></pre></div>
+<pre><code>## [1] 1 0
+## [1] &quot;1&quot;     &quot;FALSE&quot;</code></pre>
+<div class="glass">
+<p>
+This <strong>implicit conversion</strong> is something to be careful of and can really screw up your results! If in doubt, check the datatype with the <code>class()</code> function, or look for the vector in your global environment and see what the datatype is from there.
+</p>
+</div>
+<p>We can also give names to values being included in a vector.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dt">first =</span> <span class="st">&quot;Steph&quot;</span>, <span class="dt">last =</span> <span class="st">&quot;Locke&quot;</span>)</code></pre></div>
+<pre><code>##   first    last 
+## &quot;Steph&quot; &quot;Locke&quot;</code></pre>
+</div>
+<div id="getting-information-about-vectors" class="section level2">
+<h2><span class="header-section-number">7.3</span> Getting information about vectors</h2>
+<p>Our <code>class()</code> function will still work with a vector with a length greater than 1 to get you it’s datatype.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">1</span>:<span class="dv">10</span>)
+LETTERS
+<span class="kw">class</span>(LETTERS)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;
+##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot;
+## [18] &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;
+## [1] &quot;character&quot;</code></pre>
+<p>We can use the <code>length()</code> function to find out the number of elements in a vector.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(pi)
+<span class="kw">length</span>(LETTERS)</code></pre></div>
+<pre><code>## [1] 1
+## [1] 26</code></pre>
+<p>To extract the names of values in a vector, we can use the <code>names()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">steph &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">Steph =</span> <span class="st">&quot;forename&quot;</span>, <span class="dt">Locke =</span> <span class="st">&quot;surname&quot;</span>)
+<span class="kw">names</span>(steph)</code></pre></div>
+<pre><code>## [1] &quot;Steph&quot; &quot;Locke&quot;</code></pre>
+</div>
+<div id="calculations-on-multiple-vectors" class="section level2">
+<h2><span class="header-section-number">7.4</span> Calculations on multiple vectors</h2>
+<p>When we perform calculations on two vectors, R will try to perform the operation for each set of elements. This is an <strong>element-wise</strong> calculation methodology.</p>
+<p>In SQL, it’s equivalent to where you might write <code>colA*colB</code> and you’ll get the answer calculated for every row in the table. In Excel, it’s equivalent to a Fill Down of multiplying two values on the same row.</p>
+<p>Let’s looks at how this works in practice in R.</p>
+<p>We have two vectors, each containing two elements.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vecA &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">2</span>
+vecB &lt;-<span class="st"> </span><span class="dv">2</span>:<span class="dv">3</span></code></pre></div>
+<p>If we want to multiply the two vectors by each other, R will match each element in the first vector with it’s counterpart in the second and multiply the two values together to make a new element.</p>
+<div class="figure">
+<img src="vectormult.png" />
+
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vecA *<span class="st"> </span>vecB</code></pre></div>
+<pre><code>## [1] 2 6</code></pre>
+<p>We can also do this with vectors of different lengths to a certain extent. The most common scenario is operating on a vector by doing something with a single value.</p>
+<p>A single value is a vector of length 1. When R gets a request to do something with a vector of length <em>X</em> and a vector of length 1, it will basically repeat the vector of length 1 <em>X</em> times to make two vectors the same length. It wil then perform the calculation element-wise.</p>
+<div class="figure">
+<img src="vectormultsingle.png" />
+
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vecA *<span class="st"> </span><span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 3 6</code></pre>
+<p>You can also use this functionality of making a vector the same length as another, known as <strong>recycling</strong>, work for other mis-matched vector sizes. The only rule is the one of the vector lengths must divide cleanly by the other.</p>
+<ul>
+<li>Two vectors of the same length divide by the other’s length exactly one time and won’t need to recycle.</li>
+<li>A vector of length one always cleanly divides any other vector’s length and so will be recycled.</li>
+<li>A vector of length 2, will divide any vector with an even length and so will be recycled in those cases, but it cannot recycle cleanly for odd length vectors.</li>
+</ul>
+<div class="figure">
+<img src="vectormultrecycle.png" />
+
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">10</span> *<span class="st"> </span><span class="dv">2</span>
+<span class="dv">1</span>:<span class="dv">10</span> *<span class="st"> </span><span class="dv">2</span>:<span class="dv">3</span>
+<span class="dv">1</span>:<span class="dv">10</span> *<span class="st"> </span><span class="dv">2</span>:<span class="dv">4</span></code></pre></div>
+<pre><code>## Warning in 1:10 * 2:4: longer object length is not a multiple of shorter
+## object length</code></pre>
+<pre><code>##  [1]  2  4  6  8 10 12 14 16 18 20
+##  [1]  2  6  6 12 10 18 14 24 18 30
+##  [1]  2  6 12  8 15 24 14 24 36 20</code></pre>
+<p>Vector recycling is useful and dangerous – it can help you make elegant code or give you unexpected results. Especially when starting out, I recommend you make your vectors either the same length or length 1.</p>
+</div>
+<div id="data.frames" class="section level2">
+<h2><span class="header-section-number">7.5</span> data.frames</h2>
+<p>A <strong>data.frame</strong> is table similar to what we’re used to working with in most data analysis tools. It will contain a number of rows with columns containing different pieces of information. Each column in a data.frame has a datatype but it does not have to the same datatype as the other columns.</p>
+<p>We can construct a data.frame from individual vectors via the <code>data.frame()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">2</span>, <span class="dt">b =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>))</code></pre></div>
+<pre><code>##   a    b
+## 1 1 blue
+## 2 2  red</code></pre>
+<p>You can also give row names to the rows you end up making, however, I recommend you add these in as a column instead.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">2</span>, <span class="dt">b =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="dt">row.names =</span> <span class="kw">c</span>(<span class="st">&quot;First&quot;</span>, <span class="st">&quot;Second&quot;</span>))</code></pre></div>
+<pre><code>##        a    b
+## First  1 blue
+## Second 2  red</code></pre>
+<p>Throughout many of the examples, I’ll use the example datasets that are available by default in R.</p>
 <table>
 <thead>
 <tr class="header">
-<th>Function</th>
-<th>Purpose</th>
+<th align="right">Sepal.Length</th>
+<th align="right">Sepal.Width</th>
+<th align="right">Petal.Length</th>
+<th align="right">Petal.Width</th>
+<th align="left">Species</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>c()</code></td>
-<td>Combine values into a vector</td>
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
 </tr>
 <tr class="even">
-<td><code>:</code></td>
-<td>Generate a sequence</td>
+<td align="right">4.9</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.6</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.7</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">3</span></code></pre></div>
-<pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;orange&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;red&quot;    &quot;blue&quot;   &quot;orange&quot;</code></pre>
-<div id="exercises" class="section level3">
-<h3><span class="header-section-number">7.3.1</span> Exercises</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(iris)</code></pre></div>
+<div class="protip">
+<p>
+The <code>View()</code> function is specific to RStudio and provides a nice visual grid view of a data.framae and it allows you to search and sort the table for some initial exploration.
+</p>
+</div>
+<p>More commonly, we’ll import data an outside source.</p>
+</div>
+<div id="importing-data.frames" class="section level2">
+<h2><span class="header-section-number">7.6</span> Importing data.frames</h2>
+<p>You can import data via code, but one of the eassiest ways of getting started is to load data via RStudio and have it generate the code for you.</p>
+<p>To import data, go to the Environment tab and select Import Dataset. Select the relevant type of data you want to import. Browse to the file you want to upload.</p>
+<div class="protip">
+<p>
+Keeping data in the project directory is ideal as it keeps everything in one place and makes import code easier to read.
+</p>
+</div>
+<p>You can tweak the advanced settings and then select the <em>Import</em> button to load the data directly into memory. Alternatively, you can copy the code it generated for you and paste it into a script. By doing this copy and pasting, you will make the import reproducible. Next time you need to load the data you can just run the code, instead of using the interface again.</p>
+<div id="error" class="section level3">
+<h3><span class="header-section-number">7.6.1</span> Error!!</h3>
+<div class="figure">
+<img src="readerror.png" />
+
+</div>
+<p>If you were tying to do this import and you have a fresh installation of R and RStudio, you probably got an error when you tried to load a file because you don’t have some of the required functionality that RStudio expects you to have.</p>
+<p>It will tell you the name of the thing you’re missing. In my case - I’m missing the package “readr”. To make this available to us, we go to the Packages tab and then:</p>
+<ul>
+<li>select <em>Install</em></li>
+<li>type “readr”</li>
+<li>select the <em>Install</em> button</li>
+<li>accept any popups for things like restarting R</li>
+</ul>
+</div>
+</div>
+<div id="getting-information-about-data.frames" class="section level2">
+<h2><span class="header-section-number">7.7</span> Getting information about data.frames</h2>
+<p>Our data.frames are <strong>composites</strong>, they are the result of combining a number of vectors with different data types. As a consequence, when we run our <code>class()</code> function, it tells us an object is a <code>data.frame</code> and no longer returns the underlying datatype.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(iris)</code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<p>You do not get the number of rows in a data.frame when you run the <code>length()</code> function, instead you get the number of columns<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>. Alternatively, you can run the more clearly named <code>ncol()</code> function to return the number of columns in a data.frame.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(iris)
+<span class="kw">ncol</span>(iris)</code></pre></div>
+<pre><code>## [1] 5
+## [1] 5</code></pre>
+<p>You can get the number of rows via the <code>nrow()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nrow</span>(iris)</code></pre></div>
+<pre><code>## [1] 150</code></pre>
+<p>Similarly to <code>length()</code>, the <code>names()</code> function when applied to data.frame’s only works on the columns, so you can use it to get column names. A clearer alternative is to use the <code>colnames()</code> function. You can use <code>rownames()</code> to get names for rows, if they exist.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">2</span>, <span class="dt">b =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="dt">row.names =</span> <span class="kw">c</span>(<span class="st">&quot;First&quot;</span>, <span class="st">&quot;Second&quot;</span>))
+
+<span class="kw">names</span>(mydf)
+<span class="kw">colnames</span>(mydf)
+<span class="kw">rownames</span>(mydf)</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot;
+## [1] &quot;a&quot; &quot;b&quot;
+## [1] &quot;First&quot;  &quot;Second&quot;</code></pre>
+</div>
+<div id="lists" class="section level2">
+<h2><span class="header-section-number">7.8</span> Lists</h2>
+<p>Lists are your catch-all object. An element in a <strong>list</strong> can be any object, including a list! You’ll usually find yourself using a list when you’re receiving some nested data (like from some API response) or when you want to bundle multiple connected pieces of information together. Most functionality for building statistical models in R will return a list object holding things like the model coefficients, key statistics, and fitted values.</p>
+<p>You can create lists with the <code>list()</code> function and like with our other objects you can have named and unnamed elements.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">3</span>, LETTERS)
+mylist</code></pre></div>
+<pre><code>## $a
+## [1] 1 2 3
+## 
+## [[2]]
+##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot;
+## [18] &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+</div>
+<div id="getting-information-about-lists" class="section level2">
+<h2><span class="header-section-number">7.9</span> Getting information about lists</h2>
+<p>The <code>length()</code> function will tell you how many elements there are in a list.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(mylist)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p><code>names()</code> lets you get the element names and returns a blank (<code>&quot;&quot;</code>) where no name was provided.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(mylist)</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;&quot;</code></pre>
+</div>
+<div id="other-object-types" class="section level2">
+<h2><span class="header-section-number">7.10</span> Other object types</h2>
+<p>There a number of other object types in R. They won’t be covered in detail in this book, because they tend to be used by a small fraction of R users.</p>
+<ul>
+<li>A <strong>matrix</strong> is two-dimensional object that can only one datatype.</li>
+<li>An <strong>array</strong> is a multi-dimensional object that can contain only one datatype.</li>
+<li>A <strong>table</strong> object is similar to a matrix but is created by producing a contingency table.</li>
+</ul>
+<p>In R, developers can also create other object types specific to their requirements. People use this to create geospatial objects and more.</p>
+</div>
+<div id="useful-functions" class="section level2">
+<h2><span class="header-section-number">7.11</span> Useful functions</h2>
+<p>Whatever the object type, there some functions that come in handy for</p>
+<p>You get the contents of any object by writing it’s name.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist</code></pre></div>
+<pre><code>## $a
+## [1] 1 2 3
+## 
+## [[2]]
+##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot;
+## [18] &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<p>However, if you’re working with a lot of data, you probably don’t want to fill up your console that way. R has two functions, <code>head()</code> and <code>tail()</code>, which allow you to see values from beginning or end of an object.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(LETTERS)
+<span class="kw">tail</span>(LETTERS)</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot;
+## [1] &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<p>If you want to examine an R object, you can use the <code>str()</code> function to get the structure of the object.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(mylist)</code></pre></div>
+<pre><code>## List of 2
+##  $ a: int [1:3] 1 2 3
+##  $  : chr [1:26] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; ...</code></pre>
+</div>
+<div id="r-objects-exercises" class="section level2">
+<h2><span class="header-section-number">7.12</span> R objects exercises</h2>
 <ol style="list-style-type: decimal">
-<li>See what’s in the variable <code>LETTERS</code>;</li>
-<li>Write a check to see if “a” is present in <code>LETTERS</code>;</li>
+<li>See what’s in the variable <code>letters</code>;</li>
+<li>Write a check to see if “A” is present in <code>letters</code>;</li>
 <li>Find out which values in the sequence 1 to 10 are greater than or equal to 3 and less than 7.</li>
 <li>Make a vector containing the numbers 1 to 50;</li>
 <li>Make a vector containing two words;</li>
 <li>What happens when you combine these two vectors?</li>
-</ol>
-</div>
-</div>
-<div id="data.frames" class="section level2">
-<h2><span class="header-section-number">7.4</span> Data.frames</h2>
-<p>A 2D object containing multiple classes of data</p>
-<table>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>data.frame()</code></td>
-<td>Construct a data.frame</td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">2</span>,<span class="dt">b=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>))</code></pre></div>
-<pre><code>##   a    b
-## 1 1 blue
-## 2 2  red</code></pre>
-<div id="exercises-1" class="section level3">
-<h3><span class="header-section-number">7.4.1</span> Exercises</h3>
-<ol style="list-style-type: decimal">
-<li>Make a data.frame the two vectors you created in the vectors section;</li>
+<li>Make a data.frame using the two vectors</li>
 <li>What happened to your text vector?</li>
-</ol>
-</div>
-</div>
-<div id="lists" class="section level2">
-<h2><span class="header-section-number">7.5</span> Lists</h2>
-<p>An object containing multiple types of objects</p>
-<table>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>list()</code></td>
-<td>Construct a list</td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">2</span>,
-     <span class="dt">b=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>), 
-     <span class="dt">df=</span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">2</span>,<span class="dt">b=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>)))</code></pre></div>
-<pre><code>## $a
-## [1] 1 2
-## 
-## $b
-## [1] &quot;blue&quot; &quot;red&quot; 
-## 
-## $df
-##   a    b
-## 1 1 blue
-## 2 2  red</code></pre>
-<div id="exercises-2" class="section level3">
-<h3><span class="header-section-number">7.5.1</span> Exercises</h3>
-<ol style="list-style-type: decimal">
 <li>Make a list containing some of the variables you’ve created so far.</li>
+<li>Return the some rows from the <code>iris</code> dataset</li>
 </ol>
+
 </div>
 </div>
-<div id="others" class="section level2">
-<h2><span class="header-section-number">7.6</span> Others</h2>
-<ul>
-<li><strong>Matrix</strong> A 2D object of one data type</li>
-<li><strong>Array</strong> A nD object of one data type</li>
-</ul>
-</div>
+<div class="footnotes">
+<hr />
+<ol start="19">
+<li id="fn19"><p>Other valid values are the equals symbol <code>=</code> and you can also do a right-handed assignment with <code>-&gt;</code><a href="r-objects.html#fnref19">↩</a></p></li>
+<li id="fn20"><p>This is because a data.frame is actually just a prettily printed list and each column in an element in said list and length returns the number of elements.<a href="r-objects.html#fnref20">↩</a></p></li>
+</ol>
 </div>
             </section>
 
@@ -451,7 +600,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="r-objects.html">
-<link rel="next" href="r-data-manipulation-basics-1.html">
+<link rel="next" href="r-functions.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -162,18 +162,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.5" data-path="basic-operations.html"><a href="basic-operations.html#basic-operations-exercises"><i class="fa fa-check"></i><b>6.5</b> Basic Operations Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>7</b> R objects</a><ul>
-<li class="chapter" data-level="7.1" data-path="r-objects.html"><a href="r-objects.html#other-key-syntax"><i class="fa fa-check"></i><b>7.1</b> Other key syntax</a></li>
-<li class="chapter" data-level="7.2" data-path="r-objects.html"><a href="r-objects.html#in-memory"><i class="fa fa-check"></i><b>7.2</b> In-memory</a></li>
-<li class="chapter" data-level="7.3" data-path="r-objects.html"><a href="r-objects.html#vectors"><i class="fa fa-check"></i><b>7.3</b> Vectors</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="r-objects.html"><a href="r-objects.html#exercises"><i class="fa fa-check"></i><b>7.3.1</b> Exercises</a></li>
+<li class="chapter" data-level="7.1" data-path="r-objects.html"><a href="r-objects.html#storing-values"><i class="fa fa-check"></i><b>7.1</b> Storing values</a></li>
+<li class="chapter" data-level="7.2" data-path="r-objects.html"><a href="r-objects.html#vectors"><i class="fa fa-check"></i><b>7.2</b> Vectors</a></li>
+<li class="chapter" data-level="7.3" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-vectors"><i class="fa fa-check"></i><b>7.3</b> Getting information about vectors</a></li>
+<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#calculations-on-multiple-vectors"><i class="fa fa-check"></i><b>7.4</b> Calculations on multiple vectors</a></li>
+<li class="chapter" data-level="7.5" data-path="r-objects.html"><a href="r-objects.html#data.frames"><i class="fa fa-check"></i><b>7.5</b> data.frames</a></li>
+<li class="chapter" data-level="7.6" data-path="r-objects.html"><a href="r-objects.html#importing-data.frames"><i class="fa fa-check"></i><b>7.6</b> Importing data.frames</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="r-objects.html"><a href="r-objects.html#error"><i class="fa fa-check"></i><b>7.6.1</b> Error!!</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#data.frames"><i class="fa fa-check"></i><b>7.4</b> Data.frames</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="r-objects.html"><a href="r-objects.html#exercises-1"><i class="fa fa-check"></i><b>7.4.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.5</b> Lists</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="r-objects.html"><a href="r-objects.html#exercises-2"><i class="fa fa-check"></i><b>7.5.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="r-objects.html"><a href="r-objects.html#others"><i class="fa fa-check"></i><b>7.6</b> Others</a></li>
+<li class="chapter" data-level="7.7" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-data.frames"><i class="fa fa-check"></i><b>7.7</b> Getting information about data.frames</a></li>
+<li class="chapter" data-level="7.8" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.8</b> Lists</a></li>
+<li class="chapter" data-level="7.9" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-lists"><i class="fa fa-check"></i><b>7.9</b> Getting information about lists</a></li>
+<li class="chapter" data-level="7.10" data-path="r-objects.html"><a href="r-objects.html#other-object-types"><i class="fa fa-check"></i><b>7.10</b> Other object types</a></li>
+<li class="chapter" data-level="7.11" data-path="r-objects.html"><a href="r-objects.html#useful-functions"><i class="fa fa-check"></i><b>7.11</b> Useful functions</a></li>
+<li class="chapter" data-level="7.12" data-path="r-objects.html"><a href="r-objects.html#r-objects-exercises"><i class="fa fa-check"></i><b>7.12</b> R objects exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html"><i class="fa fa-check"></i><b>8</b> R data manipulation basics</a><ul>
 <li class="chapter" data-level="8.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#grid-references"><i class="fa fa-check"></i><b>8.1</b> Grid references</a></li>
@@ -181,54 +183,38 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.3" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#grid-referencing"><i class="fa fa-check"></i><b>8.3</b> Grid referencing</a></li>
 <li class="chapter" data-level="8.4" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#grid-referencing-vectors"><i class="fa fa-check"></i><b>8.4</b> Grid referencing vectors</a></li>
 <li class="chapter" data-level="8.5" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#grid-referencing-data.frames"><i class="fa fa-check"></i><b>8.5</b> Grid referencing data.frames</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-3"><i class="fa fa-check"></i><b>8.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="8.5.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises"><i class="fa fa-check"></i><b>8.5.1</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#name-checking"><i class="fa fa-check"></i><b>8.6</b> Name-checking</a></li>
 <li class="chapter" data-level="8.7" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#self-referencing"><i class="fa fa-check"></i><b>8.7</b> Self-referencing</a><ul>
-<li class="chapter" data-level="8.7.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-4"><i class="fa fa-check"></i><b>8.7.1</b> Exercises</a></li>
+<li class="chapter" data-level="8.7.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-1"><i class="fa fa-check"></i><b>8.7.1</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8.8" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#updating"><i class="fa fa-check"></i><b>8.8</b> Updating</a></li>
 <li class="chapter" data-level="8.9" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#deleting"><i class="fa fa-check"></i><b>8.9</b> Deleting</a><ul>
-<li class="chapter" data-level="8.9.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-5"><i class="fa fa-check"></i><b>8.9.1</b> Exercises</a></li>
+<li class="chapter" data-level="8.9.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-2"><i class="fa fa-check"></i><b>8.9.1</b> Exercises</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html"><i class="fa fa-check"></i><b>9</b> R data manipulation basics</a><ul>
-<li class="chapter" data-level="9.1" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-references-2"><i class="fa fa-check"></i><b>9.1</b> Grid references</a></li>
-<li class="chapter" data-level="9.2" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-references-3"><i class="fa fa-check"></i><b>9.2</b> Grid references</a></li>
-<li class="chapter" data-level="9.3" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-referencing-1"><i class="fa fa-check"></i><b>9.3</b> Grid referencing</a></li>
-<li class="chapter" data-level="9.4" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-referencing-vectors-1"><i class="fa fa-check"></i><b>9.4</b> Grid referencing vectors</a></li>
-<li class="chapter" data-level="9.5" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-referencing-data.frames-1"><i class="fa fa-check"></i><b>9.5</b> Grid referencing data.frames</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#exercises-6"><i class="fa fa-check"></i><b>9.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="9" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>9</b> R functions</a><ul>
+<li class="chapter" data-level="9.1" data-path="r-functions.html"><a href="r-functions.html#using-a-function"><i class="fa fa-check"></i><b>9.1</b> Using a function</a></li>
+<li class="chapter" data-level="9.2" data-path="r-functions.html"><a href="r-functions.html#function-arguments"><i class="fa fa-check"></i><b>9.2</b> Function arguments</a></li>
+<li class="chapter" data-level="9.3" data-path="r-functions.html"><a href="r-functions.html#common-functions"><i class="fa fa-check"></i><b>9.3</b> Common functions</a></li>
+<li class="chapter" data-level="9.4" data-path="r-functions.html"><a href="r-functions.html#finding-functions"><i class="fa fa-check"></i><b>9.4</b> Finding functions</a></li>
+<li class="chapter" data-level="9.5" data-path="r-functions.html"><a href="r-functions.html#seeing-how-functions-work"><i class="fa fa-check"></i><b>9.5</b> Seeing how functions work</a></li>
+<li class="chapter" data-level="9.6" data-path="r-functions.html"><a href="r-functions.html#exercises-3"><i class="fa fa-check"></i><b>9.6</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#name-checking-1"><i class="fa fa-check"></i><b>9.6</b> Name-checking</a></li>
-<li class="chapter" data-level="9.7" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#self-referencing-1"><i class="fa fa-check"></i><b>9.7</b> Self-referencing</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#exercises-7"><i class="fa fa-check"></i><b>9.7.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="9.8" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#updating-1"><i class="fa fa-check"></i><b>9.8</b> Updating</a></li>
-<li class="chapter" data-level="9.9" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#deleting-1"><i class="fa fa-check"></i><b>9.9</b> Deleting</a><ul>
-<li class="chapter" data-level="9.9.1" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#exercises-8"><i class="fa fa-check"></i><b>9.9.1</b> Exercises</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>10</b> R functions</a><ul>
-<li class="chapter" data-level="10.1" data-path="r-functions.html"><a href="r-functions.html#using-a-function"><i class="fa fa-check"></i><b>10.1</b> Using a function</a></li>
-<li class="chapter" data-level="10.2" data-path="r-functions.html"><a href="r-functions.html#function-arguments"><i class="fa fa-check"></i><b>10.2</b> Function arguments</a></li>
-<li class="chapter" data-level="10.3" data-path="r-functions.html"><a href="r-functions.html#common-functions"><i class="fa fa-check"></i><b>10.3</b> Common functions</a></li>
-<li class="chapter" data-level="10.4" data-path="r-functions.html"><a href="r-functions.html#finding-functions"><i class="fa fa-check"></i><b>10.4</b> Finding functions</a></li>
-<li class="chapter" data-level="10.5" data-path="r-functions.html"><a href="r-functions.html#seeing-how-functions-work"><i class="fa fa-check"></i><b>10.5</b> Seeing how functions work</a></li>
-<li class="chapter" data-level="10.6" data-path="r-functions.html"><a href="r-functions.html#exercises-9"><i class="fa fa-check"></i><b>10.6</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>11</b> R packages</a><ul>
-<li class="chapter" data-level="11.1" data-path="r-packages.html"><a href="r-packages.html#what-is-a-package"><i class="fa fa-check"></i><b>11.1</b> What is a package?</a></li>
-<li class="chapter" data-level="11.2" data-path="r-packages.html"><a href="r-packages.html#using-packages"><i class="fa fa-check"></i><b>11.2</b> Using packages</a></li>
-<li class="chapter" data-level="11.3" data-path="r-packages.html"><a href="r-packages.html#useful-packages"><i class="fa fa-check"></i><b>11.3</b> Useful packages</a></li>
-<li class="chapter" data-level="11.4" data-path="r-packages.html"><a href="r-packages.html#finding-packages"><i class="fa fa-check"></i><b>11.4</b> Finding packages</a></li>
-<li class="chapter" data-level="11.5" data-path="r-packages.html"><a href="r-packages.html#package-documentation"><i class="fa fa-check"></i><b>11.5</b> Package documentation</a></li>
-<li class="chapter" data-level="11.6" data-path="r-packages.html"><a href="r-packages.html#exercises-10"><i class="fa fa-check"></i><b>11.6</b> Exercises</a></li>
+<li class="chapter" data-level="10" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>10</b> R packages</a><ul>
+<li class="chapter" data-level="10.1" data-path="r-packages.html"><a href="r-packages.html#what-is-a-package"><i class="fa fa-check"></i><b>10.1</b> What is a package?</a></li>
+<li class="chapter" data-level="10.2" data-path="r-packages.html"><a href="r-packages.html#using-packages"><i class="fa fa-check"></i><b>10.2</b> Using packages</a></li>
+<li class="chapter" data-level="10.3" data-path="r-packages.html"><a href="r-packages.html#useful-packages"><i class="fa fa-check"></i><b>10.3</b> Useful packages</a></li>
+<li class="chapter" data-level="10.4" data-path="r-packages.html"><a href="r-packages.html#finding-packages"><i class="fa fa-check"></i><b>10.4</b> Finding packages</a></li>
+<li class="chapter" data-level="10.5" data-path="r-packages.html"><a href="r-packages.html#package-documentation"><i class="fa fa-check"></i><b>10.5</b> Package documentation</a></li>
+<li class="chapter" data-level="10.6" data-path="r-packages.html"><a href="r-packages.html#exercises-4"><i class="fa fa-check"></i><b>10.6</b> Exercises</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>A</b> Answers</a><ul>
 <li class="chapter" data-level="A.1" data-path="answers.html"><a href="answers.html#r-data-types-exercises-1"><i class="fa fa-check"></i><b>A.1</b> R Data Types Exercises</a></li>
 <li class="chapter" data-level="A.2" data-path="answers.html"><a href="answers.html#basic-operations-exercises-1"><i class="fa fa-check"></i><b>A.2</b> Basic Operations Exercises</a></li>
+<li class="chapter" data-level="A.3" data-path="answers.html"><a href="answers.html#r-objects-exercises-1"><i class="fa fa-check"></i><b>A.3</b> R Objects Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>B</b> Software</a><ul>
 <li class="chapter" data-level="B.1" data-path="software.html"><a href="software.html#r"><i class="fa fa-check"></i><b>B.1</b> R</a></li>
@@ -289,42 +275,42 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="grid-referencing-vectors" class="section level2">
 <h2><span class="header-section-number">8.4</span> Grid referencing vectors</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="dv">1</span>]</code></pre></div>
-<pre><code>## [1] &quot;A&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]</code></pre></div>
-<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[-<span class="dv">1</span>]</code></pre></div>
-<pre><code>##  [1] &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot;
-## [18] &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[-<span class="dv">13</span>:-<span class="dv">1</span>]</code></pre></div>
-<pre><code>##  [1] &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>)]</code></pre></div>
-<pre><code>##  [1] &quot;A&quot; &quot;C&quot; &quot;E&quot; &quot;G&quot; &quot;I&quot; &quot;K&quot; &quot;M&quot; &quot;O&quot; &quot;Q&quot; &quot;S&quot; &quot;U&quot; &quot;W&quot; &quot;Y&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="dv">1</span>]
+LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]
+LETTERS[-<span class="dv">1</span>]
+LETTERS[-<span class="dv">13</span>:-<span class="dv">1</span>]
+LETTERS[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)]</code></pre></div>
+<pre><code>## [1] &quot;A&quot;
+## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot;
+##  [1] &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot;
+## [18] &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;
+##  [1] &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;
+##  [1] &quot;A&quot; &quot;C&quot; &quot;E&quot; &quot;G&quot; &quot;I&quot; &quot;K&quot; &quot;M&quot; &quot;O&quot; &quot;Q&quot; &quot;S&quot; &quot;U&quot; &quot;W&quot; &quot;Y&quot;</code></pre>
 </div>
 <div id="grid-referencing-data.frames" class="section level2">
 <h2><span class="header-section-number">8.5</span> Grid referencing data.frames</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF&lt;-<span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">b=</span><span class="dv">2</span>:<span class="dv">4</span>, <span class="dt">c=</span><span class="dv">3</span>:<span class="dv">5</span>)
-myDF[<span class="dv">1</span>,]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">b =</span> <span class="dv">2</span>:<span class="dv">4</span>, <span class="dt">c =</span> <span class="dv">3</span>:<span class="dv">5</span>)
+myDF[<span class="dv">1</span>, ]
+myDF[, -<span class="dv">1</span>]
+myDF[<span class="dv">1</span>, <span class="dv">1</span>]
+myDF[<span class="dv">1</span>:<span class="dv">2</span>, ]
+myDF[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>), ]
+myDF[, <span class="st">&quot;a&quot;</span>]</code></pre></div>
 <pre><code>##   a b c
-## 1 1 2 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[,-<span class="dv">1</span>]</code></pre></div>
-<pre><code>##   b c
+## 1 1 2 3
+##   b c
 ## 1 2 3
 ## 2 3 4
-## 3 4 5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>,<span class="dv">1</span>]</code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>:<span class="dv">2</span>,]</code></pre></div>
-<pre><code>##   a b c
+## 3 4 5
+## [1] 1
+##   a b c
 ## 1 1 2 3
-## 2 2 3 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>,<span class="ot">TRUE</span>),]</code></pre></div>
-<pre><code>##   a b c
+## 2 2 3 4
+##   a b c
 ## 1 1 2 3
-## 3 3 4 5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[,<span class="st">&quot;a&quot;</span>]</code></pre></div>
-<pre><code>## [1] 1 2 3</code></pre>
-<div id="exercises-3" class="section level3">
+## 3 3 4 5
+## [1] 1 2 3</code></pre>
+<div id="exercises" class="section level3">
 <h3><span class="header-section-number">8.5.1</span> Exercises</h3>
 <ol style="list-style-type: decimal">
 <li>Select all <code>letters</code> before “x”;</li>
@@ -337,29 +323,30 @@ myDF[<span class="dv">1</span>,]</code></pre></div>
 <div id="name-checking" class="section level2">
 <h2><span class="header-section-number">8.6</span> Name-checking</h2>
 <p>Row names can be used to extract values.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myNamedVec&lt;-<span class="kw">c</span>(<span class="st">&quot;red&quot;</span>=<span class="st">&quot;RED&quot;</span>,<span class="st">&quot;blue&quot;</span>=<span class="st">&quot;BLUE&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myNamedVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">red =</span> <span class="st">&quot;RED&quot;</span>, <span class="dt">blue =</span> <span class="st">&quot;BLUE&quot;</span>)
 myNamedVec[<span class="st">&quot;red&quot;</span>]</code></pre></div>
 <pre><code>##   red 
 ## &quot;RED&quot;</code></pre>
 <p>Column names can also be referenced.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(  iris[,<span class="st">&quot;Species&quot;</span>]    )</code></pre></div>
-<pre><code>## NULL</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(  iris$Species        )</code></pre></div>
-<pre><code>## NULL</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(  iris[,<span class="kw">c</span>(<span class="st">&quot;Sepal.Width&quot;</span>,<span class="st">&quot;Species&quot;</span>)]    )</code></pre></div>
-<pre><code>## [1] &quot;Sepal.Width&quot; &quot;Species&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(iris[, <span class="st">&quot;Species&quot;</span>])
+<span class="kw">colnames</span>(iris$Species)
+
+<span class="kw">colnames</span>(iris[, <span class="kw">c</span>(<span class="st">&quot;Sepal.Width&quot;</span>, <span class="st">&quot;Species&quot;</span>)])</code></pre></div>
+<pre><code>## NULL
+## NULL
+## [1] &quot;Sepal.Width&quot; &quot;Species&quot;</code></pre>
 </div>
 <div id="self-referencing" class="section level2">
 <h2><span class="header-section-number">8.7</span> Self-referencing</h2>
 <p>Useful for creating booleans, you can create a vector and use this inside your grid reference system.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[LETTERS&lt;<span class="st">&quot;T&quot;</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[LETTERS &lt;<span class="st"> &quot;T&quot;</span>]
+myDF[myDF$a &lt;=<span class="st"> </span><span class="dv">2</span>, ]</code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot;
-## [18] &quot;R&quot; &quot;S&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[myDF$a&lt;=<span class="dv">2</span>,]</code></pre></div>
-<pre><code>##   a b c
+## [18] &quot;R&quot; &quot;S&quot;
+##   a b c
 ## 1 1 2 3
 ## 2 2 3 4</code></pre>
-<div id="exercises-4" class="section level3">
+<div id="exercises-1" class="section level3">
 <h3><span class="header-section-number">8.7.1</span> Exercises</h3>
 <ol style="list-style-type: decimal">
 <li>Get all <code>letters</code> that occur after “g”;</li>
@@ -371,13 +358,14 @@ myNamedVec[<span class="st">&quot;red&quot;</span>]</code></pre></div>
 <div id="updating" class="section level2">
 <h2><span class="header-section-number">8.8</span> Updating</h2>
 <p>You can update part or all of simple objects by assigning new values against a grid-reference.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec&lt;-LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]
-myVec[<span class="dv">1</span>]&lt;-<span class="st">&quot;Z&quot;</span>
-myVec</code></pre></div>
-<pre><code>## [1] &quot;Z&quot; &quot;B&quot; &quot;C&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>, ]&lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]
+myVec[<span class="dv">1</span>] &lt;-<span class="st"> &quot;Z&quot;</span>
+myVec
+
+myDF[<span class="dv">1</span>, ] &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span>
 myDF</code></pre></div>
-<pre><code>##   a b c
+<pre><code>## [1] &quot;Z&quot; &quot;B&quot; &quot;C&quot;
+##   a b c
 ## 1 1 2 3
 ## 2 2 3 4
 ## 3 3 4 5</code></pre>
@@ -385,15 +373,16 @@ myDF</code></pre></div>
 <div id="deleting" class="section level2">
 <h2><span class="header-section-number">8.9</span> Deleting</h2>
 <p>You can use the selections to remove values</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec&lt;-myVec[-<span class="dv">2</span>]
-myVec</code></pre></div>
-<pre><code>## [1] &quot;Z&quot; &quot;C&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF&lt;-myDF[-<span class="dv">3</span>,-<span class="dv">1</span>]
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec &lt;-<span class="st"> </span>myVec[-<span class="dv">2</span>]
+myVec
+
+myDF &lt;-<span class="st"> </span>myDF[-<span class="dv">3</span>, -<span class="dv">1</span>]
 myDF</code></pre></div>
-<pre><code>##   b c
+<pre><code>## [1] &quot;Z&quot; &quot;C&quot;
+##   b c
 ## 1 2 3
 ## 2 3 4</code></pre>
-<div id="exercises-5" class="section level3">
+<div id="exercises-2" class="section level3">
 <h3><span class="header-section-number">8.9.1</span> Exercises</h3>
 <ol style="list-style-type: decimal">
 <li>Select everything from <code>iris</code> except the Species column;</li>
@@ -411,7 +400,7 @@ myDF</code></pre></div>
         </div>
       </div>
 <a href="r-objects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-data-manipulation-basics-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -422,7 +411,7 @@ myDF</code></pre></div>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

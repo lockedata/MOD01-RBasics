@@ -162,18 +162,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.5" data-path="basic-operations.html"><a href="basic-operations.html#basic-operations-exercises"><i class="fa fa-check"></i><b>6.5</b> Basic Operations Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>7</b> R objects</a><ul>
-<li class="chapter" data-level="7.1" data-path="r-objects.html"><a href="r-objects.html#other-key-syntax"><i class="fa fa-check"></i><b>7.1</b> Other key syntax</a></li>
-<li class="chapter" data-level="7.2" data-path="r-objects.html"><a href="r-objects.html#in-memory"><i class="fa fa-check"></i><b>7.2</b> In-memory</a></li>
-<li class="chapter" data-level="7.3" data-path="r-objects.html"><a href="r-objects.html#vectors"><i class="fa fa-check"></i><b>7.3</b> Vectors</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="r-objects.html"><a href="r-objects.html#exercises"><i class="fa fa-check"></i><b>7.3.1</b> Exercises</a></li>
+<li class="chapter" data-level="7.1" data-path="r-objects.html"><a href="r-objects.html#storing-values"><i class="fa fa-check"></i><b>7.1</b> Storing values</a></li>
+<li class="chapter" data-level="7.2" data-path="r-objects.html"><a href="r-objects.html#other-key-syntax"><i class="fa fa-check"></i><b>7.2</b> Other key syntax</a></li>
+<li class="chapter" data-level="7.3" data-path="r-objects.html"><a href="r-objects.html#in-memory"><i class="fa fa-check"></i><b>7.3</b> In-memory</a></li>
+<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#vectors"><i class="fa fa-check"></i><b>7.4</b> Vectors</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="r-objects.html"><a href="r-objects.html#exercises"><i class="fa fa-check"></i><b>7.4.1</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#data.frames"><i class="fa fa-check"></i><b>7.4</b> Data.frames</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="r-objects.html"><a href="r-objects.html#exercises-1"><i class="fa fa-check"></i><b>7.4.1</b> Exercises</a></li>
+<li class="chapter" data-level="7.5" data-path="r-objects.html"><a href="r-objects.html#data.frames"><i class="fa fa-check"></i><b>7.5</b> Data.frames</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="r-objects.html"><a href="r-objects.html#exercises-1"><i class="fa fa-check"></i><b>7.5.1</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.5</b> Lists</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="r-objects.html"><a href="r-objects.html#exercises-2"><i class="fa fa-check"></i><b>7.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="7.6" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.6</b> Lists</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="r-objects.html"><a href="r-objects.html#exercises-2"><i class="fa fa-check"></i><b>7.6.1</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="r-objects.html"><a href="r-objects.html#others"><i class="fa fa-check"></i><b>7.6</b> Others</a></li>
+<li class="chapter" data-level="7.7" data-path="r-objects.html"><a href="r-objects.html#others"><i class="fa fa-check"></i><b>7.7</b> Others</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html"><i class="fa fa-check"></i><b>8</b> R data manipulation basics</a><ul>
 <li class="chapter" data-level="8.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#grid-references"><i class="fa fa-check"></i><b>8.1</b> Grid references</a></li>
@@ -289,41 +290,41 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="grid-referencing-vectors-1" class="section level2">
 <h2><span class="header-section-number">9.4</span> Grid referencing vectors</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="dv">1</span>]</code></pre></div>
-<pre><code>## [1] &quot;A&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]</code></pre></div>
-<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[-<span class="dv">1</span>]</code></pre></div>
-<pre><code>##  [1] &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot;
-## [18] &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[-<span class="dv">13</span>:-<span class="dv">1</span>]</code></pre></div>
-<pre><code>##  [1] &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>)]</code></pre></div>
-<pre><code>##  [1] &quot;A&quot; &quot;C&quot; &quot;E&quot; &quot;G&quot; &quot;I&quot; &quot;K&quot; &quot;M&quot; &quot;O&quot; &quot;Q&quot; &quot;S&quot; &quot;U&quot; &quot;W&quot; &quot;Y&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="dv">1</span>]
+LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]
+LETTERS[-<span class="dv">1</span>]
+LETTERS[-<span class="dv">13</span>:-<span class="dv">1</span>]
+LETTERS[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)]</code></pre></div>
+<pre><code>## [1] &quot;A&quot;
+## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot;
+##  [1] &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot;
+## [18] &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;
+##  [1] &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;
+##  [1] &quot;A&quot; &quot;C&quot; &quot;E&quot; &quot;G&quot; &quot;I&quot; &quot;K&quot; &quot;M&quot; &quot;O&quot; &quot;Q&quot; &quot;S&quot; &quot;U&quot; &quot;W&quot; &quot;Y&quot;</code></pre>
 </div>
 <div id="grid-referencing-data.frames-1" class="section level2">
 <h2><span class="header-section-number">9.5</span> Grid referencing data.frames</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF&lt;-<span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">b=</span><span class="dv">2</span>:<span class="dv">4</span>, <span class="dt">c=</span><span class="dv">3</span>:<span class="dv">5</span>)
-myDF[<span class="dv">1</span>,]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">b =</span> <span class="dv">2</span>:<span class="dv">4</span>, <span class="dt">c =</span> <span class="dv">3</span>:<span class="dv">5</span>)
+myDF[<span class="dv">1</span>, ]
+myDF[, -<span class="dv">1</span>]
+myDF[<span class="dv">1</span>, <span class="dv">1</span>]
+myDF[<span class="dv">1</span>:<span class="dv">2</span>, ]
+myDF[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>), ]
+myDF[, <span class="st">&quot;a&quot;</span>]</code></pre></div>
 <pre><code>##   a b c
-## 1 1 2 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[,-<span class="dv">1</span>]</code></pre></div>
-<pre><code>##   b c
+## 1 1 2 3
+##   b c
 ## 1 2 3
 ## 2 3 4
-## 3 4 5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>,<span class="dv">1</span>]</code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>:<span class="dv">2</span>,]</code></pre></div>
-<pre><code>##   a b c
+## 3 4 5
+## [1] 1
+##   a b c
 ## 1 1 2 3
-## 2 2 3 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>,<span class="ot">TRUE</span>),]</code></pre></div>
-<pre><code>##   a b c
+## 2 2 3 4
+##   a b c
 ## 1 1 2 3
-## 3 3 4 5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[,<span class="st">&quot;a&quot;</span>]</code></pre></div>
-<pre><code>## [1] 1 2 3</code></pre>
+## 3 3 4 5
+## [1] 1 2 3</code></pre>
 <div id="exercises-6" class="section level3">
 <h3><span class="header-section-number">9.5.1</span> Exercises</h3>
 <ol style="list-style-type: decimal">
@@ -337,26 +338,27 @@ myDF[<span class="dv">1</span>,]</code></pre></div>
 <div id="name-checking-1" class="section level2">
 <h2><span class="header-section-number">9.6</span> Name-checking</h2>
 <p>Row names can be used to extract values.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myNamedVec&lt;-<span class="kw">c</span>(<span class="st">&quot;red&quot;</span>=<span class="st">&quot;RED&quot;</span>,<span class="st">&quot;blue&quot;</span>=<span class="st">&quot;BLUE&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myNamedVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">red =</span> <span class="st">&quot;RED&quot;</span>, <span class="dt">blue =</span> <span class="st">&quot;BLUE&quot;</span>)
 myNamedVec[<span class="st">&quot;red&quot;</span>]</code></pre></div>
 <pre><code>##   red 
 ## &quot;RED&quot;</code></pre>
 <p>Column names can also be referenced.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(  iris[,<span class="st">&quot;Species&quot;</span>]    )</code></pre></div>
-<pre><code>## NULL</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(  iris$Species        )</code></pre></div>
-<pre><code>## NULL</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(  iris[,<span class="kw">c</span>(<span class="st">&quot;Sepal.Width&quot;</span>,<span class="st">&quot;Species&quot;</span>)]    )</code></pre></div>
-<pre><code>## [1] &quot;Sepal.Width&quot; &quot;Species&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(iris[, <span class="st">&quot;Species&quot;</span>])
+<span class="kw">colnames</span>(iris$Species)
+
+<span class="kw">colnames</span>(iris[, <span class="kw">c</span>(<span class="st">&quot;Sepal.Width&quot;</span>, <span class="st">&quot;Species&quot;</span>)])</code></pre></div>
+<pre><code>## NULL
+## NULL
+## [1] &quot;Sepal.Width&quot; &quot;Species&quot;</code></pre>
 </div>
 <div id="self-referencing-1" class="section level2">
 <h2><span class="header-section-number">9.7</span> Self-referencing</h2>
 <p>Useful for creating booleans, you can create a vector and use this inside your grid reference system.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[LETTERS&lt;<span class="st">&quot;T&quot;</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[LETTERS &lt;<span class="st"> &quot;T&quot;</span>]
+myDF[myDF$a &lt;=<span class="st"> </span><span class="dv">2</span>, ]</code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot;
-## [18] &quot;R&quot; &quot;S&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[myDF$a&lt;=<span class="dv">2</span>,]</code></pre></div>
-<pre><code>##   a b c
+## [18] &quot;R&quot; &quot;S&quot;
+##   a b c
 ## 1 1 2 3
 ## 2 2 3 4</code></pre>
 <div id="exercises-7" class="section level3">
@@ -371,13 +373,14 @@ myNamedVec[<span class="st">&quot;red&quot;</span>]</code></pre></div>
 <div id="updating-1" class="section level2">
 <h2><span class="header-section-number">9.8</span> Updating</h2>
 <p>You can update part or all of simple objects by assigning new values against a grid-reference.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec&lt;-LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]
-myVec[<span class="dv">1</span>]&lt;-<span class="st">&quot;Z&quot;</span>
-myVec</code></pre></div>
-<pre><code>## [1] &quot;Z&quot; &quot;B&quot; &quot;C&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>, ]&lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]
+myVec[<span class="dv">1</span>] &lt;-<span class="st"> &quot;Z&quot;</span>
+myVec
+
+myDF[<span class="dv">1</span>, ] &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span>
 myDF</code></pre></div>
-<pre><code>##   a b c
+<pre><code>## [1] &quot;Z&quot; &quot;B&quot; &quot;C&quot;
+##   a b c
 ## 1 1 2 3
 ## 2 2 3 4
 ## 3 3 4 5</code></pre>
@@ -385,12 +388,13 @@ myDF</code></pre></div>
 <div id="deleting-1" class="section level2">
 <h2><span class="header-section-number">9.9</span> Deleting</h2>
 <p>You can use the selections to remove values</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec&lt;-myVec[-<span class="dv">2</span>]
-myVec</code></pre></div>
-<pre><code>## [1] &quot;Z&quot; &quot;C&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF&lt;-myDF[-<span class="dv">3</span>,-<span class="dv">1</span>]
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec &lt;-<span class="st"> </span>myVec[-<span class="dv">2</span>]
+myVec
+
+myDF &lt;-<span class="st"> </span>myDF[-<span class="dv">3</span>, -<span class="dv">1</span>]
 myDF</code></pre></div>
-<pre><code>##   b c
+<pre><code>## [1] &quot;Z&quot; &quot;C&quot;
+##   b c
 ## 1 2 3
 ## 2 3 4</code></pre>
 <div id="exercises-8" class="section level3">

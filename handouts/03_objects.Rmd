@@ -1,186 +1,319 @@
 # R objects
-## Other key syntax
 
-Action | Operator | Example
-------------- | ------------- | -------------
-Create / update a variable | <- | `a <- 10`
-Create / update a variable | = | `a = 10`
-Create / update a variable | -> | `10 -> a`
-Comment | # | `# This is my comment`
-Help | ? | `?data.table`
-Identifier | \` |  `` `1`<-2``
+So far we've just worked with some single values to get to grips with how some of the various operations work. Of course, we rarely work with a single value! If we did, we could just use a calculator. 
 
-## In-memory
-- All variables / objects will get stored in-memory;
-- You need memory for operations too.
+This section helps you get to grips with some different ways of storing data and how to manipulate your datasets in the "traditional" way. This is useful because you can understand a lot of code written in the past and equips you to understand the material in the next book, which focusses on data manipulation of tabular data.
 
-Function | Purpose  
-------------- | -------------
-`ls()` | List what's in-memory
-`rm()` | Remove things from memory
+## Storing values
+When we were performing operations, we got some values output to the console. One of the key principles in writing code is Don't Repeat Yourself (DRY) so we need to know how we can avoid repeating ourself in R. One of the ways you can do that is to store a value for use later.
 
-## Vectors
-A 1D object containing a single type of data
-
-Function | Purpose  
-------------- | -------------
-`c()` | Combine values into a vector
-`:` | Generate a sequence
+In R, we can store values by **assigning** them a name. This makes a **variable** or **object**. We can do this with a few different operators, but the traditional operator is a `<-`^[Other valid values are the equals symbol `=` and you can also do a right-handed assignment with `->`]. The format for assigning a value is `nameofthing <- value`. 
 
 ```{r}
-1:3
-c("red","blue","orange")
+my_variable <- 5 + 3
+my_variable > 6 & my_variable < 10
 ```
 
-### Exercises
-1. See what's in the variable `LETTERS`;
-2. Write a check to see if "a" is present in `LETTERS`;
-3. Find out which values in the sequence 1 to 10 are greater than or equal to 3 and less than 7.
-1. Make a vector containing the numbers 1 to 50;
-2. Make a vector containing two words;
-3. What happens when you combine these two vectors?
+Valid names for a variable include upper case letters, lower case letters, numbers anywhere but the beginning, periods (`.`), and hyphens (`_`). 
 
-## Data.frames
-A 2D object containing multiple classes of data
+There are a number of different competing conventions for how you name variables. The most common conventions are shown below. I have no strong feelings for any system and only ask that at minimum you're pick one and stick with it within a single script.  Whatever you do, don't forget names are case sensitive!
 
-Function | Purpose  
-------------- | -------------
-`data.frame()` | Construct a data.frame
+```{r}
+myfirstvariable <- 1
+myFirstVariable <- 1
+MyFirstVariable <- 1
+my_first_variable <- 1
+my.first.variable <- 1
+```
+
+You can create names breaking the rules governing valid names by placing the rule breaking name between two backticks (`\``). I don't recommend you do this with variables you'll create, but you'll often end up with names that break conventions when importing data, especially when you import from spreadsheets.
+
+```{r}
+`valid name`<- 1
+`2017` <- 1
+` ` <- 1
+`$$$` <- 1
+```
+
+Variables you store get stored in-memory. This means they'll hang around whilst R is open and will be gone after that. You can see variables you've created
+
+RStudio will by default save your variables for you so that next time you open it up, your variables are stored. 
+
+```{block, type="protip"}
+RStudio saving your variables is a blessing because you don't have to worry about keeping RStudio open the all time. 
+
+It's also a pretty major curse because you'll inevitably create something at some point through the console or an Untitled R file and then lose that bit of code. Now when you're script runs in a fresh session it'll fail. You'll risk tearing your hair out and worse as you go through the pain of debugging this.
+
+I recommend you get in the habit early of not working with your session being saved. Turn it off in *Tools > Global Options*, untick "Restore .RData into workspace at startup" 
+```
+
+If you need to manage what's been stored you can list objects with `ls()` and remove them with `rm()`. If you want to remove everything you can use`ls()` inside `rm()`. Alternatively, you can use the broom symbol in the Environment tab in RStudio.
+
+
+```{r}
+today<-Sys.Date()
+rm("today")
+ls()
+rm(list=ls())
+```
+
+## Vectors
+A **vector** is a collection of values that hold the same datatype. It is **one-dimensional** in that none of the **elements** in the collection correspond to other values like they might in a table of values.
+
+A single value is actually a vector of **length** 1.
+
+When I introduced the colon (`:`) as a means on generating a sequence, we were in fact generating a vector where each element was a number in the sequence. The vector has a length as long as the number of values generated by the sequence.
+
+```{r}
+-1:1
+```
+
+Another way of producing a vector is to use the combine function (`c()`). This is great for combining a number of disparate character strings into a vector. 
+```{r}
+c("red","yellow","blue")
+```
+
+A single value is a still a vector. What we see when we use the `c()` function is that we're combining vectors. As a result we can also use it on longer vectors too.
+
+```{r}
+c(1:3, 2:1, 5:8)
+```
+
+When we combine values into a single vector, R will change everything to the same datatype using some conversions.
+
+```{r}
+c(1, FALSE)
+c(1, "FALSE")
+```
+
+```{block, type='glass'}
+This **implicit conversion** is something to be careful of and can really screw up your results! If in doubt, check the datatype with the `class()` function, or look for the vector in your global environment and see what the datatype is from there.
+```
+
+We can also give names to values being included in a vector.
+
+```{r}
+c(first="Steph", last="Locke")
+```
+
+## Getting information about vectors
+Our `class()` function will still work with a vector with a length greater than 1 to get you it's datatype. 
+
+```{r}
+class(1:10)
+LETTERS
+class(LETTERS)
+```
+
+We can use the `length()` function to find out the number of elements in a vector.
+
+```{r}
+length(pi)
+length(LETTERS)
+```
+
+To extract the names of values in a vector, we can use the `names()` function.
+
+```{r}
+steph<-c(Steph="forename", Locke="surname")
+names(steph)
+```
+
+## Calculations on multiple vectors
+When we perform calculations on two vectors, R will try to perform the operation for each set of elements. This is an **element-wise** calculation methodology. 
+
+In SQL, it's equivalent to where you might write `colA*colB` and you'll get the answer calculated for every row in the table. In Excel, it's equivalent to a Fill Down of multiplying two values on the same row. 
+
+Let's looks at how this works in practice in R. 
+
+We have two vectors, each containing two elements.
+
+```{r}
+vecA <- 1:2
+vecB <- 2:3
+```
+
+If we want to multiply the two vectors by each other, R will match each element in the first vector with it's counterpart in the second and multiply the two values together to make a new element.
+
+![](vectormult.png)
+
+```{r}
+vecA*vecB 
+```
+
+We can also do this with vectors of different lengths to a certain extent. The most common scenario is operating on a vector by doing something with a single value.
+
+A single value is a vector of length 1. When R gets a request to do something with a vector of length *X* and a vector of length 1, it will basically repeat the vector of length 1 *X* times to make two vectors the same length. It wil then perform the calculation element-wise.
+
+![](vectormultsingle.png)
+
+```{r}
+vecA*3 
+```
+
+You can also use this functionality of making a vector the same length as another, known as **recycling**, work for other mis-matched vector sizes. The only rule is the one of the vector lengths must divide cleanly by the other. 
+
+- Two vectors of the same length divide by the other's length exactly one time and won't need to recycle.
+- A vector of length one always cleanly divides any other vector's length and so will be recycled.
+- A vector of length 2, will divide any vector with an even length and so will be recycled in those cases, but it cannot recycle cleanly for odd length vectors.
+
+![](vectormultrecycle.png)
+
+```{r error=TRUE}
+1:10 * 2
+1:10 * 2:3
+1:10 * 2:4
+```
+
+Vector recycling is useful and dangerous -- it can help you make elegant code or give you unexpected results. Especially when starting out, I recommend you make your vectors either the same length or length 1.
+
+## data.frames
+A **data.frame** is table similar to what we're used to working with in most data analysis tools. It will contain a number of rows with columns containing different pieces of information. Each column in a data.frame has a datatype but it does not have to the same datatype as the other columns.
+
+We can construct a data.frame from individual vectors via the `data.frame()` function.
 
 ```{r}
 data.frame(a=1:2,b=c("blue","red"))
 ```
 
-### Exercises
-1. Make a data.frame the two vectors you created in the vectors section;
-2. What happened to your text vector?
+You can also give row names to the rows you end up making, however, I recommend you add these in as a column instead.
+
+```{r}
+data.frame(a=1:2,b=c("blue","red"),row.names = c("First","Second"))
+```
+
+Throughout many of the examples, I'll use the example datasets that are available by default in R.
+
+```{r echo=FALSE}
+knitr::kable(head(iris))
+```
+
+```{r, eval=FALSE}
+View(iris)
+```
+
+```{block, type="protip"}
+The `View()` function is specific to RStudio and provides a nice visual grid view of a data.framae and it allows you to search and sort the table for some initial exploration.
+```
+
+More commonly, we'll import data an outside source.
+
+## Importing data.frames
+You can import data via code, but one of the eassiest ways of getting started is to load data via RStudio and have it generate the code for you.
+
+To import data, go to the Environment tab and select Import Dataset. Select the relevant type of data you want to import. Browse to the file you want to upload. 
+
+```{block, type="protip"}
+Keeping data in the project directory is ideal as it keeps everything in one place and makes import code easier to read.
+```
+
+You can tweak the advanced settings and then select the *Import* button to load the data directly into memory. Alternatively, you can copy the code it generated for you and paste it into a script. By doing this copy and pasting, you will make the import reproducible. Next time you need to load the data you can just run the code, instead of using the interface again.
+
+### Error!! 
+![](readerror.png)
+
+If you were tying to do this import and you have a fresh installation of R and RStudio, you probably got an error when you tried to load a file because you don't have some of the required functionality that RStudio expects you to have.
+
+It will tell you the name of the thing you're missing. In my case - I'm missing the package "readr". To make this available to us, we go to the Packages tab and then:
+
+- select *Install*
+- type "readr"
+- select the *Install* button
+- accept any popups for things like restarting R
+
+## Getting information about data.frames
+Our data.frames are **composites**, they are the result of combining a number of vectors with different data types. As a consequence, when we run our `class()` function, it tells us an object is a `data.frame` and no longer returns the underlying datatype.
+
+```{r}
+class(iris)
+```
+
+You do not get the number of rows in a data.frame when you run the `length()` function, instead you get the number of columns^[This is because a data.frame is actually just a prettily printed list and each column in an element in said list and length returns the number of elements.]. Alternatively, you can run the more clearly named `ncol()` function to return the number of columns in a data.frame.
+
+```{r}
+length(iris)
+ncol(iris)
+```
+
+You can get the number of rows via the `nrow()` function.
+
+```{r}
+nrow(iris)
+```
+
+Similarly to `length()`, the `names()` function when applied to data.frame's only works on the columns, so you can use it to get column names. A clearer alternative is to use the `colnames()` function. You can use `rownames()` to get names for rows, if they exist.
+
+```{r}
+mydf <- data.frame(a=1:2, b=c("blue","red"), row.names = c("First","Second"))
+
+names(mydf)
+colnames(mydf)
+rownames(mydf)
+```
+
 
 ## Lists
-An object containing multiple types of objects
+Lists are your catch-all object. An element in a **list** can be any object, including a list! 
+You'll usually find yourself using a list when you're receiving some nested data (like from some API response) or when you want to bundle multiple connected pieces of information together. Most functionality for building statistical models in R will return a list object holding things like the model coefficients, key statistics, and fitted values.
 
-Function | Purpose  
-------------- | -------------
-`list()` | Construct a list
+You can create lists with the `list()` function and like with our other objects you can have named and unnamed elements.
 
 ```{r}
-list(a=1:2,
-     b=c("blue","red"), 
-     df=data.frame(a=1:2,b=c("blue","red")))
+mylist<-list(a=1:3, LETTERS)
+mylist
 ```
 
-### Exercises
+## Getting information about lists
+The `length()` function will tell you how many elements there are in a list.
+
+```{r}
+length(mylist)
+```
+
+`names()` lets you get the element names and returns a blank (`""`) where no name was provided.
+```{r}
+names(mylist)
+```
+
+## Other object types
+There a number of other object types in R. They won't be covered in detail in this book, because they tend to be used by a small fraction of R users.
+
+- A **matrix** is two-dimensional object that can only one datatype.
+- An **array** is a multi-dimensional object that can contain only one datatype.
+- A **table** object is similar to a matrix but is created by producing a contingency table.
+
+In R, developers can also create other object types specific to their requirements. People use this to create geospatial objects and more.
+
+## Useful functions
+Whatever the object type, there some functions that come in handy for 
+
+You get the contents of any object by writing it's name.
+
+```{r}
+mylist
+```
+
+However, if you're working with a lot of data, you probably don't want to fill up your console that way. R has two functions, `head()` and `tail()`, which allow you to see values from beginning or end of an object.
+```{r}
+head(LETTERS)
+tail(LETTERS)
+```
+
+If you want to examine an R object, you can use the `str()` function to get the structure of the object.
+```{r}
+str(mylist)
+```
+
+## R objects exercises
+1. See what's in the variable `letters`;
+2. Write a check to see if "A" is present in `letters`;
+3. Find out which values in the sequence 1 to 10 are greater than or equal to 3 and less than 7.
+1. Make a vector containing the numbers 1 to 50;
+2. Make a vector containing two words;
+3. What happens when you combine these two vectors?
+1. Make a data.frame using the two vectors
+2. What happened to your text vector?
 1. Make a list containing some of the variables you've created so far.
+1. Return the some rows from the `iris` dataset
 
-## Others
-- **Matrix** A 2D object of one data type
-- **Array** A nD object of one data type
-
-# R data manipulation basics
-
-## Grid references
-R works in a grid reference system like [row , column]. So...
-
-- For a 1D vector, there's just one position i.e. `vector[ row ]`
-- For a data.frame, there's two positions i.e. `data.frame[ row , column ]`
-
-## Grid references
-![](vectors.png)
-
-![](dataframes.png)
-
-
-Valid values include:
-
-- Positive values or ranges;
-- Negative values or ranges;
-- Boolean ranges;
-- Names or vectors of names.
-
-## Grid referencing
-![](subscripts.png)
-
-## Grid referencing vectors
-```{r}
-LETTERS[1]
-LETTERS[1:3]
-LETTERS[-1]
-LETTERS[-13:-1]
-LETTERS[c(TRUE,FALSE)]
-```
-
-## Grid referencing data.frames
-```{r eval=TRUE}
-myDF<-data.frame(a=1:3, b=2:4, c=3:5)
-myDF[1,]
-myDF[,-1]
-myDF[1,1]
-myDF[1:2,]
-myDF[c(TRUE,FALSE,TRUE),]
-myDF[,"a"]
-```
-
-### Exercises
-1. Select all `letters` before "x";
-2. Select the first 5 rows from the built-in data.frame `iris`;
-3. Select the first 2 columns from `iris`;
-4. Select the column Sepal.Length from `iris` by name.
-
-## Name-checking
-Row names can be used to extract values.
-
-```{r}
-myNamedVec<-c("red"="RED","blue"="BLUE")
-myNamedVec["red"]
-```
-
-Column names can also be referenced.
-
-```{r}
-colnames(  iris[,"Species"]    )
-colnames(  iris$Species        )
-
-colnames(  iris[,c("Sepal.Width","Species")]    )
-```
-
-## Self-referencing
-Useful for creating booleans, you can create a vector and use this inside your grid reference system.
-```{r}
-LETTERS[LETTERS<"T"]
-myDF[myDF$a<=2,]
-```
-
-
-### Exercises
-1. Get all `letters` that occur after "g";
-2. Select rows from the `iris` data.frame where the `Sepal.Length` is greater than 5.8cm;
-3. Select rows from the `iris` data.frame where the Sepal.Width is below the average for that column.
-
-## Updating
-You can update part or all of simple objects by assigning new values against a grid-reference.
-
-```{r}
-myVec<-LETTERS[1:3]
-myVec[1]<-"Z"
-myVec
-
-myDF[1, ]<- 1:3
-myDF
-```
-
-## Deleting
-You can use the selections to remove values
-
-```{r}
-myVec<-myVec[-2]
-myVec
-
-myDF<-myDF[-3,-1]
-myDF
-```
-
-### Exercises
-1. Select everything from `iris` except the Species column;
-2. Create a copy of the `iris` data that just contains the first 100 rows and call it `myIris`;
-3. Update the species column to the value "Unknown" in `myIris`;
-4. Delete rows from `myIris` where the sepal length is greater than 5.5.
 

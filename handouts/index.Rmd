@@ -8,6 +8,11 @@ output:
   bookdown::pdf_book: default
 ---
 
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set( tidy=TRUE, results="hold") 
+```
+
 # (PART) Preamble {-} 
 
 

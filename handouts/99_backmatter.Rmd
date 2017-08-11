@@ -46,6 +46,58 @@ pi>3
 1:5 <=3
 ```
 
+## R Objects Exercises
+-  See what's in the variable `letters`
+```{r}
+letters
+```
+
+-  Write a check to see if "A" is present in `letters`
+```{r}
+"A" %in% letters
+```
+
+-  Find out which values in the sequence 1 to 10 are greater than or equal to 3 and less than 7.
+```{r}
+myseq<-1:10
+myseq>=3 & myseq<7
+```
+
+-  Make a vector containing the numbers 1 to 50;
+```{r}
+fifty<-1:50
+```
+
+-  Make a vector containing two words;
+```{r}
+words<-c("fifty","words")
+```
+
+-  What happens when you combine these two vectors?
+```{r}
+c(fifty, words)
+# the numbers get converted to text
+```
+
+-  Make a data.frame using the two vectors
+```{r}
+fiftywords<-data.frame(fifty, words)
+```
+
+-  What happened to your text vector?
+```{r}
+# It got recycled 25 times
+```
+
+-  Make a list containing some of the variables you've created so far.
+```{r}
+list(fifty, words, fiftywords)
+```
+
+-  Return the some rows from the `iris` dataset
+```{r}
+head(iris)
+```
 
 # Software
 ## R

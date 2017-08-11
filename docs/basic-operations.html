@@ -162,18 +162,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.5" data-path="basic-operations.html"><a href="basic-operations.html#basic-operations-exercises"><i class="fa fa-check"></i><b>6.5</b> Basic Operations Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>7</b> R objects</a><ul>
-<li class="chapter" data-level="7.1" data-path="r-objects.html"><a href="r-objects.html#other-key-syntax"><i class="fa fa-check"></i><b>7.1</b> Other key syntax</a></li>
-<li class="chapter" data-level="7.2" data-path="r-objects.html"><a href="r-objects.html#in-memory"><i class="fa fa-check"></i><b>7.2</b> In-memory</a></li>
-<li class="chapter" data-level="7.3" data-path="r-objects.html"><a href="r-objects.html#vectors"><i class="fa fa-check"></i><b>7.3</b> Vectors</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="r-objects.html"><a href="r-objects.html#exercises"><i class="fa fa-check"></i><b>7.3.1</b> Exercises</a></li>
+<li class="chapter" data-level="7.1" data-path="r-objects.html"><a href="r-objects.html#storing-values"><i class="fa fa-check"></i><b>7.1</b> Storing values</a></li>
+<li class="chapter" data-level="7.2" data-path="r-objects.html"><a href="r-objects.html#vectors"><i class="fa fa-check"></i><b>7.2</b> Vectors</a></li>
+<li class="chapter" data-level="7.3" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-vectors"><i class="fa fa-check"></i><b>7.3</b> Getting information about vectors</a></li>
+<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#calculations-on-multiple-vectors"><i class="fa fa-check"></i><b>7.4</b> Calculations on multiple vectors</a></li>
+<li class="chapter" data-level="7.5" data-path="r-objects.html"><a href="r-objects.html#data.frames"><i class="fa fa-check"></i><b>7.5</b> data.frames</a></li>
+<li class="chapter" data-level="7.6" data-path="r-objects.html"><a href="r-objects.html#importing-data.frames"><i class="fa fa-check"></i><b>7.6</b> Importing data.frames</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="r-objects.html"><a href="r-objects.html#error"><i class="fa fa-check"></i><b>7.6.1</b> Error!!</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#data.frames"><i class="fa fa-check"></i><b>7.4</b> Data.frames</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="r-objects.html"><a href="r-objects.html#exercises-1"><i class="fa fa-check"></i><b>7.4.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.5</b> Lists</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="r-objects.html"><a href="r-objects.html#exercises-2"><i class="fa fa-check"></i><b>7.5.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="r-objects.html"><a href="r-objects.html#others"><i class="fa fa-check"></i><b>7.6</b> Others</a></li>
+<li class="chapter" data-level="7.7" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-data.frames"><i class="fa fa-check"></i><b>7.7</b> Getting information about data.frames</a></li>
+<li class="chapter" data-level="7.8" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.8</b> Lists</a></li>
+<li class="chapter" data-level="7.9" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-lists"><i class="fa fa-check"></i><b>7.9</b> Getting information about lists</a></li>
+<li class="chapter" data-level="7.10" data-path="r-objects.html"><a href="r-objects.html#other-object-types"><i class="fa fa-check"></i><b>7.10</b> Other object types</a></li>
+<li class="chapter" data-level="7.11" data-path="r-objects.html"><a href="r-objects.html#useful-functions"><i class="fa fa-check"></i><b>7.11</b> Useful functions</a></li>
+<li class="chapter" data-level="7.12" data-path="r-objects.html"><a href="r-objects.html#r-objects-exercises"><i class="fa fa-check"></i><b>7.12</b> R objects exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html"><i class="fa fa-check"></i><b>8</b> R data manipulation basics</a><ul>
 <li class="chapter" data-level="8.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#grid-references"><i class="fa fa-check"></i><b>8.1</b> Grid references</a></li>
@@ -181,54 +183,38 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.3" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#grid-referencing"><i class="fa fa-check"></i><b>8.3</b> Grid referencing</a></li>
 <li class="chapter" data-level="8.4" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#grid-referencing-vectors"><i class="fa fa-check"></i><b>8.4</b> Grid referencing vectors</a></li>
 <li class="chapter" data-level="8.5" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#grid-referencing-data.frames"><i class="fa fa-check"></i><b>8.5</b> Grid referencing data.frames</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-3"><i class="fa fa-check"></i><b>8.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="8.5.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises"><i class="fa fa-check"></i><b>8.5.1</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#name-checking"><i class="fa fa-check"></i><b>8.6</b> Name-checking</a></li>
 <li class="chapter" data-level="8.7" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#self-referencing"><i class="fa fa-check"></i><b>8.7</b> Self-referencing</a><ul>
-<li class="chapter" data-level="8.7.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-4"><i class="fa fa-check"></i><b>8.7.1</b> Exercises</a></li>
+<li class="chapter" data-level="8.7.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-1"><i class="fa fa-check"></i><b>8.7.1</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8.8" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#updating"><i class="fa fa-check"></i><b>8.8</b> Updating</a></li>
 <li class="chapter" data-level="8.9" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#deleting"><i class="fa fa-check"></i><b>8.9</b> Deleting</a><ul>
-<li class="chapter" data-level="8.9.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-5"><i class="fa fa-check"></i><b>8.9.1</b> Exercises</a></li>
+<li class="chapter" data-level="8.9.1" data-path="r-data-manipulation-basics.html"><a href="r-data-manipulation-basics.html#exercises-2"><i class="fa fa-check"></i><b>8.9.1</b> Exercises</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html"><i class="fa fa-check"></i><b>9</b> R data manipulation basics</a><ul>
-<li class="chapter" data-level="9.1" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-references-2"><i class="fa fa-check"></i><b>9.1</b> Grid references</a></li>
-<li class="chapter" data-level="9.2" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-references-3"><i class="fa fa-check"></i><b>9.2</b> Grid references</a></li>
-<li class="chapter" data-level="9.3" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-referencing-1"><i class="fa fa-check"></i><b>9.3</b> Grid referencing</a></li>
-<li class="chapter" data-level="9.4" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-referencing-vectors-1"><i class="fa fa-check"></i><b>9.4</b> Grid referencing vectors</a></li>
-<li class="chapter" data-level="9.5" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#grid-referencing-data.frames-1"><i class="fa fa-check"></i><b>9.5</b> Grid referencing data.frames</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#exercises-6"><i class="fa fa-check"></i><b>9.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="9" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>9</b> R functions</a><ul>
+<li class="chapter" data-level="9.1" data-path="r-functions.html"><a href="r-functions.html#using-a-function"><i class="fa fa-check"></i><b>9.1</b> Using a function</a></li>
+<li class="chapter" data-level="9.2" data-path="r-functions.html"><a href="r-functions.html#function-arguments"><i class="fa fa-check"></i><b>9.2</b> Function arguments</a></li>
+<li class="chapter" data-level="9.3" data-path="r-functions.html"><a href="r-functions.html#common-functions"><i class="fa fa-check"></i><b>9.3</b> Common functions</a></li>
+<li class="chapter" data-level="9.4" data-path="r-functions.html"><a href="r-functions.html#finding-functions"><i class="fa fa-check"></i><b>9.4</b> Finding functions</a></li>
+<li class="chapter" data-level="9.5" data-path="r-functions.html"><a href="r-functions.html#seeing-how-functions-work"><i class="fa fa-check"></i><b>9.5</b> Seeing how functions work</a></li>
+<li class="chapter" data-level="9.6" data-path="r-functions.html"><a href="r-functions.html#exercises-3"><i class="fa fa-check"></i><b>9.6</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#name-checking-1"><i class="fa fa-check"></i><b>9.6</b> Name-checking</a></li>
-<li class="chapter" data-level="9.7" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#self-referencing-1"><i class="fa fa-check"></i><b>9.7</b> Self-referencing</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#exercises-7"><i class="fa fa-check"></i><b>9.7.1</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="9.8" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#updating-1"><i class="fa fa-check"></i><b>9.8</b> Updating</a></li>
-<li class="chapter" data-level="9.9" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#deleting-1"><i class="fa fa-check"></i><b>9.9</b> Deleting</a><ul>
-<li class="chapter" data-level="9.9.1" data-path="r-data-manipulation-basics-1.html"><a href="r-data-manipulation-basics-1.html#exercises-8"><i class="fa fa-check"></i><b>9.9.1</b> Exercises</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>10</b> R functions</a><ul>
-<li class="chapter" data-level="10.1" data-path="r-functions.html"><a href="r-functions.html#using-a-function"><i class="fa fa-check"></i><b>10.1</b> Using a function</a></li>
-<li class="chapter" data-level="10.2" data-path="r-functions.html"><a href="r-functions.html#function-arguments"><i class="fa fa-check"></i><b>10.2</b> Function arguments</a></li>
-<li class="chapter" data-level="10.3" data-path="r-functions.html"><a href="r-functions.html#common-functions"><i class="fa fa-check"></i><b>10.3</b> Common functions</a></li>
-<li class="chapter" data-level="10.4" data-path="r-functions.html"><a href="r-functions.html#finding-functions"><i class="fa fa-check"></i><b>10.4</b> Finding functions</a></li>
-<li class="chapter" data-level="10.5" data-path="r-functions.html"><a href="r-functions.html#seeing-how-functions-work"><i class="fa fa-check"></i><b>10.5</b> Seeing how functions work</a></li>
-<li class="chapter" data-level="10.6" data-path="r-functions.html"><a href="r-functions.html#exercises-9"><i class="fa fa-check"></i><b>10.6</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>11</b> R packages</a><ul>
-<li class="chapter" data-level="11.1" data-path="r-packages.html"><a href="r-packages.html#what-is-a-package"><i class="fa fa-check"></i><b>11.1</b> What is a package?</a></li>
-<li class="chapter" data-level="11.2" data-path="r-packages.html"><a href="r-packages.html#using-packages"><i class="fa fa-check"></i><b>11.2</b> Using packages</a></li>
-<li class="chapter" data-level="11.3" data-path="r-packages.html"><a href="r-packages.html#useful-packages"><i class="fa fa-check"></i><b>11.3</b> Useful packages</a></li>
-<li class="chapter" data-level="11.4" data-path="r-packages.html"><a href="r-packages.html#finding-packages"><i class="fa fa-check"></i><b>11.4</b> Finding packages</a></li>
-<li class="chapter" data-level="11.5" data-path="r-packages.html"><a href="r-packages.html#package-documentation"><i class="fa fa-check"></i><b>11.5</b> Package documentation</a></li>
-<li class="chapter" data-level="11.6" data-path="r-packages.html"><a href="r-packages.html#exercises-10"><i class="fa fa-check"></i><b>11.6</b> Exercises</a></li>
+<li class="chapter" data-level="10" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>10</b> R packages</a><ul>
+<li class="chapter" data-level="10.1" data-path="r-packages.html"><a href="r-packages.html#what-is-a-package"><i class="fa fa-check"></i><b>10.1</b> What is a package?</a></li>
+<li class="chapter" data-level="10.2" data-path="r-packages.html"><a href="r-packages.html#using-packages"><i class="fa fa-check"></i><b>10.2</b> Using packages</a></li>
+<li class="chapter" data-level="10.3" data-path="r-packages.html"><a href="r-packages.html#useful-packages"><i class="fa fa-check"></i><b>10.3</b> Useful packages</a></li>
+<li class="chapter" data-level="10.4" data-path="r-packages.html"><a href="r-packages.html#finding-packages"><i class="fa fa-check"></i><b>10.4</b> Finding packages</a></li>
+<li class="chapter" data-level="10.5" data-path="r-packages.html"><a href="r-packages.html#package-documentation"><i class="fa fa-check"></i><b>10.5</b> Package documentation</a></li>
+<li class="chapter" data-level="10.6" data-path="r-packages.html"><a href="r-packages.html#exercises-4"><i class="fa fa-check"></i><b>10.6</b> Exercises</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>A</b> Answers</a><ul>
 <li class="chapter" data-level="A.1" data-path="answers.html"><a href="answers.html#r-data-types-exercises-1"><i class="fa fa-check"></i><b>A.1</b> R Data Types Exercises</a></li>
 <li class="chapter" data-level="A.2" data-path="answers.html"><a href="answers.html#basic-operations-exercises-1"><i class="fa fa-check"></i><b>A.2</b> Basic Operations Exercises</a></li>
+<li class="chapter" data-level="A.3" data-path="answers.html"><a href="answers.html#r-objects-exercises-1"><i class="fa fa-check"></i><b>A.3</b> R Objects Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>B</b> Software</a><ul>
 <li class="chapter" data-level="B.1" data-path="software.html"><a href="software.html#r"><i class="fa fa-check"></i><b>B.1</b> R</a></li>
@@ -325,29 +311,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tbody>
 </table>
 <p>The colon (<code>:</code>) is a really snazzy way of generating a sequence of numbers that step by 1.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">5</span></code></pre></div>
-<pre><code>## [1] 1 2 3 4 5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span>:<span class="dv">1</span></code></pre></div>
-<pre><code>## [1] 5 4 3 2 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">-<span class="dv">1</span>:<span class="dv">5</span></code></pre></div>
-<pre><code>## [1] -1  0  1  2  3  4  5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span>:-<span class="dv">1</span></code></pre></div>
-<pre><code>## [1]  5  4  3  2  1  0 -1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">5</span>
+<span class="dv">5</span>:<span class="dv">1</span>
+-<span class="dv">1</span>:<span class="dv">5</span>
+<span class="dv">5</span>:-<span class="dv">1</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5
+## [1] 5 4 3 2 1
+## [1] -1  0  1  2  3  4  5
+## [1]  5  4  3  2  1  0 -1</code></pre>
 <p><strong>Integer division</strong> (<code>%/%</code>) tells you how many times the first number can be divided by the second without returning a fractional value.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">8</span></code></pre></div>
-<pre><code>## [1] 1 2 3 4 5 6 7 8</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">8</span> %/%<span class="st"> </span><span class="dv">3</span></code></pre></div>
-<pre><code>## [1] 0 0 1 1 1 2 2 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">8</span> %/%<span class="st"> </span><span class="dv">4</span></code></pre></div>
-<pre><code>## [1] 0 0 0 1 1 1 1 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">8</span>
+<span class="dv">1</span>:<span class="dv">8</span>%/%<span class="dv">3</span>
+<span class="dv">1</span>:<span class="dv">8</span>%/%<span class="dv">4</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6 7 8
+## [1] 0 0 1 1 1 2 2 2
+## [1] 0 0 0 1 1 1 1 2</code></pre>
 <p>The <strong>modulus</strong> (<code>%%</code>) tells you how much is left over after performing an integer division.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">8</span></code></pre></div>
-<pre><code>## [1] 1 2 3 4 5 6 7 8</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">8</span> %%<span class="st"> </span><span class="dv">3</span></code></pre></div>
-<pre><code>## [1] 1 2 0 1 2 0 1 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">8</span> %%<span class="st"> </span><span class="dv">4</span></code></pre></div>
-<pre><code>## [1] 1 2 3 0 1 2 3 0</code></pre>
-<p>You’ll see percentage symbols (<code>%</code>) come up alot in future books For reasons<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a> not worth worrying about, R uses the <code>%</code> sign as the start of special operators – usually these are custom built, contain text, or reserved symbols.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">8</span>
+<span class="dv">1</span>:<span class="dv">8</span>%%<span class="dv">3</span>
+<span class="dv">1</span>:<span class="dv">8</span>%%<span class="dv">4</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6 7 8
+## [1] 1 2 0 1 2 0 1 2
+## [1] 1 2 3 0 1 2 3 0</code></pre>
+<p>For reasons<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a> not worth worrying about, R uses the <code>%</code> sign as the start of special operators – usually these are custom built, contain text, or reserved symbols.</p>
 </div>
 <div id="comparison" class="section level2">
 <h2><span class="header-section-number">6.2</span> Comparison</h2>
@@ -355,19 +341,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="common-operators" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> Common operators</h3>
 <p>The less thans and greater thans are symbols that are in pretty much every language for comparisons, but the test to see if two values are the same or not can often vary across languages.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">3</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">3</span> &gt;<span class="st"> </span><span class="dv">2</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> &gt;=<span class="st"> </span><span class="dv">2</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> &lt;=<span class="st"> </span><span class="dv">2</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">3</span>
+<span class="dv">3</span> &gt;<span class="st"> </span><span class="dv">2</span>
+<span class="dv">2</span> &gt;=<span class="st"> </span><span class="dv">2</span>
+<span class="dv">2</span> &lt;=<span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] TRUE
+## [1] TRUE
+## [1] TRUE
+## [1] TRUE</code></pre>
 <p>In R, you test if two values are exactly the same with <code>==</code> and you test if they’re different with <code>!=</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> ==<span class="st"> </span><span class="dv">2</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> !=<span class="st"> </span><span class="dv">2</span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> ==<span class="st"> </span><span class="dv">2</span>
+<span class="dv">2</span> !=<span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] TRUE
+## [1] FALSE</code></pre>
 <p>You can test if a value is present in a list of acceptable values using the <code>%in%</code> operator. This may seem a little trivial right now, but once we start covering more than one value at a time, it’ll start showing it’s uses for strings.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> %in%<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
@@ -377,10 +363,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Testing for equality can get a little weird with R because it uses a different way of storing numbers than we would expect. It doesn’t store numbers quite as precisely as we expect - somewhere at the very end of a large number of decimal places, the value can be rounded incorrectly. It doesn’t make a difference to most of our calculations but it will often hit when you’re comparing two decimal values.</p>
 <p>Let’s see an example.</p>
 <p>Both these calculation return what we think of as <code>0.2</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">0.5</span> -<span class="st"> </span><span class="fl">0.3</span></code></pre></div>
-<pre><code>## [1] 0.2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">0.6</span> -<span class="st"> </span><span class="fl">0.4</span></code></pre></div>
-<pre><code>## [1] 0.2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">0.5</span> -<span class="st"> </span><span class="fl">0.3</span>
+<span class="fl">0.6</span> -<span class="st"> </span><span class="fl">0.4</span></code></pre></div>
+<pre><code>## [1] 0.2
+## [1] 0.2</code></pre>
 <p>Indeed, if we test <code>0.2</code> is the same as <code>0.2</code> we get a <code>TRUE</code> which matches our expectations.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">0.2</span> ==<span class="st"> </span><span class="fl">0.2</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
@@ -388,7 +374,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="fl">0.6</span> -<span class="st"> </span><span class="fl">0.4</span>) ==<span class="st"> </span>(<span class="fl">0.5</span> -<span class="st"> </span><span class="fl">0.3</span>)</code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>To avoid this issue, if you’re comparing decimal values that result from calculations it is better to use the <code>all.equal()</code> function. <code>all.equal()</code> adds a tolerance to the comparison which means the very subtle imprecision is ignored. The default tolerance is 1.510^{-8}, in other words the imprecision is <em>very, very small</em>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">all.equal</span>(<span class="fl">0.6</span> -<span class="st"> </span><span class="fl">0.4</span> , <span class="fl">0.5</span> -<span class="st"> </span><span class="fl">0.3</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">all.equal</span>(<span class="fl">0.6</span> -<span class="st"> </span><span class="fl">0.4</span>, <span class="fl">0.5</span> -<span class="st"> </span><span class="fl">0.3</span>)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="summary-1" class="section level3">
@@ -453,64 +439,65 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="common-operators-1" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> Common operators</h3>
 <p>The ampersand (<code>&amp;</code>) allows us to combine two checks to do an AND check which is “are both things true”.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> &amp;<span class="st"> </span><span class="ot">TRUE</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> &amp;<span class="st"> </span><span class="ot">FALSE</span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">FALSE</span> &amp;<span class="st"> </span><span class="ot">FALSE</span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">3</span>) &amp;<span class="st"> </span>(<span class="dv">4</span> ==<span class="st"> </span><span class="dv">4</span>)</code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">3</span>) &amp;<span class="st"> </span>(<span class="dv">4</span> !=<span class="st"> </span><span class="dv">4</span>)</code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> &amp;<span class="st"> </span><span class="ot">TRUE</span>
+<span class="ot">TRUE</span> &amp;<span class="st"> </span><span class="ot">FALSE</span>
+<span class="ot">FALSE</span> &amp;<span class="st"> </span><span class="ot">FALSE</span>
+(<span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">3</span>) &amp;<span class="st"> </span>(<span class="dv">4</span> ==<span class="st"> </span><span class="dv">4</span>)
+(<span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">3</span>) &amp;<span class="st"> </span>(<span class="dv">4</span> !=<span class="st"> </span><span class="dv">4</span>)</code></pre></div>
+<pre><code>## [1] TRUE
+## [1] FALSE
+## [1] FALSE
+## [1] TRUE
+## [1] FALSE</code></pre>
 <p>The pipe / bar (<code>|</code>)<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a> allows us to do an OR check which is “are either of these things true”.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> |<span class="st"> </span><span class="ot">TRUE</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> |<span class="st"> </span><span class="ot">FALSE</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">FALSE</span> |<span class="st"> </span><span class="ot">FALSE</span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">3</span>) |<span class="st"> </span>(<span class="dv">4</span> ==<span class="st"> </span><span class="dv">4</span>)</code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">3</span>) |<span class="st"> </span>(<span class="dv">4</span> !=<span class="st"> </span><span class="dv">4</span>)</code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> |<span class="st"> </span><span class="ot">TRUE</span>
+<span class="ot">TRUE</span> |<span class="st"> </span><span class="ot">FALSE</span>
+<span class="ot">FALSE</span> |<span class="st"> </span><span class="ot">FALSE</span>
+(<span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">3</span>) |<span class="st"> </span>(<span class="dv">4</span> ==<span class="st"> </span><span class="dv">4</span>)
+(<span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">3</span>) |<span class="st"> </span>(<span class="dv">4</span> !=<span class="st"> </span><span class="dv">4</span>)</code></pre></div>
+<pre><code>## [1] TRUE
+## [1] TRUE
+## [1] FALSE
+## [1] TRUE
+## [1] TRUE</code></pre>
 <p>The exclamation point (<code>!</code>) allows us to a perform a NOT by negating or swapping a check’s result. This allows you say things like “is this check true and that check not true”.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> &amp;<span class="st"> </span><span class="ot">TRUE</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> &amp;<span class="st"> </span>!<span class="ot">FALSE</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">!<span class="ot">FALSE</span> &amp;<span class="st"> </span>!<span class="ot">FALSE</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">3</span>) &amp;<span class="st"> </span>(<span class="dv">4</span> ==<span class="st"> </span><span class="dv">4</span>)</code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">3</span>) &amp;<span class="st"> </span>!(<span class="dv">4</span> !=<span class="st"> </span><span class="dv">4</span>)</code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> &amp;<span class="st"> </span><span class="ot">TRUE</span>
+<span class="ot">TRUE</span> &amp;<span class="st"> </span>!<span class="ot">FALSE</span>
+!<span class="ot">FALSE</span> &amp;<span class="st"> </span>!<span class="ot">FALSE</span>
+(<span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">3</span>) &amp;<span class="st"> </span>(<span class="dv">4</span> ==<span class="st"> </span><span class="dv">4</span>)
+(<span class="dv">2</span> &lt;<span class="st"> </span><span class="dv">3</span>) &amp;<span class="st"> </span>!(<span class="dv">4</span> !=<span class="st"> </span><span class="dv">4</span>)</code></pre></div>
+<pre><code>## [1] TRUE
+## [1] TRUE
+## [1] TRUE
+## [1] TRUE
+## [1] TRUE</code></pre>
 </div>
 <div id="other-operators" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> Other operators</h3>
 <p>Less commonly, there other logical checks you might to perform.</p>
 <p>We can do an XOR, where one and only one of two values being checked is true.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">xor</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">xor</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">xor</span>(<span class="ot">FALSE</span>, <span class="ot">FALSE</span>)</code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">xor</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)
+<span class="kw">xor</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>)
+<span class="kw">xor</span>(<span class="ot">FALSE</span>, <span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## [1] TRUE
+## [1] FALSE
+## [1] FALSE</code></pre>
 <p>We’ll see how this works in the next section, but when we use our logical operators it will do the comparison for every row. Sometimes we might be performing comparisons for many values but we need to to guarantee we get just one value back. We can use variants or AND and ORs called <strong>bitwise</strong> comparisons to achieve this. Use these with care as the results can be a little bit weird!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> &amp;&amp;<span class="st"> </span><span class="ot">TRUE</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> &amp;&amp;<span class="st"> </span><span class="ot">FALSE</span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> ||<span class="st"> </span><span class="ot">TRUE</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> ||<span class="st"> </span><span class="ot">FALSE</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">2</span>&gt;<span class="dv">1</span></code></pre></div>
-<pre><code>## [1] FALSE  TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span>:<span class="dv">3</span>&gt;<span class="dv">1</span></code></pre></div>
-<pre><code>## [1] TRUE TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">2</span>&gt;<span class="dv">1</span> &amp;&amp;<span class="st"> </span><span class="dv">2</span>:<span class="dv">3</span>&gt;<span class="dv">1</span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> &amp;&amp;<span class="st"> </span><span class="ot">TRUE</span>
+<span class="ot">TRUE</span> &amp;&amp;<span class="st"> </span><span class="ot">FALSE</span>
+<span class="ot">TRUE</span> ||<span class="st"> </span><span class="ot">TRUE</span>
+<span class="ot">TRUE</span> ||<span class="st"> </span><span class="ot">FALSE</span>
+
+<span class="dv">1</span>:<span class="dv">2</span> &gt;<span class="st"> </span><span class="dv">1</span>
+<span class="dv">2</span>:<span class="dv">3</span> &gt;<span class="st"> </span><span class="dv">1</span>
+<span class="dv">1</span>:<span class="dv">2</span> &gt;<span class="st"> </span><span class="dv">1</span> &amp;&amp;<span class="st"> </span><span class="dv">2</span>:<span class="dv">3</span> &gt;<span class="st"> </span><span class="dv">1</span></code></pre></div>
+<pre><code>## [1] TRUE
+## [1] FALSE
+## [1] TRUE
+## [1] TRUE
+## [1] FALSE  TRUE
+## [1] TRUE TRUE
+## [1] FALSE</code></pre>
 </div>
 <div id="summary-2" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Summary</h3>
@@ -705,7 +692,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

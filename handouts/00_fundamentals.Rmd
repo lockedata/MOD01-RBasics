@@ -63,7 +63,11 @@ Combining the results involves matching the columns by name. It will create new 
 
 ```{r warning=FALSE, message=FALSE}
 library(tidyverse)
-list.files("../data", full.names = TRUE) %>% # Change "../data" to where your files are
+
+# Change "../data" to where your files are.
+# Remove the col_types bit if your columns
+# are fairly type safe.
+list.files("../data", full.names = TRUE) %>%
   map_df(read_csv, col_types=cols("c")) %>% 
   bind_rows() ->
   allmydata
