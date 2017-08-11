@@ -17,27 +17,31 @@ opts_chunk$set( tidy=TRUE, results="hold")
 
 
 
-# Introduction {-}
-Welcome to the first book in Locke Data's series of books on R and data science! 
+# About this book {-}
+Welcome to the first book in Stephanie Locke of Locke Data's series on R and data science! 
 
-This first book introduces R, helps you get the most out of the RStudio programming environment, and teaches basic operations in R. 
+This first book introduces R itself, helps you get the most out of the RStudio programming environment, and teaches the basics of getting things done in R. 
 
-Basic doesn't mean funky alas so if you want to skip ahead to the funky bits, you can get the next book. 
+Already know the basics of R? You can skip right onto the next book in this series **[BOOK NAME/LINK here]**
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
-# Prerequisites {-}
-This book assumes no prior knowledge of programming.
+# What you need to already know {-}
+This book assumes no prior knowledge of programming, or R. A basic knowledge of mathematics will come in handy, but isn't required. You will need a good understanding of the use of calculators or Excel for mathematics.
 
-Basic use of calculators and Excel is assumed. This is so that if we say things like `(5*5)-2` you know that I mean something like "subtract two from the result of five multiplied by five". If you're not sure about this type of thing you might struggle.
-
-You should be able to install (or get installed) R, RStudio, and, if on Windows, RTools. You can code online at [r-fiddle.org](//www.r-fiddle.org/) but this might be unreliable. The instructions for installation in 
+You will need the required access to be able to install (or get installed) R, RStudio, and, if on Windows, RTools. You can code online at [r-fiddle.org](//www.r-fiddle.org/) but this might be unreliable. The instructions for installation can be found in the apendix of this book **[link to apendix here]**
 
 # Steph Locke {-}
-# Locke Data {-}
-Locke Data is a consultancy that helps people and organisations get started with data science. We offer training, advice, and technical leadership to make sure things go more smoothly.
+I am a Microsoft Data Platform MVP with over a decade of business intelligence and data science experience.
 
-Find out more about us at [itsalocke.com](https://itsalocke.com). 
+Having worked in a variety of industries (including finance, utilities, insurance, and cyber-security,) I've tackled a wide range of business challenges with data. I was awarded the MVP Data Platform award from Microsoft, as a result of organising training and sharing my knowledge with the technical community.
+
+I have a broad background in the Microsoft Data Platform and Azure, but I’m equally conversant with open source tools; from databases like MySQL and PostgreSQL, to analytical languages like R and Python.
+
+# Locke Data {-}
+I founded Locke Data, an education focused consultancy, to help people get the most out of their data. Locke Data aims to help organisations gain the necessary skills and experience needed to build a successful data science capability, while supporting them on their journey to better data science.
+
+Find out more about Locke Data at [itsalocke.com](https://itsalocke.com/about/). 
 
 # Conventions {-}
 
@@ -47,9 +51,9 @@ In terms of basic formatting:
 
 - This is standard text.
 - `This is code or a symbol`
-- <kbd>Keyboard Key</kbd>
+- <kbd>This is a Keyboard Key!</kbd>
 
-This is a book about coding, so expect code blocks. Code blocks will typically look like. Note the result underneath - this is the result of executing the code block.
+This is a book about coding, so expect code blocks. Code blocks will typically look like this:
 
 ```{r}
 "this is a code block"
@@ -58,7 +62,7 @@ This is a book about coding, so expect code blocks. Code blocks will typically l
 There will also be callouts throughout the book. Some are for information, some expect you to do things.
 
 ```{block, type="protip"}
-This is a tip about what I've just said.
+This is a tip relating to what I've just said.
 ```
 
 ```{block, type="glass"}
@@ -70,7 +74,7 @@ This is something I recommend you do as you're reading.
 ```
 
 ```{block, type="future"}
-This let's you know that something I mention briefly will be followed up later, whether in this book or a later one.
+This let's you know that something I mention briefly will be followed up on later, whether in this book or a later one.
 ```
 
 ```{block, type="TODO"}
