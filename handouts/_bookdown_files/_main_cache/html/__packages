@@ -1,0 +1,14 @@
+base
+bookdown
+knitr
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+lattice
+caret
+datasauRus
+gdtools

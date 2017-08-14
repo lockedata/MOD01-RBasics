@@ -1,0 +1,20 @@
+.protip, .glass, .readerTODO, .future, .TODO {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background: #f5f5f5 5px center/3em no-repeat;
+}
+.protip {
+  background-image: url("../img/ChibiSteph.svg");
+}
+.glass {
+  background-image: url("../img/ChibiSteph.svg");
+}
+.readerTODO {
+  background-image: url("../img/ChibiSteph.svg");
+}
+.future {
+  background-image: url("../img/ChibiSteph.svg");
+}
+.TODO {
+  background-image: url("../img/ChibiSteph.svg");
+}

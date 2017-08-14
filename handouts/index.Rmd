@@ -2,18 +2,20 @@
 title: "R fundamentals"
 author: "Locke Data"
 site: bookdown::bookdown_site
-documentclass: book
 output:
-  bookdown::gitbook: default
-  bookdown::pdf_book: default
+  bookdown::html_book:
+    includes:
+      in_header: css/lockedatabook.css
 ---
+
+
+# (PART) Preamble {-} 
 
 ```{r setup, include=FALSE}
 library(knitr)
-opts_chunk$set( tidy=TRUE, results="hold") 
+opts_chunk$set( tidy=TRUE, results="hold", cache=TRUE) 
 ```
 
-# (PART) Preamble {-} 
 
 
 

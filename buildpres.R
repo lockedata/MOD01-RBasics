@@ -7,5 +7,6 @@ file.create("docs/.nojekyll")
 
 library(bookdown)
 setwd("handouts")
-render_book(input="index.Rmd", output_format = bookdown::gitbook(), output_dir = "../docs")
+render_book(input="index.Rmd",
+            output_dir = "../docs")
 setwd("..")

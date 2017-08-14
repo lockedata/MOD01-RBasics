@@ -86,6 +86,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="css\lockedatabook.css" type="text/css" />
 </head>
 
 <body>
@@ -224,11 +225,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="A.5" data-path="answers.html"><a href="answers.html#r-functions-exercises-1"><i class="fa fa-check"></i><b>A.5</b> R functions Exercises</a></li>
 <li class="chapter" data-level="A.6" data-path="answers.html"><a href="answers.html#r-packages-exercises-1"><i class="fa fa-check"></i><b>A.6</b> R packages Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>B</b> Software</a><ul>
-<li class="chapter" data-level="B.1" data-path="software.html"><a href="software.html#r"><i class="fa fa-check"></i><b>B.1</b> R</a></li>
-<li class="chapter" data-level="B.2" data-path="software.html"><a href="software.html#rstudio"><i class="fa fa-check"></i><b>B.2</b> RStudio</a></li>
-<li class="chapter" data-level="B.3" data-path="software.html"><a href="software.html#suggested-packages"><i class="fa fa-check"></i><b>B.3</b> Suggested packages</a></li>
-</ul></li>
 </ul>
 
       </nav>
@@ -289,14 +285,9 @@ allmydata &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span
 <li>Apply the transformations and linear model to get predictions for my test data</li>
 </ol>
 <p>Instead of using some of the out of the box methods and writing a really long-winded set of code, I can use functionality from the package <a href="https://topepo.github.io/caret/">caret</a> to add a pre-process step to my model develoment. It will then keep these pre-process steps as part of the model and whenever I use the model to make predictions it will first process the data based on the parameters and transformations used on the training data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(caret)</code></pre></div>
-<pre><code>## Loading required package: lattice</code></pre>
-<pre><code>## 
-## Attaching package: &#39;caret&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:purrr&#39;:
-## 
-##     lift</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">training_data &lt;-<span class="st"> </span>mtcars[<span class="dv">1</span>:<span class="dv">20</span>, -<span class="dv">2</span>]
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(caret)
+
+training_data &lt;-<span class="st"> </span>mtcars[<span class="dv">1</span>:<span class="dv">20</span>, -<span class="dv">2</span>]
 training_outcome &lt;-<span class="st"> </span>mtcars[<span class="dv">1</span>:<span class="dv">20</span>, <span class="dv">2</span>]
 test_data &lt;-<span class="st"> </span>mtcars[<span class="dv">21</span>:<span class="dv">32</span>, -<span class="dv">2</span>]
 test_outcome &lt;-<span class="st"> </span>mtcars[<span class="dv">21</span>:<span class="dv">32</span>, <span class="dv">2</span>]

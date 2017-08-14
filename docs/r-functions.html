@@ -86,6 +86,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
+<link rel="stylesheet" href="css\lockedatabook.css" type="text/css" />
 </head>
 
 <body>
@@ -224,11 +225,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="A.5" data-path="answers.html"><a href="answers.html#r-functions-exercises-1"><i class="fa fa-check"></i><b>A.5</b> R functions Exercises</a></li>
 <li class="chapter" data-level="A.6" data-path="answers.html"><a href="answers.html#r-packages-exercises-1"><i class="fa fa-check"></i><b>A.6</b> R packages Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>B</b> Software</a><ul>
-<li class="chapter" data-level="B.1" data-path="software.html"><a href="software.html#r"><i class="fa fa-check"></i><b>B.1</b> R</a></li>
-<li class="chapter" data-level="B.2" data-path="software.html"><a href="software.html#rstudio"><i class="fa fa-check"></i><b>B.2</b> RStudio</a></li>
-<li class="chapter" data-level="B.3" data-path="software.html"><a href="software.html#suggested-packages"><i class="fa fa-check"></i><b>B.3</b> Suggested packages</a></li>
-</ul></li>
 </ul>
 
       </nav>
@@ -323,8 +319,8 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <p>Looking at how <code>rnorm</code> is specified we can see that we’re expected to provide <code>n</code>, but <code>mean</code> and <code>sd</code> are given values of 0 and 1 repsectively by default.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>)
 <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1]  1.2457858 -0.3027625  0.1686299  1.4192647 -1.4670391
-## [1] 11.565126 10.963281 10.486112  8.431079 10.309956</code></pre>
+<pre><code>## [1]  1.65590849  0.12802569 -1.10662889  0.01706249 -0.97801611
+## [1] 11.41883 13.27493  7.76391 10.03106 11.81265</code></pre>
 </div>
 <div id="unlimited-inputs" class="section level3">
 <h3><span class="header-section-number">9.3.4</span> Unlimited inputs</h3>
@@ -356,8 +352,8 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <p>We can use names<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a> in order for clarity or we can use them out of order for aligning closer to our thinking.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>)
 <span class="kw">rnorm</span>(<span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>, <span class="dt">n =</span> <span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1]  8.682073 10.523085 12.844186 12.129523  8.753439
-## [1] 12.065649 10.754810 12.529495  7.181517  7.511066</code></pre>
+<pre><code>## [1] 11.517653  7.689109  8.826013 11.161586  9.955989
+## [1]  8.715663 10.665971  8.589099  7.853473 11.455709</code></pre>
 <p>A common behaviour change that you’ll need to trigger is how missing (<code>NA</code>) values get handled. Functions that allow you change this behaviour, usually have an argument called things like <code>na.rm</code>, <code>na.omit</code>, and <code>na.action</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="ot">NA</span>)
 <span class="kw">sum</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="ot">NA</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
