@@ -202,16 +202,3 @@ help(package="datasauRus")
 vignette("Datasaurus")
 ```
 
-# Software
-## R
-## RStudio
-## Suggested packages
-The following are used in example content. You do not need these to work through the exercises.
-
-- tidyverse
-- caret
-- datasauRus
-
-```{r eval=FALSE}
-install.packages(c("tidyverse","caret","datasauRus"))
-```
