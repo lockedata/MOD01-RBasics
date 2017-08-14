@@ -61,6 +61,10 @@ This is a book about coding, so expect code blocks. Code blocks will typically l
 
 There will also be callouts throughout the book. Some are for information, some expect you to do things.
 
+```{block, type="warning"}
+Anything written here should be read carefully before proceeding.
+```
+
 ```{block, type="protip"}
 This is a tip relating to what I've just said.
 ```
