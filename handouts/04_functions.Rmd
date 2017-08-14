@@ -1,4 +1,17 @@
 # R functions
+In previous sections we've seen R **functions** that are used on objects to perform some activity. Functions seen so far include:
+
+- `class()` and `is.*()` functions for checking datatypes
+- `as.*` for converting to datatypes
+- `length()` and `names()` for metadata
+- `head()` and `tail()` for getting a small amount of elements from an object
+- `ncol()`, `nrow()`, `colnames()`, and `rownames()` for getting data.frame metadata
+- `Sys.Date()` and `Sys.time()` for getting current datetime values
+
+There are a huge range of functions out there, whether available in R straight away, or from adding extra functionality.
+
+Understanding how functions work and being able to usse them correctly will help you learn and use R effectively.
+
 ## Using a function
 A function does some computation on an object. The use of a function consists of:
 
@@ -6,46 +19,150 @@ A function does some computation on an object. The use of a function consists of
 2. Parentheses;
 3. 0 or more inputs.
 
-```{r}
-Sys.Date()
-sum(1:3)
+Each input is provided to an **argument** or parameter within a function.
+
+These arguments have names, although you don't often need to provide the names.
+
+You can find out what arguments a function takes by using the code completion and it's help snippet, or by searching for the function in the Rstudio Help tab.
+
+When you're inside the brackets of a function you can get the list of available arguments and auto-complete them.
+
+```{block, type="readerTODO"}
+Try getting the autocomplete to work with the function `tail()`.
 ```
 
-## Function arguments
-Functions can have:
-
-- 0 arguments e.g. `Sys.Date()`;
-- all mandatory arguments e.g. `length()`;
-- optional arguments e.g. `sum()`;
-- arguments used out of position by using their names e.g. `rnorm(mean=1, n=10).
-
-## Common functions
-Area | Functions  
-------------- | -------------
-Metadata | `class`, `mode`,`length`, `names`, `nrow`, `ncol` 
-Measures | `mean`, `median`, `mode`, `range`, `sum`, `cumsum`
-Strings | `grep`, `gsub`, `substr`, `trim`, `toupper`, `paste`
-Files | `list.dirs`, `list.files`, `file.exists`
-
-
-## Finding functions
-Find functions by:
-
-- Using code-completion
-- Using help-pages
-- Using `?mean`
-- Using `??mean`
-- Using `apropos("mean")`
-
-## Seeing how functions work
-You can examine how many functions work by just typing their name without any parentheses.
+## Examining functions
+One of the niftiest things about R is being able to see the code for a function. You can examine how many functions work by just typing their name without any parentheses.
 
 ```{r}
 Sys.Date
 ```
 
-## Exercises
-1. Find a function that involves Normal distributions;
-2. Find some functions operate on files.
+The first line(s) show how the arguments are specified. Subsequent lines show the code and the final lines starting with `<` can be mostly ignored.
+
+
+## Function input patterns
+Functions tend to conform to certain patterns of inputs. 
+
+### No inputs
+Some functions don't require the user to provide info and so they don't have any arguments. `Sys.Date()` and similar functions do not need user input because the functions provide information about the system.
+
+```{r}
+Sys.Date
+```
+
+Looking at the function definition, we can see that there no arguments specified in the first line.
+
+### Single inputs
+Other functions only have a single allowed input. `length()` returns the length of an object so it only allows you to provide it with an object.
+
+```{r}
+length
+```
+
+We can see in this definition^[the code looks a bit odd - this is because it specified a bit differently to most functions, but fear not!] that the function takes the argument `x`.
+
+### Many inputs
+Some functions have multiple inputs, although not all of them are necessarily **mandatory**. `head()` and `tail()` have been used so far with only a single input but they take an optional argument as to how many elements should be returned.
+
+```{r}
+head(letters)
+head(letters, 2)
+```
+
+The `rnorm()` function allows us to generate a vector of values from a normal distribution. We can tell it how many values we need (`n`), and we can optionally provide the mean (`mean`) and standard deviation (`sd`) to describe the Normal curve that values should be selected from.
+
+```{r}
+rnorm
+```
+
+Looking at how `rnorm` is specified we can see that we're expected to provide `n`, but `mean` and `sd` are given values of 0 and 1 repsectively by default. 
+
+```{r}
+rnorm(n=5)
+rnorm(n = 5, mean = 10, sd = 2)
+```
+
+### Unlimited inputs
+Other functions can take an unlimited amount of input values. Functions like `sum()` will sum the values from a number of objects.
+
+```{r}
+sum(1:3, 1:9, pi)
+```
+
+The ellipsis (`...`) is used to denote when the user can provide any number of values.
+
+```{r}
+sum
+```
+
+## Naming arguments
+Every input provided to a function is associated with an argument. 
+
+Each argument must have a name. Even functions that allow unlimited inputs, assign these inputs to a name. Behind the scenes, they get put into a list object and the list get's called `...` (or ellipsis).
+
+There are some typical names for arguments that take your data object. These include:
+
+- `x`
+- `data`
+- `.data`
+- `df`
+
+Other arguments allow you to provide secondary datasets or change the behaviour of a function. To know if you need to name these arguments, there are some simple rules:
+
+1. You're using the arguments in an order differs from the function author's intended order. You might be skipping some arguments as the default values are fine or you might just prefer a different order.
+2. The arguments you want to specify show up after the `...` in a function's argument list.
+3. You want to give a specific name to a value in a `...` argument.
+
+
+We can use names^[Note that that you don't have to type the full name as R will attempt to match up values but doing that can and does get a lot of R users into trouble so I don't recommend it.] in order for clarity or we can use them out of order for aligning closer to our thinking.
+
+```{r}
+rnorm(n = 5, mean = 10, sd = 2)
+rnorm(mean = 10, sd = 2, n = 5)
+```
+
+A common behaviour change that you'll need to trigger is how missing (`NA`) values get handled. Functions that allow you change this behaviour, usually have an argument called things like `na.rm`, `na.omit`, and `na.action`.
+
+```{r}
+sum(1:5, NA)
+sum(1:5, NA, na.rm = TRUE)
+```
+
+In the `sum()` example, I used the `na.rm` argument's name. This is because otherwise the `TRUE` would be considered part of the values being passed for summing. Without the name, the value get's considered as part of the `...`.
+
+```{r}
+sum(1:5, NA, TRUE)
+```
+
+
+A function will sometimes have `...` at the end of it's list of arguments when it utilises other functions and those have optional / default values.
+
+For instance the `predict()` function allows us to take a model we've built and apply it to some new data. 
+
+It works for many different types of model and these different models expect different types of inputs. Some models expect data.frames, others expect time series data, etc. 
+
+As there's lots of potential variations with the only thing that is mandatory is the model object. 
+
+```{r}
+predict
+```
+
+The `predict()` function then determines what type of model object you've provided it and passes the model and any other values you provided to the relevant function and it gives you back the results.
+
+```{r warning=FALSE}
+linearMod<-lm(Sepal.Length~., data=iris)
+logisticMod<-glm(Species~., data=iris, family=binomial)
+
+predict(linearMod, iris[1,])
+predict(logisticMod, iris[1,])
+```
+
+
+## R functions Exercises
+1. Use `pmin()` to find the smallest values element-wise of the three vector `1:51`, `25:75`, `30:-20`
+2. Use `paste()` to combine the upper case letters into a single string with `", "` between each letter
+3. Use `list.files()` to see what files are in your current directory. Return the fully qualified names not just the filenames.
+4. View the code for `ncol()` and work out how the number of columns is being determined.
 
 

@@ -151,7 +151,35 @@ myIris<-myIris[myIris$Sepal.Length<=5.5,]
 ```
 
 
+## R functions Exercises
+1. Use `pmin()` to find the smallest values element-wise of the three vector `1:51`, `25:75`, `30:-20`
 
+```{r}
+pmin(1:51, 25:75, 30:-20)
+```
+
+- Use `paste()` to combine the upper case letters into a single string with `", "` between each letter
+
+```{r}
+paste(LETTERS, collapse = ", ")
+```
+
+- Use `list.files()` to see what files are in your current directory. Return the fully qualified names not just the filenames.
+
+```{r eval=FALSE}
+list.files(full.names = TRUE)
+```
+
+- View the code for `ncol()` and work out how the number of columns is being determined.
+
+```{r}
+ncol
+
+# ncol performs the `dim()` function on the
+# object we pass in. This returns a vector
+# of length 2. We then subset to the second
+# element, which is the number of columns.
+```
 
 # Software
 ## R
