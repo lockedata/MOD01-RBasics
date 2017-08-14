@@ -25,15 +25,6 @@ Integer division | %/% | `9 %/% 4` = `r 9 %/% 4`
 Modulus | %% | `9 %% 4` = `r 9 %% 4`
 Basic sequence | : | `1:3` = `r 1:3`
 
-The colon (`:`) is a really snazzy way of generating a sequence of numbers that step by 1.
-
-```{r}
-1:5
-5:1
--1:5
-5:-1
-```
-
 **Integer division** (`%/%`) tells you how many times the first number can be divided by the second without returning a fractional value. 
 
 ```{r}
@@ -50,6 +41,14 @@ The **modulus** (`%%`) tells you how much is left over after performing an integ
 1:8 %% 4
 ```
 
+The colon (`:`) is a really snazzy way of generating a sequence of numbers that step by 1.
+
+```{r}
+1:5
+5:1
+-1:5
+5:-1
+```
 
 
 For reasons^[Read [Rbitrary](//ironholds.org/projects/rbitrary/) for more info] not worth worrying about, R uses the `%` sign as the start of special operators -- usually these are custom built, contain text, or reserved symbols.
@@ -75,7 +74,7 @@ In R, you test if two values are exactly the same with `==` and you test if they
 2 != 2
 ```
 
-You can test if a value is present in a list of acceptable values using the `%in%` operator. This may seem a little trivial right now, but once we start covering more than one value at a time, it'll start showing it's uses for strings.
+You can test if a value is present in a list of acceptable values using the `%in%` operator. This may seem a little trivial right now, but once we start covering more than one value at a time, it'll start showing it's uses for working with strings.
 
 ```{r}
 2 %in% 1:3
@@ -140,7 +139,7 @@ FALSE & FALSE
 (2 < 3) & (4 != 4)
 ```
 
-The pipe / bar (`|`)^[Getting this symbol can be painful as it varies substantially by keyboard, so apologies if it takes you a while to hunt this symbol down.] allows us to do an OR check which is "are either of these things true".
+The pipe, or bar (`|`)^[Getting this symbol can be painful as it varies substantially by keyboard, so apologies if it takes you a while to hunt this symbol down.] allows us to do an OR check which is "are either of these things true".
 
 ```{r}
 TRUE | TRUE
@@ -171,7 +170,7 @@ xor(TRUE, TRUE)
 xor(FALSE, FALSE)
 ```
 
-We'll see how this works in the next section, but when we use our logical operators it will do the comparison for every row. Sometimes we might be performing comparisons for many values but we need to to guarantee we get just one value back. We can use variants or AND and ORs called **bitwise** comparisons to achieve this. Use these with care as the results can be a little bit weird!
+We'll see how this works in the next section, but when we use our logical operators it will do the comparison for every row. Sometimes we might be performing comparisons for many values but we need to to guarantee we get just one value back. We can use variants of AND and OR called **bitwise** comparisons to achieve this. Use these with care as the results can be a little bit weird!
 
 ```{r}
 TRUE && TRUE
@@ -201,7 +200,7 @@ Bitwise Or | `||` | `c(TRUE,FALSE) || c(FALSE,FALSE)` is `r c(TRUE,FALSE) || c(F
 
 
 ## Summary
-This basic operations section has taught how to manipulate values and consstruct comparisons. These are important building blocks in ddata analysis, and whilst we've been working with only a single value at a time, in the next section we'll see how it works with more data.
+This basic operations section has hopefully taught you how to manipulate values and construct comparisons. These are important building blocks in data analysis, and whilst we've been working with only a single value at a time, in the next section we'll see how it works with more data.
 
 Action | Operator | Example
 ------------- | ------------- | -------------
@@ -227,7 +226,7 @@ Bitwise Or | `||` | `c(TRUE,FALSE) || c(FALSE,FALSE)` is `r c(TRUE,FALSE) || c(F
 
 ## Basic Operations Exercises
 1. What is the result of `pi^2`?
-1. Is pi greater than 3?
-1. Construct a statement to check if 5 is both greater than 3 and less than or equal to 6
-2. What are the results if you check to see if a sequence of 1 to 5 is less than or equal to 3?
+2. Is pi greater than 3?
+3. Construct a statement to check if 5 is both greater than 3 and less than or equal to 6
+4. What are the results if you check to see if a sequence of 1 to 5 is less than or equal to 3?
 
