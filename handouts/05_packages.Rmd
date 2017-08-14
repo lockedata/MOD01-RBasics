@@ -1,39 +1,147 @@
 # R packages
-## What is a package?
-An R package is a bundle of functions and/or datasets. It extends the capabilities that the "base" and "recommended" R packages have. This gives us the ability to do a lot more.
+An R package is a bundle of functions and/or datasets. It extends the capabilities that the "base" and "recommended" R packages have. By using paackages we can do data manipulation in a variety of ways, produce charts in all sorts of awesome ways, generate books like this, use other languages like Python and JavaScript, and of course, do all sorts of data analysis.
 
-## Using packages
-- Install a package with `install.packages()`;
-- Load a package with `library()`;
-- See what's in a package / reference it without loading `packagename::function()`;
-- See what's ina  package but not exposed to the public `packagename:::function()`.
+## Loading a package
+To make functions and data from a package available to use, we need to run the `library()` function.
 
-## Useful packages
-Area | Packages  
-------------- | -------------
-Data manipulation | `dplyr`, `data.table`,`tidyr`, `stringr`, `forcats`
-Data visualisation | `ggplot2`,`leaflet`,`ggraph`
-Statistics | `tidytext`, `caret`, `broom`
-I/O | `RODBC`, `DBI`, `data.table`, `readxl`
-Web | `rvest`, `httr`, `urltools`
-Outputs | `rmarkdown`, `revealjs`, `shiny`, `flexdashboards`
+```{r}
+library("utils")
+```
 
-## Finding packages
-![](rpackagediscovery.png)
+The `library()` function accepts a vector of length 1, so you need to perform multiple calls to the function to load up multiple packages.
 
-## Package documentation
-Packages should have documentation at the following levels:
+```{r}
+library("utils")
+library("stats")
+```
 
-- Function;
-- Workflow via vignettes;
-- NEWS;
-- DESCRIPTION;
-- READMEs on github.
+Once a package is loaded, you can then use any of it's functions.
 
-## Exercises
-1. Load the library dplyr;
-2. Browse dplyr's help pages;
-3. Read a dplyr introductory vignette;
-4. Read dplyr's README.
+You can find what functions are available in a package by looking at it's help page.
+
+Alternatively, you can type the package's name and hit Tab. This autocompletes the package's name, adds two colons (`::`) and then shows the list of available functions for that package. The double colon trick is very helpful for when you want to browse package functionality.
+
+```{r eval=FALSE}
+utils::find()
+```
+
+```{block type="protip"}
+Any function in R can be prefixed with it's package name and the double colon (`::`) - this is great for telling people where functions are coming from and for tracking dependencies in long scripts.
+```
+
+## Learning how to use a package
+R documentation is some of the best out there. 
+
+Yes, I will complain about the impenetrable statistical jargon some package authors use, but the CRAN gatekeepers require that packages generally have a really high standard of documentation.
+
+Every function you use will have a help page associated with it. This page usually contains a description, shows what parameters the function has, what those parameters are, and most importantly, there's usually examples.
+
+To navigate to the help page of an individual function in an R package you:
+
+- Hit F1 on a function name in a script
+- Type `??fnName` and send to the console
+```{r eval=FALSE}
+??mean
+```
+
+- Search in the Help tab
+- Use the `help()` function to open up the packages index page and navigate to the relevant function
+```{r eval=FALSE}
+help(package="utils")
+```
+
+- Find the relevant package in the Packages tab and click on it. Scroll through the index that opens up on the Help page to find the right function
+
+As well as the function level documentation, good packages also provide a higher level of documentation that covers workflows using the packages, how to extend package functionality, or outlines any methodologies or research that led to the package.
+
+These pieces of documentation are called **vignettes**. They are accessible on the package's index page or you can use the function `vignette()` to read them.
+
+```{r eval=FALSE}
+vignette("multi")
+```
+
+
+## Installing packages
+Once you've identified a package that contains functions or data you're interested in using^[Using CRAN or sites like [rdrr.io](//rdrr.io)], we need to get the package onto our machine.
+
+To get the package, you can use an R function or you can use Install button on the Packages tab.
+
+```{r eval=FALSE}
+install.packages("datasauRus")
+```
+
+If you need to install a number of packages, `install.packages()` takes a vector of package names.
+
+```{r eval=FALSE}
+install.packages(c("datasauRus","tidyverse"))
+```
+
+Updating packages involves re-running `install.packages()` and it's usually easier to trigger this by using the Update button on the Packages tab and selecting all the packages you want to update.
+
+### Installing from GitHub and other sources
+The `install.packages()` function works with CRAN, CRAN mirrors ^[Copies of CRAN made available to avoid overloading central servers.], and CRAN-like repositories^[The most common CRAN-like systems are building your own local CRAN with the package `miniCRAN` and using the package `drat` to make repositories, especially remote repositories.]
+
+If you want to install BioConductor packages, there are some helper scripts available from the BioConductor website, [bioconductor.org](//www.bioconductor.org/install/).
+
+Other package source like GitHub will involve building packages before they can be installed. If you're on Windows, this means you need an additional piece of software called [Rtools](//cran.r-project.org/bin/windows/Rtools/). The other handy thing you'll need is the package `devtools` (available from CRAN). `devtools` provides a number of functions designed to make it easier from GitHub, BitBucket, and other sources.
+
+```{r eval=FALSE}
+install_github("lockedata/pRojects")
+```
+
+## Recommended packages
+Here are my recommended packages -- many of these will be covered in later books.
+
+### tidyverse
+The `tidyverse` is a suite of packages designed to make your life easier. It's well worth installing and many of the packages in this recommendations section are part of the `tidyverse`.
+
+```{r eval=FALSE}
+install.packages("tidyverse")
+```
+
+### Getting data in and out of R
+- Working with databases, you can use the `DBI` package and it's companion `odbc` to connect to most databases.
+- To get data from web pages, you can use `rvest`.
+- To work with APIs, you use `httr`.
+- To work with CSVs, you can use `readr` or `data.table`.^[`data.table` tends to be faster for CSV read and writes.]
+- To work with SPSS, SAS, and Stata files, use `readr` and `haven` 
+
+
+### Data manipulation
+The `tidyverse` contains great packages for data manipulation including `dplyr` and `purrr`. 
+
+Additionally, a favourite data manipulation package of mine is `data.table`. `data.table` tends to have a bit of a steeper learning curve than the `tidyverse` but it's phenomenal for brevity and performance.
+
+### Data visualisation
+- For static graphics `ggplot2` is fantastic - it adds a sensible vocabulary to help you construct charts with ease. 
+- `plotly` helps you build interactive charts from scratch or make `ggplot2` charts interactive. 
+- `leaflet` is a great maps package. 
+- `ggraph` helps you build effective network diagrams.
+
+### Data science
+- `caret` is an interface package to many model algorithms and has a raft of insanely useful features itself.
+- `broom` take outputs from model functions and makes them into nice data.frames.
+- `modelr` helps build samples and supplement result sets.
+- `reticulate` is a package for talking to Python and, therefore, enables you to work with any deep learning framework that is based in Python. `tensorflow` is a package based on `reticulate` and allows you to work with tensorflow in R.
+- `sparklyr` allows you to run and work with Spark processes on your R data.
+- `h2o` is a package for working with H2O, a super nifty ML platform.
+
+### Presenting results
+- `rmarkdown` is the core package for combining text and code and being able to produce outputs like HTML pages, PDFs, and Word documents.
+- `bookdown` facilitates books like this.
+- `revealjs` allows you to make slide decks using `rmarkdown`.
+- `flexdashboard` and `shiny` allow you to make interactive, reactive dashboards and other analytical apps.
+
+### Finding packages
+As well as using online search facilities like [CRAN](//cran.r-project.org/search.html) and [rdrr.io](//rdrr.io) for packages, there are some handy packages that help you find packages.
+
+- `ctv` allows you to get all the packages in a given [CRAN task view](//cran.r-project.org/web/views/), which are maintained liists of package for various tasks
+- `sos` allows you to search for packages and functions that match a keyword
+
+## R packages Exercises
+1. Install `datasauRus`
+1. Load the library `datasauRus`;
+2. Browse `datasauRus`'s help pages;
+3. Read the `datasauRus` vignette;
 
 

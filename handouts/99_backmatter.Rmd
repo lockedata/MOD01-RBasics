@@ -181,6 +181,27 @@ ncol
 # element, which is the number of columns.
 ```
 
+## R packages Exercises
+- Install `datasauRus`
+```{r eval = FALSE}
+install.packages("datasauRus")
+```
+
+- Load the library `datasauRus`;
+```{r eval = FALSE}
+library(datasauRus)
+```
+
+- Browse `datasauRus`'s help pages;
+```{r eval = FALSE}
+help(package="datasauRus")
+```
+
+- Read the `datasauRus` vignette;
+```{r eval = FALSE}
+vignette("Datasaurus")
+```
+
 # Software
 ## R
 ## RStudio

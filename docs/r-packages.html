@@ -199,12 +199,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.5" data-path="r-functions.html"><a href="r-functions.html#r-functions-exercises"><i class="fa fa-check"></i><b>9.5</b> R functions Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>10</b> R packages</a><ul>
-<li class="chapter" data-level="10.1" data-path="r-packages.html"><a href="r-packages.html#what-is-a-package"><i class="fa fa-check"></i><b>10.1</b> What is a package?</a></li>
-<li class="chapter" data-level="10.2" data-path="r-packages.html"><a href="r-packages.html#using-packages"><i class="fa fa-check"></i><b>10.2</b> Using packages</a></li>
-<li class="chapter" data-level="10.3" data-path="r-packages.html"><a href="r-packages.html#useful-packages"><i class="fa fa-check"></i><b>10.3</b> Useful packages</a></li>
-<li class="chapter" data-level="10.4" data-path="r-packages.html"><a href="r-packages.html#finding-packages"><i class="fa fa-check"></i><b>10.4</b> Finding packages</a></li>
-<li class="chapter" data-level="10.5" data-path="r-packages.html"><a href="r-packages.html#package-documentation"><i class="fa fa-check"></i><b>10.5</b> Package documentation</a></li>
-<li class="chapter" data-level="10.6" data-path="r-packages.html"><a href="r-packages.html#exercises"><i class="fa fa-check"></i><b>10.6</b> Exercises</a></li>
+<li class="chapter" data-level="10.1" data-path="r-packages.html"><a href="r-packages.html#loading-a-package"><i class="fa fa-check"></i><b>10.1</b> Loading a package</a></li>
+<li class="chapter" data-level="10.2" data-path="r-packages.html"><a href="r-packages.html#learning-how-to-use-a-package"><i class="fa fa-check"></i><b>10.2</b> Learning how to use a package</a></li>
+<li class="chapter" data-level="10.3" data-path="r-packages.html"><a href="r-packages.html#installing-packages"><i class="fa fa-check"></i><b>10.3</b> Installing packages</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="r-packages.html"><a href="r-packages.html#installing-from-github-and-other-sources"><i class="fa fa-check"></i><b>10.3.1</b> Installing from GitHub and other sources</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="r-packages.html"><a href="r-packages.html#recommended-packages"><i class="fa fa-check"></i><b>10.4</b> Recommended packages</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="r-packages.html"><a href="r-packages.html#tidyverse"><i class="fa fa-check"></i><b>10.4.1</b> tidyverse</a></li>
+<li class="chapter" data-level="10.4.2" data-path="r-packages.html"><a href="r-packages.html#getting-data-in-and-out-of-r"><i class="fa fa-check"></i><b>10.4.2</b> Getting data in and out of R</a></li>
+<li class="chapter" data-level="10.4.3" data-path="r-packages.html"><a href="r-packages.html#data-manipulation-1"><i class="fa fa-check"></i><b>10.4.3</b> Data manipulation</a></li>
+<li class="chapter" data-level="10.4.4" data-path="r-packages.html"><a href="r-packages.html#data-visualisation-1"><i class="fa fa-check"></i><b>10.4.4</b> Data visualisation</a></li>
+<li class="chapter" data-level="10.4.5" data-path="r-packages.html"><a href="r-packages.html#data-science-1"><i class="fa fa-check"></i><b>10.4.5</b> Data science</a></li>
+<li class="chapter" data-level="10.4.6" data-path="r-packages.html"><a href="r-packages.html#presenting-results"><i class="fa fa-check"></i><b>10.4.6</b> Presenting results</a></li>
+<li class="chapter" data-level="10.4.7" data-path="r-packages.html"><a href="r-packages.html#finding-packages"><i class="fa fa-check"></i><b>10.4.7</b> Finding packages</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="r-packages.html"><a href="r-packages.html#r-packages-exercises"><i class="fa fa-check"></i><b>10.5</b> R packages Exercises</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>A</b> Answers</a><ul>
@@ -213,6 +222,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="A.3" data-path="answers.html"><a href="answers.html#r-objects-exercises-1"><i class="fa fa-check"></i><b>A.3</b> R Objects Exercises</a></li>
 <li class="chapter" data-level="A.4" data-path="answers.html"><a href="answers.html#data-manipulation-exercises-1"><i class="fa fa-check"></i><b>A.4</b> Data manipulation exercises</a></li>
 <li class="chapter" data-level="A.5" data-path="answers.html"><a href="answers.html#r-functions-exercises-1"><i class="fa fa-check"></i><b>A.5</b> R functions Exercises</a></li>
+<li class="chapter" data-level="A.6" data-path="answers.html"><a href="answers.html#r-packages-exercises-1"><i class="fa fa-check"></i><b>A.6</b> R packages Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="software.html"><a href="software.html"><i class="fa fa-check"></i><b>B</b> Software</a><ul>
 <li class="chapter" data-level="B.1" data-path="software.html"><a href="software.html#r"><i class="fa fa-check"></i><b>B.1</b> R</a></li>
@@ -238,81 +248,131 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="r-packages" class="section level1">
 <h1><span class="header-section-number">10</span> R packages</h1>
-<div id="what-is-a-package" class="section level2">
-<h2><span class="header-section-number">10.1</span> What is a package?</h2>
-<p>An R package is a bundle of functions and/or datasets. It extends the capabilities that the “base” and “recommended” R packages have. This gives us the ability to do a lot more.</p>
+<p>An R package is a bundle of functions and/or datasets. It extends the capabilities that the “base” and “recommended” R packages have. By using paackages we can do data manipulation in a variety of ways, produce charts in all sorts of awesome ways, generate books like this, use other languages like Python and JavaScript, and of course, do all sorts of data analysis.</p>
+<div id="loading-a-package" class="section level2">
+<h2><span class="header-section-number">10.1</span> Loading a package</h2>
+<p>To make functions and data from a package available to use, we need to run the <code>library()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;utils&quot;</span>)</code></pre></div>
+<p>The <code>library()</code> function accepts a vector of length 1, so you need to perform multiple calls to the function to load up multiple packages.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;utils&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;stats&quot;</span>)</code></pre></div>
+<p>Once a package is loaded, you can then use any of it’s functions.</p>
+<p>You can find what functions are available in a package by looking at it’s help page.</p>
+<p>Alternatively, you can type the package’s name and hit Tab. This autocompletes the package’s name, adds two colons (<code>::</code>) and then shows the list of available functions for that package. The double colon trick is very helpful for when you want to browse package functionality.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">utils::<span class="kw">find</span>()</code></pre></div>
+<div class="protip">
+<p>
+Any function in R can be prefixed with it’s package name and the double colon (<code>::</code>) - this is great for telling people where functions are coming from and for tracking dependencies in long scripts.
+</p>
 </div>
-<div id="using-packages" class="section level2">
-<h2><span class="header-section-number">10.2</span> Using packages</h2>
+</div>
+<div id="learning-how-to-use-a-package" class="section level2">
+<h2><span class="header-section-number">10.2</span> Learning how to use a package</h2>
+<p>R documentation is some of the best out there.</p>
+<p>Yes, I will complain about the impenetrable statistical jargon some package authors use, but the CRAN gatekeepers require that packages generally have a really high standard of documentation.</p>
+<p>Every function you use will have a help page associated with it. This page usually contains a description, shows what parameters the function has, what those parameters are, and most importantly, there’s usually examples.</p>
+<p>To navigate to the help page of an individual function in an R package you:</p>
 <ul>
-<li>Install a package with <code>install.packages()</code>;</li>
-<li>Load a package with <code>library()</code>;</li>
-<li>See what’s in a package / reference it without loading <code>packagename::function()</code>;</li>
-<li>See what’s ina package but not exposed to the public <code>packagename:::function()</code>.</li>
+<li>Hit F1 on a function name in a script</li>
+<li>Type <code>??fnName</code> and send to the console</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">`</span><span class="dt">?</span><span class="st">`</span>(<span class="st">`</span><span class="dt">?</span><span class="st">`</span>(mean))</code></pre></div>
+<ul>
+<li>Search in the Help tab</li>
+<li>Use the <code>help()</code> function to open up the packages index page and navigate to the relevant function</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(<span class="dt">package =</span> <span class="st">&quot;utils&quot;</span>)</code></pre></div>
+<ul>
+<li>Find the relevant package in the Packages tab and click on it. Scroll through the index that opens up on the Help page to find the right function</li>
+</ul>
+<p>As well as the function level documentation, good packages also provide a higher level of documentation that covers workflows using the packages, how to extend package functionality, or outlines any methodologies or research that led to the package.</p>
+<p>These pieces of documentation are called <strong>vignettes</strong>. They are accessible on the package’s index page or you can use the function <code>vignette()</code> to read them.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">vignette</span>(<span class="st">&quot;multi&quot;</span>)</code></pre></div>
+</div>
+<div id="installing-packages" class="section level2">
+<h2><span class="header-section-number">10.3</span> Installing packages</h2>
+<p>Once you’ve identified a package that contains functions or data you’re interested in using<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a>, we need to get the package onto our machine.</p>
+<p>To get the package, you can use an R function or you can use Install button on the Packages tab.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;datasauRus&quot;</span>)</code></pre></div>
+<p>If you need to install a number of packages, <code>install.packages()</code> takes a vector of package names.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;datasauRus&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>))</code></pre></div>
+<p>Updating packages involves re-running <code>install.packages()</code> and it’s usually easier to trigger this by using the Update button on the Packages tab and selecting all the packages you want to update.</p>
+<div id="installing-from-github-and-other-sources" class="section level3">
+<h3><span class="header-section-number">10.3.1</span> Installing from GitHub and other sources</h3>
+<p>The <code>install.packages()</code> function works with CRAN, CRAN mirrors <a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a>, and CRAN-like repositories<a href="#fn26" class="footnoteRef" id="fnref26"><sup>26</sup></a></p>
+<p>If you want to install BioConductor packages, there are some helper scripts available from the BioConductor website, <a href="//www.bioconductor.org/install/">bioconductor.org</a>.</p>
+<p>Other package source like GitHub will involve building packages before they can be installed. If you’re on Windows, this means you need an additional piece of software called <a href="//cran.r-project.org/bin/windows/Rtools/">Rtools</a>. The other handy thing you’ll need is the package <code>devtools</code> (available from CRAN). <code>devtools</code> provides a number of functions designed to make it easier from GitHub, BitBucket, and other sources.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install_github</span>(<span class="st">&quot;lockedata/pRojects&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="recommended-packages" class="section level2">
+<h2><span class="header-section-number">10.4</span> Recommended packages</h2>
+<p>Here are my recommended packages – many of these will be covered in later books.</p>
+<div id="tidyverse" class="section level3">
+<h3><span class="header-section-number">10.4.1</span> tidyverse</h3>
+<p>The <code>tidyverse</code> is a suite of packages designed to make your life easier. It’s well worth installing and many of the packages in this recommendations section are part of the <code>tidyverse</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
+</div>
+<div id="getting-data-in-and-out-of-r" class="section level3">
+<h3><span class="header-section-number">10.4.2</span> Getting data in and out of R</h3>
+<ul>
+<li>Working with databases, you can use the <code>DBI</code> package and it’s companion <code>odbc</code> to connect to most databases.</li>
+<li>To get data from web pages, you can use <code>rvest</code>.</li>
+<li>To work with APIs, you use <code>httr</code>.</li>
+<li>To work with CSVs, you can use <code>readr</code> or <code>data.table</code>.<a href="#fn27" class="footnoteRef" id="fnref27"><sup>27</sup></a></li>
+<li>To work with SPSS, SAS, and Stata files, use <code>readr</code> and <code>haven</code></li>
 </ul>
 </div>
-<div id="useful-packages" class="section level2">
-<h2><span class="header-section-number">10.3</span> Useful packages</h2>
-<table>
-<thead>
-<tr class="header">
-<th>Area</th>
-<th>Packages</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Data manipulation</td>
-<td><code>dplyr</code>, <code>data.table</code>,<code>tidyr</code>, <code>stringr</code>, <code>forcats</code></td>
-</tr>
-<tr class="even">
-<td>Data visualisation</td>
-<td><code>ggplot2</code>,<code>leaflet</code>,<code>ggraph</code></td>
-</tr>
-<tr class="odd">
-<td>Statistics</td>
-<td><code>tidytext</code>, <code>caret</code>, <code>broom</code></td>
-</tr>
-<tr class="even">
-<td>I/O</td>
-<td><code>RODBC</code>, <code>DBI</code>, <code>data.table</code>, <code>readxl</code></td>
-</tr>
-<tr class="odd">
-<td>Web</td>
-<td><code>rvest</code>, <code>httr</code>, <code>urltools</code></td>
-</tr>
-<tr class="even">
-<td>Outputs</td>
-<td><code>rmarkdown</code>, <code>revealjs</code>, <code>shiny</code>, <code>flexdashboards</code></td>
-</tr>
-</tbody>
-</table>
+<div id="data-manipulation-1" class="section level3">
+<h3><span class="header-section-number">10.4.3</span> Data manipulation</h3>
+<p>The <code>tidyverse</code> contains great packages for data manipulation including <code>dplyr</code> and <code>purrr</code>.</p>
+<p>Additionally, a favourite data manipulation package of mine is <code>data.table</code>. <code>data.table</code> tends to have a bit of a steeper learning curve than the <code>tidyverse</code> but it’s phenomenal for brevity and performance.</p>
 </div>
-<div id="finding-packages" class="section level2">
-<h2><span class="header-section-number">10.4</span> Finding packages</h2>
-<div class="figure">
-<img src="rpackagediscovery.png" />
-
-</div>
-</div>
-<div id="package-documentation" class="section level2">
-<h2><span class="header-section-number">10.5</span> Package documentation</h2>
-<p>Packages should have documentation at the following levels:</p>
+<div id="data-visualisation-1" class="section level3">
+<h3><span class="header-section-number">10.4.4</span> Data visualisation</h3>
 <ul>
-<li>Function;</li>
-<li>Workflow via vignettes;</li>
-<li>NEWS;</li>
-<li>DESCRIPTION;</li>
-<li>READMEs on github.</li>
+<li>For static graphics <code>ggplot2</code> is fantastic - it adds a sensible vocabulary to help you construct charts with ease.</li>
+<li><code>plotly</code> helps you build interactive charts from scratch or make <code>ggplot2</code> charts interactive.</li>
+<li><code>leaflet</code> is a great maps package.</li>
+<li><code>ggraph</code> helps you build effective network diagrams.</li>
 </ul>
 </div>
-<div id="exercises" class="section level2">
-<h2><span class="header-section-number">10.6</span> Exercises</h2>
+<div id="data-science-1" class="section level3">
+<h3><span class="header-section-number">10.4.5</span> Data science</h3>
+<ul>
+<li><code>caret</code> is an interface package to many model algorithms and has a raft of insanely useful features itself.</li>
+<li><code>broom</code> take outputs from model functions and makes them into nice data.frames.</li>
+<li><code>modelr</code> helps build samples and supplement result sets.</li>
+<li><code>reticulate</code> is a package for talking to Python and, therefore, enables you to work with any deep learning framework that is based in Python. <code>tensorflow</code> is a package based on <code>reticulate</code> and allows you to work with tensorflow in R.</li>
+<li><code>sparklyr</code> allows you to run and work with Spark processes on your R data.</li>
+<li><code>h2o</code> is a package for working with H2O, a super nifty ML platform.</li>
+</ul>
+</div>
+<div id="presenting-results" class="section level3">
+<h3><span class="header-section-number">10.4.6</span> Presenting results</h3>
+<ul>
+<li><code>rmarkdown</code> is the core package for combining text and code and being able to produce outputs like HTML pages, PDFs, and Word documents.</li>
+<li><code>bookdown</code> facilitates books like this.</li>
+<li><code>revealjs</code> allows you to make slide decks using <code>rmarkdown</code>.</li>
+<li><code>flexdashboard</code> and <code>shiny</code> allow you to make interactive, reactive dashboards and other analytical apps.</li>
+</ul>
+</div>
+<div id="finding-packages" class="section level3">
+<h3><span class="header-section-number">10.4.7</span> Finding packages</h3>
+<p>As well as using online search facilities like <a href="//cran.r-project.org/search.html">CRAN</a> and <a href="//rdrr.io">rdrr.io</a> for packages, there are some handy packages that help you find packages.</p>
+<ul>
+<li><code>ctv</code> allows you to get all the packages in a given <a href="//cran.r-project.org/web/views/">CRAN task view</a>, which are maintained liists of package for various tasks</li>
+<li><code>sos</code> allows you to search for packages and functions that match a keyword</li>
+</ul>
+</div>
+</div>
+<div id="r-packages-exercises" class="section level2">
+<h2><span class="header-section-number">10.5</span> R packages Exercises</h2>
 <ol style="list-style-type: decimal">
-<li>Load the library dplyr;</li>
-<li>Browse dplyr’s help pages;</li>
-<li>Read a dplyr introductory vignette;</li>
-<li>Read dplyr’s README.</li>
+<li>Install <code>datasauRus</code></li>
+<li>Load the library <code>datasauRus</code>;</li>
+<li>Browse <code>datasauRus</code>’s help pages;</li>
+<li>Read the <code>datasauRus</code> vignette;</li>
 </ol>
 
 </div>
@@ -320,6 +380,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
+<div class="footnotes">
+<hr />
+<ol start="24">
+<li id="fn24"><p>Using CRAN or sites like <a href="//rdrr.io">rdrr.io</a><a href="r-packages.html#fnref24">↩</a></p></li>
+<li id="fn25"><p>Copies of CRAN made available to avoid overloading central servers.<a href="r-packages.html#fnref25">↩</a></p></li>
+<li id="fn26"><p>The most common CRAN-like systems are building your own local CRAN with the package <code>miniCRAN</code> and using the package <code>drat</code> to make repositories, especially remote repositories.<a href="r-packages.html#fnref26">↩</a></p></li>
+<li id="fn27"><p><code>data.table</code> tends to be faster for CSV read and writes.<a href="r-packages.html#fnref27">↩</a></p></li>
+</ol>
+</div>
             </section>
 
           </div>
@@ -337,7 +406,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-gitbook.require(["gitbook"], function(gitbook) {
+require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

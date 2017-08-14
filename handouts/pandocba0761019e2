@@ -1,4 +1,0 @@
-<ul>
-<li>On a new line of your script, type <code>a</code> and activate your code completion. Browse the list then cancel out of the list.</li>
-<li>Overwrite the <code>a</code> with an <code>A</code> and go back into the code completion. Do youu get the same list? What's different and why?</li>
-</ul>
