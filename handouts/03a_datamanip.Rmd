@@ -1,8 +1,8 @@
 # Data manipulation
 ## Grid references
-With R objects, it's possible to use a grid reference system to select values out of an object. 
+With R objects, it's possible to use a grid reference system to select values from an object. 
 
-In vectors and lists, you can specify the element position as they're only have a single dimension. In data.frames, you can pinpoint both the element (row) and the column.
+In vectors and lists, you can specify the element position as they only have a single dimension. In data.frames, you can pinpoint both the element (row) and the column.
 
 You can provide a grid reference by adding square brackets after a name e.g. `mylist[ ]`. Inside the square brackets, we can provide values in a few different ways to extract parts of the object.
 
@@ -44,7 +44,7 @@ letters[-5:-1]
 mydf[-3,-2]
 ```
 
-If you specify an position that doesn't exist, R will return an **NA** (a missing value) for that position.
+If you specify a position that doesn't exist, R will return an **NA** (a missing value) for that position.
 ```{r}
 letters[23:29]
 ```
@@ -72,7 +72,7 @@ mydf[1:2, c("a","b")]
 ## Grid references with conditional values
 Whilst we often want to subset data.frames to some specific columns, a lot of the time with vectors and data.frames we want to be able to apply a condition that determines which values are returned.
 
-If you provide boolean values into our grid reference system it will return elements that have a TRUE associated with it, and ignore values with a FALSE associated with it.
+If we provide boolean values into our grid reference system it will return elements that have a TRUE associated with it, and ignore values with a FALSE associated with it.
 
 ```{r}
 mydf[, c(TRUE,FALSE,TRUE)]
@@ -110,7 +110,7 @@ letters[ letters <= "e" & letters > "b"]
 ## Other reference methods
 If you need to select a given named value or column from an object, there are some alternative selection methods you do.
 
-There are double square brackets for when you expect only, and only one, named element.
+There are double square brackets for when you expect one, and only one, named element.
 ```{r}
 mylist[["a"]]
 ```
@@ -135,7 +135,7 @@ This is the old-school way of working with data.frames. It's important to be abl
 ```
 
 ## Changing objects
-By utilising our reference systems, not only we can select daata of interest to us, but we can add new data, update existing values, and even delete values.
+By utilising our reference systems, not only we can select data of interest to us, but we can add new data, update existing values, and even delete values.
 
 You can update part or all of simple objects by assigning new values against a grid-reference.
 
@@ -178,7 +178,7 @@ mydf<-mydf[-1,]
 mydf
 ```
 
-An alternative method is to make a selection and assign them the value NULL. NULL can removes contents in lists and data.frames.
+An alternative method is to make a selection and assign them the value NULL. NULL removes contents in lists and data.frames.
 
 ```{r}
 mydf$c<-NULL
@@ -188,14 +188,13 @@ mylist
 ```
 
 ## Data manipulation exercises
-1. Select all `LETTERS` before "X";
-2. Select the first 5 rows from the built-in data.frame `iris`;
-3. Select the first 2 columns from `iris`;
-4. Select the column Sepal.Length from `iris` by name.
-2. Select rows from the `iris` data.frame where the `Sepal.Length` is greater than 5.8cm;
-3. Select rows from the `iris` data.frame where the Sepal.Width is below the average for that column.
-1. Select everything from `iris` except the Species column;
-2. Create a copy of the `iris` data that just contains the first 100 rows and call it `myIris`;
-3. Update the species column to the value "Unknown" in `myIris`;
-4. Delete rows from `myIris` where the sepal length is greater than 5.5.
-
+1. Select all `LETTERS` before "X"
+2. Select the first 5 rows from the built-in data.frame `iris`
+3. Select the first 2 columns from `iris`
+4. Select the column Sepal.Length from `iris` by name
+5. Select rows from the `iris` data.frame where the `Sepal.Length` is greater than 5.8cm
+6. Select rows from the `iris` data.frame where the Sepal.Width is below the average for that column
+7. Select everything from `iris` except the Species column
+8. Create a copy of the `iris` data that just contains the first 100 rows and call it `myIris`
+9. Update the species column to the value "Unknown" in `myIris`
+10. Delete rows from `myIris` where the sepal length is greater than 5.5
