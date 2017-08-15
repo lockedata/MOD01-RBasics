@@ -10,14 +10,14 @@ In previous sections we've seen R **functions** that are used on objects to perf
 
 There are a huge range of functions out there, whether available in R straight away, or from adding extra functionality.
 
-Understanding how functions work and being able to usse them correctly will help you learn and use R effectively.
+Understanding how functions work and being able to use them correctly will help you learn, and use R effectively.
 
 ## Using a function
 A function does some computation on an object. The use of a function consists of:
 
-1. A function's name;
-2. Parentheses;
-3. 0 or more inputs.
+1. A function's name
+2. Parentheses
+3. 0 or more inputs
 
 Each input is provided to an **argument** or parameter within a function.
 
@@ -51,7 +51,7 @@ Some functions don't require the user to provide info and so they don't have any
 Sys.Date
 ```
 
-Looking at the function definition, we can see that there no arguments specified in the first line.
+Looking at the function definition, we can see that there are no arguments specified in the first line.
 
 ### Single inputs
 Other functions only have a single allowed input. `length()` returns the length of an object so it only allows you to provide it with an object.
@@ -60,7 +60,7 @@ Other functions only have a single allowed input. `length()` returns the length 
 length
 ```
 
-We can see in this definition^[the code looks a bit odd - this is because it specified a bit differently to most functions, but fear not!] that the function takes the argument `x`.
+We can see in this definition^[the code looks a bit odd - this is because it's specified a bit differently to most functions, but fear not!] that the function takes the argument `x`.
 
 ### Many inputs
 Some functions have multiple inputs, although not all of them are necessarily **mandatory**. `head()` and `tail()` have been used so far with only a single input but they take an optional argument as to how many elements should be returned.
@@ -99,7 +99,7 @@ sum
 ## Naming arguments
 Every input provided to a function is associated with an argument. 
 
-Each argument must have a name. Even functions that allow unlimited inputs, assign these inputs to a name. Behind the scenes, they get put into a list object and the list get's called `...` (or ellipsis).
+Each argument must have a name. Even functions that allow unlimited inputs assign these inputs to a name. Behind the scenes, they get put into a list object and the list get's called `...` (or ellipsis).
 
 There are some typical names for arguments that take your data object. These include:
 
@@ -108,21 +108,21 @@ There are some typical names for arguments that take your data object. These inc
 - `.data`
 - `df`
 
-Other arguments allow you to provide secondary datasets or change the behaviour of a function. To know if you need to name these arguments, there are some simple rules:
+You don't usually have to provide the argument names, just put things in the relevant places in the function. Sometimes though, you will need to use argument names. Here are my rules of thumb for knowing when you need to name names:
 
-1. You're using the arguments in an order differs from the function author's intended order. You might be skipping some arguments as the default values are fine or you might just prefer a different order.
-2. The arguments you want to specify show up after the `...` in a function's argument list.
-3. You want to give a specific name to a value in a `...` argument.
+1. You're using the arguments in an order differnet from the function author's intended order (you might be skipping some arguments as the default values are fine or you might just prefer a different order)
+2. The arguments you want to specify show up after the `...` in a function's argument list
+3. You want to give a specific name to a value in a `...` argument
 
 
-We can use names^[Note that that you don't have to type the full name as R will attempt to match up values but doing that can and does get a lot of R users into trouble so I don't recommend it.] in order for clarity or we can use them out of order for aligning closer to our thinking.
+We can provide names^[Note that that you don't have to type the full name as R will attempt to match up values, but doing that can and does get a lot of R users into trouble so I don't recommend it.] for clarity or so we can use arguments out of order if we prefer to.
 
 ```{r}
 rnorm(n = 5, mean = 10, sd = 2)
 rnorm(mean = 10, sd = 2, n = 5)
 ```
 
-A common behaviour change that you'll need to trigger is how missing (`NA`) values get handled. Functions that allow you change this behaviour, usually have an argument called things like `na.rm`, `na.omit`, and `na.action`.
+A common behaviour change that you'll need to work with is how missing (`NA`) values get handled. Functions that allow you change this behaviour, usually have an argument called things like `na.rm`, `na.omit`, and `na.action`.
 
 ```{r}
 sum(1:5, NA)
@@ -142,7 +142,7 @@ For instance the `predict()` function allows us to take a model we've built and 
 
 It works for many different types of model and these different models expect different types of inputs. Some models expect data.frames, others expect time series data, etc. 
 
-As there's lots of potential variations with the only thing that is mandatory is the model object. 
+There's lots of potential variations, the only thing that is mandatory is the model object. 
 
 ```{r}
 predict
@@ -162,7 +162,7 @@ predict(logisticMod, iris[1,])
 ## R functions Exercises
 1. Use `pmin()` to find the smallest values element-wise of the three vector `1:51`, `25:75`, `30:-20`
 2. Use `paste()` to combine the upper case letters into a single string with `", "` between each letter
-3. Use `list.files()` to see what files are in your current directory. Return the fully qualified names not just the filenames.
-4. View the code for `ncol()` and work out how the number of columns is being determined.
+3. Use `list.files()` to see what files are in your current directory. Return the fully qualified names not just the filenames
+4. View the code for `ncol()` and work out how the number of columns is being determined
 
 
