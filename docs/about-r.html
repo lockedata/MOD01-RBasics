@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R fundamentals</title>
-  <meta name="description" content="R fundamentals">
+  <title>Working with R</title>
+  <meta name="description" content="Working with R">
   <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
-  <meta property="og:title" content="R fundamentals" />
+  <meta property="og:title" content="Working with R" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R fundamentals" />
+  <meta name="twitter:title" content="Working with R" />
   
   
   
@@ -216,6 +216,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="r-packages.html"><a href="r-packages.html#r-packages-exercises"><i class="fa fa-check"></i><b>10.5</b> R packages Exercises</a></li>
 </ul></li>
+<li class="part"><span><b>III Conclusion</b></span></li>
+<li class="chapter" data-level="11" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>11</b> Conclusion</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>A</b> Answers</a><ul>
 <li class="chapter" data-level="A.1" data-path="answers.html"><a href="answers.html#r-data-types-exercises-1"><i class="fa fa-check"></i><b>A.1</b> R Data Types Exercises</a></li>
@@ -234,7 +236,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R fundamentals</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Working with R</a>
           </h1>
         </div>
 
@@ -246,9 +248,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">1</span> About R</h1>
 <p>R is an open source language released in 2001 that’s ideal for <a href="https://en.wikipedia.org/wiki/Data_wrangling">data wrangling</a> and <a href="https://en.wikipedia.org/wiki/Data_science">data science</a>.</p>
 <p>R has a long lineage - it was written to re-implement the language <a href="https://en.wikipedia.org/wiki/S_(programming_language)">S</a>. S was a commerical language written in the mid-1970s to enable statistical and graphical processing. Indeed much code written in S can still run today, a phenomenal feat! If you ever look at how R and wonder “Why on Earth does it work like that?”, the usual answer is “Because S”.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
-<p>The previous paragraph might lead you to ponder why R is in use today and why the popularity is growing.</p>
-<p>R is a vibrant ecosystem that enables people to extend, enhance, and replace any part of it. There are many paradigms in R to facilitate object-oriented programming, functional programming, and more. If you can write something in R, C++, FORTRAN<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>, Python, or JavaScript you can extend R.</p>
-<p>There are currently more than eleven thousand extensions (refered to as packages) to R in the core ecosystem (<a href="https://www.r-project.org/">CRAN</a>) and two and a half thousand packages in the genomics ecosystem (<a href="https://www.bioconductor.org/">BioConductor</a>).</p>
+<p>The previous paragraph might lead you to ponder why R is in use today and why the popularity is growing. R is a vibrant ecosystem that enables people to extend, enhance, and replace any part of it. There are many paradigms in R to facilitate object-oriented programming, functional programming, and more. If you can write something in R, C++, FORTRAN<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>, Python, or JavaScript you can extend R.</p>
+<p>There are currently more than eleven thousand extensions (refered to as packages) to R in the core ecosystem (which is a fancy word for the collected bits and pieces of R!) <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> and two and a half thousand packages in the genomics ecosystem <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>.</p>
 <div class="future">
 <p>
 We’re also seeing emerging ecosystems and paradigms within CRAN. The <a href="http://tidyverse.org/">tidyverse</a> is one such ecosystem, focussed primarily on analysing tabular data, and it will be used in future works extensively.
@@ -258,15 +259,15 @@ We’re also seeing emerging ecosystems and paradigms within CRAN. The <a href="
 <h2><span class="header-section-number">1.1</span> Key points to know about R</h2>
 <ul>
 <li>R works in-memory which means that the processing is fast but the amount of data you can process is limited to how much RAM your data takes up and how much your computations will require.</li>
-<li>R is not multi-threaded by default. R works on a single CPU core and parallelisation requires additional packages and often additional coding.</li>
-<li>R is quirky! R works a bit like lots of languages which makes it easy to pick up in some respects, but because of the S compatability it’s actually pretty darn old and a result, really odd in places.</li>
-<li>Coding R will give you the typical gotcha’s and add another, case sensitivity. R is (un)fortunately a language where “Red” and “red” are different and this also extends to variable and function names. As a consequence, the most common errors you’ll find when writing code in R are:
+<li>R is not multi-threaded by default, it works on a single CPU core. making use of more than one of your cores to spread the load requires additional packages and often additional coding.</li>
+<li>R is quirky! In some ways, R is a lot like other common programining languages, which makes it easy to pick up in some. However, because R is still designed to be compatiable with S, it’s actually pretty darn old and as a result, really odd in places.</li>
+<li>Coding R will give you the typical gotcha’s, and add another: case sensitivity. R is (un)fortunately a language where “Red” and “red” are different and this also extends to variable and function names (which we’ll discuss later.) As a consequence, the most common errors you’ll find when writing code in R are:
 <ul>
 <li>Mis-placed or missing commas</li>
 <li>Mis-placed or missing brackets</li>
 <li>Incorrect case used when typing</li>
 </ul></li>
-<li>With so many packages available to extend R with, the answer to “how do I write this?” is usually “there’s a package for that”.</li>
+<li>With so many packages available to extend R, the answer to “how do I write this?” is usually “there’s a package for that”.</li>
 </ul>
 <div class="future">
 <p>
@@ -280,6 +281,8 @@ We’ll look at finding packages later in this book.
 <ol start="1">
 <li id="fn1"><p>If you’d like to find out about the assignment operators’ history (<code>&lt;-</code> and <code>-&gt;</code>) and many of the other quirks of R, the article <a href="//ironholds.org/projects/rbitrary/">Rbitrary</a> is fantastic and highly irreverent reading.<a href="about-r.html#fnref1">↩</a></p></li>
 <li id="fn2"><p>Yes, it still exists and yes, R still relies on it for some key algorithms<a href="about-r.html#fnref2">↩</a></p></li>
+<li id="fn3"><p><a href="https://www.r-project.org/">CRAN</a><a href="about-r.html#fnref3">↩</a></p></li>
+<li id="fn4"><p><a href="https://www.bioconductor.org/">BioConductor</a><a href="about-r.html#fnref4">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -299,7 +302,7 @@ We’ll look at finding packages later in this book.
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R fundamentals</title>
-  <meta name="description" content="R fundamentals">
+  <title>Working with R</title>
+  <meta name="description" content="Working with R">
   <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
-  <meta property="og:title" content="R fundamentals" />
+  <meta property="og:title" content="Working with R" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R fundamentals" />
+  <meta name="twitter:title" content="Working with R" />
   
   
   
@@ -216,6 +216,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="r-packages.html"><a href="r-packages.html#r-packages-exercises"><i class="fa fa-check"></i><b>10.5</b> R packages Exercises</a></li>
 </ul></li>
+<li class="part"><span><b>III Conclusion</b></span></li>
+<li class="chapter" data-level="11" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>11</b> Conclusion</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>A</b> Answers</a><ul>
 <li class="chapter" data-level="A.1" data-path="answers.html"><a href="answers.html#r-data-types-exercises-1"><i class="fa fa-check"></i><b>A.1</b> R Data Types Exercises</a></li>
@@ -234,7 +236,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R fundamentals</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Working with R</a>
           </h1>
         </div>
 
@@ -279,7 +281,7 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Sys.Date</code></pre></div>
 <pre><code>## function () 
 ## as.Date(as.POSIXlt(Sys.time()))
-## &lt;bytecode: 0x0000000022af0870&gt;
+## &lt;bytecode: 0x000000001d664ad8&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>The first line(s) show how the arguments are specified. Subsequent lines show the code and the final lines starting with <code>&lt;</code> can be mostly ignored.</p>
 </div>
@@ -292,7 +294,7 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Sys.Date</code></pre></div>
 <pre><code>## function () 
 ## as.Date(as.POSIXlt(Sys.time()))
-## &lt;bytecode: 0x0000000022af0870&gt;
+## &lt;bytecode: 0x000000001d664ad8&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>Looking at the function definition, we can see that there no arguments specified in the first line.</p>
 </div>
@@ -301,7 +303,7 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <p>Other functions only have a single allowed input. <code>length()</code> returns the length of an object so it only allows you to provide it with an object.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">length</code></pre></div>
 <pre><code>## function (x)  .Primitive(&quot;length&quot;)</code></pre>
-<p>We can see in this definition<a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a> that the function takes the argument <code>x</code>.</p>
+<p>We can see in this definition<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a> that the function takes the argument <code>x</code>.</p>
 </div>
 <div id="many-inputs" class="section level3">
 <h3><span class="header-section-number">9.3.3</span> Many inputs</h3>
@@ -314,13 +316,13 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rnorm</code></pre></div>
 <pre><code>## function (n, mean = 0, sd = 1) 
 ## .Call(C_rnorm, n, mean, sd)
-## &lt;bytecode: 0x0000000022ab3220&gt;
+## &lt;bytecode: 0x000000001ff9c128&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <p>Looking at how <code>rnorm</code> is specified we can see that we’re expected to provide <code>n</code>, but <code>mean</code> and <code>sd</code> are given values of 0 and 1 repsectively by default.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>)
 <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1]  1.65590849  0.12802569 -1.10662889  0.01706249 -0.97801611
-## [1] 11.41883 13.27493  7.76391 10.03106 11.81265</code></pre>
+<pre><code>## [1]  0.5021887 -0.2194608 -1.7279560 -1.7710382 -0.3629692
+## [1] 13.083307 10.305561  9.727827  9.256583 11.872668</code></pre>
 </div>
 <div id="unlimited-inputs" class="section level3">
 <h3><span class="header-section-number">9.3.4</span> Unlimited inputs</h3>
@@ -349,11 +351,11 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <li>The arguments you want to specify show up after the <code>...</code> in a function’s argument list.</li>
 <li>You want to give a specific name to a value in a <code>...</code> argument.</li>
 </ol>
-<p>We can use names<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a> in order for clarity or we can use them out of order for aligning closer to our thinking.</p>
+<p>We can use names<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a> in order for clarity or we can use them out of order for aligning closer to our thinking.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>)
 <span class="kw">rnorm</span>(<span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>, <span class="dt">n =</span> <span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1] 11.517653  7.689109  8.826013 11.161586  9.955989
-## [1]  8.715663 10.665971  8.589099  7.853473 11.455709</code></pre>
+<pre><code>## [1] 11.681051  7.960725 11.495311  8.964133 11.594954
+## [1]  9.331615 11.141213 10.983987 11.793962 10.182443</code></pre>
 <p>A common behaviour change that you’ll need to trigger is how missing (<code>NA</code>) values get handled. Functions that allow you change this behaviour, usually have an argument called things like <code>na.rm</code>, <code>na.omit</code>, and <code>na.action</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="ot">NA</span>)
 <span class="kw">sum</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="ot">NA</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
@@ -369,7 +371,7 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">predict</code></pre></div>
 <pre><code>## function (object, ...) 
 ## UseMethod(&quot;predict&quot;)
-## &lt;bytecode: 0x0000000013d71e10&gt;
+## &lt;bytecode: 0x00000000135831d0&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <p>The <code>predict()</code> function then determines what type of model object you’ve provided it and passes the model and any other values you provided to the relevant function and it gives you back the results.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">linearMod &lt;-<span class="st"> </span><span class="kw">lm</span>(Sepal.Length ~<span class="st"> </span>., <span class="dt">data =</span> iris)
@@ -395,9 +397,9 @@ logisticMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Species ~<
 </div>
 <div class="footnotes">
 <hr />
-<ol start="22">
-<li id="fn22"><p>the code looks a bit odd - this is because it specified a bit differently to most functions, but fear not!<a href="r-functions.html#fnref22">↩</a></p></li>
-<li id="fn23"><p>Note that that you don’t have to type the full name as R will attempt to match up values but doing that can and does get a lot of R users into trouble so I don’t recommend it.<a href="r-functions.html#fnref23">↩</a></p></li>
+<ol start="24">
+<li id="fn24"><p>the code looks a bit odd - this is because it specified a bit differently to most functions, but fear not!<a href="r-functions.html#fnref24">↩</a></p></li>
+<li id="fn25"><p>Note that that you don’t have to type the full name as R will attempt to match up values but doing that can and does get a lot of R users into trouble so I don’t recommend it.<a href="r-functions.html#fnref25">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -417,7 +419,7 @@ logisticMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Species ~<
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

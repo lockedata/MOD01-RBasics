@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R fundamentals</title>
-  <meta name="description" content="R fundamentals">
+  <title>Working with R</title>
+  <meta name="description" content="Working with R">
   <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
-  <meta property="og:title" content="R fundamentals" />
+  <meta property="og:title" content="Working with R" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R fundamentals" />
+  <meta name="twitter:title" content="Working with R" />
   
   
   
@@ -216,6 +216,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="r-packages.html"><a href="r-packages.html#r-packages-exercises"><i class="fa fa-check"></i><b>10.5</b> R packages Exercises</a></li>
 </ul></li>
+<li class="part"><span><b>III Conclusion</b></span></li>
+<li class="chapter" data-level="11" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>11</b> Conclusion</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>A</b> Answers</a><ul>
 <li class="chapter" data-level="A.1" data-path="answers.html"><a href="answers.html#r-data-types-exercises-1"><i class="fa fa-check"></i><b>A.1</b> R Data Types Exercises</a></li>
@@ -234,7 +236,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R fundamentals</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Working with R</a>
           </h1>
         </div>
 
@@ -246,7 +248,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">6</span> Basic operations</h1>
 <p>Now that we have some datatypes, we can start learning what we can do with them.</p>
 <div id="maths" class="section level2">
-<h2><span class="header-section-number">6.1</span> Maths <a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a></h2>
+<h2><span class="header-section-number">6.1</span> Maths <a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a></h2>
 <p>In R, we have our common <strong>operators</strong> that you’re probably used to if you’ve performed calculations on computers before.</p>
 <table>
 <thead>
@@ -284,7 +286,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p>R adheres to <strong>BODMAS</strong><a href="#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a> so you can construct safe calculations that combine operators in reliable ways.</p>
+<p>R adheres to <strong>BODMAS</strong><a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a> so you can construct safe calculations that combine operators in reliable ways.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">1</span> +<span class="st"> </span><span class="dv">2</span>^<span class="dv">3</span>) -<span class="st"> </span><span class="dv">5</span> *<span class="st"> </span>(<span class="dv">4</span>/<span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] -1</code></pre>
 <p>Additionally, there are some other operators worth knowing about.</p>
@@ -314,15 +316,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p>The colon (<code>:</code>) is a really snazzy way of generating a sequence of numbers that step by 1.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">5</span>
-<span class="dv">5</span>:<span class="dv">1</span>
--<span class="dv">1</span>:<span class="dv">5</span>
-<span class="dv">5</span>:-<span class="dv">1</span></code></pre></div>
-<pre><code>## [1] 1 2 3 4 5
-## [1] 5 4 3 2 1
-## [1] -1  0  1  2  3  4  5
-## [1]  5  4  3  2  1  0 -1</code></pre>
 <p><strong>Integer division</strong> (<code>%/%</code>) tells you how many times the first number can be divided by the second without returning a fractional value.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">8</span>
 <span class="dv">1</span>:<span class="dv">8</span>%/%<span class="dv">3</span>
@@ -337,7 +330,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## [1] 1 2 3 4 5 6 7 8
 ## [1] 1 2 0 1 2 0 1 2
 ## [1] 1 2 3 0 1 2 3 0</code></pre>
-<p>For reasons<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a> not worth worrying about, R uses the <code>%</code> sign as the start of special operators – usually these are custom built, contain text, or reserved symbols.</p>
+<p>The colon (<code>:</code>) is a really snazzy way of generating a sequence of numbers that step by 1. You specify a beginning number and an end number and R will produce all the whole numbers including an dbetween the two numbers. This even works for negative numbers or producing descending values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">5</span>
+<span class="dv">5</span>:<span class="dv">1</span>
+-<span class="dv">1</span>:<span class="dv">5</span>
+<span class="dv">5</span>:-<span class="dv">1</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5
+## [1] 5 4 3 2 1
+## [1] -1  0  1  2  3  4  5
+## [1]  5  4  3  2  1  0 -1</code></pre>
+<p>For reasons<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a> not worth worrying about, R uses the <code>%</code> sign as the start of special operators – usually these are custom built, contain text, or reserved symbols.</p>
 </div>
 <div id="comparison" class="section level2">
 <h2><span class="header-section-number">6.2</span> Comparison</h2>
@@ -358,7 +360,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="dv">2</span> !=<span class="st"> </span><span class="dv">2</span></code></pre></div>
 <pre><code>## [1] TRUE
 ## [1] FALSE</code></pre>
-<p>You can test if a value is present in a list of acceptable values using the <code>%in%</code> operator. This may seem a little trivial right now, but once we start covering more than one value at a time, it’ll start showing it’s uses for strings.</p>
+<p>You can test if a value is present in a list of acceptable values using the <code>%in%</code> operator. This may seem a little trivial right now, but once we start covering more than one value at a time, it’ll start showing it’s uses for working with strings.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> %in%<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
@@ -453,7 +455,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## [1] FALSE
 ## [1] TRUE
 ## [1] FALSE</code></pre>
-<p>The pipe / bar (<code>|</code>)<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a> allows us to do an OR check which is “are either of these things true”.</p>
+<p>The pipe, or bar (<code>|</code>)<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a> allows us to do an OR check which is “are either of these things true”.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> |<span class="st"> </span><span class="ot">TRUE</span>
 <span class="ot">TRUE</span> |<span class="st"> </span><span class="ot">FALSE</span>
 <span class="ot">FALSE</span> |<span class="st"> </span><span class="ot">FALSE</span>
@@ -486,7 +488,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## [1] TRUE
 ## [1] FALSE
 ## [1] FALSE</code></pre>
-<p>We’ll see how this works in the next section, but when we use our logical operators it will do the comparison for every row. Sometimes we might be performing comparisons for many values but we need to to guarantee we get just one value back. We can use variants or AND and ORs called <strong>bitwise</strong> comparisons to achieve this. Use these with care as the results can be a little bit weird!</p>
+<p>We’ll see how this works in the next section, but when we use our logical operators it will do the comparison for every row. Sometimes we might be performing comparisons for many values but we need to to guarantee we get just one value back. We can use variants of AND and OR called <strong>bitwise</strong> comparisons to achieve this. Use these with care as the results can be a little bit weird!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> &amp;&amp;<span class="st"> </span><span class="ot">TRUE</span>
 <span class="ot">TRUE</span> &amp;&amp;<span class="st"> </span><span class="ot">FALSE</span>
 <span class="ot">TRUE</span> ||<span class="st"> </span><span class="ot">TRUE</span>
@@ -551,7 +553,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="summary-3" class="section level2">
 <h2><span class="header-section-number">6.4</span> Summary</h2>
-<p>This basic operations section has taught how to manipulate values and consstruct comparisons. These are important building blocks in ddata analysis, and whilst we’ve been working with only a single value at a time, in the next section we’ll see how it works with more data.</p>
+<p>This basic operations section has hopefully taught you how to manipulate values and construct comparisons. These are important building blocks in data analysis, and whilst we’ve been working with only a single value at a time, in the next section we’ll see how it works with more data.</p>
 <table>
 <thead>
 <tr class="header">
@@ -672,11 +674,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div class="footnotes">
 <hr />
-<ol start="15">
-<li id="fn15"><p>I’m British, deal with it.<a href="basic-operations.html#fnref15">↩</a></p></li>
-<li id="fn16"><p>Brackets, Other, Division, Multiplication, Addition, Subtraction<a href="basic-operations.html#fnref16">↩</a></p></li>
-<li id="fn17"><p>Read <a href="//ironholds.org/projects/rbitrary/">Rbitrary</a> for more info<a href="basic-operations.html#fnref17">↩</a></p></li>
-<li id="fn18"><p>Getting this symbol can be painful as it varies substantially by keyboard, so apologies if it takes you a while to hunt this symbol down.<a href="basic-operations.html#fnref18">↩</a></p></li>
+<ol start="17">
+<li id="fn17"><p>I’m British, deal with it.<a href="basic-operations.html#fnref17">↩</a></p></li>
+<li id="fn18"><p>Brackets, Other, Division, Multiplication, Addition, Subtraction<a href="basic-operations.html#fnref18">↩</a></p></li>
+<li id="fn19"><p>Read <a href="//ironholds.org/projects/rbitrary/">Rbitrary</a> for more info<a href="basic-operations.html#fnref19">↩</a></p></li>
+<li id="fn20"><p>Getting this symbol can be painful as it varies substantially by keyboard, so apologies if it takes you a while to hunt this symbol down.<a href="basic-operations.html#fnref20">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -696,7 +698,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

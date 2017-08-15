@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R fundamentals</title>
-  <meta name="description" content="R fundamentals">
+  <title>Working with R</title>
+  <meta name="description" content="Working with R">
   <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
-  <meta property="og:title" content="R fundamentals" />
+  <meta property="og:title" content="Working with R" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R fundamentals" />
+  <meta name="twitter:title" content="Working with R" />
   
   
   
@@ -216,6 +216,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="r-packages.html"><a href="r-packages.html#r-packages-exercises"><i class="fa fa-check"></i><b>10.5</b> R packages Exercises</a></li>
 </ul></li>
+<li class="part"><span><b>III Conclusion</b></span></li>
+<li class="chapter" data-level="11" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>11</b> Conclusion</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>A</b> Answers</a><ul>
 <li class="chapter" data-level="A.1" data-path="answers.html"><a href="answers.html#r-data-types-exercises-1"><i class="fa fa-check"></i><b>A.1</b> R Data Types Exercises</a></li>
@@ -234,7 +236,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R fundamentals</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Working with R</a>
           </h1>
         </div>
 
@@ -244,8 +246,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="why-use-r" class="section level1">
 <h1><span class="header-section-number">2</span> Why use R?</h1>
-<p>R as a programming language is brilliant at it’s core competencies – statistics and data visualisation. It’s also a great “glue” language, by which I mean that you can use it perform computations in many different languages and combine the results smoothly. As a result, R enables you to be an effective data wrangler, data scientist, and/or data visualisation practitioner.</p>
-<p>I wanted to include some code snippets here that exemplify how little is required to do things in R that in other languages or tools used to take me a substantial amount of time.</p>
+<p>R as a programming language is brilliant at it’s core competencies – statistics and data visualisation. It’s also a great “glue” language, by which I mean that you can use it to perform computations in many different languages and combine the results smoothly. As a result, R enables you to be an effective data wrangler, data scientist, and/or data visualisation practitioner.</p>
+<p>Here are some code snippets that exemplify how little is required to do things in R that in other languages or tools can take a substantial amount of time.</p>
 <div class="future">
 <p>
 These are illustrative only. Don’t worry if they don’t make much sense. Writing code like these examples will be covered in later books.
@@ -253,7 +255,7 @@ These are illustrative only. Don’t worry if they don’t make much sense. Writ
 </div>
 <div id="data-wrangling" class="section level2">
 <h2><span class="header-section-number">2.1</span> Data wrangling</h2>
-<p>A common issue I’ve had in the past is data from multiple sources that should usually conform to a template but don’t. You end up with a whole stack of files that don’t <em>quite</em> match the template and as a result getting all this data read, combined, and then output somewhere else is often an incredibly difficult task.</p>
+<p>Here’s a common issue I’ve had in the past: working with data from multiple sources, that should usually conform to a template, but don’t. You end up with a whole stack of files that don’t <em>quite</em> match the template, and as a result getting all this data read, combined, and then output somewhere else is often an incredibly difficult task.</p>
 <p>This snippet of R code performs the following steps:</p>
 <ol style="list-style-type: decimal">
 <li>Make functionality from the tidyverse available</li>
@@ -261,7 +263,7 @@ These are illustrative only. Don’t worry if they don’t make much sense. Writ
 <li>Read each file individually, whilst applying a column type enforcement</li>
 <li>Combine the results</li>
 </ol>
-<p>Combining the results involves matching the columns by name. It will create new columns when it finds additional columns in some of the data and fill in the data. When columns are missing from a dataset it will put NAs in the column.</p>
+<p>Combining the results involves matching the columns by name. It will create new columns when it finds additional columns in some of the data and fill in the data. When columns are missing from a dataset it will put NAs in those column for that data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 
 <span class="co"># Change &#39;../data&#39; to where your files are.  Remove the col_types bit if</span>
@@ -274,17 +276,22 @@ allmydata &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span
 </div>
 <div id="data-science" class="section level2">
 <h2><span class="header-section-number">2.2</span> Data science</h2>
-<p>An aspect of building models and operationalising them that I’ve always found a bit painful is mapping the pre-processing stages to an operational scenario i.e. how do I apply my pre-processing steps to new data in order to be able to make a prediction?</p>
+<div class="warning">
+<p>
+This section is for people with an interest in using R for Data Science. As such it does presume some prior knowledge of Data Science in general. If this section isn’t for you, please skip ahead to the next section.
+</p>
+</div>
+<p>Part of building models and putting them to use that I’ve always found a bit painful is mapping the pre-processing stages to an operational scenario. Badically, how do I apply my pre-processing steps to new data in order to be able to make a prediction?</p>
 <p>If I want to scale numeric variables, I need to keep some sort of record of the mean and standard deviation in the case of a <a href="http://stattrek.com/statistics/dictionary.aspx?definition=z%20score">z-score</a> or the minimum and maximum values if I wanted to do a <a href="https://en.wikipedia.org/wiki/Feature_scaling#Rescaling">minmax score</a>. Then I’d have to write something to apply these values to new data in an operational setting, or I’d have to transform my model’s formula to apply the scales on the fly.</p>
 <p>If I wanted to take it a step further and perform a <a href="http://setosa.io/ev/principal-component-analysis/">Principal Component Analysis (PCA)</a> to reduce the amount of features I was working with, I’d have no easy way to do that with the outputs of the R PCA function (<code>princomp()</code>). If I use these principal components in my model, how then to get these for my test data or in production?</p>
 <p>This snippet of R code performs the following steps:</p>
 <ol style="list-style-type: decimal">
-<li>Make functionality from caret available</li>
-<li>Split my data into training and test samples with the outcome column seperate</li>
+<li>Access and utilise the package, <code>caret</code></li>
+<li>Split data into training and test samples with the outcome column seperated</li>
 <li>Build a linear regression model on data scaled using z-scores and turned into principal components</li>
-<li>Apply the transformations and linear model to get predictions for my test data</li>
+<li>Apply the transformations and linear model to get predictions for test data</li>
 </ol>
-<p>Instead of using some of the out of the box methods and writing a really long-winded set of code, I can use functionality from the package <a href="https://topepo.github.io/caret/">caret</a> to add a pre-process step to my model develoment. It will then keep these pre-process steps as part of the model and whenever I use the model to make predictions it will first process the data based on the parameters and transformations used on the training data.</p>
+<p>Instead of using some of the out-of-the_box methods and writing a really long-winded set of code, I can use functionality from the package <a href="https://topepo.github.io/caret/">caret</a> to add a pre-process step to my model develoment. It will then keep these pre-process steps as part of the model and whenever I use the model to make predictions it will first process the data based on the parameters and transformations used on the training data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(caret)
 
 training_data &lt;-<span class="st"> </span>mtcars[<span class="dv">1</span>:<span class="dv">20</span>, -<span class="dv">2</span>]
@@ -299,18 +306,18 @@ predictions &lt;-<span class="st"> </span><span class="kw">predict</span>(model,
 <div id="data-visualisation" class="section level2">
 <h2><span class="header-section-number">2.3</span> Data visualisation</h2>
 <p>Data visualisation is an area where R makes it especially difficult to choose just a single example. Instead of showing the many fancy or interactive visualisations you can do in R, I’m instead going to show a part of the workflow.</p>
-<p>Often times, I need to make a chart and then make that chart for a lot of different datasets. These could be datasets for different customers, samples, or time slices.</p>
-<p>I can make a chart in R using the package <a href="">ggplot2</a> to build a chart of all data.</p>
+<p>I’ll often need to make a chart, and then make that chart for a lot of different datasets. These could be datasets for different customers, samples, or time slices.</p>
+<p>You can make a chart in R using the package <a href="">ggplot2</a> to build a chart of all data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 <span class="kw">library</span>(datasauRus)
 
 myPlot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(datasaurus_dozen, <span class="kw">aes</span>(x, y)) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 <p>If you want to make a <a href="https://en.wikipedia.org/wiki/Small_multiple">small multiples</a> chart, where the charts are produced in a group, you can use the notion of facetting to make many small charts together.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myPlot +<span class="st"> </span><span class="kw">facet_wrap</span>(~dataset)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>If you wanted to produce and save a chart per dataset you can provide updated data to a chart.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myPlot %+%<span class="st"> </span>simpsons_paradox</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 </div>
 </div>
             </section>
@@ -330,7 +337,7 @@ myPlot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(datasaurus_d
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

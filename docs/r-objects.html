@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R fundamentals</title>
-  <meta name="description" content="R fundamentals">
+  <title>Working with R</title>
+  <meta name="description" content="Working with R">
   <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
-  <meta property="og:title" content="R fundamentals" />
+  <meta property="og:title" content="Working with R" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R fundamentals" />
+  <meta name="twitter:title" content="Working with R" />
   
   
   
@@ -216,6 +216,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="r-packages.html"><a href="r-packages.html#r-packages-exercises"><i class="fa fa-check"></i><b>10.5</b> R packages Exercises</a></li>
 </ul></li>
+<li class="part"><span><b>III Conclusion</b></span></li>
+<li class="chapter" data-level="11" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>11</b> Conclusion</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>A</b> Answers</a><ul>
 <li class="chapter" data-level="A.1" data-path="answers.html"><a href="answers.html#r-data-types-exercises-1"><i class="fa fa-check"></i><b>A.1</b> R Data Types Exercises</a></li>
@@ -234,7 +236,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R fundamentals</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Working with R</a>
           </h1>
         </div>
 
@@ -245,16 +247,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="r-objects" class="section level1">
 <h1><span class="header-section-number">7</span> R objects</h1>
 <p>So far we’ve just worked with some single values to get to grips with how some of the various operations work. Of course, we rarely work with a single value! If we did, we could just use a calculator.</p>
-<p>This section helps you get to grips with some different ways of storing data and how to manipulate your datasets in the “traditional” way. This is useful because you can understand a lot of code written in the past and equips you to understand the material in the next book, which focusses on data manipulation of tabular data.</p>
+<p>This section helps you get to grips with some different ways of storing data and how to manipulate your datasets in the “traditional” way. This is useful because you can understand a lot of code written in the past and equips you to understand the material in the next book, which focuses on data manipulation of tabular data.</p>
 <div id="storing-values" class="section level2">
 <h2><span class="header-section-number">7.1</span> Storing values</h2>
-<p>When we were performing operations, we got some values output to the console. One of the key principles in writing code is Don’t Repeat Yourself (DRY) so we need to know how we can avoid repeating ourself in R. One of the ways you can do that is to store a value for use later.</p>
-<p>In R, we can store values by <strong>assigning</strong> them a name. This makes a <strong>variable</strong> or <strong>object</strong>. We can do this with a few different operators, but the traditional operator is a <code>&lt;-</code><a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a>. The format for assigning a value is <code>nameofthing &lt;- value</code>.</p>
+<p>When we were performing operations, we got some values output to the console. One of the key principles in writing code is Don’t Repeat Yourself (DRY) so we need to know how we can avoid repeating ourselves in R. One of the ways you can do that is to store a value for use later.</p>
+<p>In R, we can store values by <strong>assigning</strong> them a name. This makes a <strong>variable</strong> or <strong>object</strong>. We can do this with a few different operators, but the traditional operator is a <code>&lt;-</code><a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a>. The format for assigning a value is <code>nameofthing &lt;- value</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_variable &lt;-<span class="st"> </span><span class="dv">5</span> +<span class="st"> </span><span class="dv">3</span>
 my_variable &gt;<span class="st"> </span><span class="dv">6</span> &amp;<span class="st"> </span>my_variable &lt;<span class="st"> </span><span class="dv">10</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p>Valid names for a variable include upper case letters, lower case letters, numbers anywhere but the beginning, periods (<code>.</code>), and hyphens (<code>_</code>).</p>
-<p>There are a number of different competing conventions for how you name variables. The most common conventions are shown below. I have no strong feelings for any system and only ask that at minimum you’re pick one and stick with it within a single script. Whatever you do, don’t forget names are case sensitive!</p>
+<p>Valid names for a variable include uppercase letters, lower case letters, numbers anywhere but the beginning, periods (<code>.</code>), and hyphens (<code>_</code>).</p>
+<p>There are a number of different competing conventions for how you name variables. The most common conventions are shown below. I have no strong feelings for any system and only ask that you pick one and stick with it within a single script. Whatever you do, don’t forget names are case sensitive!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myfirstvariable &lt;-<span class="st"> </span><span class="dv">1</span>
 myFirstVariable &lt;-<span class="st"> </span><span class="dv">1</span>
 MyFirstVariable &lt;-<span class="st"> </span><span class="dv">1</span>
@@ -265,7 +267,7 @@ my.first.variable &lt;-<span class="st"> </span><span class="dv">1</span></code>
 <span class="st">`</span><span class="dt">2017</span><span class="st">`</span> &lt;-<span class="st"> </span><span class="dv">1</span>
 <span class="st">`</span><span class="dt"> </span><span class="st">`</span> &lt;-<span class="st"> </span><span class="dv">1</span>
 <span class="st">`</span><span class="dt">$$$</span><span class="st">`</span> &lt;-<span class="st"> </span><span class="dv">1</span></code></pre></div>
-<p>Variables you store get stored in-memory. This means they’ll hang around whilst R is open and will be gone after that. You can see variables you’ve created</p>
+<p>Variables you store get stored in-memory. This means they’ll hang around whilst R is open and will be gone after that. You can see variables you’ve created in the Environment tab.</p>
 <p>RStudio will by default save your variables for you so that next time you open it up, your variables are stored.</p>
 <div class="protip">
 <p>
@@ -284,16 +286,11 @@ I recommend you get in the habit early of not working with your session being sa
 <span class="kw">ls</span>()
 <span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</code></pre></div>
 <pre><code>##  [1] &quot; &quot;                 &quot;$$$&quot;               &quot;2017&quot;             
-##  [4] &quot;allmydata&quot;         &quot;earlyletters&quot;      &quot;fifty&quot;            
-##  [7] &quot;fiftywords&quot;        &quot;letters&quot;           &quot;linearMod&quot;        
-## [10] &quot;logisticMod&quot;       &quot;model&quot;             &quot;my.first.variable&quot;
-## [13] &quot;my_first_variable&quot; &quot;my_variable&quot;       &quot;mydf&quot;             
-## [16] &quot;myfirstvariable&quot;   &quot;myFirstVariable&quot;   &quot;MyFirstVariable&quot;  
-## [19] &quot;myIris&quot;            &quot;mylist&quot;            &quot;myPlot&quot;           
-## [22] &quot;myseq&quot;             &quot;name with spaces&quot;  &quot;predictions&quot;      
-## [25] &quot;steph&quot;             &quot;test_data&quot;         &quot;test_outcome&quot;     
-## [28] &quot;training_data&quot;     &quot;training_outcome&quot;  &quot;vecA&quot;             
-## [31] &quot;vecB&quot;              &quot;words&quot;</code></pre>
+##  [4] &quot;allmydata&quot;         &quot;model&quot;             &quot;my.first.variable&quot;
+##  [7] &quot;my_first_variable&quot; &quot;my_variable&quot;       &quot;myfirstvariable&quot;  
+## [10] &quot;myFirstVariable&quot;   &quot;MyFirstVariable&quot;   &quot;myPlot&quot;           
+## [13] &quot;name with spaces&quot;  &quot;predictions&quot;       &quot;test_data&quot;        
+## [16] &quot;test_outcome&quot;      &quot;training_data&quot;     &quot;training_outcome&quot;</code></pre>
 <p>Another way you can remove a single object is to overwrite the object with value NULL.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">today &lt;-<span class="st"> </span><span class="kw">Sys.Date</span>()
 today &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
@@ -303,7 +300,7 @@ today &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></d
 <h2><span class="header-section-number">7.2</span> Vectors</h2>
 <p>A <strong>vector</strong> is a collection of values that hold the same datatype. It is <strong>one-dimensional</strong> in that none of the <strong>elements</strong> in the collection correspond to other values like they might in a table of values.</p>
 <p>A single value is actually a vector of <strong>length</strong> 1.</p>
-<p>When I introduced the colon (<code>:</code>) as a means on generating a sequence, we were in fact generating a vector where each element was a number in the sequence. The vector has a length as long as the number of values generated by the sequence.</p>
+<p>When I introduced the colon (<code>:</code>) as a means on generating a sequence, we were in fact generating a vector where each element was a number in the sequence. The vector has a length which is as long as the number of values generated by the sequence.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">-<span class="dv">1</span>:<span class="dv">1</span></code></pre></div>
 <pre><code>## [1] -1  0  1</code></pre>
 <p>Another way of producing a vector is to use the combine function (<code>c()</code>). This is great for combining a number of disparate character strings into a vector.</p>
@@ -330,6 +327,7 @@ This <strong>implicit conversion</strong> is something to be careful of and can 
 <div id="getting-information-about-vectors" class="section level2">
 <h2><span class="header-section-number">7.3</span> Getting information about vectors</h2>
 <p>Our <code>class()</code> function will still work with a vector with a length greater than 1 to get you it’s datatype.</p>
+<p>Let’s look at a sequence of numbers and one of the built-in vectors that contains the alphabet.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">1</span>:<span class="dv">10</span>)
 LETTERS
 <span class="kw">class</span>(LETTERS)</code></pre></div>
@@ -370,11 +368,11 @@ vecB &lt;-<span class="st"> </span><span class="dv">2</span>:<span class="dv">3<
 </div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vecA *<span class="st"> </span><span class="dv">3</span></code></pre></div>
 <pre><code>## [1] 3 6</code></pre>
-<p>You can also use this functionality of making a vector the same length as another, known as <strong>recycling</strong>, work for other mis-matched vector sizes. The only rule is the one of the vector lengths must divide cleanly by the other.</p>
+<p>You can also use this functionality of making a vector the same length as another, known as <strong>recycling</strong>, work for other mis-matched vector sizes. The only rule is that one of the vector lengths must divide cleanly by the other.</p>
 <ul>
-<li>Two vectors of the same length divide by the other’s length exactly one time and won’t need to recycle.</li>
-<li>A vector of length one always cleanly divides any other vector’s length and so will be recycled.</li>
-<li>A vector of length 2, will divide any vector with an even length and so will be recycled in those cases, but it cannot recycle cleanly for odd length vectors.</li>
+<li>Two vectors of the same length divide by the other’s length exactly one time and won’t need to recycle</li>
+<li>A vector of length one always cleanly divides any other vector’s length and so will be recycled</li>
+<li>A vector of length 2, will divide any vector with an even length and so will be recycled in those cases, but it cannot recycle cleanly for odd length vectors</li>
 </ul>
 <div class="figure">
 <img src="vectormultrecycle.png" />
@@ -392,7 +390,7 @@ vecB &lt;-<span class="st"> </span><span class="dv">2</span>:<span class="dv">3<
 </div>
 <div id="data.frames" class="section level2">
 <h2><span class="header-section-number">7.5</span> data.frames</h2>
-<p>A <strong>data.frame</strong> is table similar to what we’re used to working with in most data analysis tools. It will contain a number of rows with columns containing different pieces of information. Each column in a data.frame has a datatype but it does not have to the same datatype as the other columns.</p>
+<p>A <strong>data.frame</strong> is a table similar to what we’re used to working with in most data analysis tools. It will contain a number of rows with columns containing different pieces of information. Each column in a data.frame has a datatype but it does not have to the same datatype as the other columns.</p>
 <p>We can construct a data.frame from individual vectors via the <code>data.frame()</code> function.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">2</span>, <span class="dt">b =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>))</code></pre></div>
 <pre><code>##   a    b
@@ -465,15 +463,20 @@ vecB &lt;-<span class="st"> </span><span class="dv">2</span>:<span class="dv">3<
 The <code>View()</code> function is specific to RStudio and provides a nice visual grid view of a data.framae and it allows you to search and sort the table for some initial exploration.
 </p>
 </div>
-<p>More commonly, we’ll import data an outside source.</p>
+<p>More commonly, we’ll import data from an outside source.</p>
 </div>
 <div id="importing-data.frames" class="section level2">
 <h2><span class="header-section-number">7.6</span> Importing data.frames</h2>
-<p>You can import data via code, but one of the eassiest ways of getting started is to load data via RStudio and have it generate the code for you.</p>
-<p>To import data, go to the Environment tab and select Import Dataset. Select the relevant type of data you want to import. Browse to the file you want to upload.</p>
+<p>You can import data via code, but one of the easiest ways of getting started is to load data via RStudio and have it generate the code for you.</p>
+<p>To import data…</p>
+<ol style="list-style-type: decimal">
+<li>Go to the Environment tab and select Import Dataset</li>
+<li>Select the relevant type of data you want to import</li>
+<li>Browse to the file you want to upload.</li>
+</ol>
 <div class="protip">
 <p>
-Keeping data in the project directory is ideal as it keeps everything in one place and makes import code easier to read.
+Keeping data in the project directory is ideal as it keeps everything in one place and makes imported code easier to read.
 </p>
 </div>
 <p>You can tweak the advanced settings and then select the <em>Import</em> button to load the data directly into memory. Alternatively, you can copy the code it generated for you and paste it into a script. By doing this copy and pasting, you will make the import reproducible. Next time you need to load the data you can just run the code, instead of using the interface again.</p>
@@ -485,12 +488,12 @@ Keeping data in the project directory is ideal as it keeps everything in one pla
 </div>
 <p>If you were tying to do this import and you have a fresh installation of R and RStudio, you probably got an error when you tried to load a file because you don’t have some of the required functionality that RStudio expects you to have.</p>
 <p>It will tell you the name of the thing you’re missing. In my case - I’m missing the package “readr”. To make this available to us, we go to the Packages tab and then:</p>
-<ul>
+<ol style="list-style-type: decimal">
 <li>select <em>Install</em></li>
 <li>type “readr”</li>
 <li>select the <em>Install</em> button</li>
 <li>accept any popups for things like restarting R</li>
-</ul>
+</ol>
 </div>
 </div>
 <div id="getting-information-about-data.frames" class="section level2">
@@ -498,7 +501,7 @@ Keeping data in the project directory is ideal as it keeps everything in one pla
 <p>Our data.frames are <strong>composites</strong>, they are the result of combining a number of vectors with different data types. As a consequence, when we run our <code>class()</code> function, it tells us an object is a <code>data.frame</code> and no longer returns the underlying datatype.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(iris)</code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<p>You do not get the number of rows in a data.frame when you run the <code>length()</code> function, instead you get the number of columns<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>. Alternatively, you can run the more clearly named <code>ncol()</code> function to return the number of columns in a data.frame.</p>
+<p>You do not get the number of rows in a data.frame when you run the <code>length()</code> function, instead you get the number of columns<a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a>. Alternatively, you can run the more clearly named <code>ncol()</code> function to return the number of columns in a data.frame.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(iris)
 <span class="kw">ncol</span>(iris)</code></pre></div>
 <pre><code>## [1] 5
@@ -542,15 +545,15 @@ mylist</code></pre></div>
 <h2><span class="header-section-number">7.10</span> Other object types</h2>
 <p>There a number of other object types in R. They won’t be covered in detail in this book, because they tend to be used by a small fraction of R users.</p>
 <ul>
-<li>A <strong>matrix</strong> is two-dimensional object that can only one datatype.</li>
-<li>An <strong>array</strong> is a multi-dimensional object that can contain only one datatype.</li>
-<li>A <strong>table</strong> object is similar to a matrix but is created by producing a contingency table.</li>
+<li>A <strong>matrix</strong> is a two-dimensional object that can only contain one datatype</li>
+<li>An <strong>array</strong> is a multi-dimensional object that can contain only one datatype</li>
+<li>A <strong>table</strong> object is similar to a matrix but is created by producing a contingency table</li>
 </ul>
 <p>In R, developers can also create other object types specific to their requirements. People use this to create geospatial objects and more.</p>
 </div>
 <div id="useful-functions" class="section level2">
 <h2><span class="header-section-number">7.11</span> Useful functions</h2>
-<p>Whatever the object type, there some functions that come in handy for</p>
+<p>Whatever the object type, there are some functions that come in handy for exploring it and getting some useful metadata.</p>
 <p>You get the contents of any object by writing it’s name.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist</code></pre></div>
 <pre><code>## $a
@@ -559,7 +562,7 @@ mylist</code></pre></div>
 ## [[2]]
 ##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot;
 ## [18] &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
-<p>However, if you’re working with a lot of data, you probably don’t want to fill up your console that way. R has two functions, <code>head()</code> and <code>tail()</code>, which allow you to see values from beginning or end of an object.</p>
+<p>However, if you’re working with a lot of data, you probably don’t want to fill up your console that way. R has two functions, <code>head()</code> and <code>tail()</code>, which allow you to see values from the beginning or end of an object.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(LETTERS)
 <span class="kw">tail</span>(LETTERS)</code></pre></div>
 <pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot;
@@ -573,15 +576,15 @@ mylist</code></pre></div>
 <div id="r-objects-exercises" class="section level2">
 <h2><span class="header-section-number">7.12</span> R objects exercises</h2>
 <ol style="list-style-type: decimal">
-<li>See what’s in the variable <code>letters</code>;</li>
-<li>Write a check to see if “A” is present in <code>letters</code>;</li>
-<li>Find out which values in the sequence 1 to 10 are greater than or equal to 3 and less than 7.</li>
-<li>Make a vector containing the numbers 1 to 50;</li>
-<li>Make a vector containing two words;</li>
+<li>See what’s in the built-in variable <code>letters</code></li>
+<li>Write a check to see if “A” is present in <code>letters</code></li>
+<li>Find out which values in the sequence 1 to 10 are greater than or equal to 3 and less than 7</li>
+<li>Make a vector containing the numbers 1 to 50</li>
+<li>Make a vector containing two words</li>
 <li>What happens when you combine these two vectors?</li>
 <li>Make a data.frame using the two vectors</li>
 <li>What happened to your text vector?</li>
-<li>Make a list containing some of the variables you’ve created so far.</li>
+<li>Make a list containing some of the variables you’ve created so far</li>
 <li>Return the some rows from the <code>iris</code> dataset</li>
 </ol>
 
@@ -589,9 +592,9 @@ mylist</code></pre></div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="19">
-<li id="fn19"><p>Other valid values are the equals symbol <code>=</code> and you can also do a right-handed assignment with <code>-&gt;</code><a href="r-objects.html#fnref19">↩</a></p></li>
-<li id="fn20"><p>This is because a data.frame is actually just a prettily printed list and each column in an element in said list and length returns the number of elements.<a href="r-objects.html#fnref20">↩</a></p></li>
+<ol start="21">
+<li id="fn21"><p>Other valid values are the equals symbol <code>=</code> and you can also do a right-handed assignment with <code>-&gt;</code><a href="r-objects.html#fnref21">↩</a></p></li>
+<li id="fn22"><p>This is because a data.frame is actually just a prettily printed list, and each column in an element in said list, and length returns the number of elements overall.<a href="r-objects.html#fnref22">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -611,7 +614,7 @@ mylist</code></pre></div>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

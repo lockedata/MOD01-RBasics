@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R fundamentals</title>
-  <meta name="description" content="R fundamentals">
+  <title>Working with R</title>
+  <meta name="description" content="Working with R">
   <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
-  <meta property="og:title" content="R fundamentals" />
+  <meta property="og:title" content="Working with R" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R fundamentals" />
+  <meta name="twitter:title" content="Working with R" />
   
   
   
@@ -216,6 +216,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="r-packages.html"><a href="r-packages.html#r-packages-exercises"><i class="fa fa-check"></i><b>10.5</b> R packages Exercises</a></li>
 </ul></li>
+<li class="part"><span><b>III Conclusion</b></span></li>
+<li class="chapter" data-level="11" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>11</b> Conclusion</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>A</b> Answers</a><ul>
 <li class="chapter" data-level="A.1" data-path="answers.html"><a href="answers.html#r-data-types-exercises-1"><i class="fa fa-check"></i><b>A.1</b> R Data Types Exercises</a></li>
@@ -234,7 +236,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R fundamentals</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Working with R</a>
           </h1>
         </div>
 
@@ -244,7 +246,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="using-rstudio" class="section level1">
 <h1><span class="header-section-number">3</span> Using RStudio</h1>
-<p><a href="//rstudio.com">RStudio</a> is a coding interface to R that makes it easier for you to be productive.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> I’m devoting substantial amounts of this book to your working environment as you can use it to make learning and coding R much easier by taking the time to understand it.</p>
+<div class="readerTODO">
+<p>
+If you don’t already have it, you should <a href="//www.rstudio.com/products/rstudio/download/#download">install R and RStudio</a>.
+</p>
+<p>
+If you’re on Windows, it’s also great if you can install <a href="//cran.r-project.org/bin/windows/Rtools/">Rtools</a>. This gives you the tools to install packages from GitHub later on down the line.
+</p>
+</div>
+<p><a href="//rstudio.com">RStudio</a> is a coding interface to R that makes it easier for you to be productive.<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> I’m devoting substantial amounts of this book to your working environment as you can use it to make learning and coding R much easier by taking the time to understand it.</p>
 <p>The interface will be split up into a top menu and then four panes, although only three may be visible when you first start RStudio.</p>
 <div class="TODO">
 <p>
@@ -254,14 +264,6 @@ Clean RStudio image, no arrows
 <div class="figure">
 <img src="rstudiolayout.png" />
 
-</div>
-<div class="readerTODO">
-<p>
-If you don’t already have it, you should <a href="//www.rstudio.com/products/rstudio/download/#download">install R and RStudio</a>.
-</p>
-<p>
-If you’re on Windows, it’s also great if you can install <a href="//cran.r-project.org/bin/windows/Rtools/">Rtools</a>. This gives you the tools to install packages from GitHub later on down the line.
-</p>
 </div>
 <div id="the-console" class="section level2">
 <h2><span class="header-section-number">3.1</span> The console</h2>
@@ -282,7 +284,7 @@ Errors, warnings, and messages will also appear in the console. We’ll discuss 
 Use the console to add two numbers together.
 </p>
 </div>
-<p>If the code you entered wasn’t a complete statement e.g. <code>1 + 2 +</code>, when you hit <kbd>Enter</kbd>, the <code>&gt;</code> will change to a <code>+</code> indicating the code you’re writing will be appended to the line before it.</p>
+<p>If the code you entered wasn’t a complete statement e.g. <code>1 + 2 +</code>, when you hit <kbd>Enter</kbd>, you’ll get a new line only the <code>&gt;</code> will now be a <code>+</code>. This indicates the code you’re writing is a continuation of the previous line. R will allow you to continue building up a complete chunk of code this way. It’ll run all the lines you entered as one block once it’s been completed.</p>
 <p>If you want to clean your console and start afresh, hit <kbd>Ctrl</kbd> + <kbd>L</kbd> to remove whatever has been executed in the console this session.</p>
 <p>You can use your up and down arrow keys to navigate through previous code you’ve written and executed.</p>
 <div class="glass">
@@ -302,11 +304,11 @@ Create gif of adding a file
 <p>The most common file types you might use are R files (<code>.R</code>) and rmarkdown files (<code>.Rmd</code>).</p>
 <div class="future">
 <p>
-rmarkdown files are for generating documents with text and R code interleaved (like this book!) will be covered in a book in future. If you want to get going, checkout the <a href="//rmarkdown.rstudio.com">rmarkdown</a> site.
+rmarkdown files are for generating documents with text and R code interleaved (like this book!) They’ll will be covered in a book in future. If you want to get going, checkout the <a href="//rmarkdown.rstudio.com">rmarkdown</a> site.
 </p>
 </div>
-<p>You can create one of these files by going to <em>File &gt; New &gt; R Script</em>, the New File button, or with the hotkey combo<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd>.</p>
-<p>In an R script you can type code and execute it by hitting <kbd>Ctrl</kbd> + <kbd>Enter</kbd><a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>, or selecting the code to run and hitting the Run button.</p>
+<p>You can create one of these files by going to <em>File &gt; New &gt; R Script</em>, the New File button, or with the hotkey combo<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd>.</p>
+<p>In an R script you can type code and execute it by hitting <kbd>Ctrl</kbd> + <kbd>Enter</kbd><a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>, or selecting the code to run and hitting the Run button.</p>
 <p>You can execute all the code in a script by hitting <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd> or hitting the Source button.</p>
 <div class="readerTODO">
 <ul>
@@ -341,7 +343,7 @@ Create a gif with code completion
 On a new line of your script, type <code>a</code> and activate your code completion. Browse the list then cancel out of the list.
 </li>
 <li>
-Overwrite the <code>a</code> with an <code>A</code> and go back into the code completion. Do youu get the same list? What’s different and why?
+Overwrite the <code>a</code> with an <code>A</code> and go back into the code completion. Do you get the same list? What’s different and why?
 </li>
 </ul>
 </div>
@@ -349,7 +351,7 @@ Overwrite the <code>a</code> with an <code>A</code> and go back into the code co
 <div id="projects" class="section level2">
 <h2><span class="header-section-number">3.4</span> Projects</h2>
 <p>So far you’ve seen R as a scratchpad (via the console) and for making an isolated script, but a lot of the time we have to be put data, multiple scripts, documentation and more into a <strong>project</strong>.</p>
-<p>An RStudio project is a folder with an extra file. This file can be used to open RStudio, with everything laid out like it was before you closed the project. It can store preferences to allow projects to vary from the way you normally do things.<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a></p>
+<p>An RStudio project is a folder with an extra file. This file can be used to open RStudio, with everything laid out like it was before you closed the project. It can store preferences to allow projects to vary from the way you normally do things.<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a></p>
 <div class="protip">
 <p>
 At this point in your R coding career, keeping everything where you left off is great. Later on, and especially if you work in anything where reproducibility is valued, you can go to <em>Tools &gt; Project Options …</em> and set the .Rdata fields to “no” so that nothing loads up into memory when you load the project.
@@ -361,8 +363,8 @@ At this point in your R coding career, keeping everything where you left off is 
 Create a gif of making a project
 </p>
 </div>
-<p>This will popup a dialogue that gives you the option to create a brand new project directory, create one from some existing directory you might already have, and creating one with the content of a project in your source control system.</p>
-<p>Most commonly, you’ll want to create a new directory project. Once selected it’ll then give you the option to create an empty project, a shiny project, or an R package. You’ll normally select the empty projects. Once an option is selected, provide a name and where the project should go.</p>
+<p>This will popup a dialogue that gives you the option to create a brand new project directory, create one from some existing directory you might already have, or create one with the content of a project in your source control system (we’ll talk about source control in a later book.)</p>
+<p>Most commonly, you’ll want to create a new directory project. Once selected it’ll then give you the option to create an empty project, a Shiny project (Shiny is a feature we’ll cover in a later book too,) or an R package. You’ll normally select the empty projects. Once an option is selected, provide a name and where the project should go.</p>
 <div class="future">
 <p>
 Working with source control, shiny, and creating R packages are all in later books.
@@ -378,11 +380,11 @@ Create a new project to store the answers to exercises and any code you try out 
 </div>
 <div class="footnotes">
 <hr />
-<ol start="3">
-<li id="fn3"><p>If coding interfaces were game modes, RStudio is Easy mode, Visual Studio is Normal, R-GUI is Hard, vim is Insane, and Emacs is Legacy.<a href="using-rstudio.html#fnref3">↩</a></p></li>
-<li id="fn4"><p>I’m a big fan of hotkeys!<a href="using-rstudio.html#fnref4">↩</a></p></li>
-<li id="fn5"><p>This hotkey is really nifty as it’ll find the start and end of a block of code and send it all to the console to be executed.<a href="using-rstudio.html#fnref5">↩</a></p></li>
-<li id="fn6"><p>Like converting tabs to spaces and the number of spaces characters it should replace with.<a href="using-rstudio.html#fnref6">↩</a></p></li>
+<ol start="5">
+<li id="fn5"><p>If coding interfaces were game modes, RStudio is Easy mode, Visual Studio is Normal, R-GUI is Hard, vim is Insane, and Emacs is Legandary.<a href="using-rstudio.html#fnref5">↩</a></p></li>
+<li id="fn6"><p>I’m a big fan of hotkeys!<a href="using-rstudio.html#fnref6">↩</a></p></li>
+<li id="fn7"><p>This hotkey is really nifty as it’ll find the start and end of a block of code and send it all to the console to be executed.<a href="using-rstudio.html#fnref7">↩</a></p></li>
+<li id="fn8"><p>Like converting tabs to spaces and the number of spaces characters it should replace with.<a href="using-rstudio.html#fnref8">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -402,7 +404,7 @@ Create a new project to store the answers to exercises and any code you try out 
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
