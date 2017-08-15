@@ -41,7 +41,7 @@ The **modulus** (`%%`) tells you how much is left over after performing an integ
 1:8 %% 4
 ```
 
-The colon (`:`) is a really snazzy way of generating a sequence of numbers that step by 1.
+The colon (`:`) is a really snazzy way of generating a sequence of numbers that step by 1. You specify a beginning number and an end number and R will produce all the whole numbers including an dbetween the two numbers. This even works for negative numbers or producing descending values.
 
 ```{r}
 1:5

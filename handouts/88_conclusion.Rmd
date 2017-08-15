@@ -1,0 +1,13 @@
+# (PART) Conclusion {-}
+
+# Conclusion
+
+Thank you reaching the end of this first book in the series on R fundamentals!
+
+In this book you learnt about how to:
+
+- effectively use your RStudio environment
+- perform basic tasks like importing data, subsetting and exploring data, and 
+- use R functions and new packages with confidence
+
+The next book will tackle data manipulation and tabular based analysis, the next step in getting to grips with the fundamentals of R.

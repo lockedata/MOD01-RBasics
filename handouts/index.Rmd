@@ -1,5 +1,5 @@
 ---
-title: "R fundamentals"
+title: "Working with R"
 author: "Locke Data"
 site: bookdown::bookdown_site
 output:
@@ -20,18 +20,24 @@ opts_chunk$set( tidy=TRUE, results="hold", cache=TRUE)
 
 
 # About this book {-}
-Welcome to the first book in Stephanie Locke of Locke Data's series on R and data science! 
+Welcome to the first book in Steph Locke's R Fundamentals series! 
 
-This first book introduces R itself, helps you get the most out of the RStudio programming environment, and teaches the basics of getting things done in R. 
+This first book introduces the R language and the RStudio coding environment. It is by no means comprehensive but it represents the first steps in learning the modern fundamentals. 
 
-Already know the basics of R? You can skip right onto the next book in this series **[BOOK NAME/LINK here]**
+At the end of this book, you'll be comfortable with how R works and deciphering a lot of the old-school code out there. 
+
+Already know the basics of R? You can skip right onto the next book in this series **[Data Manipulation]**
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">From StaRt to Finish</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://itsalocke.com/" property="cc:attributionName" rel="cc:attributionURL">Stephanie Locke</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
 # What you need to already know {-}
 This book assumes no prior knowledge of programming, or R. A basic knowledge of mathematics will come in handy, but isn't required. You will need a good understanding of the use of calculators or Excel for mathematics.
 
-You will need the required access to be able to install (or get installed) R, RStudio, and, if on Windows, RTools. You can code online at [r-fiddle.org](//www.r-fiddle.org/) but this might be unreliable. The instructions for installation can be found in the apendix of this book **[link to apendix here]**
+You will need the required access to be able to install (or get installed) R, RStudio, and, if on Windows, Rtools. You can code online at [r-fiddle.org](//www.r-fiddle.org/) but this might be unreliable. 
+
+- Install R from [r-project.org]( https://cloud.r-project.org/)
+- Install Rtools from  [r-project.org]( https://cloud.r-project.org/bin/windows/Rtools/)
+- Install RStudio from [rstudio.com](https://www.rstudio.com/products/rstudio/download/#download)
 
 # Steph Locke {-}
 I am a Microsoft Data Platform MVP with over a decade of business intelligence and data science experience.
@@ -57,8 +63,14 @@ In terms of basic formatting:
 
 This is a book about coding, so expect code blocks. Code blocks will typically look like this:
 
-```{r}
+```{r eval=FALSE}
 "this is a code block"
+```
+
+Directly underneath it, normally starting with two hash symbols (`##`) is the result of the code executing.
+
+```{r eval=FALSE}
+## [1] "this is a code block"
 ```
 
 There will also be callouts throughout the book. Some are for information, some expect you to do things.
@@ -72,7 +84,7 @@ This is a tip relating to what I've just said.
 ```
 
 ```{block, type="glass"}
-This is kind of like a tip but is for those break-the-glass, moments where things have gone very very wrong and you need to escape.
+This is kind of like a tip but is for when you're getting into trouble and need help.
 ```
 
 ```{block, type="readerTODO"}

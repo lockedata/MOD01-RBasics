@@ -47,7 +47,7 @@ pi>3
 ```
 
 ## R Objects Exercises
--  See what's in the variable `letters`
+-  See what's in the built-in variable `letters`
 ```{r}
 letters
 ```
