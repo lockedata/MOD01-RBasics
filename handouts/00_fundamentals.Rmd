@@ -201,8 +201,8 @@ In an R script you can type code and execute it by hitting <kbd>Ctrl</kbd> + <kb
 You can execute all the code in a script by hitting <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd> or hitting the Source button.
 
 ```{block, type="readerTODO"}
-- Open a new R script. 
-- Write `10*5` in it and execute the code.
+1. Open a new R script
+2. Write `10*5` in it and execute the code
 ```
 
 ## Code completion
@@ -222,8 +222,8 @@ As we navigate through the list, it'll provide help text where possible and then
 - Hit <kbd>Tab</kbd> to accept whatever value in the list is currently highlighted.
 
 ```{block, type="readerTODO"}
-- On a new line of your script, type `a` and activate your code completion. Browse the list then cancel out of the list.
-- Overwrite the `a` with an `A` and go back into the code completion. Do you get the same list? What's different and why?
+1. On a new line of your script, type `a` and activate your code completion. Browse the list then cancel out of the list
+2. Overwrite the `a` with an `A` and go back into the code completion. Do you get the same list? What's different and why?
 ```
 
 ## Projects
