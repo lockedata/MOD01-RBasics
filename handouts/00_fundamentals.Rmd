@@ -215,11 +215,11 @@ Whilst writing scripts or typing in our console, we can get help and be more pro
 
 As we navigate through the list, it'll provide help text where possible and then it will complete the code we were typing.
 
-- You access the code completion by hitting <kbd>Tab</kbd> whilst typing. 
-- Once it's up you can keep typing to refine the list. 
-- Your arrow keys allow you to navigate the list.
-- Hit <kbd>Esc</kbd> to back out of the completion capability.
-- Hit <kbd>Tab</kbd> to accept whatever value in the list is currently highlighted.
+- You access the code completion by hitting <kbd>Tab</kbd> whilst typing
+- Once it's up you can keep typing to refine the list
+- Your arrow keys allow you to navigate the list
+- Hit <kbd>Esc</kbd> to back out of the completion capability
+- Hit <kbd>Tab</kbd> to accept whatever value in the list is currently highlighted
 
 ```{block, type="readerTODO"}
 1. On a new line of your script, type `a` and activate your code completion. Browse the list then cancel out of the list
