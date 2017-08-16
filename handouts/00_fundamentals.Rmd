@@ -243,7 +243,7 @@ Create a gif of making a project
 
 This will popup a dialogue that gives you the option to create a brand new project directory, create one from some existing directory you might already have, or create one with the content of a project in your source control system (we'll talk about source control in a later book.)
 
-Most commonly, you'll want to create a new directory project. Once selected it'll then give you the option to create an empty project, a Shiny project (Shiny is a feature we'll cover in a later book too,) or an R package. You'll normally select the empty projects. Once an option is selected, provide a name and where the project should go.
+Most commonly, you'll want to create a new directory project. Once selected it'll then give you the option to create an empty project, a Shiny project (a feature for creating amazing dynamic reports,) or an R package. You'll normally select the empty projects. Once an option is selected, provide a name and where the project should go.
 
 ```{block, type="future"}
 Working with source control, shiny, and creating R packages are all in later books.
