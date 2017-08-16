@@ -7,7 +7,7 @@ When we think of different bits of data, some of it might be numbers, text, date
 
 Before we get into the data types, let's see how we can get R to tell us what something is. 
 
-R uses **functions** (basically, an inbuilt bit of code that you can call on to do things with, optionally passing it some data to woprk with) to take some inputs and get an output. The function that we can pass a value to, and get what data type it is as the output, is the `class()` function.
+R uses **functions** (basically, an inbuilt bit of code that you can call on to do things with, optionally passing it some data to work with) to take some inputs and get an output. The function that we can pass a value to, and get what data type it is as the output, is the `class()` function.
 
 ```{r}
 class(1)
@@ -28,12 +28,12 @@ Numbers are split into a few different types:
 
 - **integer**s are whole numbers like 1 or 42^[If you want to guarantee a number is an integer, you can suffix the value with a L e.g. `42L`. If you want to read more about this, check out the [R manual](//cran.r-project.org/doc/manuals/R-lang.html#Constants)]
 - **numeric**s are numbers that have a decimal portion associated with them like 1.0 or 3.133^[Numerics in R are floating point numbers - this mean every decimal gets stored usually with a large amount of extra decimal places. This can lead to some unusual results when comparing two decimal values and we'll see an example later.]
-- **complex number**s are numbers that make use of the imaginary number *i* like 4i.^[*i* is the square root of -1, which is an impossible number since any negative multiplied by itself would result in a positive. Descartes coined the term "imaginary" in reference to this number as it's a consistent value in formulae but doesn't exist in the real world.]
+- **complex number**s are numbers that make use of the imaginary number *i* like 4i^[*i* is the square root of -1, which is an impossible number since any negative multiplied by itself would result in a positive. Descartes coined the term "imaginary" in reference to this number as it's a consistent value in formulae but doesn't exist in the real world.]
 
 ### Converting to numbers
 The functions `as.numeric()` and `as.integer()` allow you to convert something stored as text into a number.
 
-These functions will give you some red text as a warning if you attempt to convert something to a number that can't be safely converted. It will still have performed the conversion though.
+These functions will give you some red text as a warning if you attempt to convert something to a number that can't be safely converted. It will still have attempt to perform the conversion, but return missings (`NA`) instead of actual values.
 
 ```{r}
 as.numeric(1)
@@ -71,8 +71,8 @@ class( integer( "1" ) )
 As well as `i` to denote imaginary numbers, there are some additional symbols you might encounter or want to use.
 
 - `pi` = `r pi`
-- `Inf` represents positive infinity. You'll often see this if you divide a positive number by zero.
-- `-Inf` represents negative infinity. You'll often see this if you divide a negative number by zero.
+- `Inf` represents positive infinity. You'll often see this if you divide a positive number by zero
+- `-Inf` represents negative infinity. You'll often see this if you divide a negative number by zero
 - `NaN` is what happens when you really screw up a calculation and do something like `0/0`. It means the result is not a number!
 
 ## Text
@@ -87,9 +87,9 @@ Factors will be covered at length in a later book. The rest of this book will wo
 
 In R, you can't just type some text as it will be construed as an object or function name. To **delimit** a string you can use speech marks (`"`) or apostrophes (`'`) at the beginning and end of it to show where it starts and ends. 
 
-Note you can't use the two delimiters interchangably e.g. "red', but you can use them together to enable you have speech marks or apostrophes inside a string e.g. 'They said "Read this"' or "It's mine now". 
+Note you can't use the two delimiters interchangably e.g. \"red\', but you can use them together to enable you have speech marks or apostrophes inside a string e.g. 'They said "Read this"' or "It's mine now". 
 
-If you need to have both inside a string you can **escape** the ones on the iside of a string to say they don't count as text **delimiters**. To escape a delimiter you can use a backslash(`\`) e.g. "They said \"Read this\"".
+If you need to have both inside a string you can **escape** the ones on the iside of a string to say they don't count as text **delimiters**. To escape a delimiter you can use a backslash(`\`) e.g. "They said \\"Read this\\"".
 
 
 ```{block, type="glass"}
@@ -228,11 +228,11 @@ Complex | i
 Date | "`r Sys.Date()`"
 
 ## R Data Types Exercises
-1. Convert TRUE to an integer
-2. What is the datatype of the value returned by `Sys.time()`?
-3. What is the datatype of the value returned by `Sys.timezone()`?
-4. Make this quote into an R string
-> "Do you think this is a game?", he said. "No, I think Jenga's a game", Archer responded.
+- Convert TRUE to an integer
+- What is the datatype of the value returned by `Sys.time()`?
+- What is the datatype of the value returned by `Sys.timezone()`?
+- Make this quote into an R string
+ - "Do you think this is a game?", he said. "No, I think Jenga's a game", Archer responded.
 
 
 
