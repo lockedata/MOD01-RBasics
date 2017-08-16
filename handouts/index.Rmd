@@ -60,6 +60,7 @@ In terms of basic formatting:
 - This is standard text.
 - `This is code or a symbol`
 - <kbd>This is a Keyboard Key!</kbd>
+- **This is the first time I mention something important**
 
 This is a book about coding, so expect code blocks. Code blocks will typically look like this:
 
