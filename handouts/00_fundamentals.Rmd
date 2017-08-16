@@ -32,7 +32,7 @@ We'll look at finding packages later in this book.
 # Why use R?
 R as a programming language is brilliant at it's core competencies -- statistics and data visualisation. It's also a great "glue" language, by which I mean that you can use it to perform computations in many different languages and combine the results smoothly. As a result, R enables you to be an effective data wrangler, data scientist, and/or data visualisation practitioner. 
 
-The following section will show some things that exemplify how little is required to do things in R, that in other languages or tools can take a substantial amount of time.
+The following section will show some things uses exemplify how little is required to do things in R, that in other languages or tools can take a substantial amount of time.
 
 ```{block, type="future"}
 These are illustrative only. Don't worry if they don't make much sense. Writing code like these examples will be covered in later books.
