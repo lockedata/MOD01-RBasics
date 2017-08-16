@@ -32,15 +32,10 @@ We'll look at finding packages later in this book.
 # Why use R?
 R as a programming language is brilliant at it's core competencies -- statistics and data visualisation. It's also a great "glue" language, by which I mean that you can use it to perform computations in many different languages and combine the results smoothly. As a result, R enables you to be an effective data wrangler, data scientist, and/or data visualisation practitioner. 
 
-Here are some code snippets that exemplify how little is required to do things in R that in other languages or tools can take a substantial amount of time.
+The following section will show some things that exemplify how little is required to do things in R, that in other languages or tools can take a substantial amount of time.
 
 ```{block, type="future"}
 These are illustrative only. Don't worry if they don't make much sense. Writing code like these examples will be covered in later books.
-```
-
-```{r include=FALSE}
-library(tidyverse)
-library(ggplot2)
 ```
 
 ## Data wrangling
@@ -54,6 +49,11 @@ This snippet of R code performs the following steps:
 4. Combine the results
 
 Combining the results involves matching the columns by name. It will create new columns when it finds additional columns in some of the data and fill in the data. When columns are missing from a dataset it will put NAs in those column for that data. 
+
+```{r include=FALSE}
+library(tidyverse)
+library(ggplot2)
+```
 
 ```{r warning=FALSE, message=FALSE}
 library(tidyverse)
