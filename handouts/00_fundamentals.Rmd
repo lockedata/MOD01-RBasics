@@ -191,7 +191,7 @@ RStudio allows you to create and work with files containing code. These files gi
 The most common file types you might use are R files (`.R`) and rmarkdown files (`.Rmd`). 
 
 ```{block type='future'}
-rmarkdown files are for generating documents with text and R code interleaved (like this book!) They'll will be covered in a book in future. If you want to get going, checkout the [rmarkdown](//rmarkdown.rstudio.com) site.
+rmarkdown files are for generating documents with text and R code interleaved (like this book!) They'll be covered in a future book. If you want to get going, checkout the [rmarkdown](//rmarkdown.rstudio.com) site.
 ```
 
 You can create one of these files by going to *File > New > R Script*, the New File button, or with the hotkey combo^[I'm a big fan of hotkeys!] of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd>.
