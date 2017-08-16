@@ -232,7 +232,7 @@ Date | "`r Sys.Date()`"
 - What is the datatype of the value returned by `Sys.time()`?
 - What is the datatype of the value returned by `Sys.timezone()`?
 - Make this quote into an R string
- - "Do you think this is a game?", he said. "No, I think Jenga's a game", Archer responded.
+    + "Do you think this is a game?", he said. "No, I think Jenga's a game", Archer responded.
 
 
 
