@@ -73,7 +73,7 @@ In R, you test if two values are exactly the same with `==` and you test if they
 2 != 2
 ```
 
-You can test if a value is present in a list of acceptable values using the `%in%` operator. This may seem a little trivial right now, but once we start covering more than one value at a time, it'll start showing it's uses for working with strings.
+You can test if a value is present in a list of acceptable values using the `%in%` operator. This may seem a little trivial right now, but once we start covering more than one value at a time, and working with strings, it'll really start to shine!
 
 ```{r}
 2 %in% 1:3
