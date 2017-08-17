@@ -96,7 +96,7 @@ Indeed, if we test `0.2` is the same as `0.2` we get a `TRUE` which matches our 
 0.2 == 0.2
 ```
 
-But, when we perform two calculations, even though they come out to the same value to us, there's a little bit of imprecision in how they're stored that stops from being *exactly the same* number.
+But, when we perform two calculations, even though they come out to the same value to us, there's a little bit of imprecision in how they're stored that stops them from being *exactly the same* number.
 
 ```{r}
 (0.6 - 0.4) == (0.5 - 0.3)
@@ -128,7 +128,7 @@ Once we can do a single check, we inevitably want to do multiple checks at the s
 To combine multiple checks, we can use *logical operators*.
 
 ### Common operators
-The ampersand (`&`) allows us to combine two checks to do an AND check which is "are both things true".
+The ampersand (`&`) allows us to combine two checks to do an AND check, which is "are both things true?".
 
 ```{r}
 TRUE & TRUE
@@ -138,7 +138,7 @@ FALSE & FALSE
 (2 < 3) & (4 != 4)
 ```
 
-The pipe, or bar (`|`)^[Getting this symbol can be painful as it varies substantially by keyboard, so apologies if it takes you a while to hunt this symbol down.] allows us to do an OR check which is "are either of these things true".
+The pipe, or bar (`|`)^[Getting this symbol can be painful as it varies substantially by keyboard, so apologies if it takes you a while to hunt this symbol down.] allows us to do an OR check, which is "are either of these things true?".
 
 ```{r}
 TRUE | TRUE
@@ -148,7 +148,7 @@ FALSE | FALSE
 (2 < 3) | (4 != 4)
 ```
 
-The exclamation point (`!`) allows us to a perform a NOT by negating or swapping a check's result. This allows you say things like "is this check true and that check not true".
+The exclamation point (`!`) allows us to a perform a NOT check, by negating or swapping a check's result. This allows you say things like "is this check true and that check not true?".
 
 ```{r}
 TRUE & TRUE
@@ -169,7 +169,7 @@ xor(TRUE, TRUE)
 xor(FALSE, FALSE)
 ```
 
-We'll see how this works in the next section, but when we use our logical operators it will do the comparison for every row. Sometimes we might be performing comparisons for many values but we need to to guarantee we get just one value back. We can use variants of AND and OR called **bitwise** comparisons to achieve this. Use these with care as the results can be a little bit weird!
+We'll see how this works in the next section, but when we use our logical operators it will do the comparison for every row. Sometimes we might be performing comparisons for many values but we need to guarantee we get just one value back. We can use variants of AND and OR called **bitwise** comparisons to achieve this. Use these with care as the results can be a little bit weird!
 
 ```{r}
 TRUE && TRUE
