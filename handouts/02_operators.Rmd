@@ -54,7 +54,7 @@ For reasons^[Read [Rbitrary](//ironholds.org/projects/rbitrary/) for more info] 
 
 
 ## Comparison
-The next important thing to know about is how to write comparisons.
+The next important thing to know about is how to write comparisons; ways of looking at two or more things and finding out if they're the same, or different.
 
 ### Common operators
 The less thans and greater thans are symbols that are in pretty much every language for comparisons, but the test to see if two values are the same or not can often vary across languages.
