@@ -21,9 +21,18 @@ Additionally, there are some other operators worth knowing about.
 
 Action | Operator | Example
 ------------- | ------------- | -------------
+Basic sequence | : | `1:3` = `r 1:3`
 Integer division | %/% | `9 %/% 4` = `r 9 %/% 4`
 Modulus | %% | `9 %% 4` = `r 9 %% 4`
-Basic sequence | : | `1:3` = `r 1:3`
+
+The colon (`:`) is a really snazzy way of generating a sequence of numbers that step by 1. You specify a beginning number and an end number and R will produce all the whole numbers including an dbetween the two numbers. This even works for negative numbers or producing descending values.
+
+```{r}
+1:5
+5:1
+-1:5
+5:-1
+```
 
 **Integer division** (`%/%`) tells you how many times the first number can be divided by the second without returning a fractional value. 
 
@@ -40,16 +49,6 @@ The **modulus** (`%%`) tells you how much is left over after performing an integ
 1:8 %% 3
 1:8 %% 4
 ```
-
-The colon (`:`) is a really snazzy way of generating a sequence of numbers that step by 1. You specify a beginning number and an end number and R will produce all the whole numbers including an dbetween the two numbers. This even works for negative numbers or producing descending values.
-
-```{r}
-1:5
-5:1
--1:5
-5:-1
-```
-
 
 For reasons^[Read [Rbitrary](//ironholds.org/projects/rbitrary/) for more info] not worth worrying about, R uses the `%` sign as the start of special operators -- usually these are custom built, contain text, or reserved symbols.
 
