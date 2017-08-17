@@ -2,7 +2,7 @@
 
 So far we've just worked with some single values to get to grips with how some of the various operations work. Of course, we rarely work with a single value! If we did, we could just use a calculator. 
 
-This section helps you get to grips with some different ways of storing data and how to manipulate your datasets in the "traditional" way. This is useful because you can understand a lot of code written in the past and equips you to understand the material in the next book, which focuses on data manipulation of tabular data.
+This section helps you get to grips with some different ways of storing data and how to manipulate your datasets in the "traditional" way. This will help you understand a lot of code written in the past, and will equip you to understand the material in the next book, which focuses on data manipulation of tabular data.
 
 ## Storing values
 When we were performing operations, we got some values output to the console. One of the key principles in writing code is Don't Repeat Yourself (DRY) so we need to know how we can avoid repeating ourselves in R. One of the ways you can do that is to store a value for use later.
@@ -144,21 +144,21 @@ vecB <- 2:3
 
 If we want to multiply the two vectors by each other, R will match each element in the first vector with it's counterpart in the second and multiply the two values together to make a new element.
 
-![](vectormult.png)
-
 ```{r}
 vecA*vecB 
 ```
+
+![](vectormult.png)
 
 We can also do this with vectors of different lengths to a certain extent. The most common scenario is operating on a vector by doing something with a single value.
 
 A single value is a vector of length 1. When R gets a request to do something with a vector of length *X* and a vector of length 1, it will basically repeat the vector of length 1 *X* times to make two vectors the same length. It wil then perform the calculation element-wise.
 
-![](vectormultsingle.png)
-
 ```{r}
 vecA*3 
 ```
+
+![](vectormultsingle.png)
 
 You can also use this functionality of making a vector the same length as another, known as **recycling**, work for other mis-matched vector sizes. The only rule is that one of the vector lengths must divide cleanly by the other. 
 
@@ -166,18 +166,18 @@ You can also use this functionality of making a vector the same length as anothe
 - A vector of length one always cleanly divides any other vector's length and so will be recycled
 - A vector of length 2, will divide any vector with an even length and so will be recycled in those cases, but it cannot recycle cleanly for odd length vectors
 
-![](vectormultrecycle.png)
-
 ```{r error=TRUE}
 1:10 * 2
 1:10 * 2:3
 1:10 * 2:4
 ```
 
+![](vectormultrecycle.png)
+
 Vector recycling is useful and dangerous -- it can help you make elegant code or give you unexpected results. Especially when starting out, I recommend you make your vectors either the same length or length 1.
 
 ## data.frames
-A **data.frame** is a table similar to what we're used to working with in most data analysis tools. It will contain a number of rows with columns containing different pieces of information. Each column in a data.frame has a datatype but it does not have to the same datatype as the other columns.
+A **data.frame** is a table similar to what we're used to working with in most data analysis tools. It will contain a number of rows with columns containing different pieces of information. Each column in a data.frame has a datatype but it does not have to be the same datatype as the other columns.
 
 We can construct a data.frame from individual vectors via the `data.frame()` function.
 
@@ -267,10 +267,10 @@ rownames(mydf)
 
 
 ## Lists
-Lists are your catch-all object. An element in a **list** can be any object, including a list! 
-You'll usually find yourself using a list when you're receiving some nested data (like from some API response) or when you want to bundle multiple connected pieces of information together. Most functionality for building statistical models in R will return a list object holding things like the model coefficients, key statistics, and fitted values.
+**List**s are your catch-all object. An element in a list can be any object, including a list! 
+You'll usually find yourself using a list when you're receiving some nested data (like from an API response) or when you want to bundle multiple connected pieces of information together. Most functionality for building statistical models in R will return a list object holding things like the model coefficients, key statistics, and fitted values.
 
-You can create lists with the `list()` function and like with our other objects you can have named and unnamed elements.
+You can create lists with the `list()` function, and like with our other objects you can have named and unnamed elements.
 
 ```{r}
 mylist<-list(a=1:3, LETTERS)
@@ -293,7 +293,7 @@ names(mylist)
 There a number of other object types in R. They won't be covered in detail in this book, because they tend to be used by a small fraction of R users.
 
 - A **matrix** is a two-dimensional object that can only contain one datatype
-- An **array** is a multi-dimensional object that can contain only one datatype
+- An **array** is a multi-dimensional object that also can contain only one datatype
 - A **table** object is similar to a matrix but is created by producing a contingency table
 
 In R, developers can also create other object types specific to their requirements. People use this to create geospatial objects and more.
@@ -328,4 +328,4 @@ str(mylist)
 7. Make a data.frame using the two vectors
 8. What happened to your text vector?
 9. Make a list containing some of the variables you've created so far
-10. Return the some rows from the `iris` dataset
+10. Retrieve the head or tail of the `iris` dataset
