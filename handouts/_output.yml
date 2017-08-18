@@ -1,2 +1,8 @@
 bookdown::gitbook:
   css: css/lockedatabook.css
+  config:
+    toc:
+      collapse: subsection
+      scroll_highlight: yes
+      before: null
+      after: null
