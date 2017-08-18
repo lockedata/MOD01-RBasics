@@ -2,11 +2,11 @@
 ## Grid references
 With R objects, it's possible to use a grid reference system to select values from an object. 
 
-In vectors and lists, you can specify the element position as they only have a single dimension. In data.frames, you can pinpoint both the element (row) and the column.
+In vectors and lists, you can specify the element position as they only have a single dimension. In data.frames, you can pinpoint the element via the row and the column.
 
 You can provide a grid reference by adding square brackets after a name e.g. `mylist[ ]`. Inside the square brackets, we can provide values in a few different ways to extract parts of the object.
 
-If you want everything in an object, you can just use the object's name or put square brackets after it.
+If you want everything in an object, you can just use the object's name or put empty square brackets after it.
 
 ```{r}
 letters
@@ -30,7 +30,7 @@ mydf[ ,1]
 mydf[3,3]
 ```
 
-Since even a single value is a vector in R, it means we can provide longer vectors in our grid specifications.
+Remeber how a single value is still counted as a vector by R? This means that when we say `letters[1]` the 1 is actually a vector, and *that* means that we can provide longer vectors in our grid specifications to!
 
 ```{r}
 letters[1:5]
@@ -57,13 +57,13 @@ mylist["a"]
 mydf[ , c("a","b")]
 ```
 
-You cannot provide a mix of element positions and element names in a single vector because the numbers would get converted to strings and be checked as character-based names.
+You cannot provide a mix of element positions and element names in a single vector because the numbers would get converted to strings and be checked as character-based names...
 
 ```{r}
 mylist[c(1,"a")]
 ```
 
-You are able to use element positions and element names in data.frame selections if you stick to one type of reference in each position.
+But you are able to use element positions and element names in data.frame selections if you stick to one type of reference in each position.
 
 ```{r}
 mydf[1:2, c("a","b")]
@@ -108,7 +108,7 @@ letters[ letters <= "e" & letters > "b"]
 ```
 
 ## Other reference methods
-If you need to select a given named value or column from an object, there are some alternative selection methods you do.
+If you need to select a given named value or column from an object, there are some alternative selection methods you'll use.
 
 There are double square brackets for when you expect one, and only one, named element.
 ```{r}
@@ -122,7 +122,7 @@ mylist$a
 mydf$b
 ```
 
-The `$` methodology has some benefits. It uses fewer characters and you can use code-completion with it.
+The `$` methodology has some benefits: It uses fewer characters and you can use code-completion with it.
 
 We can use both these notations inside our grid reference system. This becomes very handy for writing row conditions for data.frames.
 
@@ -135,7 +135,7 @@ This is the old-school way of working with data.frames. It's important to be abl
 ```
 
 ## Changing objects
-By utilising our reference systems, not only we can select data of interest to us, but we can add new data, update existing values, and even delete values.
+By utilising our reference systems, not only can we select data of interest to us, but we can add new data, update existing values, and even delete values.
 
 You can update part or all of simple objects by assigning new values against a grid-reference.
 

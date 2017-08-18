@@ -108,9 +108,11 @@ There are some typical names for arguments that take your data object. These inc
 - `.data`
 - `df`
 
-You don't usually have to provide the argument names, just put things in the relevant places in the function. Sometimes though, you will need to use argument names. Here are my rules of thumb for knowing when you need to name names:
+You don't usually have to provide the argument names, just put things in the relevant places in the function. Sometimes though, you *will* need to use argument names. 
 
-1. You're using the arguments in an order differnet from the function author's intended order (you might be skipping some arguments as the default values are fine or you might just prefer a different order)
+Here are my rules of thumb for knowing when you need to name names:
+
+1. You're using the arguments in an order that is different from the function author's intended order (you might be skipping some arguments as the default values are fine or you might just prefer a different order)
 2. The arguments you want to specify show up after the `...` in a function's argument list
 3. You want to give a specific name to a value in a `...` argument
 
@@ -148,7 +150,7 @@ There's lots of potential variations, the only thing that is mandatory is the mo
 predict
 ```
 
-The `predict()` function then determines what type of model object you've provided it and passes the model and any other values you provided to the relevant function and it gives you back the results.
+The `predict()` function then determines what type of model object you've provided it and passes the model, and any other values you provided, to the relevant function, returning back the results.
 
 ```{r warning=FALSE}
 linearMod<-lm(Sepal.Length~., data=iris)
@@ -160,6 +162,8 @@ predict(logisticMod, iris[1,])
 
 
 ## R functions Exercises
+Using what you've learned about investigating the components of functions...
+
 1. Use `pmin()` to find the smallest values element-wise of the three vector `1:51`, `25:75`, `30:-20`
 2. Use `paste()` to combine the upper case letters into a single string with `", "` between each letter
 3. Use `list.files()` to see what files are in your current directory. Return the fully qualified names not just the filenames
