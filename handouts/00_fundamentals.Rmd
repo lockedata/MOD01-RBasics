@@ -109,7 +109,14 @@ Data visualisation is an area where R makes it especially difficult to choose ju
 
 I'll often need to make a chart, and then make that chart for a lot of different datasets. These could be datasets for different customers, samples, or time slices.
 
-You can make a chart in R using the package [ggplot2]() to build a chart of all data.
+You can make a chart in R using the package [ggplot2]() to build a chart of all data. 
+
+I'm going to use the Dino the Datasaurus and his Data Dozen buddies^[The original Datasaurus was created by Alberto Cairo. [thefunctionalart.com](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html)
+
+The other Dozen were generated using simulated annealing and the process is described in the paper *Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing* by Justin Matejka and George Fitzmaurice. [autodeskresearch.com](https://www.autodeskresearch.com/publications/samestats)
+
+In the paper, Justin and George simulate a variety of datasets that the same summary statistics to the Datasaurus but have very different distributions.] as example data here. Dino and his friends have the same summary statistics but very diffent data distributions. They show why visualising data is so incredibly vital.
+
 ```{r}
 library(ggplot2)
 library(datasauRus)
@@ -125,7 +132,7 @@ myPlot +
    facet_wrap(~dataset)
 ```
 
-If you wanted to produce and save a chart per dataset you can provide updated data to a chart.
+If you wanted to produce and save a chart per dataset you can provide updated data to a chart. This data is also made available within the `datasauRus` package and illustrates the Simpson's Paradox^[Simpson's Paradox is the phenomena where high level statistics provide one conclusion but evaluating sub-groups within the data provides a very different conclusion. More information on Simpson's paradox can be found at [vudlab.com](http://vudlab.com/simpsons/)].
 
 ```{r}
 myPlot %+% simpsons_paradox
