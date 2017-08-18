@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1000"
+   height="1000"
+   viewBox="0 0 264.58332 264.58334"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="WarningIcon.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.48714309"
+     inkscape:cx="693.74158"
+     inkscape:cy="595.45821"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:showpageshadow="false"
+     borderlayer="true"
+     inkscape:snap-path-clip="true"
+     inkscape:snap-path-mask="true"
+     inkscape:pagecheckerboard="true"
+     inkscape:object-nodes="false"
+     inkscape:snap-bbox="true"
+     inkscape:snap-page="true"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Oz Locke</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>All rights retained by Cuddly Cthulhu Creatives unless provable otherwise (transferal of rights will usualy be provided by email)</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>Cuddly Cthulhu Creatives</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-32.416626)">
+    <path
+       style="opacity:1;vector-effect:none;fill:#d40000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:58.72681808;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       d="m 3570.0957,-4840.3359 a 523.20234,523.20234 0 0 0 -523.2012,523.2031 523.20234,523.20234 0 0 0 523.2012,523.2012 523.20234,523.20234 0 0 0 523.2031,-523.2012 523.20234,523.20234 0 0 0 -523.2031,-523.2031 z m -0.5098,105.2343 c 19.0315,-0.2017 91.2957,10.6508 90.5821,23.9825 l -56.3106,605.0332 c 0.2664,13.192 -14.9273,23.9863 -33.7617,23.9863 -18.8343,0 -34.0261,-10.7943 -33.7598,-23.9863 l -56.3105,-605.0332 c -0.6985,-13.0513 70.9294,-23.7849 89.5605,-23.9825 z m 0.5118,678.4825 a 78.727652,78.727652 0 0 1 78.7265,78.7265 78.727652,78.727652 0 0 1 -78.7265,78.7285 78.727652,78.727652 0 0 1 -78.7286,-78.7285 78.727652,78.727652 0 0 1 78.7286,-78.7265 z"
+       transform="matrix(0.25285,0,0,0.25285,-770.40727,1256.2956)"
+       id="path864-4-3-5"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

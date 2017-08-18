@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1000"
+   height="1000"
+   viewBox="0 0 264.58332 264.58334"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="ProTipIcon.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.48714309"
+     inkscape:cx="693.74158"
+     inkscape:cy="595.45821"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:showpageshadow="false"
+     borderlayer="true"
+     inkscape:snap-path-clip="true"
+     inkscape:snap-path-mask="true"
+     inkscape:pagecheckerboard="true"
+     inkscape:object-nodes="false"
+     inkscape:snap-bbox="true"
+     inkscape:snap-page="true"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Oz Locke</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>All rights retained by Cuddly Cthulhu Creatives unless provable otherwise (transferal of rights will usualy be provided by email)</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>Cuddly Cthulhu Creatives</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-32.416626)">
+    <path
+       style="opacity:1;vector-effect:none;fill:#ffd42a;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:58.72681808;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       d="m 5987.3594,-4871.8555 a 523.20234,523.20234 0 0 0 -523.2012,523.2032 523.20234,523.20234 0 0 0 523.2012,523.2031 523.20234,523.20234 0 0 0 523.2031,-523.2031 523.20234,523.20234 0 0 0 -523.2031,-523.2032 z m 0,90.2735 a 270.02884,270.02884 0 0 1 270.0293,270.0293 270.02884,270.02884 0 0 1 -77.4746,188.957 c -64.1057,73.2454 -88.6265,147.2275 -95.8868,235.1641 h -193.3359 c -7.2182,-87.4274 -31.5061,-161.0605 -94.7852,-233.8907 a 270.02884,270.02884 0 0 1 -78.5761,-190.2304 270.02884,270.02884 0 0 1 270.0293,-270.0293 z m -82.3184,708.3847 h 164.5781 c 7.9928,0 14.4278,6.1811 14.4278,13.8575 0,7.6763 -6.435,13.8554 -14.4278,13.8554 H 5905.041 c -7.9928,0 -14.4277,-6.1791 -14.4277,-13.8554 0,-7.6764 6.4349,-13.8575 14.4277,-13.8575 z m 6.1133,40.17 h 152.3516 c 7.399,0 13.3574,6.179 13.3574,13.8554 0,7.6764 -5.9584,13.8574 -13.3574,13.8574 h -152.3516 c -7.399,0 -13.3555,-6.181 -13.3555,-13.8574 0,-7.6764 5.9565,-13.8554 13.3555,-13.8554 z m 8.2949,40.1679 h 135.7617 c 6.5932,0 11.9004,6.1811 11.9004,13.8574 0,7.6764 -5.3072,13.8555 -11.9004,13.8555 h -135.7617 c -6.5932,0 -11.9004,-6.1791 -11.9004,-13.8555 0,-7.6763 5.3072,-13.8574 11.9004,-13.8574 z m 12.1446,40.1699 h 111.4726 c 5.4137,0 9.7734,6.1791 9.7734,13.8555 0,7.6763 -24.0673,23.1113 -27.7363,23.1113 h -75.5469 c -3.6689,0 -27.7343,-15.435 -27.7343,-23.1113 0,-7.6764 4.3577,-13.8555 9.7715,-13.8555 z"
+       transform="matrix(0.25285,0,0,0.25285,-1381.6124,1264.265)"
+       id="path864"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
