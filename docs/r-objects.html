@@ -183,12 +183,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>8</b> Data manipulation</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references"><i class="fa fa-check"></i><b>8.1</b> Grid references</a></li>
-<li class="chapter" data-level="8.2" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-numbers"><i class="fa fa-check"></i><b>8.2</b> Grid references with numbers</a></li>
+<li class="chapter" data-level="8.2" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-numbers"><i class="fa fa-check"></i><b>8.2</b> Grid references with numbers</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#single-value-selection-with-vectors"><i class="fa fa-check"></i><b>8.2.1</b> Single value selection with vectors</a></li>
+<li class="chapter" data-level="8.2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#single-value-selection-with-data.frames"><i class="fa fa-check"></i><b>8.2.2</b> Single value selection with data.frames</a></li>
+<li class="chapter" data-level="8.2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#single-value-selection-with-lists"><i class="fa fa-check"></i><b>8.2.3</b> Single value selection with lists</a></li>
+<li class="chapter" data-level="8.2.4" data-path="data-manipulation.html"><a href="data-manipulation.html#multiple-values"><i class="fa fa-check"></i><b>8.2.4</b> Multiple values</a></li>
+<li class="chapter" data-level="8.2.5" data-path="data-manipulation.html"><a href="data-manipulation.html#negative-values"><i class="fa fa-check"></i><b>8.2.5</b> Negative values</a></li>
+<li class="chapter" data-level="8.2.6" data-path="data-manipulation.html"><a href="data-manipulation.html#missing-values"><i class="fa fa-check"></i><b>8.2.6</b> Missing values</a></li>
+</ul></li>
 <li class="chapter" data-level="8.3" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-names"><i class="fa fa-check"></i><b>8.3</b> Grid references with names</a></li>
-<li class="chapter" data-level="8.4" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-conditional-values"><i class="fa fa-check"></i><b>8.4</b> Grid references with conditional values</a></li>
-<li class="chapter" data-level="8.5" data-path="data-manipulation.html"><a href="data-manipulation.html#other-reference-methods"><i class="fa fa-check"></i><b>8.5</b> Other reference methods</a></li>
-<li class="chapter" data-level="8.6" data-path="data-manipulation.html"><a href="data-manipulation.html#changing-objects"><i class="fa fa-check"></i><b>8.6</b> Changing objects</a></li>
-<li class="chapter" data-level="8.7" data-path="data-manipulation.html"><a href="data-manipulation.html#data-manipulation-exercises"><i class="fa fa-check"></i><b>8.7</b> Data manipulation exercises</a></li>
+<li class="chapter" data-level="8.4" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-conditional-values"><i class="fa fa-check"></i><b>8.4</b> Grid references with conditional values</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#building-conditional-vectors"><i class="fa fa-check"></i><b>8.4.1</b> Building conditional vectors</a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#conditional-filters-for-data.frames"><i class="fa fa-check"></i><b>8.4.2</b> Conditional filters for data.frames</a></li>
+<li class="chapter" data-level="8.4.3" data-path="data-manipulation.html"><a href="data-manipulation.html#recycling-values"><i class="fa fa-check"></i><b>8.4.3</b> Recycling values</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-manipulation.html"><a href="data-manipulation.html#mixed-grid-references"><i class="fa fa-check"></i><b>8.5</b> Mixed grid references</a></li>
+<li class="chapter" data-level="8.6" data-path="data-manipulation.html"><a href="data-manipulation.html#other-reference-methods"><i class="fa fa-check"></i><b>8.6</b> Other reference methods</a></li>
+<li class="chapter" data-level="8.7" data-path="data-manipulation.html"><a href="data-manipulation.html#changing-objects"><i class="fa fa-check"></i><b>8.7</b> Changing objects</a></li>
+<li class="chapter" data-level="8.8" data-path="data-manipulation.html"><a href="data-manipulation.html#summary-4"><i class="fa fa-check"></i><b>8.8</b> Summary</a></li>
+<li class="chapter" data-level="8.9" data-path="data-manipulation.html"><a href="data-manipulation.html#data-manipulation-exercises"><i class="fa fa-check"></i><b>8.9</b> Data manipulation exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>9</b> R functions</a><ul>
 <li class="chapter" data-level="9.1" data-path="r-functions.html"><a href="r-functions.html#using-a-function"><i class="fa fa-check"></i><b>9.1</b> Using a function</a></li>
@@ -299,11 +312,14 @@ today &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></d
 <span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</code></pre></div>
 <pre><code>##  [1] &quot; &quot;                 &quot;$$$&quot;               &quot;2017&quot;             
 ##  [4] &quot;a&quot;                 &quot;allmydata&quot;         &quot;b&quot;                
-##  [7] &quot;model&quot;             &quot;my.first.variable&quot; &quot;my_first_variable&quot;
-## [10] &quot;my_variable&quot;       &quot;myfirstvariable&quot;   &quot;myFirstVariable&quot;  
-## [13] &quot;MyFirstVariable&quot;   &quot;myPlot&quot;            &quot;name with spaces&quot; 
-## [16] &quot;predictions&quot;       &quot;test_data&quot;         &quot;test_outcome&quot;     
-## [19] &quot;today&quot;             &quot;training_data&quot;     &quot;training_outcome&quot;</code></pre>
+##  [7] &quot;baddf&quot;             &quot;gooddf&quot;            &quot;model&quot;            
+## [10] &quot;my.first.variable&quot; &quot;my_first_variable&quot; &quot;my_variable&quot;      
+## [13] &quot;mydf&quot;              &quot;myfirstvariable&quot;   &quot;myFirstVariable&quot;  
+## [16] &quot;MyFirstVariable&quot;   &quot;mylist&quot;            &quot;myPlot&quot;           
+## [19] &quot;name with spaces&quot;  &quot;predictions&quot;       &quot;steph&quot;            
+## [22] &quot;test_data&quot;         &quot;test_outcome&quot;      &quot;today&quot;            
+## [25] &quot;training_data&quot;     &quot;training_outcome&quot;  &quot;vecA&quot;             
+## [28] &quot;vecB&quot;</code></pre>
 <p>You can also achieve the same results by using the broom symbol in the Environment tab in RStudio.</p>
 </div>
 <div id="vectors" class="section level2">

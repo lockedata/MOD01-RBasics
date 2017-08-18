@@ -183,12 +183,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>8</b> Data manipulation</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references"><i class="fa fa-check"></i><b>8.1</b> Grid references</a></li>
-<li class="chapter" data-level="8.2" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-numbers"><i class="fa fa-check"></i><b>8.2</b> Grid references with numbers</a></li>
+<li class="chapter" data-level="8.2" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-numbers"><i class="fa fa-check"></i><b>8.2</b> Grid references with numbers</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#single-value-selection-with-vectors"><i class="fa fa-check"></i><b>8.2.1</b> Single value selection with vectors</a></li>
+<li class="chapter" data-level="8.2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#single-value-selection-with-data.frames"><i class="fa fa-check"></i><b>8.2.2</b> Single value selection with data.frames</a></li>
+<li class="chapter" data-level="8.2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#single-value-selection-with-lists"><i class="fa fa-check"></i><b>8.2.3</b> Single value selection with lists</a></li>
+<li class="chapter" data-level="8.2.4" data-path="data-manipulation.html"><a href="data-manipulation.html#multiple-values"><i class="fa fa-check"></i><b>8.2.4</b> Multiple values</a></li>
+<li class="chapter" data-level="8.2.5" data-path="data-manipulation.html"><a href="data-manipulation.html#negative-values"><i class="fa fa-check"></i><b>8.2.5</b> Negative values</a></li>
+<li class="chapter" data-level="8.2.6" data-path="data-manipulation.html"><a href="data-manipulation.html#missing-values"><i class="fa fa-check"></i><b>8.2.6</b> Missing values</a></li>
+</ul></li>
 <li class="chapter" data-level="8.3" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-names"><i class="fa fa-check"></i><b>8.3</b> Grid references with names</a></li>
-<li class="chapter" data-level="8.4" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-conditional-values"><i class="fa fa-check"></i><b>8.4</b> Grid references with conditional values</a></li>
-<li class="chapter" data-level="8.5" data-path="data-manipulation.html"><a href="data-manipulation.html#other-reference-methods"><i class="fa fa-check"></i><b>8.5</b> Other reference methods</a></li>
-<li class="chapter" data-level="8.6" data-path="data-manipulation.html"><a href="data-manipulation.html#changing-objects"><i class="fa fa-check"></i><b>8.6</b> Changing objects</a></li>
-<li class="chapter" data-level="8.7" data-path="data-manipulation.html"><a href="data-manipulation.html#data-manipulation-exercises"><i class="fa fa-check"></i><b>8.7</b> Data manipulation exercises</a></li>
+<li class="chapter" data-level="8.4" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-conditional-values"><i class="fa fa-check"></i><b>8.4</b> Grid references with conditional values</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#building-conditional-vectors"><i class="fa fa-check"></i><b>8.4.1</b> Building conditional vectors</a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#conditional-filters-for-data.frames"><i class="fa fa-check"></i><b>8.4.2</b> Conditional filters for data.frames</a></li>
+<li class="chapter" data-level="8.4.3" data-path="data-manipulation.html"><a href="data-manipulation.html#recycling-values"><i class="fa fa-check"></i><b>8.4.3</b> Recycling values</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-manipulation.html"><a href="data-manipulation.html#mixed-grid-references"><i class="fa fa-check"></i><b>8.5</b> Mixed grid references</a></li>
+<li class="chapter" data-level="8.6" data-path="data-manipulation.html"><a href="data-manipulation.html#other-reference-methods"><i class="fa fa-check"></i><b>8.6</b> Other reference methods</a></li>
+<li class="chapter" data-level="8.7" data-path="data-manipulation.html"><a href="data-manipulation.html#changing-objects"><i class="fa fa-check"></i><b>8.7</b> Changing objects</a></li>
+<li class="chapter" data-level="8.8" data-path="data-manipulation.html"><a href="data-manipulation.html#summary-4"><i class="fa fa-check"></i><b>8.8</b> Summary</a></li>
+<li class="chapter" data-level="8.9" data-path="data-manipulation.html"><a href="data-manipulation.html#data-manipulation-exercises"><i class="fa fa-check"></i><b>8.9</b> Data manipulation exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>9</b> R functions</a><ul>
 <li class="chapter" data-level="9.1" data-path="r-functions.html"><a href="r-functions.html#using-a-function"><i class="fa fa-check"></i><b>9.1</b> Using a function</a></li>
@@ -253,35 +266,40 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">8.1</span> Grid references</h2>
 <p>With R objects, it’s possible to use a grid reference system to select values from an object.</p>
 <p>In vectors and lists, you can specify the element position as they only have a single dimension. In data.frames, you can pinpoint the element via the row and the column.</p>
-<p>You can provide a grid reference by adding square brackets after a name e.g. <code>mylist[ ]</code>. Inside the square brackets, we can provide values in a few different ways to extract parts of the object.</p>
-<p>If you want everything in an object, you can just use the object’s name or put empty square brackets after it.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters
-letters[]</code></pre></div>
+<p>You can provide a grid reference by adding square brackets after a name e.g. <code>mylist[ ]</code>. Inside the square brackets, we can provide values in a few different ways to say which part of the object’s “grid” is required.</p>
+<p>If you want everything in an object, you can just use the object’s name or put empty square brackets after it i.e. <code>LETTERS</code> and <code>LETTERS[]</code> are identical.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[]</code></pre></div>
 <pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot;
-## [18] &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;
-##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot;
 ## [18] &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
 </div>
 <div id="grid-references-with-numbers" class="section level2">
 <h2><span class="header-section-number">8.2</span> Grid references with numbers</h2>
 <p>To select a specific element, you provide the number indicating it’s position in the object.<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">2</span>]
-mylist[<span class="dv">1</span>]</code></pre></div>
-<pre><code>## [1] &quot;b&quot;
-## $a
-## [1] 1 2 3</code></pre>
+<p>This is similar to Excel. When you only have a single column of values in a spreadsheet, you can identify a value to someone by telling them what row number it’s on. When you have a table, you need to tell someone both the row and the column for someone to find the exact value.</p>
+<div id="single-value-selection-with-vectors" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> Single value selection with vectors</h3>
+<p>To select a single element from a vector, we need to put the element’s position inside square brackets after the vector.</p>
+<p>To select the second element in the vector <code>letters</code> we put it’s position (2) into the grid.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1] &quot;b&quot;</code></pre>
+<p>We don’t have to just select values from objects that are stored either. For instance, we can generate a sequence of numbers and subset from it directly.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">10</span>:<span class="dv">25</span>)[<span class="dv">13</span>]</code></pre></div>
+<pre><code>## [1] 22</code></pre>
+</div>
+<div id="single-value-selection-with-data.frames" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> Single value selection with data.frames</h3>
+<p>In a data.frame, you can provide one or two values. These are comma seperated inside the square brackets and row numbers get specified first e.g. <code>iris[ row , column ]</code>. If you want to select all rows or all columns you leave that part of the reference blank e.g. <code>iris[1, ]</code> to return the first row and <code>iris[ ,2]</code> to return the second column.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">b =</span> <span class="dv">6</span>:<span class="dv">10</span>, <span class="dt">c =</span> <span class="dv">11</span>:<span class="dv">15</span>)</code></pre></div>
 <div class="warning">
 <p>
 Whenever I’m going to output a data.frame, I’m going to output in a formatted way as opposed to how it’ll appear in the console. This is to make it easier to see the changes as the console view can get a little much! You can use the <code>View()</code> function to see the data.frame in a nice browser in RStudio.
 </p>
 </div>
-<p>In a data.frame, you can provide one or two values. These are comma seperated inside the square brackets and row numbers get specified first e.g. <code>iris[ row , column ]</code>. If you want to select all rows or all columns you leave that part of the reference blank e.g. <code>iris[1, ]</code> to return the first row and <code>iris[ ,2]</code> to return the second column.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">b =</span> <span class="dv">6</span>:<span class="dv">10</span>, <span class="dt">c =</span> <span class="dv">11</span>:<span class="dv">15</span>)
-mydf[<span class="dv">1</span>, ]
-mydf[, <span class="dv">1</span>]
-mydf[<span class="dv">3</span>, <span class="dv">3</span>]</code></pre></div>
-<pre><code>## Warning in kable_markdown(x = structure(c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;), .Dim =
-## c(5L, : The table should have a header (column names)</code></pre>
+<p>If we provide a row number by using <code>df[ X , ]</code>, we will get a data.frame object back with just one row.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[<span class="dv">1</span>, ]</code></pre></div>
+<pre><code>##   a b  c
+## 1 1 6 11</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(mydf[<span class="dv">1</span>, ])</code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -298,30 +316,39 @@ mydf[<span class="dv">3</span>, <span class="dv">3</span>]</code></pre></div>
 </tr>
 </tbody>
 </table>
-<table>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-</tr>
-</tbody>
-</table>
+<p>If we provide a column number by using <code>df[ , Y ]</code>, we will get a vector back.<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[, <span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<p>If we specify a row and a column by using <code>df[ X , Y ]</code>, we get a vector back containing a single element although in we’d normally refer to it as a single value for brevity.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[<span class="dv">3</span>, <span class="dv">3</span>]</code></pre></div>
 <pre><code>## [1] 13</code></pre>
-<p>Remeber how a single value is still counted as a vector by R? This means that when we say <code>letters[1]</code> the 1 is actually a vector, and <em>that</em> means that we can provide longer vectors in our grid specifications to!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">1</span>:<span class="dv">5</span>]
-mydf[<span class="dv">1</span>:<span class="dv">3</span>, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</code></pre></div>
+</div>
+<div id="single-value-selection-with-lists" class="section level3">
+<h3><span class="header-section-number">8.2.3</span> Single value selection with lists</h3>
+<p>When we use the grid reference system to select stuff from lists, R returns a list with just the element you selected in it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist[<span class="dv">2</span>]</code></pre></div>
+<pre><code>## [[1]]
+##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot;
+## [18] &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<p>If an element was named, then that name will be kept and displayed.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## $a
+## [1] 1 2 3</code></pre>
+</div>
+<div id="multiple-values" class="section level3">
+<h3><span class="header-section-number">8.2.4</span> Multiple values</h3>
+<p>Remember how a single value is still counted as a vector by R? This means that when we say <code>letters[1]</code> the 1 is actually a vector, and <em>that</em> means that we can provide longer vectors in our grid specifications too!</p>
+<p>For a vector, that means we can provide a single vector with the positions of the elements to return.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">1</span>:<span class="dv">5</span>]</code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;</code></pre>
+<p>The ranges don’t have to be continuous either.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="dv">23</span>:<span class="dv">26</span>)]</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+<p>In fact, you can repeat numbers to get the same value out multiple times.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)]</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;a&quot; &quot;a&quot;</code></pre>
+<p>These things all hold true for data.frames too. This means we can provide ranges to both rows and columns to subset by the position of values in the table.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[<span class="dv">1</span>:<span class="dv">3</span>, <span class="dv">1</span>:<span class="dv">2</span>]</code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -344,11 +371,16 @@ mydf[<span class="dv">1</span>:<span class="dv">3</span>, <span class="kw">c</sp
 </tr>
 </tbody>
 </table>
+</div>
+<div id="negative-values" class="section level3">
+<h3><span class="header-section-number">8.2.5</span> Negative values</h3>
 <p>As well as positive specifications, we can also use negative values. These tell R which bits of the grid that you don’t want.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[-<span class="dv">5</span>:-<span class="dv">1</span>]
-mydf[-<span class="dv">3</span>, -<span class="dv">2</span>]</code></pre></div>
+<p>Here I exclude the first five letters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[-(<span class="dv">1</span>:<span class="dv">5</span>)]</code></pre></div>
 <pre><code>##  [1] &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot;
 ## [18] &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+<p>When it comes to data.frames we can provide negative values in both rows and columns to produce a subset we’re interested in.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[-<span class="dv">3</span>, -<span class="dv">2</span>]</code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -380,17 +412,27 @@ mydf[-<span class="dv">3</span>, -<span class="dv">2</span>]</code></pre></div>
 </tr>
 </tbody>
 </table>
-<p>If you specify a position that doesn’t exist, R will return an <strong>NA</strong> (a missing value) for that position.</p>
+</div>
+<div id="missing-values" class="section level3">
+<h3><span class="header-section-number">8.2.6</span> Missing values</h3>
+<p>You might be wondering what happens if you refer to a row number or element position that is not between 1 and the length of your object.</p>
+<p>In such a scenario, R will actually return an <strong>NA</strong> (a missing value) for that position.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">23</span>:<span class="dv">29</span>]</code></pre></div>
 <pre><code>## [1] &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot; NA  NA  NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[<span class="dv">5</span>:<span class="dv">6</span>, ]</code></pre></div>
+</div>
 </div>
 <div id="grid-references-with-names" class="section level2">
 <h2><span class="header-section-number">8.3</span> Grid references with names</h2>
 <p>Where names are used, we can provide these names in our grid references.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist[<span class="st">&quot;a&quot;</span>]
-mydf[, <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist[<span class="st">&quot;a&quot;</span>]</code></pre></div>
 <pre><code>## $a
 ## [1] 1 2 3</code></pre>
+<p>This works for column (and row) names.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[, <span class="st">&quot;a&quot;</span>]</code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<p>We can provide longer vectors containing column names too. Recall when we used numbers, one value in the column returned a vector, but multiple values resulted in a data.frame? The same is true here.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[, <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)]</code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -421,39 +463,13 @@ mydf[, <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span cl
 </tr>
 </tbody>
 </table>
-<p>You cannot provide a mix of element positions and element names in a single vector because the numbers would get converted to strings and be checked as character-based names…</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist[<span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>)]</code></pre></div>
-<pre><code>## $&lt;NA&gt;
-## NULL
-## 
-## $a
-## [1] 1 2 3</code></pre>
-<p>But you are able to use element positions and element names in data.frame selections if you stick to one type of reference in each position.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[<span class="dv">1</span>:<span class="dv">2</span>, <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)]</code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th align="right">a</th>
-<th align="right">b</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="right">6</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="right">7</td>
-</tr>
-</tbody>
-</table>
 </div>
 <div id="grid-references-with-conditional-values" class="section level2">
 <h2><span class="header-section-number">8.4</span> Grid references with conditional values</h2>
-<p>Whilst we often want to subset data.frames to some specific columns, a lot of the time with vectors and data.frames we want to be able to apply a condition that determines which values are returned.</p>
-<p>We can tell R which values to return or exclude by providing a TRUE (return it) or FALSE (exclude it) for each value.</p>
+<p>Whilst we often want to subset data.frames to some specific columns, a lot of the time with vectors and data.frames we want to be able to apply a condition that determines which values are returned. We want to <strong>filter</strong> rows.</p>
+<p>Like with SQL, you can apply a filter by telling R which rows (or elements) it should and shouldn’t return. You do this be providing a set of boolean values where TRUE means the row should be returned and FALSE says it should be excluded.</p>
 <p>We can provide hard-coded boolean values to the row and column parts of our grid reference system.</p>
+<p>For instance, if I wanted to exclude the second column in the data.frame I could say to include the first and third by giving them by giving them a TRUE in my filter and I could exclude the second column by giving it a FALSE in my filter.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[, <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)]</code></pre></div>
 <table>
 <thead>
@@ -485,74 +501,180 @@ mydf[, <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span cl
 </tr>
 </tbody>
 </table>
-<p>R will perform the recycling we saw in the section about working with vectors. So for instance, if we want to return every other letter in the alphabet we could provide a vector of length 2. It would then recycle this vector so TRUE and FALSE alternate for all 26 letters.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)]</code></pre></div>
-<pre><code>##  [1] &quot;a&quot; &quot;c&quot; &quot;e&quot; &quot;g&quot; &quot;i&quot; &quot;k&quot; &quot;m&quot; &quot;o&quot; &quot;q&quot; &quot;s&quot; &quot;u&quot; &quot;w&quot; &quot;y&quot;</code></pre>
 <div class="glass">
 <p>
 You might be used to using 0 and 1 as shorthands for boolean values. Unfortunately if you try to use this you find NAs returned for any values you intended to be excluded by using 0, and you’ll get the first value repeated everywhere you used a 1 to indicate inclusion.
 </p>
 </div>
+<div id="building-conditional-vectors" class="section level3">
+<h3><span class="header-section-number">8.4.1</span> Building conditional vectors</h3>
 <p>Hard-coding TRUE and FALSE values is probably not your idea of fun and certainly isn’t mine. We can use our knowledge of building comparisons to generate our booleans for inclusion.</p>
+<p>Let’s say we wanted all the letters of the alphabet up to and including “e”. We could use our comparison operators to compare every letter against “e” and return a TRUE where it is “e” or occurs before “e” in the alphabet, and it would return a FALSE when it occurs after “e”.</p>
+<p>This gives us an include and exclude instruction for each of the 26 letters. We can then use this boolean vector as our filter in the grid reference system.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">earlyletters &lt;-<span class="st"> </span>letters &lt;=<span class="st"> &quot;e&quot;</span>
 letters[earlyletters]</code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;</code></pre>
-<p>This can be simplified by avoiding the step of creating a variable and using the comparison directly as the grid reference.</p>
+<p>This can be simplified by doing the comparison directly within the grid reference.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[letters &lt;=<span class="st"> &quot;e&quot;</span>]</code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;</code></pre>
-<p>We can produce compound comparisons and use those too.</p>
+<p>You’re not limited to single comparisons either. You can use AND (<code>&amp;</code>) and OR (<code>|</code>) to produce compount statements.</p>
+<p>If we wanted every letter including and between “b” and “e” we can check to see if which elements of <code>letters</code> are “b” or are after “b” and combine this with our existing “e” check using an <code>&amp;</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[letters &lt;=<span class="st"> &quot;e&quot;</span> &amp;<span class="st"> </span>letters &gt;<span class="st"> &quot;b&quot;</span>]</code></pre></div>
 <pre><code>## [1] &quot;c&quot; &quot;d&quot; &quot;e&quot;</code></pre>
 </div>
-<div id="other-reference-methods" class="section level2">
-<h2><span class="header-section-number">8.5</span> Other reference methods</h2>
-<p>If you need to select a given named value or column from an object, there are some alternative selection methods you’ll use.</p>
-<p>There are double square brackets for when you expect one, and only one, named element.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist[[<span class="st">&quot;a&quot;</span>]]</code></pre></div>
-<pre><code>## [1] 1 2 3</code></pre>
-<p>There is a much nicer option though for lists and data.frames. That option is using the dollar sign (<code>$</code>) to access named elements.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist$a
-mydf$b</code></pre></div>
-<pre><code>## [1] 1 2 3
-## [1]  6  7  8  9 10</code></pre>
-<p>The <code>$</code> methodology has some benefits: It uses fewer characters and you can use code-completion with it.</p>
-<p>We can use both these notations inside our grid reference system. This becomes very handy for writing row conditions for data.frames.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[mydf$a &gt;<span class="st"> </span><span class="dv">3</span>, <span class="dv">1</span>:<span class="dv">2</span>]</code></pre></div>
+<div id="conditional-filters-for-data.frames" class="section level3">
+<h3><span class="header-section-number">8.4.2</span> Conditional filters for data.frames</h3>
+<p>If we wanted to select all columns in our data.frame that had names beginning with “a” or “b”, we could compare the names to the letter “c” and use this set of boolean values to be our filter.</p>
+<p>To extract the column names, we can use <code>colnames()</code>. This returns a vector of character values and we can run a comparison.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">abcols &lt;-<span class="st"> </span><span class="kw">colnames</span>(mydf) &lt;<span class="st"> &quot;c&quot;</span></code></pre></div>
+<p>Now we can use that in our grid reference system.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[, abcols]</code></pre></div>
 <table>
 <thead>
 <tr class="header">
-<th></th>
 <th align="right">a</th>
 <th align="right">b</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>4</td>
+<td align="right">1</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
 <td align="right">4</td>
 <td align="right">9</td>
 </tr>
-<tr class="even">
-<td>5</td>
+<tr class="odd">
 <td align="right">5</td>
 <td align="right">10</td>
 </tr>
 </tbody>
 </table>
+<p>Using the grid reference system, if we wanted to apply a filter to our rows based on some column’s data we would first need to extract the column’s values, then produce our filter, then apply our filter.</p>
+<div class="warning">
+<p>
+Don’t worry if this sounds long-winded and crazy to you. You’re thinking that because it’s true! A little bit later in this section we’ll cut out some of the craziness.
+</p>
+</div>
+<p>For instance, if we wanted everything from our table where our rows had a value for column “a” less than four, we would need to get column “a”s values, compare it to 4, and use this in our row area of the grid reference.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lt4 &lt;-<span class="st"> </span>mydf[, <span class="st">&quot;a&quot;</span>] &lt;<span class="st"> </span><span class="dv">4</span>
+mydf[lt4, ]</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">a</th>
+<th align="right">b</th>
+<th align="right">c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">7</td>
+<td align="right">12</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">8</td>
+<td align="right">13</td>
+</tr>
+</tbody>
+</table>
+<p>Or we could have written it all in one go.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[mydf[, <span class="st">&quot;a&quot;</span>] &lt;<span class="st"> </span><span class="dv">4</span>, ]</code></pre></div>
+</div>
+<div id="recycling-values" class="section level3">
+<h3><span class="header-section-number">8.4.3</span> Recycling values</h3>
+<p>When R has two mismatched vectors in terms of length, it will try to recycle values. We saw this earlier when we worked with vectors.</p>
+<p>You can use this to provide shorter vectors of value (although I don’t recommend you do so often).</p>
+<p>An elegant demonstration of this is returning every other letter in the alphabet.</p>
+<p>We need a filter that puts TRUE against the odd number positions and a FALSE against the even number positions. We could write a comparison that checks the position number is odd but that would be quite long winded.</p>
+<p>Instead, we can rely on recycling to take a pair of values and repeat them. We can provide a vector containing TRUE and FALSE it will recycle them so that every odd numbered position gets a TRUE and every even numbered position gets a FALSE.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)]</code></pre></div>
+<pre><code>##  [1] &quot;a&quot; &quot;c&quot; &quot;e&quot; &quot;g&quot; &quot;i&quot; &quot;k&quot; &quot;m&quot; &quot;o&quot; &quot;q&quot; &quot;s&quot; &quot;u&quot; &quot;w&quot; &quot;y&quot;</code></pre>
+</div>
+</div>
+<div id="mixed-grid-references" class="section level2">
+<h2><span class="header-section-number">8.5</span> Mixed grid references</h2>
+<p>You cannot provide a mix of element positions, element names, and booleans in a single vector to get a subset. This is because you have to provide a vector and a vector containing a mix of datatypes will convert everything to a dat single datatype.</p>
+<p>We can verify with our list. We’ve seen referring to position 1 work and referring to the element called “a” so if we wanted to specify both of these, we could put them in a vector. The conversion to strings happens though and then R searches the list for an element called “1”, can’t find it, and returns an NA.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>)
+mylist[<span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>)]</code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;a&quot;
+## $&lt;NA&gt;
+## NULL
+## 
+## $a
+## [1] 1 2 3</code></pre>
+<p>Whilst you can’t combine the methods in a single section of the grid reference system, you can use different systems in different positions. This is most useful for data.frames when we want to subset our rows by a condition, and only return certain columns at the same time.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[<span class="dv">1</span>:<span class="dv">2</span>, <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)]</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">a</th>
+<th align="right">b</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">7</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="other-reference-methods" class="section level2">
+<h2><span class="header-section-number">8.6</span> Other reference methods</h2>
+<p>If you need to select a given named value or column from an object, there are some alternative selection methods you’ll use.</p>
+<p>There are double square brackets for when you expect one, and only one, named element. This is mainly used for lists.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist[[<span class="st">&quot;a&quot;</span>]]</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<p>There is a much nicer option though for lists and data.frames. That option is using the dollar sign (<code>$</code>) to access named elements in lists or columns in data.frames.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist$a</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf$b</code></pre></div>
+<pre><code>## [1]  6  7  8  9 10</code></pre>
+<p>The <code>$</code> methodology has some benefits: It uses fewer characters and you can use code-completion with it.</p>
+<p>We can use both these notations inside our grid reference system. This becomes very handy for writing row conditions for data.frames.</p>
+<p>Taking our earlier example of subsetting rows where column “a”’s values are less than 4 becomes much simpler.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[mydf$a &lt;<span class="st"> </span><span class="dv">4</span>, ]</code></pre></div>
+<pre><code>##   a b  c
+## 1 1 6 11
+## 2 2 7 12
+## 3 3 8 13</code></pre>
 <div class="future">
 <p>
-This is the old-school way of working with data.frames. It’s important to be able to write queries of your data this way, or at least read other people’s code but as soon as you can you should move onto the <code>data.table</code> or <code>tidyverse</code> ways of working with data.frames. The next book in this series will focus on the tidyverse way of working with data.frames.
+This is the old-school way of working with data.frames. It’s important to be able to write queries of your data this way, or at least read other people’s code but as soon as you can you should move onto the <code>data.table</code> or <code>tidyverse</code> ways of working with data.frames. The next book in this series will focus on the <code>tidyverse</code> way of working with data.frames.
 </p>
 </div>
 </div>
 <div id="changing-objects" class="section level2">
-<h2><span class="header-section-number">8.6</span> Changing objects</h2>
+<h2><span class="header-section-number">8.7</span> Changing objects</h2>
 <p>By utilising our reference systems, not only can we select data of interest to us, but we can add new data, update existing values, and even delete values.</p>
 <p>You can update part or all of simple objects by assigning new values against a grid-reference.</p>
-<p>Adding additional values involves specifying new element positions and providing new data.</p>
+<p>Adding additional values in a vector involves specifying new element positions using the grid system and assigning a value to that part of the object.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">27</span>] &lt;-<span class="st"> &quot;|&quot;</span>
 <span class="kw">tail</span>(letters)</code></pre></div>
 <pre><code>## [1] &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot; &quot;|&quot;</code></pre>
+<p>Similarly, we can specify a row in a data.frame and provide all teh necessary values to make a complete row.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[<span class="dv">6</span>, ] &lt;-<span class="st"> </span><span class="kw">c</span>(pi, <span class="ot">Inf</span>, -<span class="ot">Inf</span>)</code></pre></div>
 <table>
 <thead>
@@ -595,7 +717,7 @@ This is the old-school way of working with data.frames. It’s important to be a
 </tr>
 </tbody>
 </table>
-<p>For data.frames, if you want to create a new column, it’s usually much easier to use our <code>$</code> notation.</p>
+<p>For data.frames, if you want to create a new column, it’s usually much easier to use our <code>$</code> notation. You specify the column and assign it new values.<a href="#fn26" class="footnoteRef" id="fnref26"><sup>26</sup></a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf$d &lt;-<span class="st"> </span><span class="dv">5</span></code></pre></div>
 <table>
 <thead>
@@ -646,9 +768,11 @@ This is the old-school way of working with data.frames. It’s important to be a
 </tbody>
 </table>
 <p>Updating values involves providing a set of values of the same size as the destination.</p>
+<p>Here I overwrite the first three elements in our lower case alphabet vector with the first three elements in our upper case alphabet vector.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">1</span>:<span class="dv">3</span>] &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]
 <span class="kw">head</span>(letters)</code></pre></div>
 <pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot;</code></pre>
+<p>I can update rows by specifying the row and providing a complete set of new values.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[<span class="dv">1</span>, ] &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">4</span></code></pre></div>
 <table>
 <thead>
@@ -699,6 +823,7 @@ This is the old-school way of working with data.frames. It’s important to be a
 </tbody>
 </table>
 <p>If you provide something that is not the same size, R will apply the recycling rules. Again, this is nifty and terrible at the same time.</p>
+<p>Even though there are currently four columns in our table, we’re only providing two values here. Those two values will be recycled across the columns.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[<span class="dv">2</span>, ] &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">2</span></code></pre></div>
 <table>
 <thead>
@@ -748,7 +873,7 @@ This is the old-school way of working with data.frames. It’s important to be a
 </tr>
 </tbody>
 </table>
-<p>If you want to delete values, you can overwrite an object after doing a negative selection.</p>
+<p>If you want to delete values, you can overwrite an object after doing a negative selection. Here I remove the first row of the data.frame.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf &lt;-<span class="st"> </span>mydf[-<span class="dv">1</span>, ]</code></pre></div>
 <table>
 <thead>
@@ -798,11 +923,13 @@ This is the old-school way of working with data.frames. It’s important to be a
 </tr>
 </tbody>
 </table>
-<p>An alternative method is to make a selection and assign them the value NULL. NULL removes contents in lists and data.frames.</p>
+<p>An alternative method is to get a specify a subset and assign the the value NULL. NULL removes contents in lists and data.frames.</p>
+<p>In a list, I can specify one or more elements and assign NULL to it, in order to remove the specific elements.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist[<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="ot">NULL</span>
 mylist</code></pre></div>
 <pre><code>## $a
 ## [1] 1 2 3</code></pre>
+<p>I can remove a column in a data.frame by assigning NULL to it.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf$c &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></div>
 <table>
 <thead>
@@ -846,9 +973,16 @@ mylist</code></pre></div>
 </tr>
 </tbody>
 </table>
+<p>Rows usually get deleted by being overwritten.</p>
+</div>
+<div id="summary-4" class="section level2">
+<h2><span class="header-section-number">8.8</span> Summary</h2>
+<p>In R, you can subset objects using positive, negative, and boolean values. You’re able to apply the same methodology to vectors, lissts, and data.frames.</p>
+<p>When working with data.frames or lists you can use the dollar (<code>$</code>) notation to refer to values in a succinct way. You can use this within data.frame subsets to build filters for rows based off the values in columns.</p>
+<p>Inserting, updating, or deleting values usually involves specifying a subset and assigning values to it. When deleting, you often assign a value of NULL. You can also use NULL to remove variables in a similar fashion.</p>
 </div>
 <div id="data-manipulation-exercises" class="section level2">
-<h2><span class="header-section-number">8.7</span> Data manipulation exercises</h2>
+<h2><span class="header-section-number">8.9</span> Data manipulation exercises</h2>
 <ol style="list-style-type: decimal">
 <li>Select all <code>LETTERS</code> before “X”</li>
 <li>Select the first 5 rows from the built-in data.frame <code>iris</code></li>
@@ -868,6 +1002,8 @@ mylist</code></pre></div>
 <hr />
 <ol start="24">
 <li id="fn24"><p>The first element in an R object is at position 1. This is contrary to a number of programming languages where the first element is at position 0.<a href="data-manipulation.html#fnref24">↩</a></p></li>
+<li id="fn25"><p>This is not quite accurate but it’s a good starting point. In fact, a data.frame is actually a list with pretty print methods so you could theoretically have a column that is a list.<a href="data-manipulation.html#fnref25">↩</a></p></li>
+<li id="fn26"><p>This works because data.frames are actually lists so you’re creating a new element containing these values.<a href="data-manipulation.html#fnref26">↩</a></p></li>
 </ol>
 </div>
             </section>

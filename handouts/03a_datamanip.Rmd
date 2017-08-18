@@ -36,7 +36,7 @@ We don't have to just select values from objects that are stored either. For ins
 
 In a data.frame, you can provide one or two values. These are comma seperated inside the square brackets and row numbers get specified first e.g. `iris[ row , column ]`. If you want to select all rows or all columns you leave that part of the reference blank e.g. `iris[1, ]` to return the first row and `iris[ ,2]` to return the second column. 
 
-```{r eval=FALSE}
+```{r}
 mydf<-data.frame(a=1:5, b=6:10, c=11:15)
 ```
 

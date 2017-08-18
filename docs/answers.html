@@ -183,12 +183,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>8</b> Data manipulation</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references"><i class="fa fa-check"></i><b>8.1</b> Grid references</a></li>
-<li class="chapter" data-level="8.2" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-numbers"><i class="fa fa-check"></i><b>8.2</b> Grid references with numbers</a></li>
+<li class="chapter" data-level="8.2" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-numbers"><i class="fa fa-check"></i><b>8.2</b> Grid references with numbers</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#single-value-selection-with-vectors"><i class="fa fa-check"></i><b>8.2.1</b> Single value selection with vectors</a></li>
+<li class="chapter" data-level="8.2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#single-value-selection-with-data.frames"><i class="fa fa-check"></i><b>8.2.2</b> Single value selection with data.frames</a></li>
+<li class="chapter" data-level="8.2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#single-value-selection-with-lists"><i class="fa fa-check"></i><b>8.2.3</b> Single value selection with lists</a></li>
+<li class="chapter" data-level="8.2.4" data-path="data-manipulation.html"><a href="data-manipulation.html#multiple-values"><i class="fa fa-check"></i><b>8.2.4</b> Multiple values</a></li>
+<li class="chapter" data-level="8.2.5" data-path="data-manipulation.html"><a href="data-manipulation.html#negative-values"><i class="fa fa-check"></i><b>8.2.5</b> Negative values</a></li>
+<li class="chapter" data-level="8.2.6" data-path="data-manipulation.html"><a href="data-manipulation.html#missing-values"><i class="fa fa-check"></i><b>8.2.6</b> Missing values</a></li>
+</ul></li>
 <li class="chapter" data-level="8.3" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-names"><i class="fa fa-check"></i><b>8.3</b> Grid references with names</a></li>
-<li class="chapter" data-level="8.4" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-conditional-values"><i class="fa fa-check"></i><b>8.4</b> Grid references with conditional values</a></li>
-<li class="chapter" data-level="8.5" data-path="data-manipulation.html"><a href="data-manipulation.html#other-reference-methods"><i class="fa fa-check"></i><b>8.5</b> Other reference methods</a></li>
-<li class="chapter" data-level="8.6" data-path="data-manipulation.html"><a href="data-manipulation.html#changing-objects"><i class="fa fa-check"></i><b>8.6</b> Changing objects</a></li>
-<li class="chapter" data-level="8.7" data-path="data-manipulation.html"><a href="data-manipulation.html#data-manipulation-exercises"><i class="fa fa-check"></i><b>8.7</b> Data manipulation exercises</a></li>
+<li class="chapter" data-level="8.4" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-conditional-values"><i class="fa fa-check"></i><b>8.4</b> Grid references with conditional values</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#building-conditional-vectors"><i class="fa fa-check"></i><b>8.4.1</b> Building conditional vectors</a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#conditional-filters-for-data.frames"><i class="fa fa-check"></i><b>8.4.2</b> Conditional filters for data.frames</a></li>
+<li class="chapter" data-level="8.4.3" data-path="data-manipulation.html"><a href="data-manipulation.html#recycling-values"><i class="fa fa-check"></i><b>8.4.3</b> Recycling values</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-manipulation.html"><a href="data-manipulation.html#mixed-grid-references"><i class="fa fa-check"></i><b>8.5</b> Mixed grid references</a></li>
+<li class="chapter" data-level="8.6" data-path="data-manipulation.html"><a href="data-manipulation.html#other-reference-methods"><i class="fa fa-check"></i><b>8.6</b> Other reference methods</a></li>
+<li class="chapter" data-level="8.7" data-path="data-manipulation.html"><a href="data-manipulation.html#changing-objects"><i class="fa fa-check"></i><b>8.7</b> Changing objects</a></li>
+<li class="chapter" data-level="8.8" data-path="data-manipulation.html"><a href="data-manipulation.html#summary-4"><i class="fa fa-check"></i><b>8.8</b> Summary</a></li>
+<li class="chapter" data-level="8.9" data-path="data-manipulation.html"><a href="data-manipulation.html#data-manipulation-exercises"><i class="fa fa-check"></i><b>8.9</b> Data manipulation exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>9</b> R functions</a><ul>
 <li class="chapter" data-level="9.1" data-path="r-functions.html"><a href="r-functions.html#using-a-function"><i class="fa fa-check"></i><b>9.1</b> Using a function</a></li>
@@ -301,8 +314,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>See what’s in the built-in variable <code>letters</code></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters</code></pre></div>
-<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot;
-## [15] &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot; &quot;|&quot;</code></pre>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot;
+## [18] &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot; &quot;|&quot;</code></pre>
 <ul>
 <li>Write a check to see if “A” is present in <code>letters</code></li>
 </ul>
@@ -313,8 +326,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myseq &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">10</span>
 myseq &gt;=<span class="st"> </span><span class="dv">3</span> &amp;<span class="st"> </span>myseq &lt;<span class="st"> </span><span class="dv">7</span></code></pre></div>
-<pre><code>##  [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE
-## [10] FALSE</code></pre>
+<pre><code>##  [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE</code></pre>
 <ul>
 <li>Make a vector containing the numbers 1 to 50;</li>
 </ul>
@@ -328,14 +340,13 @@ myseq &gt;=<span class="st"> </span><span class="dv">3</span> &amp;<span class="
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(fifty, words)
 <span class="co"># the numbers get converted to text</span></code></pre></div>
-<pre><code>##  [1] &quot;1&quot;     &quot;2&quot;     &quot;3&quot;     &quot;4&quot;     &quot;5&quot;     &quot;6&quot;     &quot;7&quot;    
-##  [8] &quot;8&quot;     &quot;9&quot;     &quot;10&quot;    &quot;11&quot;    &quot;12&quot;    &quot;13&quot;    &quot;14&quot;   
-## [15] &quot;15&quot;    &quot;16&quot;    &quot;17&quot;    &quot;18&quot;    &quot;19&quot;    &quot;20&quot;    &quot;21&quot;   
-## [22] &quot;22&quot;    &quot;23&quot;    &quot;24&quot;    &quot;25&quot;    &quot;26&quot;    &quot;27&quot;    &quot;28&quot;   
-## [29] &quot;29&quot;    &quot;30&quot;    &quot;31&quot;    &quot;32&quot;    &quot;33&quot;    &quot;34&quot;    &quot;35&quot;   
-## [36] &quot;36&quot;    &quot;37&quot;    &quot;38&quot;    &quot;39&quot;    &quot;40&quot;    &quot;41&quot;    &quot;42&quot;   
-## [43] &quot;43&quot;    &quot;44&quot;    &quot;45&quot;    &quot;46&quot;    &quot;47&quot;    &quot;48&quot;    &quot;49&quot;   
-## [50] &quot;50&quot;    &quot;fifty&quot; &quot;words&quot;</code></pre>
+<pre><code>##  [1] &quot;1&quot;     &quot;2&quot;     &quot;3&quot;     &quot;4&quot;     &quot;5&quot;     &quot;6&quot;     &quot;7&quot;     &quot;8&quot;    
+##  [9] &quot;9&quot;     &quot;10&quot;    &quot;11&quot;    &quot;12&quot;    &quot;13&quot;    &quot;14&quot;    &quot;15&quot;    &quot;16&quot;   
+## [17] &quot;17&quot;    &quot;18&quot;    &quot;19&quot;    &quot;20&quot;    &quot;21&quot;    &quot;22&quot;    &quot;23&quot;    &quot;24&quot;   
+## [25] &quot;25&quot;    &quot;26&quot;    &quot;27&quot;    &quot;28&quot;    &quot;29&quot;    &quot;30&quot;    &quot;31&quot;    &quot;32&quot;   
+## [33] &quot;33&quot;    &quot;34&quot;    &quot;35&quot;    &quot;36&quot;    &quot;37&quot;    &quot;38&quot;    &quot;39&quot;    &quot;40&quot;   
+## [41] &quot;41&quot;    &quot;42&quot;    &quot;43&quot;    &quot;44&quot;    &quot;45&quot;    &quot;46&quot;    &quot;47&quot;    &quot;48&quot;   
+## [49] &quot;49&quot;    &quot;50&quot;    &quot;fifty&quot; &quot;words&quot;</code></pre>
 <ul>
 <li>Make a data.frame using the two vectors</li>
 </ul>
@@ -349,9 +360,9 @@ myseq &gt;=<span class="st"> </span><span class="dv">3</span> &amp;<span class="
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(fifty, words, fiftywords)</code></pre></div>
 <pre><code>## [[1]]
-##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19
-## [20] 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38
-## [39] 39 40 41 42 43 44 45 46 47 48 49 50
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+## [24] 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46
+## [47] 47 48 49 50
 ## 
 ## [[2]]
 ## [1] &quot;fifty&quot; &quot;words&quot;
@@ -426,8 +437,8 @@ myseq &gt;=<span class="st"> </span><span class="dv">3</span> &amp;<span class="
 <li>Select all <code>LETTERS</code> before “X”;</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[LETTERS &lt;<span class="st"> &quot;X&quot;</span>]</code></pre></div>
-<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot;
-## [15] &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot;</code></pre>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot;
+## [18] &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot;</code></pre>
 <ul>
 <li>Select the first 5 rows from the built-in data.frame <code>iris</code>;</li>
 </ul>
@@ -458,20 +469,13 @@ myseq &gt;=<span class="st"> </span><span class="dv">3</span> &amp;<span class="
 <li>Select rows from the <code>iris</code> data.frame where the <code>Sepal.Length</code> is greater than 5.8cm;</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(iris[iris$Sepal.Length &gt;<span class="st"> </span><span class="fl">5.8</span>, ])</code></pre></div>
-<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width
-## 51          7.0         3.2          4.7         1.4
-## 52          6.4         3.2          4.5         1.5
-## 53          6.9         3.1          4.9         1.5
-## 55          6.5         2.8          4.6         1.5
-## 57          6.3         3.3          4.7         1.6
-## 59          6.6         2.9          4.6         1.3
-##       Species
-## 51 versicolor
-## 52 versicolor
-## 53 versicolor
-## 55 versicolor
-## 57 versicolor
-## 59 versicolor</code></pre>
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 51          7.0         3.2          4.7         1.4 versicolor
+## 52          6.4         3.2          4.5         1.5 versicolor
+## 53          6.9         3.1          4.9         1.5 versicolor
+## 55          6.5         2.8          4.6         1.5 versicolor
+## 57          6.3         3.3          4.7         1.6 versicolor
+## 59          6.6         2.9          4.6         1.3 versicolor</code></pre>
 <ul>
 <li>Select rows from the <code>iris</code> data.frame where the Sepal.Width is below the average for that column.</li>
 </ul>
@@ -513,10 +517,9 @@ myseq &gt;=<span class="st"> </span><span class="dv">3</span> &amp;<span class="
 <li>Use <code>pmin()</code> to find the smallest values element-wise of the three vector <code>1:51</code>, <code>25:75</code>, <code>30:-20</code></li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pmin</span>(<span class="dv">1</span>:<span class="dv">51</span>, <span class="dv">25</span>:<span class="dv">75</span>, <span class="dv">30</span>:-<span class="dv">20</span>)</code></pre></div>
-<pre><code>##  [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14
-## [15]  15  15  14  13  12  11  10   9   8   7   6   5   4   3
-## [29]   2   1   0  -1  -2  -3  -4  -5  -6  -7  -8  -9 -10 -11
-## [43] -12 -13 -14 -15 -16 -17 -18 -19 -20</code></pre>
+<pre><code>##  [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  15  14
+## [18]  13  12  11  10   9   8   7   6   5   4   3   2   1   0  -1  -2  -3
+## [35]  -4  -5  -6  -7  -8  -9 -10 -11 -12 -13 -14 -15 -16 -17 -18 -19 -20</code></pre>
 <ul>
 <li>Use <code>paste()</code> to combine the upper case letters into a single string with <code>&quot;, &quot;</code> between each letter</li>
 </ul>
@@ -531,9 +534,9 @@ myseq &gt;=<span class="st"> </span><span class="dv">3</span> &amp;<span class="
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ncol
 
-<span class="co"># ncol performs the `dim()` function on the object we pass in.</span>
-<span class="co"># This returns a vector of length 2. We then subset to the</span>
-<span class="co"># second element, which is the number of columns.</span></code></pre></div>
+<span class="co"># ncol performs the `dim()` function on the object we pass in. This returns</span>
+<span class="co"># a vector of length 2. We then subset to the second element, which is the</span>
+<span class="co"># number of columns.</span></code></pre></div>
 <pre><code>## function (x) 
 ## dim(x)[2L]
 ## &lt;bytecode: 0x0000000021360380&gt;
@@ -560,6 +563,8 @@ myseq &gt;=<span class="st"> </span><span class="dv">3</span> &amp;<span class="
 
 </div>
 </div>
+
+
 
 
 

@@ -183,12 +183,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>8</b> Data manipulation</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references"><i class="fa fa-check"></i><b>8.1</b> Grid references</a></li>
-<li class="chapter" data-level="8.2" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-numbers"><i class="fa fa-check"></i><b>8.2</b> Grid references with numbers</a></li>
+<li class="chapter" data-level="8.2" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-numbers"><i class="fa fa-check"></i><b>8.2</b> Grid references with numbers</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#single-value-selection-with-vectors"><i class="fa fa-check"></i><b>8.2.1</b> Single value selection with vectors</a></li>
+<li class="chapter" data-level="8.2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#single-value-selection-with-data.frames"><i class="fa fa-check"></i><b>8.2.2</b> Single value selection with data.frames</a></li>
+<li class="chapter" data-level="8.2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#single-value-selection-with-lists"><i class="fa fa-check"></i><b>8.2.3</b> Single value selection with lists</a></li>
+<li class="chapter" data-level="8.2.4" data-path="data-manipulation.html"><a href="data-manipulation.html#multiple-values"><i class="fa fa-check"></i><b>8.2.4</b> Multiple values</a></li>
+<li class="chapter" data-level="8.2.5" data-path="data-manipulation.html"><a href="data-manipulation.html#negative-values"><i class="fa fa-check"></i><b>8.2.5</b> Negative values</a></li>
+<li class="chapter" data-level="8.2.6" data-path="data-manipulation.html"><a href="data-manipulation.html#missing-values"><i class="fa fa-check"></i><b>8.2.6</b> Missing values</a></li>
+</ul></li>
 <li class="chapter" data-level="8.3" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-names"><i class="fa fa-check"></i><b>8.3</b> Grid references with names</a></li>
-<li class="chapter" data-level="8.4" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-conditional-values"><i class="fa fa-check"></i><b>8.4</b> Grid references with conditional values</a></li>
-<li class="chapter" data-level="8.5" data-path="data-manipulation.html"><a href="data-manipulation.html#other-reference-methods"><i class="fa fa-check"></i><b>8.5</b> Other reference methods</a></li>
-<li class="chapter" data-level="8.6" data-path="data-manipulation.html"><a href="data-manipulation.html#changing-objects"><i class="fa fa-check"></i><b>8.6</b> Changing objects</a></li>
-<li class="chapter" data-level="8.7" data-path="data-manipulation.html"><a href="data-manipulation.html#data-manipulation-exercises"><i class="fa fa-check"></i><b>8.7</b> Data manipulation exercises</a></li>
+<li class="chapter" data-level="8.4" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references-with-conditional-values"><i class="fa fa-check"></i><b>8.4</b> Grid references with conditional values</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#building-conditional-vectors"><i class="fa fa-check"></i><b>8.4.1</b> Building conditional vectors</a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#conditional-filters-for-data.frames"><i class="fa fa-check"></i><b>8.4.2</b> Conditional filters for data.frames</a></li>
+<li class="chapter" data-level="8.4.3" data-path="data-manipulation.html"><a href="data-manipulation.html#recycling-values"><i class="fa fa-check"></i><b>8.4.3</b> Recycling values</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-manipulation.html"><a href="data-manipulation.html#mixed-grid-references"><i class="fa fa-check"></i><b>8.5</b> Mixed grid references</a></li>
+<li class="chapter" data-level="8.6" data-path="data-manipulation.html"><a href="data-manipulation.html#other-reference-methods"><i class="fa fa-check"></i><b>8.6</b> Other reference methods</a></li>
+<li class="chapter" data-level="8.7" data-path="data-manipulation.html"><a href="data-manipulation.html#changing-objects"><i class="fa fa-check"></i><b>8.7</b> Changing objects</a></li>
+<li class="chapter" data-level="8.8" data-path="data-manipulation.html"><a href="data-manipulation.html#summary-4"><i class="fa fa-check"></i><b>8.8</b> Summary</a></li>
+<li class="chapter" data-level="8.9" data-path="data-manipulation.html"><a href="data-manipulation.html#data-manipulation-exercises"><i class="fa fa-check"></i><b>8.9</b> Data manipulation exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="r-functions.html"><a href="r-functions.html"><i class="fa fa-check"></i><b>9</b> R functions</a><ul>
 <li class="chapter" data-level="9.1" data-path="r-functions.html"><a href="r-functions.html#using-a-function"><i class="fa fa-check"></i><b>9.1</b> Using a function</a></li>
@@ -306,7 +319,7 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <p>Other functions only have a single allowed input. <code>length()</code> returns the length of an object so it only allows you to provide it with an object.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">length</code></pre></div>
 <pre><code>## function (x)  .Primitive(&quot;length&quot;)</code></pre>
-<p>We can see in this definition<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a> that the function takes the argument <code>x</code>.</p>
+<p>We can see in this definition<a href="#fn27" class="footnoteRef" id="fnref27"><sup>27</sup></a> that the function takes the argument <code>x</code>.</p>
 </div>
 <div id="many-inputs" class="section level3">
 <h3><span class="header-section-number">9.3.3</span> Many inputs</h3>
@@ -324,8 +337,8 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <p>Looking at how <code>rnorm</code> is specified we can see that we’re expected to provide <code>n</code>, but <code>mean</code> and <code>sd</code> are given values of 0 and 1 repsectively by default.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>)
 <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1]  2.4069904 -0.2604318  1.1044221  0.5645954  0.7153132
-## [1]  9.971212  9.230760 11.190145  9.850373  7.666461</code></pre>
+<pre><code>## [1]  0.5021887 -0.2194608 -1.7279560 -1.7710382 -0.3629692
+## [1] 13.083307 10.305561  9.727827  9.256583 11.872668</code></pre>
 </div>
 <div id="unlimited-inputs" class="section level3">
 <h3><span class="header-section-number">9.3.4</span> Unlimited inputs</h3>
@@ -355,11 +368,11 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <li>The arguments you want to specify show up after the <code>...</code> in a function’s argument list</li>
 <li>You want to give a specific name to a value in a <code>...</code> argument</li>
 </ol>
-<p>We can provide names<a href="#fn26" class="footnoteRef" id="fnref26"><sup>26</sup></a> for clarity or so we can use arguments out of order if we prefer to.</p>
+<p>We can provide names<a href="#fn28" class="footnoteRef" id="fnref28"><sup>28</sup></a> for clarity or so we can use arguments out of order if we prefer to.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>)
 <span class="kw">rnorm</span>(<span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>, <span class="dt">n =</span> <span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1] 9.002287 7.279188 6.409959 8.818033 7.915473
-## [1] 10.841341 11.172754  8.207472 12.615922 11.569260</code></pre>
+<pre><code>## [1] 11.681051  7.960725 11.495311  8.964133 11.594954
+## [1]  9.331615 11.141213 10.983987 11.793962 10.182443</code></pre>
 <p>A common behaviour change that you’ll need to work with is how missing (<code>NA</code>) values get handled. Functions that allow you change this behaviour, usually have an argument called things like <code>na.rm</code>, <code>na.omit</code>, and <code>na.action</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="ot">NA</span>)
 <span class="kw">sum</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="ot">NA</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
@@ -402,9 +415,9 @@ logisticMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Species ~<
 </div>
 <div class="footnotes">
 <hr />
-<ol start="25">
-<li id="fn25"><p>the code looks a bit odd - this is because it’s specified a bit differently to most functions, but fear not! In R, there are some different ways of writing code. The normal way is called <strong>S3</strong> but functions that are designed to work with properties of objects like length use a different system called <strong>S4</strong>. For the most part you’ll rarely need to dig into S4 code as most R functionality is built in <strong>S3</strong> and will allow you to check out it’s code easily.<a href="r-functions.html#fnref25">↩</a></p></li>
-<li id="fn26"><p>Note that that you don’t have to type the full name as R will attempt to match up values, but doing that can and does get a lot of R users into trouble so I don’t recommend it.<a href="r-functions.html#fnref26">↩</a></p></li>
+<ol start="27">
+<li id="fn27"><p>the code looks a bit odd - this is because it’s specified a bit differently to most functions, but fear not! In R, there are some different ways of writing code. The normal way is called <strong>S3</strong> but functions that are designed to work with properties of objects like length use a different system called <strong>S4</strong>. For the most part you’ll rarely need to dig into S4 code as most R functionality is built in <strong>S3</strong> and will allow you to check out it’s code easily.<a href="r-functions.html#fnref27">↩</a></p></li>
+<li id="fn28"><p>Note that that you don’t have to type the full name as R will attempt to match up values, but doing that can and does get a lot of R users into trouble so I don’t recommend it.<a href="r-functions.html#fnref28">↩</a></p></li>
 </ol>
 </div>
             </section>
