@@ -253,7 +253,7 @@ I recommend you add a new file to your R project, save it with a file name refer
 </div>
 <p>When we think of different bits of data, some of it might be numbers, text, dates, and more. R has it’s own set of these <strong>data types</strong>.</p>
 <p>Before we get into the data types, let’s see how we can get R to tell us what something is.</p>
-<p>R uses <strong>functions</strong> (basically, an inbuilt bit of code that you can call on to do things with, optionally passing it some data to woprk with) to take some inputs and get an output. The function that we can pass a value to, and get what data type it is as the output, is the <code>class()</code> function.</p>
+<p>R uses <strong>functions</strong> (basically, an inbuilt bit of code that you can call on to do things with, optionally passing it some data to work with) to take some inputs and get an output. The function that we can pass a value to, and get what data type it is as the output, is the <code>class()</code> function.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">1</span>)
 <span class="kw">class</span>(<span class="fl">1.1</span>)
 <span class="kw">class</span>(<span class="st">&quot;1&quot;</span>)</code></pre></div>
@@ -276,12 +276,12 @@ I gloss over a lot of the nuance here as most people will not need it. If you wa
 <ul>
 <li><strong>integer</strong>s are whole numbers like 1 or 42<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a></li>
 <li><strong>numeric</strong>s are numbers that have a decimal portion associated with them like 1.0 or 3.133<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a></li>
-<li><strong>complex number</strong>s are numbers that make use of the imaginary number <em>i</em> like 4i.<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a></li>
+<li><strong>complex number</strong>s are numbers that make use of the imaginary number <em>i</em> like 4i<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a></li>
 </ul>
 <div id="converting-to-numbers" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> Converting to numbers</h3>
 <p>The functions <code>as.numeric()</code> and <code>as.integer()</code> allow you to convert something stored as text into a number.</p>
-<p>These functions will give you some red text as a warning if you attempt to convert something to a number that can’t be safely converted. It will still have performed the conversion though.</p>
+<p>These functions will give you some red text as a warning if you attempt to convert something to a number that can’t be safely converted. It will still have attempt to perform the conversion, but return missings (<code>NA</code>) instead of actual values.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(<span class="dv">1</span>)
 <span class="kw">as.numeric</span>(<span class="fl">1.1</span>)
 <span class="kw">as.numeric</span>(<span class="st">&quot;1&quot;</span>)
@@ -326,8 +326,8 @@ I gloss over a lot of the nuance here as most people will not need it. If you wa
 <p>As well as <code>i</code> to denote imaginary numbers, there are some additional symbols you might encounter or want to use.</p>
 <ul>
 <li><code>pi</code> = 3.1415927</li>
-<li><code>Inf</code> represents positive infinity. You’ll often see this if you divide a positive number by zero.</li>
-<li><code>-Inf</code> represents negative infinity. You’ll often see this if you divide a negative number by zero.</li>
+<li><code>Inf</code> represents positive infinity. You’ll often see this if you divide a positive number by zero</li>
+<li><code>-Inf</code> represents negative infinity. You’ll often see this if you divide a negative number by zero</li>
 <li><code>NaN</code> is what happens when you really screw up a calculation and do something like <code>0/0</code>. It means the result is not a number!</li>
 </ul>
 </div>
@@ -345,8 +345,8 @@ Factors will be covered at length in a later book. The rest of this book will wo
 </p>
 </div>
 <p>In R, you can’t just type some text as it will be construed as an object or function name. To <strong>delimit</strong> a string you can use speech marks (<code>&quot;</code>) or apostrophes (<code>'</code>) at the beginning and end of it to show where it starts and ends.</p>
-<p>Note you can’t use the two delimiters interchangably e.g. “red’, but you can use them together to enable you have speech marks or apostrophes inside a string e.g. ‘They said “Read this”’ or”It’s mine now“.</p>
-<p>If you need to have both inside a string you can <strong>escape</strong> the ones on the iside of a string to say they don’t count as text <strong>delimiters</strong>. To escape a delimiter you can use a backslash(<code>\</code>) e.g. “They said &quot;Read this&quot;”.</p>
+<p>Note you can’t use the two delimiters interchangably e.g. &quot;red', but you can use them together to enable you have speech marks or apostrophes inside a string e.g. ‘They said “Read this”’ or “It’s mine now”.</p>
+<p>If you need to have both inside a string you can <strong>escape</strong> the ones on the iside of a string to say they don’t count as text <strong>delimiters</strong>. To escape a delimiter you can use a backslash(<code>\</code>) e.g. “They said \”Read this\“”.</p>
 <div class="glass">
 <p>
 Beware the copy &amp; pasting (C&amp;Ping) of code that isn’t in “pre-formatted” mode. The aesthetically pleasing changing of speechmarks at the beginning and end of some text will screw up your code. If you’re getting weird errors around unexpected symbols or your console queuing up after C&amp;Ping, replace all the speechmarks and see if that fixes things. This can also happen with some types of space characters too.
@@ -525,19 +525,22 @@ Dates are one of the hardest parts of programming! This is a very brief introduc
 </tr>
 <tr class="odd">
 <td>Date</td>
-<td>“2017-08-15”</td>
+<td>“2017-08-18”</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="r-data-types-exercises" class="section level2">
 <h2><span class="header-section-number">5.6</span> R Data Types Exercises</h2>
-<ol style="list-style-type: decimal">
+<ul>
 <li>Convert TRUE to an integer</li>
 <li>What is the datatype of the value returned by <code>Sys.time()</code>?</li>
 <li>What is the datatype of the value returned by <code>Sys.timezone()</code>?</li>
-<li>Make this quote into an R string &gt; “Do you think this is a game?”, he said. “No, I think Jenga’s a game”, Archer responded.</li>
-</ol>
+<li>Make this quote into an R string
+<ul>
+<li>“Do you think this is a game?”, he said. “No, I think Jenga’s a game”, Archer responded.</li>
+</ul></li>
+</ul>
 
 </div>
 </div>
@@ -594,7 +597,8 @@ gitbook.start({
 },
 "download": null,
 "toc": {
-"collapse": "subsection"
+"collapse": "subsection",
+"scroll_highlight": true
 }
 });
 });

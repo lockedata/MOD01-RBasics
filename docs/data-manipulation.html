@@ -249,9 +249,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="grid-references" class="section level2">
 <h2><span class="header-section-number">8.1</span> Grid references</h2>
 <p>With R objects, it’s possible to use a grid reference system to select values from an object.</p>
-<p>In vectors and lists, you can specify the element position as they only have a single dimension. In data.frames, you can pinpoint both the element (row) and the column.</p>
+<p>In vectors and lists, you can specify the element position as they only have a single dimension. In data.frames, you can pinpoint the element via the row and the column.</p>
 <p>You can provide a grid reference by adding square brackets after a name e.g. <code>mylist[ ]</code>. Inside the square brackets, we can provide values in a few different ways to extract parts of the object.</p>
-<p>If you want everything in an object, you can just use the object’s name or put square brackets after it.</p>
+<p>If you want everything in an object, you can just use the object’s name or put empty square brackets after it.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters
 letters[]</code></pre></div>
 <pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot;
@@ -276,7 +276,7 @@ mydf[<span class="dv">3</span>, <span class="dv">3</span>]</code></pre></div>
 ## 1 1 6 11
 ## [1] 1 2 3 4 5
 ## [1] 13</code></pre>
-<p>Since even a single value is a vector in R, it means we can provide longer vectors in our grid specifications.</p>
+<p>Remeber how a single value is still counted as a vector by R? This means that when we say <code>letters[1]</code> the 1 is actually a vector, and <em>that</em> means that we can provide longer vectors in our grid specifications to!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">1</span>:<span class="dv">5</span>]
 mydf[<span class="dv">1</span>:<span class="dv">3</span>, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)]</code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;
@@ -312,14 +312,14 @@ mydf[, <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span cl
 ## 3 3  8
 ## 4 4  9
 ## 5 5 10</code></pre>
-<p>You cannot provide a mix of element positions and element names in a single vector because the numbers would get converted to strings and be checked as character-based names.</p>
+<p>You cannot provide a mix of element positions and element names in a single vector because the numbers would get converted to strings and be checked as character-based names…</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist[<span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>)]</code></pre></div>
 <pre><code>## $&lt;NA&gt;
 ## NULL
 ## 
 ## $a
 ## [1] 1 2 3</code></pre>
-<p>You are able to use element positions and element names in data.frame selections if you stick to one type of reference in each position.</p>
+<p>But you are able to use element positions and element names in data.frame selections if you stick to one type of reference in each position.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[<span class="dv">1</span>:<span class="dv">2</span>, <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)]</code></pre></div>
 <pre><code>##   a b
 ## 1 1 6
@@ -357,7 +357,7 @@ letters[earlyletters]</code></pre></div>
 </div>
 <div id="other-reference-methods" class="section level2">
 <h2><span class="header-section-number">8.5</span> Other reference methods</h2>
-<p>If you need to select a given named value or column from an object, there are some alternative selection methods you do.</p>
+<p>If you need to select a given named value or column from an object, there are some alternative selection methods you’ll use.</p>
 <p>There are double square brackets for when you expect one, and only one, named element.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist[[<span class="st">&quot;a&quot;</span>]]</code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
@@ -366,7 +366,7 @@ letters[earlyletters]</code></pre></div>
 mydf$b</code></pre></div>
 <pre><code>## [1] 1 2 3
 ## [1]  6  7  8  9 10</code></pre>
-<p>The <code>$</code> methodology has some benefits. It uses fewer characters and you can use code-completion with it.</p>
+<p>The <code>$</code> methodology has some benefits: It uses fewer characters and you can use code-completion with it.</p>
 <p>We can use both these notations inside our grid reference system. This becomes very handy for writing row conditions for data.frames.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[mydf$a &gt;<span class="st"> </span><span class="dv">3</span>, <span class="dv">1</span>:<span class="dv">2</span>]</code></pre></div>
 <pre><code>##   a  b
@@ -380,7 +380,7 @@ This is the old-school way of working with data.frames. It’s important to be a
 </div>
 <div id="changing-objects" class="section level2">
 <h2><span class="header-section-number">8.6</span> Changing objects</h2>
-<p>By utilising our reference systems, not only we can select data of interest to us, but we can add new data, update existing values, and even delete values.</p>
+<p>By utilising our reference systems, not only can we select data of interest to us, but we can add new data, update existing values, and even delete values.</p>
 <p>You can update part or all of simple objects by assigning new values against a grid-reference.</p>
 <p>Adding additional values involves specifying new element positions and providing new data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">27</span>] &lt;-<span class="st"> &quot;|&quot;</span>
@@ -508,7 +508,8 @@ gitbook.start({
 },
 "download": null,
 "toc": {
-"collapse": "subsection"
+"collapse": "subsection",
+"scroll_highlight": true
 }
 });
 });

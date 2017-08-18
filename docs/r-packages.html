@@ -250,7 +250,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="installing-packages" class="section level2">
 <h2><span class="header-section-number">10.1</span> Installing packages</h2>
 <p>Once you’ve identified a package that contains functions or data you’re interested in using<a href="#fn26" class="footnoteRef" id="fnref26"><sup>26</sup></a>, we need to get the package onto our machine.</p>
-<p>To get the package, you can use an R function or you can use Install button on the Packages tab.</p>
+<p>To get the package, you can use an R function or you can use the Install button on the Packages tab.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;datasauRus&quot;</span>)</code></pre></div>
 <p>If you need to install a number of packages, <code>install.packages()</code> takes a vector of package names.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;datasauRus&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>))</code></pre></div>
@@ -259,7 +259,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">10.1.1</span> Installing from GitHub and other sources</h3>
 <p>The <code>install.packages()</code> function works with CRAN, CRAN mirrors <a href="#fn27" class="footnoteRef" id="fnref27"><sup>27</sup></a>, and CRAN-like repositories<a href="#fn28" class="footnoteRef" id="fnref28"><sup>28</sup></a></p>
 <p>If you want to install BioConductor packages, there are some helper scripts available from the BioConductor website, <a href="//www.bioconductor.org/install/">bioconductor.org</a>.</p>
-<p>Other package source like GitHub will involve building packages before they can be installed. If you’re on Windows, this means you need an additional piece of software called <a href="//cran.r-project.org/bin/windows/Rtools/">Rtools</a>. The other handy thing you’ll need is the package <code>devtools</code> (available from CRAN). <code>devtools</code> provides a number of functions designed to make it easier from GitHub, BitBucket, and other sources.</p>
+<p>Other package sources, such as GitHub, will involve building packages before they can be installed. If you’re on Windows, this means you need an additional piece of software called <a href="//cran.r-project.org/bin/windows/Rtools/">Rtools</a>. The other handy thing you’ll need is the package <code>devtools</code> (available from CRAN). <code>devtools</code> provides a number of functions designed to make it easier to install from GitHub, BitBucket, and other sources.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install_github</span>(<span class="st">&quot;lockedata/pRojects&quot;</span>)</code></pre></div>
 </div>
 </div>
@@ -290,37 +290,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="data-visualisation-1" class="section level3">
 <h3><span class="header-section-number">10.2.4</span> Data visualisation</h3>
 <ul>
-<li>For static graphics <code>ggplot2</code> is fantastic - it adds a sensible vocabulary to help you construct charts with ease.</li>
-<li><code>plotly</code> helps you build interactive charts from scratch or make <code>ggplot2</code> charts interactive.</li>
-<li><code>leaflet</code> is a great maps package.</li>
-<li><code>ggraph</code> helps you build effective network diagrams.</li>
+<li>For static graphics <code>ggplot2</code> is fantastic - it adds a sensible vocabulary to help you construct charts with ease</li>
+<li><code>plotly</code> helps you build interactive charts from scratch or make <code>ggplot2</code> charts interactive</li>
+<li><code>leaflet</code> is a great maps package</li>
+<li><code>ggraph</code> helps you build effective network diagrams</li>
 </ul>
 </div>
 <div id="data-science-1" class="section level3">
 <h3><span class="header-section-number">10.2.5</span> Data science</h3>
 <ul>
-<li><code>caret</code> is an interface package to many model algorithms and has a raft of insanely useful features itself.</li>
-<li><code>broom</code> take outputs from model functions and makes them into nice data.frames.</li>
-<li><code>modelr</code> helps build samples and supplement result sets.</li>
-<li><code>reticulate</code> is a package for talking to Python and, therefore, enables you to work with any deep learning framework that is based in Python. <code>tensorflow</code> is a package based on <code>reticulate</code> and allows you to work with tensorflow in R.</li>
-<li><code>sparklyr</code> allows you to run and work with Spark processes on your R data.</li>
-<li><code>h2o</code> is a package for working with H2O, a super nifty ML platform.</li>
+<li><code>caret</code> is an interface package to many model algorithms and has a raft of insanely useful features itself</li>
+<li><code>broom</code> takes outputs from model functions and makes them into nice data.frames</li>
+<li><code>modelr</code> helps build samples and supplement result sets</li>
+<li><code>reticulate</code> is a package for talking to Python and, therefore, enables you to work with any deep learning framework that is based in Python. <code>tensorflow</code> is a package based on <code>reticulate</code> and allows you to work with tensorflow in R</li>
+<li><code>sparklyr</code> allows you to run and work with Spark processes on your R data</li>
+<li><code>h2o</code> is a package for working with H2O, a super nifty machine learning platform</li>
 </ul>
 </div>
 <div id="presenting-results" class="section level3">
 <h3><span class="header-section-number">10.2.6</span> Presenting results</h3>
 <ul>
-<li><code>rmarkdown</code> is the core package for combining text and code and being able to produce outputs like HTML pages, PDFs, and Word documents.</li>
-<li><code>bookdown</code> facilitates books like this.</li>
-<li><code>revealjs</code> allows you to make slide decks using <code>rmarkdown</code>.</li>
-<li><code>flexdashboard</code> and <code>shiny</code> allow you to make interactive, reactive dashboards and other analytical apps.</li>
+<li><code>rmarkdown</code> is the core package for combining text and code and being able to produce outputs like HTML pages, PDFs, and Word documents</li>
+<li><code>bookdown</code> facilitates books like this</li>
+<li><code>revealjs</code> allows you to make slide decks using <code>rmarkdown</code></li>
+<li><code>flexdashboard</code> and <code>shiny</code> allow you to make interactive, reactive dashboards and other analytical apps</li>
 </ul>
 </div>
 <div id="finding-packages" class="section level3">
 <h3><span class="header-section-number">10.2.7</span> Finding packages</h3>
-<p>As well as using online search facilities like <a href="//cran.r-project.org/search.html">CRAN</a> and <a href="//rdrr.io">rdrr.io</a> for packages, there are some handy packages that help you find packages.</p>
+<p>As well as using online search facilities like <a href="//cran.r-project.org/search.html">CRAN</a> and <a href="//rdrr.io">rdrr.io</a> for packages, there are some handy packages that help you find other packages!</p>
 <ul>
-<li><code>ctv</code> allows you to get all the packages in a given <a href="//cran.r-project.org/web/views/">CRAN task view</a>, which are maintained liists of package for various tasks</li>
+<li><code>ctv</code> allows you to get all the packages in a given <a href="//cran.r-project.org/web/views/">CRAN task view</a>, which are maintained lists of package for various tasks</li>
 <li><code>sos</code> allows you to search for packages and functions that match a keyword</li>
 </ul>
 </div>
@@ -428,7 +428,8 @@ gitbook.start({
 },
 "download": null,
 "toc": {
-"collapse": "subsection"
+"collapse": "subsection",
+"scroll_highlight": true
 }
 });
 });

@@ -247,7 +247,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="r-objects" class="section level1">
 <h1><span class="header-section-number">7</span> R objects</h1>
 <p>So far we’ve just worked with some single values to get to grips with how some of the various operations work. Of course, we rarely work with a single value! If we did, we could just use a calculator.</p>
-<p>This section helps you get to grips with some different ways of storing data and how to manipulate your datasets in the “traditional” way. This is useful because you can understand a lot of code written in the past and equips you to understand the material in the next book, which focuses on data manipulation of tabular data.</p>
+<p>This section helps you get to grips with some different ways of storing data and how to manipulate your datasets in the “traditional” way. This will help you understand a lot of code written in the past, and will equip you to understand the material in the next book, which focuses on data manipulation of tabular data.</p>
 <div id="storing-values" class="section level2">
 <h2><span class="header-section-number">7.1</span> Storing values</h2>
 <p>When we were performing operations, we got some values output to the console. One of the key principles in writing code is Don’t Repeat Yourself (DRY) so we need to know how we can avoid repeating ourselves in R. One of the ways you can do that is to store a value for use later.</p>
@@ -354,30 +354,26 @@ LETTERS
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vecA &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">2</span>
 vecB &lt;-<span class="st"> </span><span class="dv">2</span>:<span class="dv">3</span></code></pre></div>
 <p>If we want to multiply the two vectors by each other, R will match each element in the first vector with it’s counterpart in the second and multiply the two values together to make a new element.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vecA *<span class="st"> </span>vecB</code></pre></div>
+<pre><code>## [1] 2 6</code></pre>
 <div class="figure">
 <img src="vectormult.png" />
 
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vecA *<span class="st"> </span>vecB</code></pre></div>
-<pre><code>## [1] 2 6</code></pre>
 <p>We can also do this with vectors of different lengths to a certain extent. The most common scenario is operating on a vector by doing something with a single value.</p>
 <p>A single value is a vector of length 1. When R gets a request to do something with a vector of length <em>X</em> and a vector of length 1, it will basically repeat the vector of length 1 <em>X</em> times to make two vectors the same length. It wil then perform the calculation element-wise.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vecA *<span class="st"> </span><span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 3 6</code></pre>
 <div class="figure">
 <img src="vectormultsingle.png" />
 
 </div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vecA *<span class="st"> </span><span class="dv">3</span></code></pre></div>
-<pre><code>## [1] 3 6</code></pre>
 <p>You can also use this functionality of making a vector the same length as another, known as <strong>recycling</strong>, work for other mis-matched vector sizes. The only rule is that one of the vector lengths must divide cleanly by the other.</p>
 <ul>
 <li>Two vectors of the same length divide by the other’s length exactly one time and won’t need to recycle</li>
 <li>A vector of length one always cleanly divides any other vector’s length and so will be recycled</li>
 <li>A vector of length 2, will divide any vector with an even length and so will be recycled in those cases, but it cannot recycle cleanly for odd length vectors</li>
 </ul>
-<div class="figure">
-<img src="vectormultrecycle.png" />
-
-</div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">10</span> *<span class="st"> </span><span class="dv">2</span>
 <span class="dv">1</span>:<span class="dv">10</span> *<span class="st"> </span><span class="dv">2</span>:<span class="dv">3</span>
 <span class="dv">1</span>:<span class="dv">10</span> *<span class="st"> </span><span class="dv">2</span>:<span class="dv">4</span></code></pre></div>
@@ -386,11 +382,15 @@ vecB &lt;-<span class="st"> </span><span class="dv">2</span>:<span class="dv">3<
 <pre><code>##  [1]  2  4  6  8 10 12 14 16 18 20
 ##  [1]  2  6  6 12 10 18 14 24 18 30
 ##  [1]  2  6 12  8 15 24 14 24 36 20</code></pre>
+<div class="figure">
+<img src="vectormultrecycle.png" />
+
+</div>
 <p>Vector recycling is useful and dangerous – it can help you make elegant code or give you unexpected results. Especially when starting out, I recommend you make your vectors either the same length or length 1.</p>
 </div>
 <div id="data.frames" class="section level2">
 <h2><span class="header-section-number">7.5</span> data.frames</h2>
-<p>A <strong>data.frame</strong> is a table similar to what we’re used to working with in most data analysis tools. It will contain a number of rows with columns containing different pieces of information. Each column in a data.frame has a datatype but it does not have to the same datatype as the other columns.</p>
+<p>A <strong>data.frame</strong> is a table similar to what we’re used to working with in most data analysis tools. It will contain a number of rows with columns containing different pieces of information. Each column in a data.frame has a datatype but it does not have to be the same datatype as the other columns.</p>
 <p>We can construct a data.frame from individual vectors via the <code>data.frame()</code> function.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">2</span>, <span class="dt">b =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>))</code></pre></div>
 <pre><code>##   a    b
@@ -521,8 +521,8 @@ Keeping data in the project directory is ideal as it keeps everything in one pla
 </div>
 <div id="lists" class="section level2">
 <h2><span class="header-section-number">7.8</span> Lists</h2>
-<p>Lists are your catch-all object. An element in a <strong>list</strong> can be any object, including a list! You’ll usually find yourself using a list when you’re receiving some nested data (like from some API response) or when you want to bundle multiple connected pieces of information together. Most functionality for building statistical models in R will return a list object holding things like the model coefficients, key statistics, and fitted values.</p>
-<p>You can create lists with the <code>list()</code> function and like with our other objects you can have named and unnamed elements.</p>
+<p><strong>List</strong>s are your catch-all object. An element in a list can be any object, including a list! You’ll usually find yourself using a list when you’re receiving some nested data (like from an API response) or when you want to bundle multiple connected pieces of information together. Most functionality for building statistical models in R will return a list object holding things like the model coefficients, key statistics, and fitted values.</p>
+<p>You can create lists with the <code>list()</code> function, and like with our other objects you can have named and unnamed elements.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">3</span>, LETTERS)
 mylist</code></pre></div>
 <pre><code>## $a
@@ -546,7 +546,7 @@ mylist</code></pre></div>
 <p>There a number of other object types in R. They won’t be covered in detail in this book, because they tend to be used by a small fraction of R users.</p>
 <ul>
 <li>A <strong>matrix</strong> is a two-dimensional object that can only contain one datatype</li>
-<li>An <strong>array</strong> is a multi-dimensional object that can contain only one datatype</li>
+<li>An <strong>array</strong> is a multi-dimensional object that also can contain only one datatype</li>
 <li>A <strong>table</strong> object is similar to a matrix but is created by producing a contingency table</li>
 </ul>
 <p>In R, developers can also create other object types specific to their requirements. People use this to create geospatial objects and more.</p>
@@ -562,7 +562,7 @@ mylist</code></pre></div>
 ## [[2]]
 ##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot;
 ## [18] &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
-<p>However, if you’re working with a lot of data, you probably don’t want to fill up your console that way. R has two functions, <code>head()</code> and <code>tail()</code>, which allow you to see values from the beginning or end of an object.</p>
+<p>However, if you’re working with a lot of data, you probably don’t want to fill up your console that way. R has two functions, <code>head()</code> and <code>tail()</code>, which allow you to see values from the beginning or end of an object. For objects containing many elements, such as lists or data.tables, <code>head()</code> and <code>tail()</code> returns the first or last 5 values respectively.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(LETTERS)
 <span class="kw">tail</span>(LETTERS)</code></pre></div>
 <pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot;
@@ -585,7 +585,7 @@ mylist</code></pre></div>
 <li>Make a data.frame using the two vectors</li>
 <li>What happened to your text vector?</li>
 <li>Make a list containing some of the variables you’ve created so far</li>
-<li>Return the some rows from the <code>iris</code> dataset</li>
+<li>Retrieve the head or tail of the <code>iris</code> dataset</li>
 </ol>
 
 </div>
@@ -637,7 +637,8 @@ gitbook.start({
 },
 "download": null,
 "toc": {
-"collapse": "subsection"
+"collapse": "subsection",
+"scroll_highlight": true
 }
 });
 });

@@ -345,9 +345,10 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <li><code>.data</code></li>
 <li><code>df</code></li>
 </ul>
-<p>You don’t usually have to provide the argument names, just put things in the relevant places in the function. Sometimes though, you will need to use argument names. Here are my rules of thumb for knowing when you need to name names:</p>
+<p>You don’t usually have to provide the argument names, just put things in the relevant places in the function. Sometimes though, you <em>will</em> need to use argument names.</p>
+<p>Here are my rules of thumb for knowing when you need to name names:</p>
 <ol style="list-style-type: decimal">
-<li>You’re using the arguments in an order differnet from the function author’s intended order (you might be skipping some arguments as the default values are fine or you might just prefer a different order)</li>
+<li>You’re using the arguments in an order that is different from the function author’s intended order (you might be skipping some arguments as the default values are fine or you might just prefer a different order)</li>
 <li>The arguments you want to specify show up after the <code>...</code> in a function’s argument list</li>
 <li>You want to give a specific name to a value in a <code>...</code> argument</li>
 </ol>
@@ -373,7 +374,7 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 ## UseMethod(&quot;predict&quot;)
 ## &lt;bytecode: 0x00000000135831d0&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
-<p>The <code>predict()</code> function then determines what type of model object you’ve provided it and passes the model and any other values you provided to the relevant function and it gives you back the results.</p>
+<p>The <code>predict()</code> function then determines what type of model object you’ve provided it and passes the model, and any other values you provided, to the relevant function, returning back the results.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">linearMod &lt;-<span class="st"> </span><span class="kw">lm</span>(Sepal.Length ~<span class="st"> </span>., <span class="dt">data =</span> iris)
 logisticMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Species ~<span class="st"> </span>., <span class="dt">data =</span> iris, <span class="dt">family =</span> binomial)
 
@@ -386,6 +387,7 @@ logisticMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Species ~<
 </div>
 <div id="r-functions-exercises" class="section level2">
 <h2><span class="header-section-number">9.5</span> R functions Exercises</h2>
+<p>Using what you’ve learned about investigating the components of functions…</p>
 <ol style="list-style-type: decimal">
 <li>Use <code>pmin()</code> to find the smallest values element-wise of the three vector <code>1:51</code>, <code>25:75</code>, <code>30:-20</code></li>
 <li>Use <code>paste()</code> to combine the upper case letters into a single string with <code>&quot;, &quot;</code> between each letter</li>
@@ -442,7 +444,8 @@ gitbook.start({
 },
 "download": null,
 "toc": {
-"collapse": "subsection"
+"collapse": "subsection",
+"scroll_highlight": true
 }
 });
 });
