@@ -193,7 +193,8 @@ Our logical operators that we covered earlier, work in a pairwise fashion. They'
 a<-1:2>1
 b<-2:3>1
 ```
-```{r}
+
+```{r echo = FALSE}
 a<-1:2>1
 b<-2:3>1
 ```
