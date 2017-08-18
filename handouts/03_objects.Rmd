@@ -307,7 +307,7 @@ You get the contents of any object by writing it's name.
 mylist
 ```
 
-However, if you're working with a lot of data, you probably don't want to fill up your console that way. R has two functions, `head()` and `tail()`, which allow you to see values from the beginning or end of an object.
+However, if you're working with a lot of data, you probably don't want to fill up your console that way. R has two functions, `head()` and `tail()`, which allow you to see values from the beginning or end of an object. For objects containing many elements, such as lists or data.tables, `head()` and `tail()` returns the first or last 5 values respectively.
 ```{r}
 head(LETTERS)
 tail(LETTERS)
