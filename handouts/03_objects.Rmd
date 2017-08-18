@@ -226,7 +226,7 @@ We can construct a data.frame from individual vectors via the `data.frame()` fun
 data.frame(a=1:2,b=c("blue","red"))
 ```
 
-You can also give row names to the rows you end up making, however, I recommend you add these in as a column instead.
+You can also give row names to the rows you end up making, however, I recommend you add these in as a column instead as it'll make them easier to work with long-term.
 
 ```{r}
 baddf<-data.frame(a=1:2,
