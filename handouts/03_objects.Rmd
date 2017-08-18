@@ -229,7 +229,13 @@ data.frame(a=1:2,b=c("blue","red"))
 You can also give row names to the rows you end up making, however, I recommend you add these in as a column instead.
 
 ```{r}
-data.frame(a=1:2,b=c("blue","red"),row.names = c("First","Second"))
+baddf<-data.frame(a=1:2,
+                  b=c("blue","red"),
+                  row.names = c("First","Second"))
+
+gooddf<-data.frame(a=1:2,
+                  b=c("blue","red"),
+                  ID = c("First","Second"))
 ```
 
 Throughout many of the examples, I'll use the example datasets that are available by default in R.
