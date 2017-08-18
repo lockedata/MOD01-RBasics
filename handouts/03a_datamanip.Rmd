@@ -21,27 +21,49 @@ letters[2]
 mylist[1]
 ```
 
+```{block, type="warning"}
+Whenever I'm going to output a data.frame, I'm going to output in a formatted way as opposed to how it'll appear in the console. This is to make it easier to see the changes as the console view can get a little much! You can use the `View()` function to see the data.frame in a nice browser in RStudio.
+```
+
 In a data.frame, you can provide one or two values. These are comma seperated inside the square brackets and row numbers get specified first e.g. `iris[ row , column ]`. If you want to select all rows or all columns you leave that part of the reference blank e.g. `iris[1, ]` to return the first row and `iris[ ,2]` to return the second column. 
 
-```{r}
+```{r eval=FALSE}
 mydf<-data.frame(a=1:5, b=6:10, c=11:15)
 mydf[1, ]
 mydf[ ,1]
 mydf[3,3]
 ```
 
+```{r echo=FALSE}
+mydf<-data.frame(a=1:5, b=6:10, c=11:15)
+kable(mydf[1, ])
+kable(mydf[ ,1])
+mydf[3,3]
+```
+
+
 Remeber how a single value is still counted as a vector by R? This means that when we say `letters[1]` the 1 is actually a vector, and *that* means that we can provide longer vectors in our grid specifications to!
 
-```{r}
+```{r eval=FALSE}
 letters[1:5]
 mydf[1:3,c(1,2)]
 ```
 
+```{r echo=FALSE}
+letters[1:5]
+kable(mydf[1:3,c(1,2)])
+```
+
 As well as positive specifications, we can also use negative values. These tell R which bits of the grid that you don't want.
 
-```{r}
+```{r eval=FALSE}
 letters[-5:-1]
 mydf[-3,-2]
+```
+
+```{r echo=FALSE}
+letters[-5:-1]
+kable(mydf[-3,-2])
 ```
 
 If you specify a position that doesn't exist, R will return an **NA** (a missing value) for that position.
@@ -52,9 +74,14 @@ letters[23:29]
 ## Grid references with names
 Where names are used, we can provide these names in our grid references.
 
-```{r}
+```{r eval=FALSE}
 mylist["a"]
 mydf[ , c("a","b")]
+```
+
+```{r echo=FALSE}
+mylist["a"]
+kable(mydf[ , c("a","b")])
 ```
 
 You cannot provide a mix of element positions and element names in a single vector because the numbers would get converted to strings and be checked as character-based names...
@@ -65,8 +92,12 @@ mylist[c(1,"a")]
 
 But you are able to use element positions and element names in data.frame selections if you stick to one type of reference in each position.
 
-```{r}
+```{r eval=FALSE}
 mydf[1:2, c("a","b")]
+```
+
+```{r echo=FALSE}
+kable(mydf[1:2, c("a","b")])
 ```
 
 ## Grid references with conditional values
@@ -74,8 +105,12 @@ Whilst we often want to subset data.frames to some specific columns, a lot of th
 
 If we provide boolean values into our grid reference system it will return elements that have a TRUE associated with it, and ignore values with a FALSE associated with it.
 
-```{r}
+```{r eval=FALSE}
 mydf[, c(TRUE,FALSE,TRUE)]
+```
+
+```{r echo=FALSE}
+kable(mydf[, c(TRUE,FALSE,TRUE)])
 ```
 
 R will perform the recycling we saw in the section about working with vectors. So for instance, if we want to return every other letter in the alphabet we could provide a vector of length 2. It would then recycle this vector so TRUE and FALSE alternate for all 26 letters.
@@ -126,8 +161,12 @@ The `$` methodology has some benefits: It uses fewer characters and you can use 
 
 We can use both these notations inside our grid reference system. This becomes very handy for writing row conditions for data.frames.
 
-```{r}
+```{r eval=FALSE}
 mydf[ mydf$a > 3, 1:2]
+```
+
+```{r echo=FALSE}
+kable(mydf[ mydf$a > 3, 1:2])
 ```
 
 ```{block, type="future"}
@@ -143,16 +182,24 @@ Adding additional values involves specifying new element positions and providing
 ```{r}
 letters[27]<-"|"
 tail(letters)
+```
 
+```{r}
 mydf[6,] <- c(pi, Inf, -Inf)
-mydf
+```
+
+```{r echo=FALSE}
+kable(mydf)
 ```
 
 For data.frames, if you want to create a new column, it's usually much easier to use our `$` notation.
 
 ```{r}
 mydf$d<-5
-mydf
+```
+
+```{r echo=FALSE}
+kable(mydf)
 ```
 
 Updating values involves providing a set of values of the same size as the destination. 
@@ -160,9 +207,14 @@ Updating values involves providing a set of values of the same size as the desti
 ```{r}
 letters[1:3]<-LETTERS[1:3]
 head(letters)
+```
 
+```{r}
 mydf[1, ]<- 1:4
-mydf
+```
+
+```{r echo=FALSE}
+kable(mydf)
 ```
 
 If you provide something that is not the same size, R will apply the recycling rules. Again, this is nifty and terrible at the same time.
@@ -171,21 +223,36 @@ If you provide something that is not the same size, R will apply the recycling r
 mydf[2, ]<-1:2
 ```
 
+```{r echo=FALSE}
+kable(mydf)
+```
+
 If you want to delete values, you can overwrite an object after doing a negative selection.
 
 ```{r}
 mydf<-mydf[-1,]
-mydf
+```
+
+```{r echo=FALSE}
+kable(mydf)
 ```
 
 An alternative method is to make a selection and assign them the value NULL. NULL removes contents in lists and data.frames.
 
+
 ```{r}
-mydf$c<-NULL
-mydf
 mylist[2]<-NULL
 mylist
 ```
+
+```{r}
+mydf$c<-NULL
+```
+
+```{r echo=FALSE}
+kable(mydf)
+```
+
 
 ## Data manipulation exercises
 1. Select all `LETTERS` before "X"
