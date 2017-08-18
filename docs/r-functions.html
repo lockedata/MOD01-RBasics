@@ -166,17 +166,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1" data-path="r-objects.html"><a href="r-objects.html#storing-values"><i class="fa fa-check"></i><b>7.1</b> Storing values</a></li>
 <li class="chapter" data-level="7.2" data-path="r-objects.html"><a href="r-objects.html#vectors"><i class="fa fa-check"></i><b>7.2</b> Vectors</a></li>
 <li class="chapter" data-level="7.3" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-vectors"><i class="fa fa-check"></i><b>7.3</b> Getting information about vectors</a></li>
-<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#calculations-on-multiple-vectors"><i class="fa fa-check"></i><b>7.4</b> Calculations on multiple vectors</a></li>
+<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#calculations-on-multiple-vectors"><i class="fa fa-check"></i><b>7.4</b> Calculations on multiple vectors</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="r-objects.html"><a href="r-objects.html#bitwise"><i class="fa fa-check"></i><b>7.4.1</b> Bitwise</a></li>
+</ul></li>
 <li class="chapter" data-level="7.5" data-path="r-objects.html"><a href="r-objects.html#data.frames"><i class="fa fa-check"></i><b>7.5</b> data.frames</a></li>
 <li class="chapter" data-level="7.6" data-path="r-objects.html"><a href="r-objects.html#importing-data.frames"><i class="fa fa-check"></i><b>7.6</b> Importing data.frames</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="r-objects.html"><a href="r-objects.html#error"><i class="fa fa-check"></i><b>7.6.1</b> Error!!</a></li>
 </ul></li>
 <li class="chapter" data-level="7.7" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-data.frames"><i class="fa fa-check"></i><b>7.7</b> Getting information about data.frames</a></li>
-<li class="chapter" data-level="7.8" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.8</b> Lists</a></li>
-<li class="chapter" data-level="7.9" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-lists"><i class="fa fa-check"></i><b>7.9</b> Getting information about lists</a></li>
-<li class="chapter" data-level="7.10" data-path="r-objects.html"><a href="r-objects.html#other-object-types"><i class="fa fa-check"></i><b>7.10</b> Other object types</a></li>
-<li class="chapter" data-level="7.11" data-path="r-objects.html"><a href="r-objects.html#useful-functions"><i class="fa fa-check"></i><b>7.11</b> Useful functions</a></li>
-<li class="chapter" data-level="7.12" data-path="r-objects.html"><a href="r-objects.html#r-objects-exercises"><i class="fa fa-check"></i><b>7.12</b> R objects exercises</a></li>
+<li class="chapter" data-level="7.8" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.8</b> Lists</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-lists"><i class="fa fa-check"></i><b>7.8.1</b> Getting information about lists</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="r-objects.html"><a href="r-objects.html#other-object-types"><i class="fa fa-check"></i><b>7.9</b> Other object types</a></li>
+<li class="chapter" data-level="7.10" data-path="r-objects.html"><a href="r-objects.html#useful-functions"><i class="fa fa-check"></i><b>7.10</b> Useful functions</a></li>
+<li class="chapter" data-level="7.11" data-path="r-objects.html"><a href="r-objects.html#r-objects-exercises"><i class="fa fa-check"></i><b>7.11</b> R objects exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>8</b> Data manipulation</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references"><i class="fa fa-check"></i><b>8.1</b> Grid references</a></li>
@@ -281,7 +284,7 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Sys.Date</code></pre></div>
 <pre><code>## function () 
 ## as.Date(as.POSIXlt(Sys.time()))
-## &lt;bytecode: 0x000000001d664ad8&gt;
+## &lt;bytecode: 0x000000001cda0b28&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>The first line(s) show how the arguments are specified. Subsequent lines show the code and the final lines starting with <code>&lt;</code> can be mostly ignored.</p>
 </div>
@@ -294,7 +297,7 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Sys.Date</code></pre></div>
 <pre><code>## function () 
 ## as.Date(as.POSIXlt(Sys.time()))
-## &lt;bytecode: 0x000000001d664ad8&gt;
+## &lt;bytecode: 0x000000001cda0b28&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>Looking at the function definition, we can see that there are no arguments specified in the first line.</p>
 </div>
@@ -303,7 +306,7 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <p>Other functions only have a single allowed input. <code>length()</code> returns the length of an object so it only allows you to provide it with an object.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">length</code></pre></div>
 <pre><code>## function (x)  .Primitive(&quot;length&quot;)</code></pre>
-<p>We can see in this definition<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a> that the function takes the argument <code>x</code>.</p>
+<p>We can see in this definition<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a> that the function takes the argument <code>x</code>.</p>
 </div>
 <div id="many-inputs" class="section level3">
 <h3><span class="header-section-number">9.3.3</span> Many inputs</h3>
@@ -316,13 +319,13 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rnorm</code></pre></div>
 <pre><code>## function (n, mean = 0, sd = 1) 
 ## .Call(C_rnorm, n, mean, sd)
-## &lt;bytecode: 0x000000001ff9c128&gt;
+## &lt;bytecode: 0x0000000025687138&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <p>Looking at how <code>rnorm</code> is specified we can see that we’re expected to provide <code>n</code>, but <code>mean</code> and <code>sd</code> are given values of 0 and 1 repsectively by default.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>)
 <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1]  0.5021887 -0.2194608 -1.7279560 -1.7710382 -0.3629692
-## [1] 13.083307 10.305561  9.727827  9.256583 11.872668</code></pre>
+<pre><code>## [1]  2.4069904 -0.2604318  1.1044221  0.5645954  0.7153132
+## [1]  9.971212  9.230760 11.190145  9.850373  7.666461</code></pre>
 </div>
 <div id="unlimited-inputs" class="section level3">
 <h3><span class="header-section-number">9.3.4</span> Unlimited inputs</h3>
@@ -352,11 +355,11 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <li>The arguments you want to specify show up after the <code>...</code> in a function’s argument list</li>
 <li>You want to give a specific name to a value in a <code>...</code> argument</li>
 </ol>
-<p>We can provide names<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a> for clarity or so we can use arguments out of order if we prefer to.</p>
+<p>We can provide names<a href="#fn26" class="footnoteRef" id="fnref26"><sup>26</sup></a> for clarity or so we can use arguments out of order if we prefer to.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>)
 <span class="kw">rnorm</span>(<span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>, <span class="dt">n =</span> <span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1] 11.681051  7.960725 11.495311  8.964133 11.594954
-## [1]  9.331615 11.141213 10.983987 11.793962 10.182443</code></pre>
+<pre><code>## [1] 9.002287 7.279188 6.409959 8.818033 7.915473
+## [1] 10.841341 11.172754  8.207472 12.615922 11.569260</code></pre>
 <p>A common behaviour change that you’ll need to work with is how missing (<code>NA</code>) values get handled. Functions that allow you change this behaviour, usually have an argument called things like <code>na.rm</code>, <code>na.omit</code>, and <code>na.action</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="ot">NA</span>)
 <span class="kw">sum</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="ot">NA</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
@@ -372,7 +375,7 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">predict</code></pre></div>
 <pre><code>## function (object, ...) 
 ## UseMethod(&quot;predict&quot;)
-## &lt;bytecode: 0x00000000135831d0&gt;
+## &lt;bytecode: 0x0000000013584330&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <p>The <code>predict()</code> function then determines what type of model object you’ve provided it and passes the model, and any other values you provided, to the relevant function, returning back the results.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">linearMod &lt;-<span class="st"> </span><span class="kw">lm</span>(Sepal.Length ~<span class="st"> </span>., <span class="dt">data =</span> iris)
@@ -399,9 +402,9 @@ logisticMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Species ~<
 </div>
 <div class="footnotes">
 <hr />
-<ol start="24">
-<li id="fn24"><p>the code looks a bit odd - this is because it’s specified a bit differently to most functions, but fear not!<a href="r-functions.html#fnref24">↩</a></p></li>
-<li id="fn25"><p>Note that that you don’t have to type the full name as R will attempt to match up values, but doing that can and does get a lot of R users into trouble so I don’t recommend it.<a href="r-functions.html#fnref25">↩</a></p></li>
+<ol start="25">
+<li id="fn25"><p>the code looks a bit odd - this is because it’s specified a bit differently to most functions, but fear not! In R, there are some different ways of writing code. The normal way is called <strong>S3</strong> but functions that are designed to work with properties of objects like length use a different system called <strong>S4</strong>. For the most part you’ll rarely need to dig into S4 code as most R functionality is built in <strong>S3</strong> and will allow you to check out it’s code easily.<a href="r-functions.html#fnref25">↩</a></p></li>
+<li id="fn26"><p>Note that that you don’t have to type the full name as R will attempt to match up values, but doing that can and does get a lot of R users into trouble so I don’t recommend it.<a href="r-functions.html#fnref26">↩</a></p></li>
 </ol>
 </div>
             </section>

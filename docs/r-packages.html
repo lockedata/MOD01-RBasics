@@ -166,17 +166,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1" data-path="r-objects.html"><a href="r-objects.html#storing-values"><i class="fa fa-check"></i><b>7.1</b> Storing values</a></li>
 <li class="chapter" data-level="7.2" data-path="r-objects.html"><a href="r-objects.html#vectors"><i class="fa fa-check"></i><b>7.2</b> Vectors</a></li>
 <li class="chapter" data-level="7.3" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-vectors"><i class="fa fa-check"></i><b>7.3</b> Getting information about vectors</a></li>
-<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#calculations-on-multiple-vectors"><i class="fa fa-check"></i><b>7.4</b> Calculations on multiple vectors</a></li>
+<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#calculations-on-multiple-vectors"><i class="fa fa-check"></i><b>7.4</b> Calculations on multiple vectors</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="r-objects.html"><a href="r-objects.html#bitwise"><i class="fa fa-check"></i><b>7.4.1</b> Bitwise</a></li>
+</ul></li>
 <li class="chapter" data-level="7.5" data-path="r-objects.html"><a href="r-objects.html#data.frames"><i class="fa fa-check"></i><b>7.5</b> data.frames</a></li>
 <li class="chapter" data-level="7.6" data-path="r-objects.html"><a href="r-objects.html#importing-data.frames"><i class="fa fa-check"></i><b>7.6</b> Importing data.frames</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="r-objects.html"><a href="r-objects.html#error"><i class="fa fa-check"></i><b>7.6.1</b> Error!!</a></li>
 </ul></li>
 <li class="chapter" data-level="7.7" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-data.frames"><i class="fa fa-check"></i><b>7.7</b> Getting information about data.frames</a></li>
-<li class="chapter" data-level="7.8" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.8</b> Lists</a></li>
-<li class="chapter" data-level="7.9" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-lists"><i class="fa fa-check"></i><b>7.9</b> Getting information about lists</a></li>
-<li class="chapter" data-level="7.10" data-path="r-objects.html"><a href="r-objects.html#other-object-types"><i class="fa fa-check"></i><b>7.10</b> Other object types</a></li>
-<li class="chapter" data-level="7.11" data-path="r-objects.html"><a href="r-objects.html#useful-functions"><i class="fa fa-check"></i><b>7.11</b> Useful functions</a></li>
-<li class="chapter" data-level="7.12" data-path="r-objects.html"><a href="r-objects.html#r-objects-exercises"><i class="fa fa-check"></i><b>7.12</b> R objects exercises</a></li>
+<li class="chapter" data-level="7.8" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.8</b> Lists</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-lists"><i class="fa fa-check"></i><b>7.8.1</b> Getting information about lists</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="r-objects.html"><a href="r-objects.html#other-object-types"><i class="fa fa-check"></i><b>7.9</b> Other object types</a></li>
+<li class="chapter" data-level="7.10" data-path="r-objects.html"><a href="r-objects.html#useful-functions"><i class="fa fa-check"></i><b>7.10</b> Useful functions</a></li>
+<li class="chapter" data-level="7.11" data-path="r-objects.html"><a href="r-objects.html#r-objects-exercises"><i class="fa fa-check"></i><b>7.11</b> R objects exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>8</b> Data manipulation</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references"><i class="fa fa-check"></i><b>8.1</b> Grid references</a></li>
@@ -249,7 +252,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>An R package is a bundle of functions and/or datasets. It extends the capabilities that the “base” and “recommended” R packages have. By using packages we can do data manipulation in a variety of ways, produce all sorts of awesome charts, generate books like this, use other languages like Python and JavaScript, and of course, do all sorts of data analysis.</p>
 <div id="installing-packages" class="section level2">
 <h2><span class="header-section-number">10.1</span> Installing packages</h2>
-<p>Once you’ve identified a package that contains functions or data you’re interested in using<a href="#fn26" class="footnoteRef" id="fnref26"><sup>26</sup></a>, we need to get the package onto our machine.</p>
+<p>Once you’ve identified a package that contains functions or data you’re interested in using<a href="#fn27" class="footnoteRef" id="fnref27"><sup>27</sup></a>, we need to get the package onto our machine.</p>
 <p>To get the package, you can use an R function or you can use the Install button on the Packages tab.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;datasauRus&quot;</span>)</code></pre></div>
 <p>If you need to install a number of packages, <code>install.packages()</code> takes a vector of package names.</p>
@@ -257,7 +260,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Updating packages involves re-running <code>install.packages()</code> and it’s usually easier to trigger this by using the Update button on the Packages tab and selecting all the packages you want to update.</p>
 <div id="installing-from-github-and-other-sources" class="section level3">
 <h3><span class="header-section-number">10.1.1</span> Installing from GitHub and other sources</h3>
-<p>The <code>install.packages()</code> function works with CRAN, CRAN mirrors <a href="#fn27" class="footnoteRef" id="fnref27"><sup>27</sup></a>, and CRAN-like repositories<a href="#fn28" class="footnoteRef" id="fnref28"><sup>28</sup></a></p>
+<p>The <code>install.packages()</code> function works with CRAN, CRAN mirrors <a href="#fn28" class="footnoteRef" id="fnref28"><sup>28</sup></a>, and CRAN-like repositories<a href="#fn29" class="footnoteRef" id="fnref29"><sup>29</sup></a></p>
 <p>If you want to install BioConductor packages, there are some helper scripts available from the BioConductor website, <a href="//www.bioconductor.org/install/">bioconductor.org</a>.</p>
 <p>Other package sources, such as GitHub, will involve building packages before they can be installed. If you’re on Windows, this means you need an additional piece of software called <a href="//cran.r-project.org/bin/windows/Rtools/">Rtools</a>. The other handy thing you’ll need is the package <code>devtools</code> (available from CRAN). <code>devtools</code> provides a number of functions designed to make it easier to install from GitHub, BitBucket, and other sources.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install_github</span>(<span class="st">&quot;lockedata/pRojects&quot;</span>)</code></pre></div>
@@ -278,7 +281,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Working with databases, you can use the <code>DBI</code> package and it’s companion <code>odbc</code> to connect to most databases</li>
 <li>To get data from web pages, you can use <code>rvest</code></li>
 <li>To work with APIs, you use <code>httr</code></li>
-<li>To work with CSVs, you can use <code>readr</code> or <code>data.table</code>.<a href="#fn29" class="footnoteRef" id="fnref29"><sup>29</sup></a></li>
+<li>To work with CSVs, you can use <code>readr</code> or <code>data.table</code>.<a href="#fn30" class="footnoteRef" id="fnref30"><sup>30</sup></a></li>
 <li>To work with SPSS, SAS, and Stata files, use <code>readr</code> and <code>haven</code></li>
 </ul>
 </div>
@@ -381,11 +384,11 @@ Any function in R can be prefixed with it’s package name and the double colon 
 
 <div class="footnotes">
 <hr />
-<ol start="26">
-<li id="fn26"><p>Using CRAN or sites like <a href="//rdrr.io">rdrr.io</a><a href="r-packages.html#fnref26">↩</a></p></li>
-<li id="fn27"><p>Copies of CRAN made available to avoid overloading central servers.<a href="r-packages.html#fnref27">↩</a></p></li>
-<li id="fn28"><p>The most common CRAN-like systems are building your own local CRAN with the package <code>miniCRAN</code> and using the package <code>drat</code> to make repositories, especially remote repositories.<a href="r-packages.html#fnref28">↩</a></p></li>
-<li id="fn29"><p><code>data.table</code> tends to be faster for CSV read and writes.<a href="r-packages.html#fnref29">↩</a></p></li>
+<ol start="27">
+<li id="fn27"><p>Using CRAN or sites like <a href="//rdrr.io">rdrr.io</a><a href="r-packages.html#fnref27">↩</a></p></li>
+<li id="fn28"><p>Copies of CRAN made available to avoid overloading central servers.<a href="r-packages.html#fnref28">↩</a></p></li>
+<li id="fn29"><p>The most common CRAN-like systems are building your own local CRAN with the package <code>miniCRAN</code> and using the package <code>drat</code> to make repositories, especially remote repositories.<a href="r-packages.html#fnref29">↩</a></p></li>
+<li id="fn30"><p><code>data.table</code> tends to be faster for CSV read and writes.<a href="r-packages.html#fnref30">↩</a></p></li>
 </ol>
 </div>
             </section>

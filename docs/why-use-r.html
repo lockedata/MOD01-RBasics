@@ -166,17 +166,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1" data-path="r-objects.html"><a href="r-objects.html#storing-values"><i class="fa fa-check"></i><b>7.1</b> Storing values</a></li>
 <li class="chapter" data-level="7.2" data-path="r-objects.html"><a href="r-objects.html#vectors"><i class="fa fa-check"></i><b>7.2</b> Vectors</a></li>
 <li class="chapter" data-level="7.3" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-vectors"><i class="fa fa-check"></i><b>7.3</b> Getting information about vectors</a></li>
-<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#calculations-on-multiple-vectors"><i class="fa fa-check"></i><b>7.4</b> Calculations on multiple vectors</a></li>
+<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#calculations-on-multiple-vectors"><i class="fa fa-check"></i><b>7.4</b> Calculations on multiple vectors</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="r-objects.html"><a href="r-objects.html#bitwise"><i class="fa fa-check"></i><b>7.4.1</b> Bitwise</a></li>
+</ul></li>
 <li class="chapter" data-level="7.5" data-path="r-objects.html"><a href="r-objects.html#data.frames"><i class="fa fa-check"></i><b>7.5</b> data.frames</a></li>
 <li class="chapter" data-level="7.6" data-path="r-objects.html"><a href="r-objects.html#importing-data.frames"><i class="fa fa-check"></i><b>7.6</b> Importing data.frames</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="r-objects.html"><a href="r-objects.html#error"><i class="fa fa-check"></i><b>7.6.1</b> Error!!</a></li>
 </ul></li>
 <li class="chapter" data-level="7.7" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-data.frames"><i class="fa fa-check"></i><b>7.7</b> Getting information about data.frames</a></li>
-<li class="chapter" data-level="7.8" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.8</b> Lists</a></li>
-<li class="chapter" data-level="7.9" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-lists"><i class="fa fa-check"></i><b>7.9</b> Getting information about lists</a></li>
-<li class="chapter" data-level="7.10" data-path="r-objects.html"><a href="r-objects.html#other-object-types"><i class="fa fa-check"></i><b>7.10</b> Other object types</a></li>
-<li class="chapter" data-level="7.11" data-path="r-objects.html"><a href="r-objects.html#useful-functions"><i class="fa fa-check"></i><b>7.11</b> Useful functions</a></li>
-<li class="chapter" data-level="7.12" data-path="r-objects.html"><a href="r-objects.html#r-objects-exercises"><i class="fa fa-check"></i><b>7.12</b> R objects exercises</a></li>
+<li class="chapter" data-level="7.8" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.8</b> Lists</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-lists"><i class="fa fa-check"></i><b>7.8.1</b> Getting information about lists</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="r-objects.html"><a href="r-objects.html#other-object-types"><i class="fa fa-check"></i><b>7.9</b> Other object types</a></li>
+<li class="chapter" data-level="7.10" data-path="r-objects.html"><a href="r-objects.html#useful-functions"><i class="fa fa-check"></i><b>7.10</b> Useful functions</a></li>
+<li class="chapter" data-level="7.11" data-path="r-objects.html"><a href="r-objects.html#r-objects-exercises"><i class="fa fa-check"></i><b>7.11</b> R objects exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>8</b> Data manipulation</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references"><i class="fa fa-check"></i><b>8.1</b> Grid references</a></li>
@@ -308,17 +311,26 @@ predictions &lt;-<span class="st"> </span><span class="kw">predict</span>(model,
 <p>Data visualisation is an area where R makes it especially difficult to choose just a single example. Instead of showing the many fancy or interactive visualisations you can do in R, I’m instead going to show a part of the workflow.</p>
 <p>I’ll often need to make a chart, and then make that chart for a lot of different datasets. These could be datasets for different customers, samples, or time slices.</p>
 <p>You can make a chart in R using the package <a href="">ggplot2</a> to build a chart of all data.</p>
+<p>I’m going to use the Dino the Datasaurus and his Data Dozen buddies^[The original Datasaurus was created by Alberto Cairo. <a href="http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html">thefunctionalart.com</a></p>
+<p>The other Dozen were generated using simulated annealing and the process is described in the paper <em>Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing</em> by Justin Matejka and George Fitzmaurice. <a href="https://www.autodeskresearch.com/publications/samestats">autodeskresearch.com</a></p>
+<p>In the paper, Justin and George simulate a variety of datasets that the same summary statistics to the Datasaurus but have very different distributions.] as example data here. Dino and his friends have the same summary statistics but very diffent data distributions. They show why visualising data is so incredibly vital.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 <span class="kw">library</span>(datasauRus)
 
 myPlot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(datasaurus_dozen, <span class="kw">aes</span>(x, y)) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 <p>If you want to make a <a href="https://en.wikipedia.org/wiki/Small_multiple">small multiples</a> chart, where the charts are produced in a group, you can use the notion of facetting to make many small charts together.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myPlot +<span class="st"> </span><span class="kw">facet_wrap</span>(~dataset)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
-<p>If you wanted to produce and save a chart per dataset you can provide updated data to a chart.</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p>If you wanted to produce and save a chart per dataset you can provide updated data to a chart. This data is also made available within the <code>datasauRus</code> package and illustrates the Simpson’s Paradox<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myPlot %+%<span class="st"> </span>simpsons_paradox</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="5">
+<li id="fn5"><p>Simpson’s Paradox is the phenomena where high level statistics provide one conclusion but evaluating sub-groups within the data provides a very different conclusion. More information on Simpson’s paradox can be found at <a href="http://vudlab.com/simpsons/">vudlab.com</a><a href="why-use-r.html#fnref5">↩</a></p></li>
+</ol>
 </div>
             </section>
 

@@ -166,17 +166,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1" data-path="r-objects.html"><a href="r-objects.html#storing-values"><i class="fa fa-check"></i><b>7.1</b> Storing values</a></li>
 <li class="chapter" data-level="7.2" data-path="r-objects.html"><a href="r-objects.html#vectors"><i class="fa fa-check"></i><b>7.2</b> Vectors</a></li>
 <li class="chapter" data-level="7.3" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-vectors"><i class="fa fa-check"></i><b>7.3</b> Getting information about vectors</a></li>
-<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#calculations-on-multiple-vectors"><i class="fa fa-check"></i><b>7.4</b> Calculations on multiple vectors</a></li>
+<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#calculations-on-multiple-vectors"><i class="fa fa-check"></i><b>7.4</b> Calculations on multiple vectors</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="r-objects.html"><a href="r-objects.html#bitwise"><i class="fa fa-check"></i><b>7.4.1</b> Bitwise</a></li>
+</ul></li>
 <li class="chapter" data-level="7.5" data-path="r-objects.html"><a href="r-objects.html#data.frames"><i class="fa fa-check"></i><b>7.5</b> data.frames</a></li>
 <li class="chapter" data-level="7.6" data-path="r-objects.html"><a href="r-objects.html#importing-data.frames"><i class="fa fa-check"></i><b>7.6</b> Importing data.frames</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="r-objects.html"><a href="r-objects.html#error"><i class="fa fa-check"></i><b>7.6.1</b> Error!!</a></li>
 </ul></li>
 <li class="chapter" data-level="7.7" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-data.frames"><i class="fa fa-check"></i><b>7.7</b> Getting information about data.frames</a></li>
-<li class="chapter" data-level="7.8" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.8</b> Lists</a></li>
-<li class="chapter" data-level="7.9" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-lists"><i class="fa fa-check"></i><b>7.9</b> Getting information about lists</a></li>
-<li class="chapter" data-level="7.10" data-path="r-objects.html"><a href="r-objects.html#other-object-types"><i class="fa fa-check"></i><b>7.10</b> Other object types</a></li>
-<li class="chapter" data-level="7.11" data-path="r-objects.html"><a href="r-objects.html#useful-functions"><i class="fa fa-check"></i><b>7.11</b> Useful functions</a></li>
-<li class="chapter" data-level="7.12" data-path="r-objects.html"><a href="r-objects.html#r-objects-exercises"><i class="fa fa-check"></i><b>7.12</b> R objects exercises</a></li>
+<li class="chapter" data-level="7.8" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.8</b> Lists</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-lists"><i class="fa fa-check"></i><b>7.8.1</b> Getting information about lists</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="r-objects.html"><a href="r-objects.html#other-object-types"><i class="fa fa-check"></i><b>7.9</b> Other object types</a></li>
+<li class="chapter" data-level="7.10" data-path="r-objects.html"><a href="r-objects.html#useful-functions"><i class="fa fa-check"></i><b>7.10</b> Useful functions</a></li>
+<li class="chapter" data-level="7.11" data-path="r-objects.html"><a href="r-objects.html#r-objects-exercises"><i class="fa fa-check"></i><b>7.11</b> R objects exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>8</b> Data manipulation</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references"><i class="fa fa-check"></i><b>8.1</b> Grid references</a></li>
@@ -274,9 +277,9 @@ I gloss over a lot of the nuance here as most people will not need it. If you wa
 </div>
 <p>Numbers are split into a few different types:</p>
 <ul>
-<li><strong>integer</strong>s are whole numbers like 1 or 42<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a></li>
-<li><strong>numeric</strong>s are numbers that have a decimal portion associated with them like 1.0 or 3.133<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a></li>
-<li><strong>complex number</strong>s are numbers that make use of the imaginary number <em>i</em> like 4i<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a></li>
+<li><strong>integer</strong>s are whole numbers like 1 or 42<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a></li>
+<li><strong>numeric</strong>s are numbers that have a decimal portion associated with them like 1.0 or 3.133<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a></li>
+<li><strong>complex number</strong>s are numbers that make use of the imaginary number <em>i</em> like 4i<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a></li>
 </ul>
 <div id="converting-to-numbers" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> Converting to numbers</h3>
@@ -315,7 +318,7 @@ I gloss over a lot of the nuance here as most people will not need it. If you wa
 ## [1] FALSE
 ## [1] TRUE
 ## [1] FALSE</code></pre>
-<p>We could also use <code>class()</code> here and inspect the result.<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a> I’m going to use it here to test the results of a conversion to show you how you can <strong>nest</strong> functions, which means that the inner-most function gets evaluated and the results are used by the next outer-most function, and so on.</p>
+<p>We could also use <code>class()</code> here and inspect the result.<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a> I’m going to use it here to test the results of a conversion to show you how you can <strong>nest</strong> functions, which means that the inner-most function gets evaluated and the results are used by the next outer-most function, and so on.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">numeric</span>(<span class="st">&quot;1&quot;</span>))
 <span class="kw">class</span>(<span class="kw">integer</span>(<span class="st">&quot;1&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;
@@ -337,16 +340,16 @@ I gloss over a lot of the nuance here as most people will not need it. If you wa
 <p>Text, also known as strings, is split up into two core types:</p>
 <ul>
 <li><strong>character</strong>s are text as we typically think of it like “red”</li>
-<li><strong>factor</strong>s (and the subtype <strong>ordered factor</strong>s) are a text type where the number of unique values is constrained e.g. the values are selected from a dropdown. It’s not very space-efficient to store everything as text. Factors basically assign each unique value an ID and store the ID. Then when we return the data, it replaces the ID with the text.<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a></li>
+<li><strong>factor</strong>s (and the subtype <strong>ordered factor</strong>s) are a text type where the number of unique values is constrained e.g. the values are selected from a dropdown. It’s not very space-efficient to store everything as text. Factors basically assign each unique value an ID and store the ID. Then when we return the data, it replaces the ID with the text.<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a></li>
 </ul>
 <div class="future">
 <p>
 Factors will be covered at length in a later book. The rest of this book will work with characters.
 </p>
 </div>
-<p>In R, you can’t just type some text as it will be construed as an object or function name. To <strong>delimit</strong> a string you can use speech marks (<code>&quot;</code>) or apostrophes (<code>'</code>) at the beginning and end of it to show where it starts and ends.</p>
-<p>Note you can’t use the two delimiters interchangably e.g. &quot;red', but you can use them together to enable you have speech marks or apostrophes inside a string e.g. ‘They said “Read this”’ or “It’s mine now”.</p>
-<p>If you need to have both inside a string you can <strong>escape</strong> the ones on the iside of a string to say they don’t count as text <strong>delimiters</strong>. To escape a delimiter you can use a backslash(<code>\</code>) e.g. “They said \”Read this\“”.</p>
+<p>In R, you can’t just type some text as it will be construed as an object or function name. To <strong>delimit</strong> a string you can use speech marks (<code>&quot;</code>) or apostrophes (<code>'</code>) at the beginning and end of it to show where it starts and ends. These are the <strong>text delimiters</strong> in R.</p>
+<p>Note you can’t use the two delimiters interchangably e.g. &quot;red', but you can use them together to enable you have speech marks or apostrophes inside a string e.g. <code>'They said &quot;Read this&quot;'</code> or <code>&quot;It's mine now&quot;</code>.</p>
+<p>If you need to have both inside a string you can <strong>escape</strong> the ones on the inside of a string to say they don’t count as text delimiters. To escape a delimiter you can use a backslash(<code>\</code>) e.g. `“They said &quot;Read this&quot;”.</p>
 <div class="glass">
 <p>
 Beware the copy &amp; pasting (C&amp;Ping) of code that isn’t in “pre-formatted” mode. The aesthetically pleasing changing of speechmarks at the beginning and end of some text will screw up your code. If you’re getting weird errors around unexpected symbols or your console queuing up after C&amp;Ping, replace all the speechmarks and see if that fixes things. This can also happen with some types of space characters too.
@@ -444,7 +447,7 @@ Dates are one of the hardest parts of programming! This is a very brief introduc
 <li><strong>POSIXct</strong> is an integer based storage method</li>
 <li><strong>POSIXlt</strong> is a component based storage method</li>
 </ul>
-<p>You might be looking at the two POSIX times and thinking to yourself “ZOMG how am I meant to choose?”. Most people use the POSIXct format<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a>, which is the default for many of R’s functions.</p>
+<p>You might be looking at the two POSIX times and thinking to yourself “ZOMG how am I meant to choose?”. Most people use the POSIXct format<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a>, which is the default for many of R’s functions.</p>
 <div id="converting-to-dates" class="section level3">
 <h3><span class="header-section-number">5.4.1</span> Converting to dates</h3>
 <p>You can convert to datetime’s with <code>as.Date()</code>,<code>as.POSIXct()</code>, and <code>as.POSIXlt()</code>. Ideally, you’ll provide a string with the date(time) in ISO8601 formats e.g. “YYYY-MM-DD hh:ss”. If not, you’ll want to read up on the datetime format <a href="//stat.ethz.ch/R-manual/R-devel/library/base/html/strptime.html">specifications</a> for R.</p>
@@ -461,7 +464,7 @@ Dates are one of the hardest parts of programming! This is a very brief introduc
 ## [1] &quot;2017-12-31&quot;
 ## [1] &quot;2017-12-31 23:59:00 GMT&quot;
 ## [1] &quot;2017-12-31 23:59:00 GMT&quot;</code></pre>
-<p>Note that it’s assuming a timezone based on my device as I’ve not provided a default. It’s prudent to set the timezone in order to avoid the results of your code changing based on where the code is run or when<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a>.</p>
+<p>Note that it’s assuming a timezone based on my device as I’ve not provided a default. It’s prudent to set the timezone in order to avoid the results of your code changing based on where the code is run or when<a href="#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="st">&quot;2017-12-31 23:59&quot;</span>, <span class="dt">tz =</span> <span class="st">&quot;UTC&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2017-12-31 23:59:00 UTC&quot;</code></pre>
 </div>
@@ -478,12 +481,12 @@ Dates are one of the hardest parts of programming! This is a very brief introduc
 </div>
 <div id="getting-dates-and-times" class="section level3">
 <h3><span class="header-section-number">5.4.3</span> Getting dates and times</h3>
-<p>R has some functions for getting current datetime values<a href="#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a>.</p>
+<p>R has some functions for getting current datetime values<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Sys.Date</span>()
 <span class="kw">Sys.time</span>()
 <span class="kw">Sys.timezone</span>()</code></pre></div>
-<pre><code>## [1] &quot;2017-08-15&quot;
-## [1] &quot;2017-08-15 11:25:39 BST&quot;
+<pre><code>## [1] &quot;2017-08-18&quot;
+## [1] &quot;2017-08-18 16:36:31 BST&quot;
 ## [1] &quot;Europe/London&quot;</code></pre>
 </div>
 </div>
@@ -546,15 +549,15 @@ Dates are one of the hardest parts of programming! This is a very brief introduc
 </div>
 <div class="footnotes">
 <hr />
-<ol start="9">
-<li id="fn9"><p>If you want to guarantee a number is an integer, you can suffix the value with a L e.g. <code>42L</code>. If you want to read more about this, check out the <a href="//cran.r-project.org/doc/manuals/R-lang.html#Constants">R manual</a><a href="r-data-types.html#fnref9">↩</a></p></li>
-<li id="fn10"><p>Numerics in R are floating point numbers - this mean every decimal gets stored usually with a large amount of extra decimal places. This can lead to some unusual results when comparing two decimal values and we’ll see an example later.<a href="r-data-types.html#fnref10">↩</a></p></li>
-<li id="fn11"><p><em>i</em> is the square root of -1, which is an impossible number since any negative multiplied by itself would result in a positive. Descartes coined the term “imaginary” in reference to this number as it’s a consistent value in formulae but doesn’t exist in the real world.<a href="r-data-types.html#fnref11">↩</a></p></li>
-<li id="fn12"><p>You might recall that <code>class(1)</code> had the result of “numeric” - R was not by default considering 1 as an integer for the purpose of the <code>class()</code> function. This is a property of R’s evaluation of values and you can force it to consider a value to be an integer by suffixing it with an L, so <code>class(1L)</code> evaluates to “integer”.<a href="r-data-types.html#fnref12">↩</a></p></li>
-<li id="fn13"><p>In other programming languages this is often called an <strong>enumerated string</strong><a href="r-data-types.html#fnref13">↩</a></p></li>
-<li id="fn14"><p>According to my unscientific <a href="//twitter.com/SteffLocke/status/895198115594153988">twitter poll</a><a href="r-data-types.html#fnref14">↩</a></p></li>
-<li id="fn15"><p>Daylight savings time can catch you out<a href="r-data-types.html#fnref15">↩</a></p></li>
-<li id="fn16"><p>This is an area showing those wonderful R quirks - the <code>Sys.*</code> functions are inconsistently cased<a href="r-data-types.html#fnref16">↩</a></p></li>
+<ol start="10">
+<li id="fn10"><p>If you want to guarantee a number is an integer, you can suffix the value with a L e.g. <code>42L</code>. If you want to read more about this, check out the <a href="//cran.r-project.org/doc/manuals/R-lang.html#Constants">R manual</a><a href="r-data-types.html#fnref10">↩</a></p></li>
+<li id="fn11"><p>Numerics in R are floating point numbers - this mean every decimal gets stored usually with a large amount of extra decimal places. This can lead to some unusual results when comparing two decimal values and we’ll see an example later.<a href="r-data-types.html#fnref11">↩</a></p></li>
+<li id="fn12"><p><em>i</em> is the square root of -1, which is an impossible number since any negative multiplied by itself would result in a positive. Descartes coined the term “imaginary” in reference to this number as it’s a consistent value in formulae but doesn’t exist in the real world.<a href="r-data-types.html#fnref12">↩</a></p></li>
+<li id="fn13"><p>You might recall that <code>class(1)</code> had the result of “numeric” - R was not by default considering 1 as an integer for the purpose of the <code>class()</code> function. This is a property of R’s evaluation of values and you can force it to consider a value to be an integer by suffixing it with an L, so <code>class(1L)</code> evaluates to “integer”.<a href="r-data-types.html#fnref13">↩</a></p></li>
+<li id="fn14"><p>In other programming languages this is often called an <strong>enumerated string</strong><a href="r-data-types.html#fnref14">↩</a></p></li>
+<li id="fn15"><p>According to my unscientific <a href="//twitter.com/SteffLocke/status/895198115594153988">twitter poll</a><a href="r-data-types.html#fnref15">↩</a></p></li>
+<li id="fn16"><p>Daylight savings time can catch you out<a href="r-data-types.html#fnref16">↩</a></p></li>
+<li id="fn17"><p>This is an area showing those wonderful R quirks - the <code>Sys.*</code> functions are inconsistently cased<a href="r-data-types.html#fnref17">↩</a></p></li>
 </ol>
 </div>
             </section>

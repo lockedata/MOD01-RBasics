@@ -166,17 +166,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1" data-path="r-objects.html"><a href="r-objects.html#storing-values"><i class="fa fa-check"></i><b>7.1</b> Storing values</a></li>
 <li class="chapter" data-level="7.2" data-path="r-objects.html"><a href="r-objects.html#vectors"><i class="fa fa-check"></i><b>7.2</b> Vectors</a></li>
 <li class="chapter" data-level="7.3" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-vectors"><i class="fa fa-check"></i><b>7.3</b> Getting information about vectors</a></li>
-<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#calculations-on-multiple-vectors"><i class="fa fa-check"></i><b>7.4</b> Calculations on multiple vectors</a></li>
+<li class="chapter" data-level="7.4" data-path="r-objects.html"><a href="r-objects.html#calculations-on-multiple-vectors"><i class="fa fa-check"></i><b>7.4</b> Calculations on multiple vectors</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="r-objects.html"><a href="r-objects.html#bitwise"><i class="fa fa-check"></i><b>7.4.1</b> Bitwise</a></li>
+</ul></li>
 <li class="chapter" data-level="7.5" data-path="r-objects.html"><a href="r-objects.html#data.frames"><i class="fa fa-check"></i><b>7.5</b> data.frames</a></li>
 <li class="chapter" data-level="7.6" data-path="r-objects.html"><a href="r-objects.html#importing-data.frames"><i class="fa fa-check"></i><b>7.6</b> Importing data.frames</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="r-objects.html"><a href="r-objects.html#error"><i class="fa fa-check"></i><b>7.6.1</b> Error!!</a></li>
 </ul></li>
 <li class="chapter" data-level="7.7" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-data.frames"><i class="fa fa-check"></i><b>7.7</b> Getting information about data.frames</a></li>
-<li class="chapter" data-level="7.8" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.8</b> Lists</a></li>
-<li class="chapter" data-level="7.9" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-lists"><i class="fa fa-check"></i><b>7.9</b> Getting information about lists</a></li>
-<li class="chapter" data-level="7.10" data-path="r-objects.html"><a href="r-objects.html#other-object-types"><i class="fa fa-check"></i><b>7.10</b> Other object types</a></li>
-<li class="chapter" data-level="7.11" data-path="r-objects.html"><a href="r-objects.html#useful-functions"><i class="fa fa-check"></i><b>7.11</b> Useful functions</a></li>
-<li class="chapter" data-level="7.12" data-path="r-objects.html"><a href="r-objects.html#r-objects-exercises"><i class="fa fa-check"></i><b>7.12</b> R objects exercises</a></li>
+<li class="chapter" data-level="7.8" data-path="r-objects.html"><a href="r-objects.html#lists"><i class="fa fa-check"></i><b>7.8</b> Lists</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="r-objects.html"><a href="r-objects.html#getting-information-about-lists"><i class="fa fa-check"></i><b>7.8.1</b> Getting information about lists</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="r-objects.html"><a href="r-objects.html#other-object-types"><i class="fa fa-check"></i><b>7.9</b> Other object types</a></li>
+<li class="chapter" data-level="7.10" data-path="r-objects.html"><a href="r-objects.html#useful-functions"><i class="fa fa-check"></i><b>7.10</b> Useful functions</a></li>
+<li class="chapter" data-level="7.11" data-path="r-objects.html"><a href="r-objects.html#r-objects-exercises"><i class="fa fa-check"></i><b>7.11</b> R objects exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>8</b> Data manipulation</a><ul>
 <li class="chapter" data-level="8.1" data-path="data-manipulation.html"><a href="data-manipulation.html#grid-references"><i class="fa fa-check"></i><b>8.1</b> Grid references</a></li>
@@ -248,7 +251,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">6</span> Basic operations</h1>
 <p>Now that we have some datatypes, we can start learning what we can do with them.</p>
 <div id="maths" class="section level2">
-<h2><span class="header-section-number">6.1</span> Maths <a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a></h2>
+<h2><span class="header-section-number">6.1</span> Maths <a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a></h2>
 <p>In R, we have our common <strong>operators</strong> that you’re probably used to if you’ve performed calculations on computers before.</p>
 <table>
 <thead>
@@ -286,7 +289,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p>R adheres to <strong>BODMAS</strong><a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a> so you can construct safe calculations that combine operators in reliable ways.</p>
+<p>R adheres to <strong>BODMAS</strong><a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a> so you can construct safe calculations that combine operators in reliable ways.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">1</span> +<span class="st"> </span><span class="dv">2</span>^<span class="dv">3</span>) -<span class="st"> </span><span class="dv">5</span> *<span class="st"> </span>(<span class="dv">4</span>/<span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] -1</code></pre>
 <p>Additionally, there are some other operators worth knowing about.</p>
@@ -339,7 +342,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## [1] 1 2 3 4 5 6 7 8
 ## [1] 1 2 0 1 2 0 1 2
 ## [1] 1 2 3 0 1 2 3 0</code></pre>
-<p>For reasons<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a> not worth worrying about, R uses the <code>%</code> sign as the start of special operators – usually these are custom built, contain text, or reserved symbols.</p>
+<p>For reasons<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a> not worth worrying about, R uses the <code>%</code> sign as the start of special operators – usually these are custom built, contain text, or reserved symbols.</p>
 </div>
 <div id="comparison" class="section level2">
 <h2><span class="header-section-number">6.2</span> Comparison</h2>
@@ -455,7 +458,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## [1] FALSE
 ## [1] TRUE
 ## [1] FALSE</code></pre>
-<p>The pipe, or bar (<code>|</code>)<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a> allows us to do an OR check, which is “are either of these things true?”.</p>
+<p>The pipe, or bar (<code>|</code>)<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a> allows us to do an OR check, which is “are either of these things true?”.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> |<span class="st"> </span><span class="ot">TRUE</span>
 <span class="ot">TRUE</span> |<span class="st"> </span><span class="ot">FALSE</span>
 <span class="ot">FALSE</span> |<span class="st"> </span><span class="ot">FALSE</span>
@@ -488,22 +491,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## [1] TRUE
 ## [1] FALSE
 ## [1] FALSE</code></pre>
-<p>We’ll see how this works in the next section, but when we use our logical operators it will do the comparison for every row. Sometimes we might be performing comparisons for many values but we need to guarantee we get just one value back. We can use variants of AND and OR called <strong>bitwise</strong> comparisons to achieve this. Use these with care as the results can be a little bit weird!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> &amp;&amp;<span class="st"> </span><span class="ot">TRUE</span>
-<span class="ot">TRUE</span> &amp;&amp;<span class="st"> </span><span class="ot">FALSE</span>
-<span class="ot">TRUE</span> ||<span class="st"> </span><span class="ot">TRUE</span>
-<span class="ot">TRUE</span> ||<span class="st"> </span><span class="ot">FALSE</span>
-
-<span class="dv">1</span>:<span class="dv">2</span> &gt;<span class="st"> </span><span class="dv">1</span>
-<span class="dv">2</span>:<span class="dv">3</span> &gt;<span class="st"> </span><span class="dv">1</span>
-<span class="dv">1</span>:<span class="dv">2</span> &gt;<span class="st"> </span><span class="dv">1</span> &amp;&amp;<span class="st"> </span><span class="dv">2</span>:<span class="dv">3</span> &gt;<span class="st"> </span><span class="dv">1</span></code></pre></div>
-<pre><code>## [1] TRUE
-## [1] FALSE
-## [1] TRUE
-## [1] TRUE
-## [1] FALSE  TRUE
-## [1] TRUE TRUE
-## [1] FALSE</code></pre>
 </div>
 <div id="summary-2" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Summary</h3>
@@ -530,22 +517,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="odd">
 <td>Or</td>
 <td><code>|</code></td>
-<td><code>TRUE | FALSE</code> is TRUE, <code>c(TRUE,FALSE) | c(FALSE,FALSE)</code> is TRUE, FALSE</td>
+<td><code>TRUE | FALSE</code> is TRUE</td>
 </tr>
 <tr class="even">
 <td>Xor</td>
 <td>xor()</td>
 <td><code>xor(TRUE,FALSE)</code> is TRUE</td>
-</tr>
-<tr class="odd">
-<td>Bitwise And</td>
-<td>&amp;&amp;</td>
-<td><code>c(TRUE,TRUE) &amp;&amp; c(FALSE,TRUE)</code> is FALSE</td>
-</tr>
-<tr class="even">
-<td>Bitwise Or</td>
-<td><code>||</code></td>
-<td><code>c(TRUE,FALSE) || c(FALSE,FALSE)</code> is TRUE</td>
 </tr>
 </tbody>
 </table>
@@ -641,22 +618,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="even">
 <td>Or</td>
 <td><code>|</code></td>
-<td><code>TRUE | FALSE</code> is TRUE, <code>c(TRUE,FALSE) | c(FALSE,FALSE)</code> is TRUE, FALSE</td>
+<td><code>TRUE | FALSE</code> is TRUE,</td>
 </tr>
 <tr class="odd">
 <td>Xor</td>
 <td>xor()</td>
 <td><code>xor(TRUE,FALSE)</code> is TRUE</td>
-</tr>
-<tr class="even">
-<td>Bitwise And</td>
-<td>&amp;&amp;</td>
-<td><code>c(TRUE,TRUE) &amp;&amp; c(FALSE,TRUE)</code> is FALSE</td>
-</tr>
-<tr class="odd">
-<td>Bitwise Or</td>
-<td><code>||</code></td>
-<td><code>c(TRUE,FALSE) || c(FALSE,FALSE)</code> is TRUE</td>
 </tr>
 </tbody>
 </table>
@@ -674,11 +641,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div class="footnotes">
 <hr />
-<ol start="17">
-<li id="fn17"><p>I’m British, deal with it.<a href="basic-operations.html#fnref17">↩</a></p></li>
-<li id="fn18"><p>Brackets, Other, Division, Multiplication, Addition, Subtraction<a href="basic-operations.html#fnref18">↩</a></p></li>
-<li id="fn19"><p>Read <a href="//ironholds.org/projects/rbitrary/">Rbitrary</a> for more info<a href="basic-operations.html#fnref19">↩</a></p></li>
-<li id="fn20"><p>Getting this symbol can be painful as it varies substantially by keyboard, so apologies if it takes you a while to hunt this symbol down.<a href="basic-operations.html#fnref20">↩</a></p></li>
+<ol start="18">
+<li id="fn18"><p>I’m British, deal with it.<a href="basic-operations.html#fnref18">↩</a></p></li>
+<li id="fn19"><p>Brackets, Other, Division, Multiplication, Addition, Subtraction<a href="basic-operations.html#fnref19">↩</a></p></li>
+<li id="fn20"><p>Read <a href="//ironholds.org/projects/rbitrary/">Rbitrary</a> for more info<a href="basic-operations.html#fnref20">↩</a></p></li>
+<li id="fn21"><p>Getting this symbol can be painful as it varies substantially by keyboard, so apologies if it takes you a while to hunt this symbol down.<a href="basic-operations.html#fnref21">↩</a></p></li>
 </ol>
 </div>
             </section>
