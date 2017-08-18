@@ -103,7 +103,9 @@ kable(mydf[1:2, c("a","b")])
 ## Grid references with conditional values
 Whilst we often want to subset data.frames to some specific columns, a lot of the time with vectors and data.frames we want to be able to apply a condition that determines which values are returned.
 
-If we provide boolean values into our grid reference system it will return elements that have a TRUE associated with it, and ignore values with a FALSE associated with it.
+We can tell R which values to return or exclude by providing a TRUE (return it) or FALSE (exclude it) for each value.
+
+We can provide hard-coded boolean values to the row and column parts of our grid reference system.
 
 ```{r eval=FALSE}
 mydf[, c(TRUE,FALSE,TRUE)]
