@@ -85,11 +85,11 @@ Text, also known as strings, is split up into two core types:
 Factors will be covered at length in a later book. The rest of this book will work with characters.
 ```
 
-In R, you can't just type some text as it will be construed as an object or function name. To **delimit** a string you can use speech marks (`"`) or apostrophes (`'`) at the beginning and end of it to show where it starts and ends. 
+In R, you can't just type some text as it will be construed as an object or function name. To **delimit** a string you can use speech marks (`"`) or apostrophes (`'`) at the beginning and end of it to show where it starts and ends. These are the **text delimiters** in R.
 
-Note you can't use the two delimiters interchangably e.g. \"red\', but you can use them together to enable you have speech marks or apostrophes inside a string e.g. 'They said "Read this"' or "It's mine now". 
+Note you can't use the two delimiters interchangably e.g. \"red\', but you can use them together to enable you have speech marks or apostrophes inside a string e.g. `'They said "Read this"'` or `"It's mine now"`. 
 
-If you need to have both inside a string you can **escape** the ones on the iside of a string to say they don't count as text **delimiters**. To escape a delimiter you can use a backslash(`\`) e.g. `"They said \"Read this\"".
+If you need to have both inside a string you can **escape** the ones on the inside of a string to say they don't count as text delimiters. To escape a delimiter you can use a backslash(`\`) e.g. `"They said \"Read this\"".
 
 
 ```{block, type="glass"}
