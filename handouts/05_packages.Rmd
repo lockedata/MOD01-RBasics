@@ -4,7 +4,7 @@ An R package is a bundle of functions and/or datasets. It extends the capabiliti
 ## Installing packages
 Once you've identified a package that contains functions or data you're interested in using^[Using CRAN or sites like [rdrr.io](//rdrr.io)], we need to get the package onto our machine.
 
-To get the package, you can use an R function or you can use Install button on the Packages tab.
+To get the package, you can use an R function or you can use the Install button on the Packages tab.
 
 ```{r eval=FALSE}
 install.packages("datasauRus")
@@ -23,7 +23,7 @@ The `install.packages()` function works with CRAN, CRAN mirrors ^[Copies of CRAN
 
 If you want to install BioConductor packages, there are some helper scripts available from the BioConductor website, [bioconductor.org](//www.bioconductor.org/install/).
 
-Other package source like GitHub will involve building packages before they can be installed. If you're on Windows, this means you need an additional piece of software called [Rtools](//cran.r-project.org/bin/windows/Rtools/). The other handy thing you'll need is the package `devtools` (available from CRAN). `devtools` provides a number of functions designed to make it easier from GitHub, BitBucket, and other sources.
+Other package sources, such as GitHub, will involve building packages before they can be installed. If you're on Windows, this means you need an additional piece of software called [Rtools](//cran.r-project.org/bin/windows/Rtools/). The other handy thing you'll need is the package `devtools` (available from CRAN). `devtools` provides a number of functions designed to make it easier to install from GitHub, BitBucket, and other sources.
 
 ```{r eval=FALSE}
 install_github("lockedata/pRojects")
@@ -55,29 +55,29 @@ The `tidyverse` contains great packages for data manipulation including `dplyr` 
 Additionally, a favourite data manipulation package of mine is `data.table`. `data.table` tends to have a bit of a steeper learning curve than the `tidyverse` but it's phenomenal for brevity and performance.
 
 ### Data visualisation
-- For static graphics `ggplot2` is fantastic - it adds a sensible vocabulary to help you construct charts with ease. 
-- `plotly` helps you build interactive charts from scratch or make `ggplot2` charts interactive. 
-- `leaflet` is a great maps package. 
-- `ggraph` helps you build effective network diagrams.
+- For static graphics `ggplot2` is fantastic - it adds a sensible vocabulary to help you construct charts with ease
+- `plotly` helps you build interactive charts from scratch or make `ggplot2` charts interactive
+- `leaflet` is a great maps package
+- `ggraph` helps you build effective network diagrams
 
 ### Data science
-- `caret` is an interface package to many model algorithms and has a raft of insanely useful features itself.
-- `broom` take outputs from model functions and makes them into nice data.frames.
-- `modelr` helps build samples and supplement result sets.
-- `reticulate` is a package for talking to Python and, therefore, enables you to work with any deep learning framework that is based in Python. `tensorflow` is a package based on `reticulate` and allows you to work with tensorflow in R.
-- `sparklyr` allows you to run and work with Spark processes on your R data.
-- `h2o` is a package for working with H2O, a super nifty ML platform.
+- `caret` is an interface package to many model algorithms and has a raft of insanely useful features itself
+- `broom` takes outputs from model functions and makes them into nice data.frames
+- `modelr` helps build samples and supplement result sets
+- `reticulate` is a package for talking to Python and, therefore, enables you to work with any deep learning framework that is based in Python. `tensorflow` is a package based on `reticulate` and allows you to work with tensorflow in R
+- `sparklyr` allows you to run and work with Spark processes on your R data
+- `h2o` is a package for working with H2O, a super nifty machine learning platform
 
 ### Presenting results
-- `rmarkdown` is the core package for combining text and code and being able to produce outputs like HTML pages, PDFs, and Word documents.
-- `bookdown` facilitates books like this.
-- `revealjs` allows you to make slide decks using `rmarkdown`.
-- `flexdashboard` and `shiny` allow you to make interactive, reactive dashboards and other analytical apps.
+- `rmarkdown` is the core package for combining text and code and being able to produce outputs like HTML pages, PDFs, and Word documents
+- `bookdown` facilitates books like this
+- `revealjs` allows you to make slide decks using `rmarkdown`
+- `flexdashboard` and `shiny` allow you to make interactive, reactive dashboards and other analytical apps
 
 ### Finding packages
-As well as using online search facilities like [CRAN](//cran.r-project.org/search.html) and [rdrr.io](//rdrr.io) for packages, there are some handy packages that help you find packages.
+As well as using online search facilities like [CRAN](//cran.r-project.org/search.html) and [rdrr.io](//rdrr.io) for packages, there are some handy packages that help you find other packages!
 
-- `ctv` allows you to get all the packages in a given [CRAN task view](//cran.r-project.org/web/views/), which are maintained liists of package for various tasks
+- `ctv` allows you to get all the packages in a given [CRAN task view](//cran.r-project.org/web/views/), which are maintained lists of package for various tasks
 - `sos` allows you to search for packages and functions that match a keyword
 
 
