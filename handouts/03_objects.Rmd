@@ -14,6 +14,10 @@ my_variable <- 5 + 3
 my_variable > 6 & my_variable < 10
 ```
 
+```{block, type="protip"}
+By default, when you store values R doesn't return the results to the console. You can change that behaviour by putting brackets around the assignment like `(my_variable <- 5 + 3)`.
+```
+
 Valid names for a variable include uppercase letters, lower case letters, numbers anywhere but the beginning, periods (`.`), and hyphens (`_`). 
 
 There are a number of different competing conventions for how you name variables. The most common conventions are shown below. I have no strong feelings for any system and only ask that you pick one and stick with it within a single script.  Whatever you do, don't forget names are case sensitive!
@@ -47,13 +51,11 @@ It's also a pretty major curse because you'll inevitably create something at som
 I recommend you get in the habit early of not working with your session being saved. Turn it off in *Tools > Global Options*, untick "Restore .RData into workspace at startup" 
 ```
 
-If you need to manage what's been stored you can list objects with `ls()` and remove them with `rm()`. If you want to remove everything you can use`ls()` inside `rm()`. 
+If you need to manage what's been stored you can list objects with `ls()` and remove them with `rm()`. 
 
 ```{r}
 today<-Sys.Date()
 rm("today")
-ls()
-rm(list=ls())
 ```
 
 Another way you can remove a single object is to overwrite the object with value NULL. 
@@ -62,7 +64,14 @@ today<-Sys.Date()
 today<-NULL
 ```
 
-If you want to clear everything you can also use the broom symbol in the Environment tab in RStudio.
+If you want to remove everything you can use`ls()` inside `rm()` but you have to tell the function you're providing a list of variable names.
+
+```{r}
+ls()
+rm(list=ls())
+```
+
+You can also achieve the same results by using the broom symbol in the Environment tab in RStudio.
 
 ## Vectors
 A **vector** is a collection of values that hold the same datatype. It is **one-dimensional** in that none of the **elements** in the collection correspond to other values like they might in a table of values.
