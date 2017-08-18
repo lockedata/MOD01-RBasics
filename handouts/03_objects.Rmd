@@ -129,7 +129,7 @@ names(steph)
 ```
 
 ## Calculations on multiple vectors
-When we perform calculations on two vectors, R will try to perform the operation for each set of elements. This is an **element-wise** calculation methodology. 
+When we perform calculations on two vectors, R will try to perform the operation for each set of elements. This is an **element-wise** or **pair-wise** calculation methodology. 
 
 In SQL, it's equivalent to where you might write `colA*colB` and you'll get the answer calculated for every row in the table. In Excel, it's equivalent to a Fill Down of multiplying two values on the same row. 
 
@@ -175,6 +175,38 @@ You can also use this functionality of making a vector the same length as anothe
 ![](vectormultrecycle.png)
 
 Vector recycling is useful and dangerous -- it can help you make elegant code or give you unexpected results. Especially when starting out, I recommend you make your vectors either the same length or length 1.
+
+
+### Bitwise
+Our logical operators that we covered earlier, work in a pairwise fashion. They'll return a vector of the same length as the longest one used in your logical statement.
+
+```{r eval=FALSE}
+a<-1:2>1
+b<-2:3>1
+```
+```{r}
+a<-1:2>1
+b<-2:3>1
+```
+
+Making logical statements returns vectors with a logical datatype.
+
+```{r}
+a&b
+a|b
+```
+
+Ocassionally, you expect to only be operating on a single pair of values and want to enforce that R should only do the calculation on the first pair. In R, this called a **bitwise** AND (`&&`) or OR (`||`). 
+
+A bitwise logical statement will only do the check for the first elements in the vectors and ignore all the others. 
+
+
+```{r}
+a&&b
+a||b
+```
+
+Use bitwise operators with extreme care!
 
 ## data.frames
 A **data.frame** is a table similar to what we're used to working with in most data analysis tools. It will contain a number of rows with columns containing different pieces of information. Each column in a data.frame has a datatype but it does not have to be the same datatype as the other columns.

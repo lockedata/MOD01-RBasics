@@ -169,19 +169,6 @@ xor(TRUE, TRUE)
 xor(FALSE, FALSE)
 ```
 
-We'll see how this works in the next section, but when we use our logical operators it will do the comparison for every row. Sometimes we might be performing comparisons for many values but we need to guarantee we get just one value back. We can use variants of AND and OR called **bitwise** comparisons to achieve this. Use these with care as the results can be a little bit weird!
-
-```{r}
-TRUE && TRUE
-TRUE && FALSE
-TRUE || TRUE
-TRUE || FALSE
-
-1:2>1
-2:3>1
-1:2>1 && 2:3>1
-```
-
 ### Summary
 We can produce sophisticated checks from a few simple building blocks. This will come in very handy down the line when doing things like filtering datasets or creating new fields in your data.
 
@@ -189,13 +176,8 @@ Action | Operator | Example
 ------------- | ------------- | -------------
 Not | ! | `!TRUE` is `r !TRUE`
 And | & | `TRUE & FALSE` is `r TRUE & FALSE`, `c(TRUE,TRUE) & c(FALSE,TRUE)` is `r c(TRUE,TRUE) & c(FALSE,TRUE)`
-Or | `|` | `TRUE | FALSE` is `r TRUE | FALSE`, `c(TRUE,FALSE) | c(FALSE,FALSE)` is `r c(TRUE,FALSE) | c(FALSE,FALSE)`
+Or | `|` | `TRUE | FALSE` is `r TRUE | FALSE`
 Xor | xor() | `xor(TRUE,FALSE)` is `r xor(TRUE,FALSE)`
-Bitwise And | && | `c(TRUE,TRUE) && c(FALSE,TRUE)` is `r c(TRUE,TRUE) && c(FALSE,TRUE)`
-Bitwise Or | `||` | `c(TRUE,FALSE) || c(FALSE,FALSE)` is `r c(TRUE,FALSE) || c(FALSE,FALSE)`
-
-
-
 
 
 ## Summary
@@ -218,11 +200,8 @@ Equal | all.equal() | `all.equal(0.5 - 0.3,0.3 - 0.1)` is `r all.equal(0.5 - 0.3
 In | %in% | `"Red" %in% c("Blue","Red")` is `r  "Red" %in% c("Blue","Red")`
 Not | ! | `!TRUE` is `r !TRUE`
 And | & | `TRUE & FALSE` is `r TRUE & FALSE`, `c(TRUE,TRUE) & c(FALSE,TRUE)` is `r c(TRUE,TRUE) & c(FALSE,TRUE)`
-Or | `|` | `TRUE | FALSE` is `r TRUE | FALSE`, `c(TRUE,FALSE) | c(FALSE,FALSE)` is `r c(TRUE,FALSE) | c(FALSE,FALSE)`
+Or | `|` | `TRUE | FALSE` is `r TRUE | FALSE`,
 Xor | xor() | `xor(TRUE,FALSE)` is `r xor(TRUE,FALSE)`
-Bitwise And | && | `c(TRUE,TRUE) && c(FALSE,TRUE)` is `r c(TRUE,TRUE) && c(FALSE,TRUE)`
-Bitwise Or | `||` | `c(TRUE,FALSE) || c(FALSE,FALSE)` is `r c(TRUE,FALSE) || c(FALSE,FALSE)`
-
 ## Basic Operations Exercises
 1. What is the result of `pi^2`?
 2. Is pi greater than 3?
