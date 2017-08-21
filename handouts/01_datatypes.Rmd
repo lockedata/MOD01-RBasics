@@ -91,7 +91,7 @@ Note you can't use the two delimiters interchangably e.g. \"red\', but you can u
 
 If you need to have both inside a string you can **escape** the ones on the inside of a string to say they don't count as text delimiters. To escape a delimiter you can use a backslash(`\`) e.g. `"They said \"Read this\""`.
 
-```{r}
+```{r tidy=FALSE}
 'They said "Read this"'
 "It's mine now"
 "They said \"Read this\""

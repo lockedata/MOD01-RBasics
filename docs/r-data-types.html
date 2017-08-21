@@ -363,7 +363,7 @@ Factors will be covered at length in a later book. The rest of this book will wo
 <p>In R, you can’t just type some text as it will be construed as an object or function name. To <strong>delimit</strong> a string you can use speech marks (<code>&quot;</code>) or apostrophes (<code>'</code>) at the beginning and end of it to show where it starts and ends. These are the <strong>text delimiters</strong> in R.</p>
 <p>Note you can’t use the two delimiters interchangably e.g. &quot;red', but you can use them together to enable you have speech marks or apostrophes inside a string e.g. <code>'They said &quot;Read this&quot;'</code> or <code>&quot;It's mine now&quot;</code>.</p>
 <p>If you need to have both inside a string you can <strong>escape</strong> the ones on the inside of a string to say they don’t count as text delimiters. To escape a delimiter you can use a backslash(<code>\</code>) e.g. <code>&quot;They said \&quot;Read this\&quot;&quot;</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;They said </span><span class="ch">\&quot;</span><span class="st">Read this</span><span class="ch">\&quot;</span><span class="st">&quot;</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&#39;They said &quot;Read this&quot;&#39;</span>
 <span class="st">&quot;It&#39;s mine now&quot;</span>
 <span class="st">&quot;They said </span><span class="ch">\&quot;</span><span class="st">Read this</span><span class="ch">\&quot;</span><span class="st">&quot;</span></code></pre></div>
 <pre><code>## [1] &quot;They said \&quot;Read this\&quot;&quot;
@@ -505,7 +505,7 @@ Dates are one of the hardest parts of programming! This is a very brief introduc
 <span class="kw">Sys.time</span>()
 <span class="kw">Sys.timezone</span>()</code></pre></div>
 <pre><code>## [1] &quot;2017-08-21&quot;
-## [1] &quot;2017-08-21 12:52:16 BST&quot;
+## [1] &quot;2017-08-21 13:04:22 BST&quot;
 ## [1] &quot;Europe/London&quot;</code></pre>
 </div>
 </div>
