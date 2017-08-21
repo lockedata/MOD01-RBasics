@@ -89,8 +89,13 @@ In R, you can't just type some text as it will be construed as an object or func
 
 Note you can't use the two delimiters interchangably e.g. \"red\', but you can use them together to enable you have speech marks or apostrophes inside a string e.g. `'They said "Read this"'` or `"It's mine now"`. 
 
-If you need to have both inside a string you can **escape** the ones on the inside of a string to say they don't count as text delimiters. To escape a delimiter you can use a backslash(`\`) e.g. `"They said \"Read this\"".
+If you need to have both inside a string you can **escape** the ones on the inside of a string to say they don't count as text delimiters. To escape a delimiter you can use a backslash(`\`) e.g. `"They said \"Read this\""`.
 
+```{r}
+'They said "Read this"'
+"It's mine now"
+"They said \"Read this\""
+```
 
 ```{block, type="glass"}
 Beware the copy & pasting (C&Ping) of code that isn't in "pre-formatted" mode. The aesthetically pleasing changing of speechmarks at the beginning and end of some text will screw up your code. If you're getting weird errors around unexpected symbols or your console queuing up after C&Ping, replace all the speechmarks and see if that fixes things. This can also happen with some types of space characters too.

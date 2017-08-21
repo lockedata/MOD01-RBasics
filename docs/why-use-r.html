@@ -324,25 +324,34 @@ predictions &lt;-<span class="st"> </span><span class="kw">predict</span>(model,
 <p>Data visualisation is an area where R makes it especially difficult to choose just a single example. Instead of showing the many fancy or interactive visualisations you can do in R, I’m instead going to show a part of the workflow.</p>
 <p>I’ll often need to make a chart, and then make that chart for a lot of different datasets. These could be datasets for different customers, samples, or time slices.</p>
 <p>You can make a chart in R using the package <a href="">ggplot2</a> to build a chart of all data.</p>
-<p>I’m going to use the Dino the Datasaurus and his Data Dozen buddies^[The original Datasaurus was created by Alberto Cairo. <a href="http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html">thefunctionalart.com</a></p>
-<p>The other Dozen were generated using simulated annealing and the process is described in the paper <em>Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing</em> by Justin Matejka and George Fitzmaurice. <a href="https://www.autodeskresearch.com/publications/samestats">autodeskresearch.com</a></p>
-<p>In the paper, Justin and George simulate a variety of datasets that the same summary statistics to the Datasaurus but have very different distributions.] as example data here. Dino and his friends have the same summary statistics but very diffent data distributions. They show why visualising data is so incredibly vital.</p>
+<p>I’m going to use Dino the Datasaurus and his Data Dozen buddies<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> as example data here. Dino and his friends have the same summary statistics but very diffent data distributions. They show why visualising data is so incredibly vital.</p>
+<div class="protip">
+<p>
+The other Dozen were generated using simulated annealing and the process is described in the paper <em>Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing</em> by Justin Matejka and George Fitzmaurice. <a href="https://www.autodeskresearch.com/publications/samestats">autodeskresearch.com</a>
+</p>
+<p>
+In the paper, Justin and George simulate a variety of datasets that have the same summary statistics to the Datasaurus but have very different distributions.
+</p>
+</div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 <span class="kw">library</span>(datasauRus)
 
-myPlot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(datasaurus_dozen, <span class="kw">aes</span>(x, y)) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+myPlot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(datasaurus_dozen, <span class="kw">aes</span>(x, y)) +<span class="st"> </span><span class="kw">geom_point</span>()
+myPlot</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>If you want to make a <a href="https://en.wikipedia.org/wiki/Small_multiple">small multiples</a> chart, where the charts are produced in a group, you can use the notion of facetting to make many small charts together.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myPlot +<span class="st"> </span><span class="kw">facet_wrap</span>(~dataset)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
-<p>If you wanted to produce and save a chart per dataset you can provide updated data to a chart. This data is also made available within the <code>datasauRus</code> package and illustrates the Simpson’s Paradox<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myPlot %+%<span class="st"> </span>simpsons_paradox</code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>If you wanted to produce and save a chart per dataset you can provide updated data to a chart. This data is also made available within the <code>datasauRus</code> package and illustrates the Simpson’s Paradox<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myPlot %+%<span class="st"> </span>simpsons_paradox</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="5">
-<li id="fn5"><p>Simpson’s Paradox is the phenomena where high level statistics provide one conclusion but evaluating sub-groups within the data provides a very different conclusion. More information on Simpson’s paradox can be found at <a href="http://vudlab.com/simpsons/">vudlab.com</a><a href="why-use-r.html#fnref5">↩</a></p></li>
+<li id="fn5"><p>The original Datasaurus was created by Alberto Cairo. <a href="http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html">thefunctionalart.com</a><a href="why-use-r.html#fnref5">↩</a></p></li>
+<li id="fn6"><p>Simpson’s Paradox is the phenomena where high level statistics provide one conclusion but evaluating sub-groups within the data provides a very different conclusion. More information on Simpson’s paradox can be found at <a href="http://vudlab.com/simpsons/">vudlab.com</a><a href="why-use-r.html#fnref6">↩</a></p></li>
 </ol>
 </div>
             </section>

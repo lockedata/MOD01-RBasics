@@ -267,7 +267,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="storing-values" class="section level2">
 <h2><span class="header-section-number">7.1</span> Storing values</h2>
 <p>When we were performing operations, we got some values output to the console. One of the key principles in writing code is Don’t Repeat Yourself (DRY) so we need to know how we can avoid repeating ourselves in R. One of the ways you can do that is to store a value for use later.</p>
-<p>In R, we can store values by <strong>assigning</strong> them a name. This makes a <strong>variable</strong> or <strong>object</strong>. We can do this with a few different operators, but the traditional operator is a <code>&lt;-</code><a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a>. The format for assigning a value is <code>nameofthing &lt;- value</code>.</p>
+<p>In R, we can store values by <strong>assigning</strong> them a name. This makes a <strong>variable</strong> or <strong>object</strong>. We can do this with a few different operators, but the traditional operator is a <code>&lt;-</code><a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a>. The format for assigning a value is <code>nameofthing &lt;- value</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_variable &lt;-<span class="st"> </span><span class="dv">5</span> +<span class="st"> </span><span class="dv">3</span>
 my_variable &gt;<span class="st"> </span><span class="dv">6</span> &amp;<span class="st"> </span>my_variable &lt;<span class="st"> </span><span class="dv">10</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
@@ -310,19 +310,6 @@ today &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre></d
 <p>If you want to remove everything you can use<code>ls()</code> inside <code>rm()</code> but you have to tell the function you’re providing a list of variable names.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()
 <span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</code></pre></div>
-<pre><code>##  [1] &quot; &quot;                 &quot;$$$&quot;               &quot;2017&quot;             
-##  [4] &quot;a&quot;                 &quot;abcols&quot;            &quot;allmydata&quot;        
-##  [7] &quot;b&quot;                 &quot;baddf&quot;             &quot;earlyletters&quot;     
-## [10] &quot;fifty&quot;             &quot;fiftywords&quot;        &quot;gooddf&quot;           
-## [13] &quot;letters&quot;           &quot;linearMod&quot;         &quot;logisticMod&quot;      
-## [16] &quot;lt4&quot;               &quot;model&quot;             &quot;my.first.variable&quot;
-## [19] &quot;my_first_variable&quot; &quot;my_variable&quot;       &quot;mydf&quot;             
-## [22] &quot;myfirstvariable&quot;   &quot;myFirstVariable&quot;   &quot;MyFirstVariable&quot;  
-## [25] &quot;myIris&quot;            &quot;mylist&quot;            &quot;myPlot&quot;           
-## [28] &quot;myseq&quot;             &quot;name with spaces&quot;  &quot;predictions&quot;      
-## [31] &quot;steph&quot;             &quot;test_data&quot;         &quot;test_outcome&quot;     
-## [34] &quot;today&quot;             &quot;training_data&quot;     &quot;training_outcome&quot; 
-## [37] &quot;vecA&quot;              &quot;vecB&quot;              &quot;words&quot;</code></pre>
 <p>You can also achieve the same results by using the broom symbol in the Environment tab in RStudio.</p>
 </div>
 <div id="vectors" class="section level2">
@@ -547,7 +534,7 @@ Keeping data in the project directory is ideal as it keeps everything in one pla
 <p>Our data.frames are <strong>composites</strong>, they are the result of combining a number of vectors with different data types. As a consequence, when we run our <code>class()</code> function, it tells us an object is a <code>data.frame</code> and no longer returns the underlying datatype.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(iris)</code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<p>You do not get the number of rows in a data.frame when you run the <code>length()</code> function, instead you get the number of columns<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a>. Alternatively, you can run the more clearly named <code>ncol()</code> function to return the number of columns in a data.frame.</p>
+<p>You do not get the number of rows in a data.frame when you run the <code>length()</code> function, instead you get the number of columns<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a>. Alternatively, you can run the more clearly named <code>ncol()</code> function to return the number of columns in a data.frame.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(iris)
 <span class="kw">ncol</span>(iris)</code></pre></div>
 <pre><code>## [1] 5
@@ -567,7 +554,7 @@ Keeping data in the project directory is ideal as it keeps everything in one pla
 </div>
 <div id="lists" class="section level2">
 <h2><span class="header-section-number">7.8</span> Lists</h2>
-<p><strong>List</strong>s are a catch-all object. They literally hold any and all types the objects covered in this section, including list objects!</p>
+<p><strong>List</strong>s are a catch-all object. They literally hold any and all types of the objects covered in this section, including list objects!</p>
 <p>You can create lists with the <code>list()</code> function, and like with our other objects you can have named and unnamed elements.</p>
 <p>In this example, we create a list object holding two vectors.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mylist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">3</span>, LETTERS)
@@ -640,9 +627,9 @@ mylist</code></pre></div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="22">
-<li id="fn22"><p>Other valid values are the equals symbol <code>=</code> and you can also do a right-handed assignment with <code>-&gt;</code><a href="r-objects.html#fnref22">↩</a></p></li>
-<li id="fn23"><p>This is because a data.frame is actually just a prettily printed list, and each column in an element in said list, and length returns the number of elements overall.<a href="r-objects.html#fnref23">↩</a></p></li>
+<ol start="23">
+<li id="fn23"><p>Other valid values are the equals symbol <code>=</code> and you can also do a right-handed assignment with <code>-&gt;</code><a href="r-objects.html#fnref23">↩</a></p></li>
+<li id="fn24"><p>This is because a data.frame is actually just a prettily printed list, and each column in an element in said list, and length returns the number of elements overall.<a href="r-objects.html#fnref24">↩</a></p></li>
 </ol>
 </div>
             </section>

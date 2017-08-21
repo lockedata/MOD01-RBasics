@@ -49,7 +49,7 @@ Whenever I'm going to output a data.frame, I'm going to output in a formatted wa
 ```
 
 If we provide a row number by using `df[ X , ]`, we will get a data.frame object back with just one row.
-```{r eval=false}
+```{r eval=FALSE}
 mydf[1, ]
 ```
 

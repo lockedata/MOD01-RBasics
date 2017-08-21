@@ -125,6 +125,7 @@ library(datasauRus)
 
 myPlot<- ggplot(datasaurus_dozen, aes(x,y)) +
            geom_point()
+myPlot
 ```
 
 If you want to make a [small multiples](https://en.wikipedia.org/wiki/Small_multiple) chart, where the charts are produced in a group, you can use the notion of facetting to make many small charts together.
