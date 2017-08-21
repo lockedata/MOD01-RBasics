@@ -290,6 +290,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">8.2.2</span> Single value selection with data.frames</h3>
 <p>In a data.frame, you can provide one or two values. These are comma seperated inside the square brackets and row numbers get specified first e.g. <code>iris[ row , column ]</code>. If you want to select all rows or all columns you leave that part of the reference blank e.g. <code>iris[1, ]</code> to return the first row and <code>iris[ ,2]</code> to return the second column.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">b =</span> <span class="dv">6</span>:<span class="dv">10</span>, <span class="dt">c =</span> <span class="dv">11</span>:<span class="dv">15</span>)</code></pre></div>
+a b c — — — 1 6 11 2 7 12 3 8 13 4 9 14 5 10 15
 <div class="warning">
 <p>
 Whenever I’m going to output a data.frame, I’m going to output in a formatted way as opposed to how it’ll appear in the console. This is to make it easier to see the changes as the console view can get a little much! You can use the <code>View()</code> function to see the data.frame in a nice browser in RStudio.
@@ -299,7 +300,6 @@ Whenever I’m going to output a data.frame, I’m going to output in a formatte
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[<span class="dv">1</span>, ]</code></pre></div>
 <pre><code>##   a b  c
 ## 1 1 6 11</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kable</span>(mydf[<span class="dv">1</span>, ])</code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -420,6 +420,30 @@ Whenever I’m going to output a data.frame, I’m going to output in a formatte
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[<span class="dv">23</span>:<span class="dv">29</span>]</code></pre></div>
 <pre><code>## [1] &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot; NA  NA  NA</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf[<span class="dv">5</span>:<span class="dv">6</span>, ]</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">a</th>
+<th align="right">b</th>
+<th align="right">c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5</td>
+<td align="right">5</td>
+<td align="right">10</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td>NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="grid-references-with-names" class="section level2">
@@ -517,7 +541,7 @@ letters[earlyletters]</code></pre></div>
 <p>This can be simplified by doing the comparison directly within the grid reference.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[letters &lt;=<span class="st"> &quot;e&quot;</span>]</code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;</code></pre>
-<p>You’re not limited to single comparisons either. You can use AND (<code>&amp;</code>) and OR (<code>|</code>) to produce compount statements.</p>
+<p>You’re not limited to single comparisons either. You can use AND (<code>&amp;</code>) and OR (<code>|</code>) to produce compound statements.</p>
 <p>If we wanted every letter including and between “b” and “e” we can check to see if which elements of <code>letters</code> are “b” or are after “b” and combine this with our existing “e” check using an <code>&amp;</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">letters[letters &lt;=<span class="st"> &quot;e&quot;</span> &amp;<span class="st"> </span>letters &gt;<span class="st"> &quot;b&quot;</span>]</code></pre></div>
 <pre><code>## [1] &quot;c&quot; &quot;d&quot; &quot;e&quot;</code></pre>
@@ -973,7 +997,44 @@ mylist</code></pre></div>
 </tr>
 </tbody>
 </table>
-<p>Rows usually get deleted by being overwritten.</p>
+<p>Rows usually get deleted by selecting everything but the the rows you wnt to discard and overwriting the data.frame variable.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf &lt;-<span class="st"> </span>mydf[-<span class="dv">1</span>, ]</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">a</th>
+<th align="right">b</th>
+<th align="right">d</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3</td>
+<td align="right">3.000000</td>
+<td align="right">8</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td align="right">4.000000</td>
+<td align="right">9</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td align="right">5.000000</td>
+<td align="right">10</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td align="right">3.141593</td>
+<td align="right">Inf</td>
+<td align="right">5</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="summary-4" class="section level2">
 <h2><span class="header-section-number">8.8</span> Summary</h2>
@@ -1023,7 +1084,7 @@ mylist</code></pre></div>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-gitbook.require(["gitbook"], function(gitbook) {
+require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

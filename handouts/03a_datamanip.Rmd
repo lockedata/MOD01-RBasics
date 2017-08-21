@@ -40,7 +40,9 @@ In a data.frame, you can provide one or two values. These are comma seperated in
 mydf<-data.frame(a=1:5, b=6:10, c=11:15)
 ```
 
-
+```{r echo=FALSE}
+kable(mydf)
+```
 ```{block, type="warning"}
 Whenever I'm going to output a data.frame, I'm going to output in a formatted way as opposed to how it'll appear in the console. This is to make it easier to see the changes as the console view can get a little much! You can use the `View()` function to see the data.frame in a nice browser in RStudio.
 ```
@@ -50,7 +52,7 @@ If we provide a row number by using `df[ X , ]`, we will get a data.frame object
 mydf[1, ]
 ```
 
-```{r}
+```{r echo=FALSE}
 kable(mydf[1, ])
 ```
 
@@ -138,6 +140,9 @@ letters[23:29]
 mydf[5:6, ]
 ```
 
+```{r echo=FALSE}
+kable(mydf[5:6, ])
+```
 
 ## Grid references with names
 Where names are used, we can provide these names in our grid references.
@@ -203,7 +208,7 @@ This can be simplified by doing the comparison directly within the grid referenc
 letters[ letters <= "e" ]
 ```
 
-You're not limited to single comparisons either. You can use AND (`&`) and OR (`|`) to produce compount statements. 
+You're not limited to single comparisons either. You can use AND (`&`) and OR (`|`) to produce compound statements. 
 
 If we wanted every letter including and between "b" and "e" we can check to see if which elements of `letters` are "b" or are after "b" and combine this with our existing "e" check using an `&`.
 
@@ -416,7 +421,16 @@ mydf$c<-NULL
 kable(mydf)
 ```
 
-Rows usually get deleted by being overwritten.
+Rows usually get deleted by selecting everything but the the rows you wnt to discard and overwriting the data.frame variable.
+
+```{r}
+mydf<-mydf[-1,]
+```
+
+```{r echo=FALSE}
+kable(mydf)
+```
+
 
 ## Summary
 In R, you can subset objects using positive, negative, and boolean values.  You're able to apply the same methodology to vectors, lissts, and data.frames.

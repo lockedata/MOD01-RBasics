@@ -297,7 +297,7 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Sys.Date</code></pre></div>
 <pre><code>## function () 
 ## as.Date(as.POSIXlt(Sys.time()))
-## &lt;bytecode: 0x000000001cda0b28&gt;
+## &lt;bytecode: 0x0000000026a9e3b8&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>The first line(s) show how the arguments are specified. Subsequent lines show the code and the final lines starting with <code>&lt;</code> can be mostly ignored.</p>
 </div>
@@ -310,7 +310,7 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Sys.Date</code></pre></div>
 <pre><code>## function () 
 ## as.Date(as.POSIXlt(Sys.time()))
-## &lt;bytecode: 0x000000001cda0b28&gt;
+## &lt;bytecode: 0x0000000026a9e3b8&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>Looking at the function definition, we can see that there are no arguments specified in the first line.</p>
 </div>
@@ -332,13 +332,13 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rnorm</code></pre></div>
 <pre><code>## function (n, mean = 0, sd = 1) 
 ## .Call(C_rnorm, n, mean, sd)
-## &lt;bytecode: 0x0000000025687138&gt;
+## &lt;bytecode: 0x00000000276e2160&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <p>Looking at how <code>rnorm</code> is specified we can see that we’re expected to provide <code>n</code>, but <code>mean</code> and <code>sd</code> are given values of 0 and 1 repsectively by default.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>)
 <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1]  0.5021887 -0.2194608 -1.7279560 -1.7710382 -0.3629692
-## [1] 13.083307 10.305561  9.727827  9.256583 11.872668</code></pre>
+<pre><code>## [1]  0.2933191 -1.3587019  0.4306072  0.1248105 -0.9754087
+## [1] 12.84412 10.66071 12.62067  9.32781 12.19731</code></pre>
 </div>
 <div id="unlimited-inputs" class="section level3">
 <h3><span class="header-section-number">9.3.4</span> Unlimited inputs</h3>
@@ -371,8 +371,8 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <p>We can provide names<a href="#fn28" class="footnoteRef" id="fnref28"><sup>28</sup></a> for clarity or so we can use arguments out of order if we prefer to.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>)
 <span class="kw">rnorm</span>(<span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">2</span>, <span class="dt">n =</span> <span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1] 11.681051  7.960725 11.495311  8.964133 11.594954
-## [1]  9.331615 11.141213 10.983987 11.793962 10.182443</code></pre>
+<pre><code>## [1] 13.095607  5.738662  9.202036 11.416652  8.709407
+## [1] 12.099525 13.235927 14.441416 10.804988  8.676711</code></pre>
 <p>A common behaviour change that you’ll need to work with is how missing (<code>NA</code>) values get handled. Functions that allow you change this behaviour, usually have an argument called things like <code>na.rm</code>, <code>na.omit</code>, and <code>na.action</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="ot">NA</span>)
 <span class="kw">sum</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="ot">NA</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
@@ -388,7 +388,7 @@ Try getting the autocomplete to work with the function <code>tail()</code>.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">predict</code></pre></div>
 <pre><code>## function (object, ...) 
 ## UseMethod(&quot;predict&quot;)
-## &lt;bytecode: 0x0000000013584330&gt;
+## &lt;bytecode: 0x0000000013582890&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <p>The <code>predict()</code> function then determines what type of model object you’ve provided it and passes the model, and any other values you provided, to the relevant function, returning back the results.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">linearMod &lt;-<span class="st"> </span><span class="kw">lm</span>(Sepal.Length ~<span class="st"> </span>., <span class="dt">data =</span> iris)
@@ -437,7 +437,7 @@ logisticMod &lt;-<span class="st"> </span><span class="kw">glm</span>(Species ~<
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-gitbook.require(["gitbook"], function(gitbook) {
+require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,

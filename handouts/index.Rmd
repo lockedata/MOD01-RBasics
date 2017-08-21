@@ -13,7 +13,7 @@ output:
 
 ```{r setup, include=FALSE}
 library(knitr)
-opts_chunk$set( tidy=TRUE, results="hold", cache=TRUE) 
+opts_chunk$set( tidy=TRUE, results="hold") 
 ```
 
 
