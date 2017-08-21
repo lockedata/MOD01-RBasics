@@ -315,7 +315,7 @@ rownames(mydf)
 
 
 ## Lists
-**List**s are a catch-all object. They literally hold any and all types the objects covered in this section, including list objects!
+**List**s are a catch-all object. They literally hold any and all types of the objects covered in this section, including list objects!
 
 You can create lists with the `list()` function, and like with our other objects you can have named and unnamed elements.
 
