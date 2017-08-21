@@ -43,6 +43,7 @@ mydf<-data.frame(a=1:5, b=6:10, c=11:15)
 ```{r echo=FALSE}
 kable(mydf)
 ```
+
 ```{block, type="warning"}
 Whenever I'm going to output a data.frame, I'm going to output in a formatted way as opposed to how it'll appear in the console. This is to make it easier to see the changes as the console view can get a little much! You can use the `View()` function to see the data.frame in a nice browser in RStudio.
 ```

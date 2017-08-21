@@ -290,7 +290,42 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">8.2.2</span> Single value selection with data.frames</h3>
 <p>In a data.frame, you can provide one or two values. These are comma seperated inside the square brackets and row numbers get specified first e.g. <code>iris[ row , column ]</code>. If you want to select all rows or all columns you leave that part of the reference blank e.g. <code>iris[1, ]</code> to return the first row and <code>iris[ ,2]</code> to return the second column.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">b =</span> <span class="dv">6</span>:<span class="dv">10</span>, <span class="dt">c =</span> <span class="dv">11</span>:<span class="dv">15</span>)</code></pre></div>
-a b c — — — 1 6 11 2 7 12 3 8 13 4 9 14 5 10 15
+<table>
+<thead>
+<tr class="header">
+<th align="right">a</th>
+<th align="right">b</th>
+<th align="right">c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">7</td>
+<td align="right">12</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">8</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">9</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">10</td>
+<td align="right">15</td>
+</tr>
+</tbody>
+</table>
 <div class="warning">
 <p>
 Whenever I’m going to output a data.frame, I’m going to output in a formatted way as opposed to how it’ll appear in the console. This is to make it easier to see the changes as the console view can get a little much! You can use the <code>View()</code> function to see the data.frame in a nice browser in RStudio.
