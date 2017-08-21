@@ -72,6 +72,15 @@ mydf[3,3]
 ### Single value selection with lists
 When we use the grid reference system to select stuff from lists, R returns a list with just the element you selected in it.
 
+Our example list contains two vectors. Both vectors are stored as elements but the sequence oen to three was additionally given a name.
+
+```{r}
+mylist<-list(a=1:3, LETTERS)
+mylist
+```
+
+We can select elements based on their position, irrespective of whether they have names.
+
 ```{r}
 mylist[2]
 ```
