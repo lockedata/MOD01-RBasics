@@ -26,7 +26,7 @@ To select the second element in the vector `letters` we put it's position (2) in
 letters[2]
 ```
 
-We don't have to just select values from objects that are stored either. For instance, we can generate a sequence of numbers and subset from it directly.
+We're not bound to selecting values from objects that are stored either! For instance, we can generate a sequence of numbers and subset from it directly.
 ```{r}
 (10:25)[13]
 ```
@@ -49,7 +49,7 @@ Whenever I'm going to output a data.frame, I'm going to output in a formatted wa
 ```
 
 If we provide a row number by using `df[ X , ]`, we will get a data.frame object back with just one row.
-```{r}
+```{r eval=false}
 mydf[1, ]
 ```
 
@@ -112,7 +112,7 @@ kable(mydf[1:3,c(1,2)])
 ```
 
 ### Negative values
-As well as positive specifications, we can also use negative values. These tell R which bits of the grid that you don't want.
+As well as positive specifications, we can also use negative values. These tell R which bits of the grid that you *don't* want.
 
 Here I exclude the first five letters.
 ```{r}
@@ -177,7 +177,7 @@ Like with SQL, you can apply a filter by telling R which rows (or elements) it s
 
 We can provide hard-coded boolean values to the row and column parts of our grid reference system.
 
-For instance, if I wanted to exclude the second column in the data.frame I could say to include the first and third by giving them by giving them a TRUE in my filter and I could exclude the second column by giving it a FALSE in my filter.
+For instance, if I wanted to exclude the second column in the data.frame I could say to include the first and third by giving them a TRUE in my filter and I could exclude the second column by giving it a FALSE in my filter.
 
 ```{r eval=FALSE}
 mydf[, c(TRUE,FALSE,TRUE)]
@@ -211,7 +211,7 @@ letters[ letters <= "e" ]
 
 You're not limited to single comparisons either. You can use AND (`&`) and OR (`|`) to produce compound statements. 
 
-If we wanted every letter including and between "b" and "e" we can check to see if which elements of `letters` are "b" or are after "b" and combine this with our existing "e" check using an `&`.
+If we wanted every letter between (and including) "b" and "e" we can check to see which elements of `letters` are "b" or are after "b" and combine this with our existing "e" check using an `&`.
 
 ```{r}
 letters[ letters <= "e" & letters > "b"]
@@ -277,9 +277,9 @@ letters[c(TRUE,FALSE)]
 
 ## Mixed grid references
 
-You cannot provide a mix of element positions, element names, and booleans in a single vector to get a subset. This is because you have to provide a vector and a vector containing a mix of datatypes will convert everything to a dat single datatype.
+You cannot provide a mix of element positions, element names, and booleans in a single vector to get a subset. This is because you have to provide a vector and a vector containing a mix of datatypes will convert everything to a single datatype.
 
-We can verify with our list. We've seen referring to position 1 work and referring to the element called "a" so if we wanted to specify both of these, we could put them in a vector. The conversion to strings happens though and then  R searches the list for an element called "1", can't find it, and returns an NA.
+We can verify with our list. We've seen how referring to position 1 works, and referring to the element called "a", so if we wanted to specify both of these we could put them in a vector. The conversion to strings happens though and then  R searches the list for an element called "1", can't find it, and returns an NA.
 
 ```{r}
 c(1,"a")
@@ -343,7 +343,7 @@ letters[27]<-"|"
 tail(letters)
 ```
 
-Similarly, we can specify a row in a data.frame and provide all teh necessary values to make a complete row.
+Similarly, we can specify a row in a data.frame and provide all the necessary values to make a complete row.
 
 ```{r}
 mydf[6,] <- c(pi, Inf, -Inf)
@@ -404,7 +404,7 @@ mydf<-mydf[-1,]
 kable(mydf)
 ```
 
-An alternative method is to get a specify a subset and assign the the value NULL. NULL removes contents in lists and data.frames.
+An alternative method is to specify a subset and assign the the value NULL. NULL removes contents in lists and data.frames.
 
 In a list, I can specify one or more elements and assign NULL to it, in order to remove the specific elements.
 
@@ -434,7 +434,7 @@ kable(mydf)
 
 
 ## Summary
-In R, you can subset objects using positive, negative, and boolean values.  You're able to apply the same methodology to vectors, lissts, and data.frames.
+In R, you can subset objects using positive, negative, and boolean values.  You're able to apply the same methodology to vectors, lists, and data.frames.
 
 When working with data.frames or lists you can use the dollar (`$`) notation to refer to values in a succinct way. You can use this within data.frame subsets to build filters for rows based off the values in columns.
 
