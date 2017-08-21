@@ -60,7 +60,7 @@ Other functions only have a single allowed input. `length()` returns the length 
 length
 ```
 
-We can see in this definition^[the code looks a bit odd - this is because it's specified a bit differently to most functions, but fear not! In R, there are some different ways of writing code. The normal way is called **S3** but functions that are designed to work with properties of objects like length use a different system called **S4**. For the most part you'll rarely need to dig into S4 code as most R functionality is built in **S3** and will allow you to check out it's code easily.] that the function takes the argument `x`.
+We can see in this definition^[the code looks a bit odd - this is because it's specified a bit differently to most functions, but fear not! In R, there are some different ways of writing code. The normal way is called **S3** but functions that are designed to work with properties of objects like length use a different system called **S4**. For the most part you'll rarely need to dig into S4 code as most R functionality is built in S3 and will allow you to check out it's code easily.] that the function takes the argument `x`.
 
 ### Many inputs
 Some functions have multiple inputs, although not all of them are necessarily **mandatory**. `head()` and `tail()` have been used so far with only a single input but they take an optional argument as to how many elements should be returned.
