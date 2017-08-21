@@ -111,11 +111,13 @@ I'll often need to make a chart, and then make that chart for a lot of different
 
 You can make a chart in R using the package [ggplot2]() to build a chart of all data. 
 
-I'm going to use the Dino the Datasaurus and his Data Dozen buddies^[The original Datasaurus was created by Alberto Cairo. [thefunctionalart.com](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html)
+I'm going to use Dino the Datasaurus and his Data Dozen buddies^[The original Datasaurus was created by Alberto Cairo. [thefunctionalart.com](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html)] as example data here. Dino and his friends have the same summary statistics but very diffent data distributions. They show why visualising data is so incredibly vital.
 
+```{block, type="protip"}
 The other Dozen were generated using simulated annealing and the process is described in the paper *Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing* by Justin Matejka and George Fitzmaurice. [autodeskresearch.com](https://www.autodeskresearch.com/publications/samestats)
 
-In the paper, Justin and George simulate a variety of datasets that the same summary statistics to the Datasaurus but have very different distributions.] as example data here. Dino and his friends have the same summary statistics but very diffent data distributions. They show why visualising data is so incredibly vital.
+In the paper, Justin and George simulate a variety of datasets that have the same summary statistics to the Datasaurus but have very different distributions.
+```
 
 ```{r}
 library(ggplot2)
