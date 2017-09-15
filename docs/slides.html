@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Locke Data" />
+  <title>R fundamentals</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="C:\Users\steph\Dropbox\Locke Data\Locke Data Training\MOD01RBasics\docs\slides_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="C:\Users\steph\Dropbox\Locke Data\Locke Data Training\MOD01RBasics\docs\slides_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="lockedata.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">R fundamentals</h1>
+    <h2 class="author">Locke Data</h2>
+</section>
+
+<section><section id="about-r" class="titleslide slide level1"><h1>About R</h1></section><section id="r" class="slide level2">
+<h1>R</h1>
+<ul>
+<li>Open source language written in 2001</li>
+<li>Backwards compatible with commercial but out of support language S(plus)</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVar &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>)
+<span class="kw">plot</span>(myVar)</code></pre></div>
+<p><img src="slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="768" /></p>
+</section><section id="things-to-keep-in-mind" class="slide level2">
+<h1>Things to keep in mind</h1>
+<ul>
+<li>R works in-memory</li>
+<li>R works on a single processor</li>
+<li>R is basically very old and so <em>quirky</em></li>
+<li>R is case-sensitive</li>
+<li>For later “There’s a package for that”</li>
+</ul>
+</section><section id="alt-r" class="slide level2">
+<h1>Alt-R</h1>
+<p>As R is open source, there are some commercial implementations of R:</p>
+<ul>
+<li>Microsoft R Server</li>
+<li>TIBCO TERRE</li>
+<li>Oracle</li>
+</ul>
+</section><section id="why-use-r" class="slide level2">
+<h1>Why use R</h1>
+<ul>
+<li>Great for stats and data viz</li>
+<li>Super extendable</li>
+<li>Use lots of other languages through it</li>
+</ul>
+</section><section id="why-use-r-1" class="slide level2">
+<h1>Why use R</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A demo of dynamic CSV processing</span>
+<span class="kw">list.files</span>(<span class="st">&quot;../data&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">map_df</span>(read_csv, <span class="dt">col_types=</span><span class="kw">cols</span>(<span class="st">&quot;c&quot;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">bind_rows</span>() -&gt;
+<span class="st">  </span>allmydata</code></pre></div>
+</section><section id="why-use-r-2" class="slide level2">
+<h1>Why use R</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p&lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">readFun</span>(<span class="st">&quot;../data/csv1.csv&quot;</span>), <span class="kw">aes</span>(<span class="dt">x=</span>floors)) +
+<span class="st">    </span><span class="kw">geom_histogram</span>() 
+p</code></pre></div>
+<p><img src="slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="768" /></p>
+</section><section id="why-use-r-3" class="slide level2">
+<h1>Why use R</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p %+%<span class="st"> </span><span class="kw">readFun</span>(<span class="st">&quot;../data/csv3.csv&quot;</span>)</code></pre></div>
+<p><img src="slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="768" /></p>
+</section><section id="why-use-r-4" class="slide level2">
+<h1>Why use R</h1>
+<p><a href="https://stef.shinyapps.io/cost_of_coffee/">Coffee demo</a></p>
+</section></section>
+<section><section id="using-rstudio" class="titleslide slide level1"><h1>Using RStudio</h1></section><section id="ide" class="slide level2">
+<h1>IDE</h1>
+<p>An IDE is an Interactive Development Environment. The aim is to make coding easier and, therefore, make you more productive.</p>
+</section><section id="where-everything-is" class="slide level2">
+<h1>Where everything is</h1>
+<p><img src="C:/Users/steph/Dropbox/Locke%20Data/Locke%20Data%20Training/MOD01RBasics/slides/rstudiolayout.png" /></p>
+</section><section id="code-completion" class="slide level2">
+<h1>Code-completion</h1>
+<p>As we’re typing Rstudio can help us out.</p>
+</section><section id="projects" class="slide level2">
+<h1>Projects</h1>
+<ul>
+<li>Projects are folder structures with an extra file.</li>
+<li>This extra file is used by RStudio to open the directory.</li>
+<li>Projects can have some options associated with them.</li>
+</ul>
+</section><section id="exercises" class="slide level2">
+<h1>Exercises</h1>
+<ol type="1">
+<li>Create a new project called Rtraining</li>
+<li>Create a new file called MyFirstScript.R</li>
+<li>Use code completion to see what functions are available to you that begin with <code>a</code></li>
+<li>Q: Will you get a different list if you typed <code>A</code>?</li>
+</ol>
+</section></section>
+<section><section id="useful-resources" class="titleslide slide level1"><h1>Useful resources</h1></section><section id="local-help" class="slide level2">
+<h1>Local help</h1>
+<ul>
+<li>Code-completion</li>
+<li><code>?function</code> and <code>??function</code></li>
+</ul>
+<p><img src="C:/Users/steph/Dropbox/Locke%20Data/Locke%20Data%20Training/MOD01RBasics/slides/help.png" /></p>
+</section><section id="cheatsheets" class="slide level2">
+<h1>Cheatsheets</h1>
+<ul>
+<li><a href="https://www.rstudio.com/resources/cheatsheets/">RStudio</a></li>
+</ul>
+</section><section id="online-resources" class="slide level2">
+<h1>Online resources</h1>
+<ul>
+<li><a href="https://stackoverflow.com">Stack Overflow</a></li>
+<li><a href="https://twitter.com/search?q=%23rstats">Twitter #rstats</a></li>
+<li><a href="https://www.r-pkg.org/">Metacran</a></li>
+<li><a href="rdocumentation.org">RDocumentation</a></li>
+</ul>
+</section><section id="offline-in-person" class="slide level2">
+<h1>Offline / in-person</h1>
+<ul>
+<li><a href="http://jumpingrivers.github.io/meetingsR">Meetups</a></li>
+<li><a href="https://jumpingrivers.github.io/meetingsR/events.html">Conferences</a></li>
+</ul>
+</section></section>
+<section><section id="r-super-basics" class="titleslide slide level1"><h1>R super-basics</h1></section><section id="r-data-types" class="slide level2">
+<h1>R data types</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Data type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Integer</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Logical</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td>Numeric</td>
+<td>1.1</td>
+</tr>
+<tr class="even">
+<td>String / character</td>
+<td>“Red”</td>
+</tr>
+<tr class="odd">
+<td>Factor (enumerated string)</td>
+<td>“Amber” or 2 in c(“Red”,“Amber”,“Green”)</td>
+</tr>
+<tr class="even">
+<td>Complex</td>
+<td>i</td>
+</tr>
+<tr class="odd">
+<td>Date</td>
+<td>“2017-09-15”</td>
+</tr>
+</tbody>
+</table>
+</section><section id="maths" class="slide level2">
+<h1>Maths</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Operator</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Subtract</td>
+<td>-</td>
+<td><code>5 - 4</code> = 1</td>
+</tr>
+<tr class="even">
+<td>Add</td>
+<td>+</td>
+<td><code>5 + 4</code> = 9</td>
+</tr>
+<tr class="odd">
+<td>Multiply</td>
+<td>*</td>
+<td><code>5 * 4</code> = 20</td>
+</tr>
+<tr class="even">
+<td>Divide</td>
+<td>/</td>
+<td><code>5 / 4</code> = 1.25</td>
+</tr>
+<tr class="odd">
+<td>Raise to the power</td>
+<td>^</td>
+<td><code>5 ^ 4</code> = 625</td>
+</tr>
+<tr class="even">
+<td>Modulus</td>
+<td>%%</td>
+<td><code>9 %% 4</code> = 1</td>
+</tr>
+<tr class="odd">
+<td>Integer division</td>
+<td>%/%</td>
+<td><code>9 %/% 4</code> = 2</td>
+</tr>
+<tr class="even">
+<td>Basic sequence</td>
+<td>:</td>
+<td><code>1:3</code> = 1, 2, 3</td>
+</tr>
+</tbody>
+</table>
+</section><section id="exercises-1" class="slide level2">
+<h1>Exercises</h1>
+<ol type="1">
+<li>See if <code>pi</code> exists</li>
+<li>What is the result of <code>pi^2</code>?</li>
+</ol>
+</section><section id="comparison" class="slide level2">
+<h1>Comparison</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Operator</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Less than</td>
+<td>&lt;</td>
+<td><code>5 &lt; 5</code> = FALSE</td>
+</tr>
+<tr class="even">
+<td>Less than or equal to</td>
+<td>&lt;=</td>
+<td><code>5 &lt;= 5</code> = TRUE</td>
+</tr>
+<tr class="odd">
+<td>Greater than</td>
+<td>&gt;</td>
+<td><code>5 &gt; 5</code> = FALSE</td>
+</tr>
+<tr class="even">
+<td>Greater than or equal to</td>
+<td>&gt;=</td>
+<td><code>5 &gt;= 5</code> = TRUE</td>
+</tr>
+<tr class="odd">
+<td>Equal</td>
+<td>all.equal()</td>
+<td><code>all.equal(0.5 - 0.3,0.3 - 0.1)</code> is TRUE</td>
+</tr>
+<tr class="even">
+<td>Exactly equal</td>
+<td>==</td>
+<td><code>(0.5 - 0.3) == (0.3 - 0.1)</code> is FALSE, 2 == 2 is TRUE</td>
+</tr>
+<tr class="odd">
+<td>Not equal</td>
+<td>!=</td>
+<td><code>(0.5 - 0.3) != (0.3 - 0.1)</code> is TRUE, 2 != 2 is FALSE</td>
+</tr>
+</tbody>
+</table>
+</section><section id="exercises-2" class="slide level2">
+<h1>Exercises</h1>
+<ol type="1">
+<li>Is pi greater than 3?</li>
+<li>What are the results if you check to see if a sequence of 1 to 5 is less than or equal to 3?</li>
+</ol>
+</section><section id="logic" class="slide level2">
+<h1>Logic</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Operator</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Not</td>
+<td>!</td>
+<td><code>!TRUE</code> is FALSE</td>
+</tr>
+<tr class="even">
+<td>And</td>
+<td>&amp;</td>
+<td><code>TRUE &amp; FALSE</code> is FALSE, <code>c(TRUE,TRUE) &amp; c(FALSE,TRUE)</code> is FALSE, TRUE</td>
+</tr>
+<tr class="odd">
+<td>Or</td>
+<td><code>|</code></td>
+<td><code>TRUE | FALSE</code> is TRUE, <code>c(TRUE,FALSE) | c(FALSE,FALSE)</code> is TRUE, FALSE</td>
+</tr>
+<tr class="even">
+<td>Xor</td>
+<td>xor()</td>
+<td><code>xor(TRUE,FALSE)</code> is TRUE</td>
+</tr>
+<tr class="odd">
+<td>Bitwise And</td>
+<td>&amp;&amp;</td>
+<td><code>c(TRUE,TRUE) &amp;&amp; c(FALSE,TRUE)</code> is FALSE</td>
+</tr>
+<tr class="even">
+<td>Bitwise Or</td>
+<td><code>||</code></td>
+<td><code>c(TRUE,FALSE) || c(FALSE,FALSE)</code> is TRUE</td>
+</tr>
+<tr class="odd">
+<td>In</td>
+<td>%in%</td>
+<td><code>&quot;Red&quot; %in% c(&quot;Blue&quot;,&quot;Red&quot;)</code> is TRUE</td>
+</tr>
+<tr class="even">
+<td>Not in</td>
+<td>!( x %in% y)</td>
+<td><code>!(&quot;Red&quot; %in% c(&quot;Blue&quot;,&quot;Red&quot;))</code> = FALSE</td>
+</tr>
+</tbody>
+</table>
+</section><section id="exercises-3" class="slide level2">
+<h1>Exercises</h1>
+<ol type="1">
+<li>See what’s in the variable <code>LETTERS</code></li>
+<li>Write a check to see if “a” is present in <code>LETTERS</code></li>
+<li>Find out which values in the sequence 1 to 10 are greater than or equal to 3 and less than 7</li>
+</ol>
+</section><section id="states" class="slide level2">
+<h1>States</h1>
+<table>
+<thead>
+<tr class="header">
+<th>States</th>
+<th>Representation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>True</td>
+<td><code>TRUE</code> <code>1</code></td>
+</tr>
+<tr class="even">
+<td>False</td>
+<td><code>FALSE</code> <code>0</code></td>
+</tr>
+<tr class="odd">
+<td>Empty</td>
+<td><code>NULL</code></td>
+</tr>
+<tr class="even">
+<td>Unknown</td>
+<td><code>NA</code></td>
+</tr>
+<tr class="odd">
+<td>Not a number e.g. <code>0/0</code></td>
+<td><code>NaN</code></td>
+</tr>
+<tr class="even">
+<td>Infinite e.g. <code>1/0</code></td>
+<td><code>Inf</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="other-key-syntax" class="slide level2">
+<h1>Other key syntax</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Operator</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Create / update a variable</td>
+<td>&lt;-</td>
+<td><code>a &lt;- 10</code></td>
+</tr>
+<tr class="even">
+<td>Create / update a variable</td>
+<td>=</td>
+<td><code>a = 10</code></td>
+</tr>
+<tr class="odd">
+<td>Create / update a variable</td>
+<td>-&gt;</td>
+<td><code>10 -&gt; a</code></td>
+</tr>
+<tr class="even">
+<td>Comment</td>
+<td>#</td>
+<td><code># This is my comment</code></td>
+</tr>
+<tr class="odd">
+<td>Help</td>
+<td>?</td>
+<td><code>?data.table</code></td>
+</tr>
+<tr class="even">
+<td>Identifier</td>
+<td>`</td>
+<td><code>`1`&lt;-2</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="exercises-4" class="slide level2">
+<h1>Exercises</h1>
+<ol type="1">
+<li>Amend the lines of code you’ve written so far to store the calculations in variables</li>
+<li>Add some comments that help you remember what each line taught you</li>
+</ol>
+</section></section>
+<section><section id="r-objects" class="titleslide slide level1"><h1>R objects</h1></section><section id="in-memory" class="slide level2">
+<h1>In-memory</h1>
+<ul>
+<li>All variables / objects will get stored in-memory</li>
+<li>You need memory for operations too</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ls()</code></td>
+<td>List what’s in-memory</td>
+</tr>
+<tr class="even">
+<td><code>rm()</code></td>
+<td>Remove things from memory</td>
+</tr>
+</tbody>
+</table>
+</section><section id="vectors" class="slide level2">
+<h1>Vectors</h1>
+<p>A 1D object containing a single type of data</p>
+<table>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>c()</code></td>
+<td>Combine values into a vector</td>
+</tr>
+<tr class="even">
+<td><code>:</code></td>
+<td>Generate a sequence</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;orange&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;red&quot;    &quot;blue&quot;   &quot;orange&quot;</code></pre>
+</section><section id="exercises-5" class="slide level2">
+<h1>Exercises</h1>
+<ol type="1">
+<li>Make a vector containing the numbers 1 to 50</li>
+<li>Make a vector containing two words</li>
+<li>What happens when you combine these two vectors?</li>
+</ol>
+</section><section id="data.frames" class="slide level2">
+<h1>Data.frames</h1>
+<p>A 2D object containing multiple classes of data</p>
+<table>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>data.frame()</code></td>
+<td>Construct a data.frame</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">2</span>,<span class="dt">b=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>))</code></pre></div>
+<pre><code>##   a    b
+## 1 1 blue
+## 2 2  red</code></pre>
+</section><section id="exercises-6" class="slide level2">
+<h1>Exercises</h1>
+<ol type="1">
+<li>Make a data.frame the two vectors you created in the vectors section</li>
+<li>What happened to your text vector?</li>
+</ol>
+</section><section id="lists" class="slide level2">
+<h1>Lists</h1>
+<p>An object containing multiple types of objects</p>
+<table>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>list()</code></td>
+<td>Construct a list</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">2</span>,
+     <span class="dt">b=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>), 
+     <span class="dt">df=</span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">2</span>,<span class="dt">b=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>)))</code></pre></div>
+<pre><code>## $a
+## [1] 1 2
+## 
+## $b
+## [1] &quot;blue&quot; &quot;red&quot; 
+## 
+## $df
+##   a    b
+## 1 1 blue
+## 2 2  red</code></pre>
+</section><section id="exercises-7" class="slide level2">
+<h1>Exercises</h1>
+<ol type="1">
+<li>Make a list containing some of the variables you’ve created so far.</li>
+</ol>
+</section><section id="others" class="slide level2">
+<h1>Others</h1>
+<ul>
+<li><strong>Matrix</strong> A 2D object of one data type</li>
+<li><strong>Array</strong> A nD object of one data type</li>
+</ul>
+</section></section>
+<section><section id="r-functions" class="titleslide slide level1"><h1>R functions</h1></section><section id="using-a-function" class="slide level2">
+<h1>Using a function</h1>
+<p>A function does some computation on an object. The use of a function consists of: 1. A function’s name 2. Parentheses 3. 0 or more inputs</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Sys.Date</span>()</code></pre></div>
+<pre><code>## [1] &quot;2017-09-15&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="dv">1</span>:<span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] 6</code></pre>
+</section><section id="function-arguments" class="slide level2">
+<h1>Function arguments</h1>
+<p>Functions can have:</p>
+<ul>
+<li>0 arguments e.g. <code>Sys.Date()</code></li>
+<li>all mandatory arguments e.g. <code>length()</code></li>
+<li>optional arguments e.g. <code>sum()</code></li>
+<li>arguments used out of position by using their names e.g. `rnorm(mean=1, n=10)</li>
+</ul>
+</section><section id="common-functions" class="slide level2">
+<h1>Common functions</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Area</th>
+<th>Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Metadata</td>
+<td><code>class</code>, <code>mode</code>,<code>length</code>, <code>names</code>, <code>nrow</code>, <code>ncol</code></td>
+</tr>
+<tr class="even">
+<td>Measures</td>
+<td><code>mean</code>, <code>median</code>, <code>mode</code>, <code>range</code>, <code>sum</code>, <code>cumsum</code></td>
+</tr>
+<tr class="odd">
+<td>Strings</td>
+<td><code>grep</code>, <code>gsub</code>, <code>substr</code>, <code>trim</code>, <code>toupper</code>, <code>paste</code></td>
+</tr>
+<tr class="even">
+<td>Files</td>
+<td><code>list.dirs</code>, <code>list.files</code>, <code>file.exists</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="finding-functions" class="slide level2">
+<h1>Finding functions</h1>
+<p>Find functions by:</p>
+<ul>
+<li>Using code-completion</li>
+<li>Using help-pages</li>
+<li>Using <code>?mean</code></li>
+<li>Using <code>??mean</code></li>
+<li>Using <code>apropos(&quot;mean&quot;)</code></li>
+</ul>
+</section><section id="seeing-how-functions-work" class="slide level2">
+<h1>Seeing how functions work</h1>
+<p>You can examine how many functions work by just typing their name without any parentheses.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Sys.Date</code></pre></div>
+<pre><code>## function () 
+## as.Date(as.POSIXlt(Sys.time()))
+## &lt;bytecode: 0x0000000020381430&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+</section><section id="exercises-8" class="slide level2">
+<h1>Exercises</h1>
+<ol type="1">
+<li>Find a function that involves Normal distributions</li>
+<li>Find some functions operate on files</li>
+</ol>
+</section></section>
+<section><section id="r-packages" class="titleslide slide level1"><h1>R packages</h1></section><section id="what-is-a-package" class="slide level2">
+<h1>What is a package?</h1>
+<p>An R package is a bundle of functions and/or datasets. It extends the capabilities that the “base” and “recommended” R packages have. This gives us the ability to do a lot more.</p>
+</section><section id="using-packages" class="slide level2">
+<h1>Using packages</h1>
+<ul>
+<li>Install a package with <code>install.packages()</code></li>
+<li>Load a package with <code>library()</code></li>
+<li>See what’s in a package / reference it without loading <code>packagename::function()</code></li>
+<li>See what’s in a package but not exposed to the public <code>packagename:::function()</code></li>
+</ul>
+</section><section id="useful-packages" class="slide level2">
+<h1>Useful packages</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Area</th>
+<th>Packages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data manipulation</td>
+<td><code>dplyr</code>, <code>data.table</code>,<code>tidyr</code>, <code>stringr</code>, <code>forcats</code></td>
+</tr>
+<tr class="even">
+<td>Data visualisation</td>
+<td><code>ggplot2</code>,<code>leaflet</code>,<code>ggraph</code></td>
+</tr>
+<tr class="odd">
+<td>Statistics</td>
+<td><code>tidytext</code>, <code>caret</code>, <code>broom</code></td>
+</tr>
+<tr class="even">
+<td>I/O</td>
+<td><code>RODBC</code>, <code>DBI</code>, <code>data.table</code>, <code>readxl</code></td>
+</tr>
+<tr class="odd">
+<td>Web</td>
+<td><code>rvest</code>, <code>httr</code>, <code>urltools</code></td>
+</tr>
+<tr class="even">
+<td>Outputs</td>
+<td><code>rmarkdown</code>, <code>revealjs</code>, <code>shiny</code>, <code>flexdashboards</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="finding-packages" class="slide level2">
+<h1>Finding packages</h1>
+<p><img src="C:/Users/steph/Dropbox/Locke%20Data/Locke%20Data%20Training/MOD01RBasics/slides/rpackagediscovery.png" /></p>
+</section><section id="package-documentation" class="slide level2">
+<h1>Package documentation</h1>
+<p>Packages should have documentation at the following levels:</p>
+<ul>
+<li>Function</li>
+<li>Workflow via vignettes</li>
+<li>NEWS</li>
+<li>DESCRIPTION</li>
+<li>READMEs on github</li>
+</ul>
+</section><section id="exercises-9" class="slide level2">
+<h1>Exercises</h1>
+<ol type="1">
+<li>Load the library dplyr</li>
+<li>Browse dplyr’s help pages</li>
+<li>Read a dplyr introductory vignette</li>
+<li>Read dplyr’s README</li>
+</ol>
+</section></section>
+<section><section id="r-data-manipulation-basics" class="titleslide slide level1"><h1>R data manipulation basics</h1></section><section id="grid-references" class="slide level2">
+<h1>Grid references</h1>
+<p>R works in a grid reference system like [row , column]. So…</p>
+<ul>
+<li>For a 1D vector, there’s just one position i.e. <code>vector[ row ]</code></li>
+<li>For a data.frame, there’s two positions i.e. <code>data.frame[ row , column ]</code></li>
+</ul>
+</section><section id="grid-references-1" class="slide level2">
+<h1>Grid references</h1>
+<p><img src="C:/Users/steph/Dropbox/Locke%20Data/Locke%20Data%20Training/MOD01RBasics/slides/vectors.png" /> ## Grid references <img src="C:/Users/steph/Dropbox/Locke%20Data/Locke%20Data%20Training/MOD01RBasics/slides/dataframes.png" /></p>
+</section><section id="grid-references-2" class="slide level2">
+<h1>Grid references</h1>
+<p>Valid values include:</p>
+<ul>
+<li>positive values or ranges</li>
+<li>negative values or ranges</li>
+<li>boolean ranges</li>
+<li>names or vectors of names</li>
+</ul>
+</section><section id="grid-referencing" class="slide level2">
+<h1>Grid referencing</h1>
+<p><img src="C:/Users/steph/Dropbox/Locke%20Data/Locke%20Data%20Training/MOD01RBasics/slides/subscripts.png" /></p>
+</section><section id="grid-referencing-vectors" class="slide level2">
+<h1>Grid referencing vectors</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] &quot;A&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[-<span class="dv">1</span>]</code></pre></div>
+<pre><code>##  [1] &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot;
+## [18] &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[-<span class="dv">13</span>:-<span class="dv">1</span>]</code></pre></div>
+<pre><code>##  [1] &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[<span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>)]</code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;C&quot; &quot;E&quot; &quot;G&quot; &quot;I&quot; &quot;K&quot; &quot;M&quot; &quot;O&quot; &quot;Q&quot; &quot;S&quot; &quot;U&quot; &quot;W&quot; &quot;Y&quot;</code></pre>
+</section><section id="grid-referencing-data.frames" class="slide level2">
+<h1>Grid referencing data.frames</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF&lt;-<span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">b=</span><span class="dv">2</span>:<span class="dv">4</span>, <span class="dt">c=</span><span class="dv">3</span>:<span class="dv">5</span>)
+myDF[<span class="dv">1</span>,]</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[,-<span class="dv">1</span>]</code></pre></div>
+<pre><code>##   b c
+## 1 2 3
+## 2 3 4
+## 3 4 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>,<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>:<span class="dv">2</span>,]</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3
+## 2 2 3 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>,<span class="ot">TRUE</span>),]</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3
+## 3 3 4 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[,<span class="st">&quot;a&quot;</span>]</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+</section><section id="exercises-10" class="slide level2">
+<h1>Exercises</h1>
+<ol type="1">
+<li>Select all <code>letters</code> before “x”</li>
+<li>Select the first 5 rows from the built-in data.frame <code>iris</code></li>
+<li>Select the first 2 columns from <code>iris</code></li>
+<li>Select the column Sepal.Length from <code>iris</code> by name</li>
+</ol>
+</section><section id="name-checking" class="slide level2">
+<h1>Name-checking</h1>
+<p>Row names can be used to extract values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myNamedVec&lt;-<span class="kw">c</span>(<span class="st">&quot;red&quot;</span>=<span class="st">&quot;RED&quot;</span>,<span class="st">&quot;blue&quot;</span>=<span class="st">&quot;BLUE&quot;</span>)
+myNamedVec[<span class="st">&quot;red&quot;</span>]</code></pre></div>
+<pre><code>##   red 
+## &quot;RED&quot;</code></pre>
+</section><section id="name-checking-1" class="slide level2">
+<h1>Name-checking</h1>
+<p>Column names can also be referenced.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(  iris[,<span class="st">&quot;Species&quot;</span>]    )</code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(  iris$Species        )</code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(  iris[,<span class="kw">c</span>(<span class="st">&quot;Sepal.Width&quot;</span>,<span class="st">&quot;Species&quot;</span>)]    )</code></pre></div>
+<pre><code>## [1] &quot;Sepal.Width&quot; &quot;Species&quot;</code></pre>
+</section><section id="self-referencing" class="slide level2">
+<h1>Self-referencing</h1>
+<p>Useful for creating booleans, you can create a vector and use this inside your grid reference system.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LETTERS[LETTERS&lt;<span class="st">&quot;T&quot;</span>]</code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot;
+## [18] &quot;R&quot; &quot;S&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[myDF$a&lt;=<span class="dv">2</span>,]</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3
+## 2 2 3 4</code></pre>
+</section><section id="exercises-11" class="slide level2">
+<h1>Exercises</h1>
+<ol type="1">
+<li>Get all <code>letters</code> that occur after “g”</li>
+<li>Select rows from the <code>iris</code> data.frame where the <code>Sepal.Length</code> is greater than 5.8cm</li>
+<li>Select rows from the <code>iris</code> data.frame where the Sepal.Width is below the average for that column</li>
+</ol>
+</section><section id="updating" class="slide level2">
+<h1>Updating</h1>
+<p>You can update part or all of simple objects by assigning new values against a grid-reference.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec&lt;-LETTERS[<span class="dv">1</span>:<span class="dv">3</span>]
+myVec[<span class="dv">1</span>]&lt;-<span class="st">&quot;Z&quot;</span>
+myVec</code></pre></div>
+<pre><code>## [1] &quot;Z&quot; &quot;B&quot; &quot;C&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF[<span class="dv">1</span>, ]&lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">3</span>
+myDF</code></pre></div>
+<pre><code>##   a b c
+## 1 1 2 3
+## 2 2 3 4
+## 3 3 4 5</code></pre>
+</section><section id="deleting" class="slide level2">
+<h1>Deleting</h1>
+<p>You can use the selections to remove values</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec&lt;-myVec[-<span class="dv">2</span>]
+myVec</code></pre></div>
+<pre><code>## [1] &quot;Z&quot; &quot;C&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myDF&lt;-myDF[-<span class="dv">3</span>,-<span class="dv">1</span>]
+myDF</code></pre></div>
+<pre><code>##   b c
+## 1 2 3
+## 2 3 4</code></pre>
+</section><section id="exercises-12" class="slide level2">
+<h1>Exercises</h1>
+<ol type="1">
+<li>Select everything from <code>iris</code> except the Species column</li>
+<li>Create a copy of the <code>iris</code> data that just contains the first 100 rows and call it <code>myIris</code></li>
+<li>Update the species column to the value “Unknown” in <code>myIris</code></li>
+<li>Delete rows from <code>myIris</code> where the sepal length is greater than 5.5</li>
+</ol>
+</section></section>
+    </div>
+  </div>
+
+  <script src="C:\Users\steph\Dropbox\Locke Data\Locke Data Training\MOD01RBasics\docs\slides_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="C:\Users\steph\Dropbox\Locke Data\Locke Data Training\MOD01RBasics\docs\slides_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: '1920',
+        height: '1080',
+        // Factor of the display size that should remain empty around the content
+        margin: '0.05',
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
